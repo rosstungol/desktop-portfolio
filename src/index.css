@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+@import 'tailwindcss';
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+main,
+#root {
+  width: 100dvw;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+}
+
+@layer base {
+  .desktop-wrapper,
+  .desktop-bg {
+    width: 736px;
+    height: 380px;
+    overflow: hidden;
+  }
+
+  .desktop-bg,
+  .canvas-bg {
+    background: #0b030a;
+  }
+
+  .desktop-bg {
+    background-image: url('desktop/lofi-cafe.gif');
+    background-repeat: no-repeat;
+    background-size: 736px;
+  }
+
+  .canvas-bg {
+    background: -webkit-linear-gradient(45deg, #240b1a, #0b030a, #0c0f21);
+    background: linear-gradient(45deg, #240b1a, #0b030a, #0c0f21);
+  }
+}
+
+@theme {
+  --font-georama: 'Georama', sans-serif;
+  --font-roboto: 'Roboto Mono', monospace;
+}
+
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+@utility col-center {
+  @apply flex flex-col items-center justify-center;
+}
+
+@utility abs-center {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+}
