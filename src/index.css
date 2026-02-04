@@ -27,7 +27,7 @@ main,
   }
 
   .desktop-bg,
-  .canvas-bg {
+  .overlay-bg {
     background: #0b030a;
   }
 
@@ -37,9 +37,13 @@ main,
     background-size: 736px;
   }
 
-  .canvas-bg {
+  .overlay-bg {
     background: -webkit-linear-gradient(45deg, #240b1a, #0b030a, #0c0f21);
     background: linear-gradient(45deg, #240b1a, #0b030a, #0c0f21);
+  }
+
+  .fullscreen-overlay {
+    @apply fixed top-0 left-0 w-dvw h-dvh z-20 flex-center;
   }
 }
 

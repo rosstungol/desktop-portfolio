@@ -1,4 +1,4 @@
-export default function WorkplaceLight() {
+export default function Lighting() {
   return (
     <spotLight
       castShadow

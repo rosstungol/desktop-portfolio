@@ -33,7 +33,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-export default function WorkplaceModel(props: JSX.IntrinsicElements['group']) {
+export default function RoomModel(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF(
     '/models/cozy_workplace_corner-transformed.glb'
   ) as unknown as GLTFResult
@@ -126,4 +126,4 @@ export default function WorkplaceModel(props: JSX.IntrinsicElements['group']) {
   )
 }
 
-useGLTF.preload('/cozy_workplace_corner-compressed-transformed.glb')
+useGLTF.preload('/models/cozy_workplace_corner-transformed.glb')

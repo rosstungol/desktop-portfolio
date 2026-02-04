@@ -17,8 +17,8 @@
     "@tailwindcss/vite": "^4.1.17",
     "gsap": "^3.13.0",
     "leva": "^0.10.1",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "react": "^19.3.0-canary-ed4bd540-20260202",
+    "react-dom": "^19.3.0-canary-ed4bd540-20260202",
     "tailwindcss": "^4.1.17",
     "three": "^0.181.2",
     "three-stdlib": "^2.36.1"
@@ -26,6 +26,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
+    "@types/react": "^19.2.10",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
     "babel-plugin-react-compiler": "^1.0.0",

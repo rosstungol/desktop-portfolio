@@ -1,6 +1,6 @@
 import { Environment } from '@react-three/drei'
 
-export default function WorkplaceEnvironment() {
+export default function Skybox() {
   return (
     <Environment
       background
