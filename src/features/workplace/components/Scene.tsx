@@ -4,8 +4,7 @@ import { Perf } from 'r3f-perf'
 import type { SceneState } from '@/App'
 import DesktopContainer from '@/features/desktop/components/DesktopContainer'
 
-import { CameraHover, CameraIntro } from '../camera'
-
+import CameraController from './CameraController'
 import Lighting from './Lighting'
 import RoomModel from './RoomModel'
 import Skybox from './Skybox'
@@ -23,9 +22,7 @@ export default function Scene({ sceneState, onIdle }: SceneProps) {
       dpr={[1, 1.5]}
       className='z-10'
     >
-      {sceneState === 'start' && <CameraIntro onIdle={onIdle} />}
-      {sceneState === 'idle' && <CameraHover />}
-
+      <CameraController sceneState={sceneState} onIdle={onIdle} />
       <DesktopContainer />
       <Skybox />
       <Lighting />

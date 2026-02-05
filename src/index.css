@@ -2,23 +2,30 @@
 
 @import 'tailwindcss';
 
-* {
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-html,
-body,
-main,
-#root {
-  width: 100dvw;
-  height: 100dvh;
-  margin: 0;
-  padding: 0;
+@theme {
+  --font-georama: 'Georama', sans-serif;
+  --font-roboto: 'Roboto Mono', monospace;
 }
 
 @layer base {
+  * {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  main,
+  #root {
+    width: 100dvw;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer components {
   .desktop-wrapper,
   .desktop-bg {
     width: 736px;
@@ -45,11 +52,23 @@ main,
   .fullscreen-overlay {
     @apply fixed top-0 left-0 w-dvw h-dvh z-20 flex-center;
   }
-}
 
-@theme {
-  --font-georama: 'Georama', sans-serif;
-  --font-roboto: 'Roboto Mono', monospace;
+  .card-container {
+    @apply bg-stone-900/20 border-stone-800/50 text-stone-200 
+    border rounded backdrop-blur-xs font-roboto font-bold;
+  }
+
+  .cursor {
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 1s steps(1) infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
 }
 
 @utility flex-center {

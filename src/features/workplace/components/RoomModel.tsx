@@ -35,7 +35,7 @@ type GLTFResult = GLTF & {
 
 export default function RoomModel(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF(
-    '/models/cozy_workplace_corner-transformed.glb'
+    '/models/cozy_workplace_corner-transformed.glb',
   ) as unknown as GLTFResult
 
   const lampRef = useRef<THREE.Object3D>(null!)
