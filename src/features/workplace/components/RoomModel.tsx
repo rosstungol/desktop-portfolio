@@ -1,7 +1,7 @@
 import { useGLTF } from '@react-three/drei'
 import { Bloom, EffectComposer, Noise } from '@react-three/postprocessing'
 import { BlendFunction } from 'postprocessing'
-import { type JSX, useState } from 'react'
+import type { JSX } from 'react'
 import type * as THREE from 'three'
 import type { GLTF } from 'three-stdlib'
 
@@ -33,16 +33,13 @@ export default function RoomModel(props: JSX.IntrinsicElements['group']) {
     '/models/cozy_workplace_corner-transformed.glb'
   ) as unknown as GLTFResult
 
-  const [lamp, setLamp] = useState<THREE.Object3D | null>(null)
-
   return (
     <group {...props} dispose={null} scale={[16, 16, 16]}>
       <EffectComposer>
         <Bloom
-          selection={lamp ?? undefined}
           intensity={1}
           luminanceThreshold={0.5}
-          luminanceSmoothing={0.9}
+          luminanceSmoothing={0.5}
         />
         <Noise opacity={0.03} blendFunction={BlendFunction.VIVID_LIGHT} />
       </EffectComposer>
@@ -90,13 +87,18 @@ export default function RoomModel(props: JSX.IntrinsicElements['group']) {
         castShadow
         receiveShadow
         geometry={nodes.Soft_Paper_Lamp_Paper_Lamp_0.geometry}
-        material={materials.PaletteMaterial004}
         position={[-0.899, 1.229, 1.077]}
         rotation={[-Math.PI / 2, 0, 0]}
         scale={0.194}
         userData={{ name: 'Soft Paper Lamp_Paper Lamp_0' }}
-        ref={setLamp}
-      />
+      >
+        <meshStandardMaterial
+          {...materials.PaletteMaterial004}
+          emissive={0xff9b53}
+          emissiveIntensity={2}
+          toneMapped={false}
+        />
+      </mesh>
       <mesh
         castShadow
         receiveShadow

@@ -21,9 +21,7 @@ export default function SceneIntro({
 
   if (sceneState === 'loading') {
     screenContent = <LoadingScreen onLoaded={onLoaded} />
-  }
-
-  if (sceneState === 'intro') {
+  } else if (sceneState === 'intro') {
     screenContent = <StartScreen onStart={onStart} />
   }
 
