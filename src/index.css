@@ -39,7 +39,7 @@
 	}
 
 	.desktop-bg {
-		background-image: url("desktop/lofi-cafe.gif");
+		background-image: url("/desktop/lofi-cafe.gif");
 		background-repeat: no-repeat;
 		background-size: 736px;
 	}

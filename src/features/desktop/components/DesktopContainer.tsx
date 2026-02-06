@@ -6,7 +6,7 @@ export default function DesktopContainer() {
 	return (
 		<>
 			<Html
-				rotation-y={-Math.PI / -1.915}
+				rotation-y={Math.PI / 1.915}
 				position={[-16.17, 26.23, 0.27]}
 				transform
 				occlude
@@ -17,7 +17,7 @@ export default function DesktopContainer() {
 				/>
 			</Html>
 			<Html
-				rotation-y={-Math.PI / -1.915}
+				rotation-y={Math.PI / 1.915}
 				position={[-16.16, 26.23, 0.27]}
 				transform
 				occlude
