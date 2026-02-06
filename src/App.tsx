@@ -18,13 +18,18 @@ export default function App() {
       startTransition(() => setSceneState('focus'))
     }
 
+    let timeoutId: ReturnType<typeof setTimeout> | undefined
+
     if (sceneState === 'start') {
-      setTimeout(() => {
+      timeoutId = setTimeout(() => {
         document.body.addEventListener('click', onFocusTransition)
       }, 3000)
     }
 
-    return () => document.body.removeEventListener('click', onFocusTransition)
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId)
+      document.body.removeEventListener('click', onFocusTransition)
+    }
   }, [sceneState])
 
   return (
@@ -41,7 +46,7 @@ export default function App() {
         <ClickToStart sceneState={sceneState} />
       )}
 
-      <Scene sceneState={sceneState} onIdle={() => setSceneState('idle')} />
+      <Scene sceneState={sceneState} />
     </main>
   )
 }

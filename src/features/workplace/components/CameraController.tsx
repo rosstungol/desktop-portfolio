@@ -7,7 +7,6 @@ import type { SceneState } from '@/App'
 
 type CameraControllerProps = {
   sceneState: SceneState
-  onIdle: () => void
 }
 
 export default function CameraController({
@@ -81,6 +80,7 @@ export default function CameraController({
 
     return () => {
       animateRef.current?.kill()
+      gsap.killTweensOf(lookAt.current)
     }
   }, [sceneState, camera])
 

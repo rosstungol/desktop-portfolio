@@ -11,10 +11,9 @@ import Skybox from './Skybox'
 
 type SceneProps = {
   sceneState: SceneState
-  onIdle: () => void
 }
 
-export default function Scene({ sceneState, onIdle }: SceneProps) {
+export default function Scene({ sceneState }: SceneProps) {
   return (
     <Canvas
       shadows
@@ -22,12 +21,12 @@ export default function Scene({ sceneState, onIdle }: SceneProps) {
       dpr={[1, 1.5]}
       className='z-10'
     >
-      <CameraController sceneState={sceneState} onIdle={onIdle} />
+      <CameraController sceneState={sceneState} />
       <DesktopContainer />
       <Skybox />
       <Lighting />
       <RoomModel />
-      <Perf />
+      {import.meta.env.DEV && <Perf />}
     </Canvas>
   )
 }

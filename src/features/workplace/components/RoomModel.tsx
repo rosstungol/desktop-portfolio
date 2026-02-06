@@ -1,11 +1,7 @@
 import { useGLTF } from '@react-three/drei'
-import {
-  EffectComposer,
-  Noise,
-  SelectiveBloom,
-} from '@react-three/postprocessing'
+import { Bloom, EffectComposer, Noise } from '@react-three/postprocessing'
 import { BlendFunction } from 'postprocessing'
-import { type JSX, useRef } from 'react'
+import { type JSX, useState } from 'react'
 import type * as THREE from 'three'
 import type { GLTF } from 'three-stdlib'
 
@@ -37,13 +33,13 @@ export default function RoomModel(props: JSX.IntrinsicElements['group']) {
     '/models/cozy_workplace_corner-transformed.glb'
   ) as unknown as GLTFResult
 
-  const lampRef = useRef<THREE.Object3D | undefined>(undefined)
+  const [lamp, setLamp] = useState<THREE.Object3D | null>(null)
 
   return (
     <group {...props} dispose={null} scale={[16, 16, 16]}>
       <EffectComposer>
-        <SelectiveBloom
-          selection={lampRef.current}
+        <Bloom
+          selection={lamp ?? undefined}
           intensity={1}
           luminanceThreshold={0.5}
           luminanceSmoothing={0.9}
@@ -99,7 +95,7 @@ export default function RoomModel(props: JSX.IntrinsicElements['group']) {
         rotation={[-Math.PI / 2, 0, 0]}
         scale={0.194}
         userData={{ name: 'Soft Paper Lamp_Paper Lamp_0' }}
-        ref={lampRef}
+        ref={setLamp}
       />
       <mesh
         castShadow

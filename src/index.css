@@ -45,7 +45,6 @@
   }
 
   .overlay-bg {
-    background: -webkit-linear-gradient(45deg, #240b1a, #0b030a, #0c0f21);
     background: linear-gradient(45deg, #240b1a, #0b030a, #0c0f21);
   }
 
@@ -66,6 +65,12 @@
   @keyframes blink {
     50% {
       opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor {
+      animation: none;
     }
   }
 }

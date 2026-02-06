@@ -7,14 +7,14 @@ import type { SceneState } from '@/App'
 
 gsap.registerPlugin(TextPlugin)
 
+const FULL_TEXT = 'click anywhere to start'
+
 export default function ClickToStart({
   sceneState,
 }: {
   sceneState: SceneState
 }) {
   const textRef = useRef<HTMLSpanElement | null>(null)
-
-  const fullText = 'click anywhere to start'
 
   useEffect(() => {
     const el = textRef.current
@@ -27,13 +27,17 @@ export default function ClickToStart({
         el,
         { text: '' },
         {
-          text: fullText,
+          text: FULL_TEXT,
           duration: 3,
           ease: 'none',
         }
       )
     } else {
-      el.textContent = fullText
+      el.textContent = FULL_TEXT
+    }
+
+    return () => {
+      gsap.killTweensOf(el)
     }
   }, [sceneState])
 
