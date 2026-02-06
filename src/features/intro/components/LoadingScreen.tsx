@@ -1,6 +1,5 @@
-import { useEffect } from 'react'
-
 import { useProgress } from '@react-three/drei'
+import { useEffect } from 'react'
 
 export default function LoadingScreen({ onLoaded }: { onLoaded: () => void }) {
   const { progress } = useProgress()
@@ -10,9 +9,9 @@ export default function LoadingScreen({ onLoaded }: { onLoaded: () => void }) {
   }, [progress, onLoaded])
 
   return (
-    <h1 className='text-5xl text-stone-200 font-semibold'>
+    <h1 className='font-semibold text-5xl text-stone-200'>
       {progress.toFixed(0)}
-      <span className='text-2xl text-stone-700 ml-1'>%</span>
+      <span className='ml-1 text-2xl text-stone-700'>%</span>
     </h1>
   )
 }

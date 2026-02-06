@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
-  --font-georama: 'Georama', sans-serif;
-  --font-roboto: 'Roboto Mono', monospace;
+  --font-georama: "Georama", sans-serif;
+  --font-roboto: "Roboto Mono", monospace;
 }
 
 @layer base {
@@ -39,7 +39,7 @@
   }
 
   .desktop-bg {
-    background-image: url('desktop/lofi-cafe.gif');
+    background-image: url("desktop/lofi-cafe.gif");
     background-repeat: no-repeat;
     background-size: 736px;
   }
@@ -50,12 +50,11 @@
   }
 
   .fullscreen-overlay {
-    @apply fixed top-0 left-0 w-dvw h-dvh z-20 flex-center;
+    @apply flex-center fixed top-0 left-0 z-20 h-dvh w-dvw;
   }
 
   .card-container {
-    @apply bg-stone-900/20 border-stone-800/50 text-stone-200 
-    border rounded backdrop-blur-xs font-roboto font-bold;
+    @apply font-roboto rounded border border-stone-800/50 bg-stone-900/20 font-bold text-stone-200 backdrop-blur-xs;
   }
 
   .cursor {

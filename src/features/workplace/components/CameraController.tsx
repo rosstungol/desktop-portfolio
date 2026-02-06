@@ -1,7 +1,6 @@
-import { useEffect, useRef } from 'react'
-
 import { useFrame, useThree } from '@react-three/fiber'
 import gsap from 'gsap'
+import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 
 import type { SceneState } from '@/App'
@@ -13,7 +12,6 @@ type CameraControllerProps = {
 
 export default function CameraController({
   sceneState,
-  onIdle,
 }: CameraControllerProps) {
   const { camera } = useThree()
   const animateRef = useRef<gsap.core.Tween | gsap.core.Timeline | null>(null)
@@ -84,7 +82,7 @@ export default function CameraController({
     return () => {
       animateRef.current?.kill()
     }
-  }, [sceneState, camera, onIdle])
+  }, [sceneState, camera])
 
   return null
 }

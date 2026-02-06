@@ -1,5 +1,3 @@
-import { useRef, type JSX } from 'react'
-
 import { useGLTF } from '@react-three/drei'
 import {
   EffectComposer,
@@ -7,8 +5,9 @@ import {
   SelectiveBloom,
 } from '@react-three/postprocessing'
 import { BlendFunction } from 'postprocessing'
-import * as THREE from 'three'
-import { type GLTF } from 'three-stdlib'
+import { type JSX, useRef } from 'react'
+import type * as THREE from 'three'
+import type { GLTF } from 'three-stdlib'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -35,16 +34,16 @@ type GLTFResult = GLTF & {
 
 export default function RoomModel(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF(
-    '/models/cozy_workplace_corner-transformed.glb',
+    '/models/cozy_workplace_corner-transformed.glb'
   ) as unknown as GLTFResult
 
-  const lampRef = useRef<THREE.Object3D>(null!)
+  const lampRef = useRef<THREE.Object3D | undefined>(undefined)
 
   return (
     <group {...props} dispose={null} scale={[16, 16, 16]}>
       <EffectComposer>
         <SelectiveBloom
-          selection={lampRef}
+          selection={lampRef.current}
           intensity={1}
           luminanceThreshold={0.5}
           luminanceSmoothing={0.9}

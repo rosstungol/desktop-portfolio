@@ -6,15 +6,14 @@ export default function StartScreen({ onStart }: { onStart: () => void }) {
   }
 
   return (
-    <div className='col-center py-6 px-8 card-container'>
+    <div className='card-container col-center px-8 py-6'>
       <div className='mb-4'>
         <p>rosstungol.com</p>
       </div>
       <button
         type='button'
         onClick={onStartTransition}
-        className='border-2 border-stone-300 px-8 w-full py-2 cursor-pointer rounded
-         hover:bg-stone-300 hover:text-black transition-colors'
+        className='w-full cursor-pointer rounded border-2 border-stone-300 px-8 py-2 transition-colors hover:bg-stone-300 hover:text-black'
       >
         enter
       </button>

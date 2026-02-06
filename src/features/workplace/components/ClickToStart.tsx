@@ -1,8 +1,7 @@
-// @ts-expect-error React canary: ViewTransition not typed yet (remove when stable version is available)
-import { useEffect, useRef, ViewTransition } from 'react'
-
 import gsap from 'gsap'
 import { TextPlugin } from 'gsap/TextPlugin'
+// @ts-expect-error React canary: ViewTransition not typed yet (remove when stable version is available)
+import { useEffect, useRef, ViewTransition } from 'react'
 
 import type { SceneState } from '@/App'
 
@@ -31,7 +30,7 @@ export default function ClickToStart({
           text: fullText,
           duration: 3,
           ease: 'none',
-        },
+        }
       )
     } else {
       el.textContent = fullText
@@ -40,7 +39,7 @@ export default function ClickToStart({
 
   return (
     <ViewTransition>
-      <div className='fixed left-1/2 -translate-x-1/2 bottom-28 py-2 px-4 z-20 card-container'>
+      <div className='card-container fixed bottom-28 left-1/2 z-20 -translate-x-1/2 px-4 py-2'>
         <p>
           <span ref={textRef} />
           <span className='cursor'>_</span>
