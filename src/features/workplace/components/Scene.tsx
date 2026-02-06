@@ -10,23 +10,23 @@ import RoomModel from './RoomModel'
 import Skybox from './Skybox'
 
 type SceneProps = {
-  sceneState: SceneState
+	sceneState: SceneState
 }
 
 export default function Scene({ sceneState }: SceneProps) {
-  return (
-    <Canvas
-      shadows
-      camera={{ position: [60, 150, 100] }}
-      dpr={[1, 1.5]}
-      className='z-10'
-    >
-      <CameraController sceneState={sceneState} />
-      <DesktopContainer />
-      <Skybox />
-      <Lighting />
-      <RoomModel />
-      {import.meta.env.DEV && <Perf />}
-    </Canvas>
-  )
+	return (
+		<Canvas
+			shadows
+			camera={{ position: [60, 150, 100] }}
+			dpr={[1, 1.5]}
+			className='z-10'
+		>
+			<CameraController sceneState={sceneState} />
+			<DesktopContainer />
+			<Skybox />
+			<Lighting />
+			<RoomModel />
+			{import.meta.env.DEV && <Perf />}
+		</Canvas>
+	)
 }

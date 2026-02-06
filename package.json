@@ -1,41 +1,41 @@
 {
-  "name": "desktop-portfolio",
-  "private": true,
-  "type": "module",
-  "license": "UNLICENSED",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint-format": "biome check --write",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@gsap/react": "^2.1.2",
-    "@react-three/drei": "^10.7.7",
-    "@react-three/fiber": "^9.4.2",
-    "@react-three/postprocessing": "^3.0.4",
-    "@tailwindcss/vite": "^4.1.17",
-    "gsap": "^3.13.0",
-    "leva": "^0.10.1",
-    "react": "^19.3.0-canary-ed4bd540-20260202",
-    "react-dom": "^19.3.0-canary-ed4bd540-20260202",
-    "tailwindcss": "^4.1.17",
-    "three": "^0.181.2",
-    "three-stdlib": "^2.36.1"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.3.14",
-    "@types/node": "^24.10.1",
-    "@types/react": "^19.2.10",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
-    "babel-plugin-react-compiler": "^1.0.0",
-    "globals": "^16.5.0",
-    "r3f-perf": "^7.2.3",
-    "typescript": "~5.9.3",
-    "vite": "npm:rolldown-vite@7.2.5"
-  },
-  "overrides": {
-    "vite": "npm:rolldown-vite@7.2.5"
-  }
+	"name": "desktop-portfolio",
+	"private": true,
+	"type": "module",
+	"license": "UNLICENSED",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc -b && vite build",
+		"lint-format": "biome check --write",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@gsap/react": "^2.1.2",
+		"@react-three/drei": "^10.7.7",
+		"@react-three/fiber": "^9.4.2",
+		"@react-three/postprocessing": "^3.0.4",
+		"@tailwindcss/vite": "^4.1.17",
+		"gsap": "^3.13.0",
+		"leva": "^0.10.1",
+		"react": "^19.3.0-canary-ed4bd540-20260202",
+		"react-dom": "^19.3.0-canary-ed4bd540-20260202",
+		"tailwindcss": "^4.1.17",
+		"three": "^0.181.2",
+		"three-stdlib": "^2.36.1"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.14",
+		"@types/node": "^24.10.1",
+		"@types/react": "^19.2.10",
+		"@types/react-dom": "^19.2.3",
+		"@vitejs/plugin-react": "^5.1.1",
+		"babel-plugin-react-compiler": "^1.0.0",
+		"globals": "^16.5.0",
+		"r3f-perf": "^7.2.3",
+		"typescript": "~5.9.3",
+		"vite": "npm:rolldown-vite@7.2.5"
+	},
+	"overrides": {
+		"vite": "npm:rolldown-vite@7.2.5"
+	}
 }

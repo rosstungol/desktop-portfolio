@@ -11,42 +11,42 @@ const SCENE_INTRO_VISIBLE_STATES = new Set(['loading', 'intro'])
 const CLICK_TO_START_VISIBLE_STATES = new Set(['start'])
 
 export default function App() {
-  const [sceneState, setSceneState] = useState<SceneState>('loading')
+	const [sceneState, setSceneState] = useState<SceneState>('loading')
 
-  useEffect(() => {
-    const onFocusTransition = () => {
-      startTransition(() => setSceneState('focus'))
-    }
+	useEffect(() => {
+		const onFocusTransition = () => {
+			startTransition(() => setSceneState('focus'))
+		}
 
-    let timeoutId: ReturnType<typeof setTimeout> | undefined
+		let timeoutId: ReturnType<typeof setTimeout> | undefined
 
-    if (sceneState === 'start') {
-      timeoutId = setTimeout(() => {
-        document.body.addEventListener('click', onFocusTransition)
-      }, 3000)
-    }
+		if (sceneState === 'start') {
+			timeoutId = setTimeout(() => {
+				document.body.addEventListener('click', onFocusTransition)
+			}, 3000)
+		}
 
-    return () => {
-      if (timeoutId) clearTimeout(timeoutId)
-      document.body.removeEventListener('click', onFocusTransition)
-    }
-  }, [sceneState])
+		return () => {
+			if (timeoutId) clearTimeout(timeoutId)
+			document.body.removeEventListener('click', onFocusTransition)
+		}
+	}, [sceneState])
 
-  return (
-    <main>
-      {SCENE_INTRO_VISIBLE_STATES.has(sceneState) && (
-        <SceneIntro
-          sceneState={sceneState}
-          onLoaded={() => setSceneState('intro')}
-          onStart={() => setSceneState('start')}
-        />
-      )}
+	return (
+		<main>
+			{SCENE_INTRO_VISIBLE_STATES.has(sceneState) && (
+				<SceneIntro
+					sceneState={sceneState}
+					onLoaded={() => setSceneState('intro')}
+					onStart={() => setSceneState('start')}
+				/>
+			)}
 
-      {CLICK_TO_START_VISIBLE_STATES.has(sceneState) && (
-        <ClickToStart sceneState={sceneState} />
-      )}
+			{CLICK_TO_START_VISIBLE_STATES.has(sceneState) && (
+				<ClickToStart sceneState={sceneState} />
+			)}
 
-      <Scene sceneState={sceneState} />
-    </main>
-  )
+			<Scene sceneState={sceneState} />
+		</main>
+	)
 }

@@ -3,86 +3,86 @@
 @import "tailwindcss";
 
 @theme {
-  --font-georama: "Georama", sans-serif;
-  --font-roboto: "Roboto Mono", monospace;
+	--font-georama: "Georama", sans-serif;
+	--font-roboto: "Roboto Mono", monospace;
 }
 
 @layer base {
-  * {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+	* {
+		box-sizing: border-box;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
 
-  html,
-  body,
-  main,
-  #root {
-    width: 100dvw;
-    height: 100dvh;
-    margin: 0;
-    padding: 0;
-  }
+	html,
+	body,
+	main,
+	#root {
+		width: 100dvw;
+		height: 100dvh;
+		margin: 0;
+		padding: 0;
+	}
 }
 
 @layer components {
-  .desktop-wrapper,
-  .desktop-bg {
-    width: 736px;
-    height: 380px;
-    overflow: hidden;
-  }
+	.desktop-wrapper,
+	.desktop-bg {
+		width: 736px;
+		height: 380px;
+		overflow: hidden;
+	}
 
-  .desktop-bg,
-  .overlay-bg {
-    background: #0b030a;
-  }
+	.desktop-bg,
+	.overlay-bg {
+		background: #0b030a;
+	}
 
-  .desktop-bg {
-    background-image: url("desktop/lofi-cafe.gif");
-    background-repeat: no-repeat;
-    background-size: 736px;
-  }
+	.desktop-bg {
+		background-image: url("desktop/lofi-cafe.gif");
+		background-repeat: no-repeat;
+		background-size: 736px;
+	}
 
-  .overlay-bg {
-    background: linear-gradient(45deg, #240b1a, #0b030a, #0c0f21);
-  }
+	.overlay-bg {
+		background: linear-gradient(45deg, #240b1a, #0b030a, #0c0f21);
+	}
 
-  .fullscreen-overlay {
-    @apply flex-center fixed top-0 left-0 z-20 h-dvh w-dvw;
-  }
+	.fullscreen-overlay {
+		@apply flex-center fixed top-0 left-0 z-20 h-dvh w-dvw;
+	}
 
-  .card-container {
-    @apply font-roboto rounded border border-stone-800/50 bg-stone-900/20 font-bold text-stone-200 backdrop-blur-xs;
-  }
+	.card-container {
+		@apply font-roboto rounded border border-stone-800/50 bg-stone-900/20 font-bold text-stone-200 backdrop-blur-xs;
+	}
 
-  .cursor {
-    display: inline-block;
-    margin-left: 2px;
-    animation: blink 1s steps(1) infinite;
-  }
+	.cursor {
+		display: inline-block;
+		margin-left: 2px;
+		animation: blink 1s steps(1) infinite;
+	}
 
-  @keyframes blink {
-    50% {
-      opacity: 0;
-    }
-  }
+	@keyframes blink {
+		50% {
+			opacity: 0;
+		}
+	}
 
-  @media (prefers-reduced-motion: reduce) {
-    .cursor {
-      animation: none;
-    }
-  }
+	@media (prefers-reduced-motion: reduce) {
+		.cursor {
+			animation: none;
+		}
+	}
 }
 
 @utility flex-center {
-  @apply flex items-center justify-center;
+	@apply flex items-center justify-center;
 }
 
 @utility col-center {
-  @apply flex flex-col items-center justify-center;
+	@apply flex flex-col items-center justify-center;
 }
 
 @utility abs-center {
-  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+	@apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
