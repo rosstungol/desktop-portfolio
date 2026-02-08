@@ -61,7 +61,7 @@ export default function CameraController({
 		if (sceneState === 'focus') {
 			animateRef.current = gsap.to(camera.position, {
 				x: -8,
-				y: 25.5,
+				y: 26.3,
 				z: -0.3,
 				duration: 1.5,
 				ease: 'sine.inOut',
