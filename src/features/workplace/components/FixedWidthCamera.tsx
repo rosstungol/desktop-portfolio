@@ -22,11 +22,12 @@ export default function FixedWidthCamera() {
 
 	useEffect(() => {
 		if (!(camera instanceof THREE.PerspectiveCamera)) return
+		if (size.width === 0 || size.height === 0) return
 
 		const aspect = size.width / size.height
 		camera.fov = hFovToVFov(FIXED_HORIZONTAL_FOV, aspect)
 		camera.updateProjectionMatrix()
-	}, [camera, size])
+	}, [camera, size.width, size.height])
 
 	return null
 }
