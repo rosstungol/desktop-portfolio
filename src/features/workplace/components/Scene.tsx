@@ -5,6 +5,7 @@ import type { SceneState } from '@/App'
 import DesktopContainer from '@/features/desktop/components/DesktopContainer'
 
 import CameraController from './CameraController'
+import FixedWidthCamera from './FixedWidthCamera'
 import Lighting from './Lighting'
 import RoomModel from './RoomModel'
 import Skybox from './Skybox'
@@ -21,6 +22,7 @@ export default function Scene({ sceneState }: SceneProps) {
 			dpr={[1, 1.5]}
 			className='z-10'
 		>
+			<FixedWidthCamera />
 			<CameraController sceneState={sceneState} />
 			<DesktopContainer />
 			<Skybox />
