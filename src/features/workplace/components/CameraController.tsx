@@ -27,48 +27,43 @@ export default function CameraController({
 		animateRef.current?.kill()
 		gsap.killTweensOf(lookAt.current)
 
+		const addDefaultCameraPosition = (
+			duration: number,
+			ease: 'power3.out' | 'sine.inOut'
+		): gsap.core.Tween => {
+			return gsap.to(camera.position, {
+				x: 50,
+				y: 30,
+				z: 30,
+				duration: duration,
+				ease: ease,
+			})
+		}
+
+		const addCameraOscillation = (): gsap.core.Tween => {
+			return gsap.to(camera.position, {
+				x: 30,
+				y: 30,
+				z: 46,
+				duration: 8,
+				ease: 'sine.inOut',
+				repeat: -1,
+				yoyo: true,
+			})
+		}
+
 		if (sceneState === 'start') {
 			const tl = gsap.timeline({ overwrite: 'auto' })
 
-			animateRef.current = tl
-				.to(camera.position, {
-					x: 50,
-					y: 30,
-					z: 30,
-					duration: 3,
-					ease: 'power3.out',
-				})
-				.to(camera.position, {
-					x: 30,
-					y: 30,
-					z: 46,
-					duration: 8,
-					ease: 'sine.inOut',
-					repeat: -1,
-					yoyo: true,
-				})
+			animateRef.current = tl.add(addDefaultCameraPosition(3, 'power3.out'))
+			tl.add(addCameraOscillation())
 		}
 
 		if (sceneState === 'idle') {
 			const tl = gsap.timeline({ overwrite: 'auto' })
 
-			animateRef.current = tl
-				.to(camera.position, {
-					x: 50,
-					y: 30,
-					z: 30,
-					duration: 1.5,
-					ease: 'sine.inOut',
-				})
-				.to(camera.position, {
-					x: 30,
-					y: 30,
-					z: 46,
-					duration: 8,
-					ease: 'sine.inOut',
-					repeat: -1,
-					yoyo: true,
-				})
+			animateRef.current = tl.add(addDefaultCameraPosition(1.5, 'sine.inOut'))
+			tl.add(addCameraOscillation())
 
 			gsap.to(lookAt.current, {
 				x: 0,
