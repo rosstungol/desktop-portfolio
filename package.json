@@ -17,6 +17,7 @@
 		"@tailwindcss/vite": "^4.1.17",
 		"gsap": "^3.13.0",
 		"leva": "^0.10.1",
+		"lucide-react": "^0.564.0",
 		"react": "^19.3.0-canary-ed4bd540-20260202",
 		"react-dom": "^19.3.0-canary-ed4bd540-20260202",
 		"tailwindcss": "^4.1.17",

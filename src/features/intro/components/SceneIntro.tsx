@@ -1,5 +1,5 @@
 // @ts-expect-error React canary: ViewTransition not typed yet (remove when stable version is available)
-import { ViewTransition } from 'react'
+import { type ReactNode, ViewTransition } from 'react'
 
 import type { SceneState } from '@/App'
 
@@ -17,7 +17,7 @@ export default function SceneIntro({
 	onLoaded,
 	onStart,
 }: SceneIntroProps) {
-	let screenContent: React.ReactNode
+	let screenContent: ReactNode
 
 	if (sceneState === 'loading') {
 		screenContent = <LoadingScreen onLoaded={onLoaded} />
@@ -27,7 +27,7 @@ export default function SceneIntro({
 
 	return (
 		<ViewTransition>
-			<div className='fullscreen-overlay overlay-bg'>{screenContent}</div>
+			<div className='viewport-overlay'>{screenContent}</div>
 		</ViewTransition>
 	)
 }

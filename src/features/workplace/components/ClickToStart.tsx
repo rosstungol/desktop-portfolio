@@ -1,19 +1,14 @@
 import gsap from 'gsap'
 import { TextPlugin } from 'gsap/TextPlugin'
+
 // @ts-expect-error React canary: ViewTransition not typed yet (remove when stable version is available)
 import { useEffect, useRef, ViewTransition } from 'react'
-
-import type { SceneState } from '@/App'
 
 gsap.registerPlugin(TextPlugin)
 
 const FULL_TEXT = 'click anywhere to start'
 
-export default function ClickToStart({
-	sceneState,
-}: {
-	sceneState: SceneState
-}) {
+export default function ClickToStart() {
 	const textRef = useRef<HTMLSpanElement | null>(null)
 
 	useEffect(() => {
@@ -22,24 +17,20 @@ export default function ClickToStart({
 
 		gsap.killTweensOf(el)
 
-		if (sceneState === 'start') {
-			gsap.fromTo(
-				el,
-				{ text: '' },
-				{
-					text: FULL_TEXT,
-					duration: 3,
-					ease: 'none',
-				}
-			)
-		} else {
-			el.textContent = FULL_TEXT
-		}
+		gsap.fromTo(
+			el,
+			{ text: '' },
+			{
+				text: FULL_TEXT,
+				duration: 1.5,
+				ease: 'none',
+			}
+		)
 
 		return () => {
 			gsap.killTweensOf(el)
 		}
-	}, [sceneState])
+	}, [])
 
 	return (
 		<ViewTransition>

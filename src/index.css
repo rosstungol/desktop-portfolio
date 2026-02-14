@@ -3,8 +3,15 @@
 @import "tailwindcss";
 
 @theme {
+	/* fonts */
 	--font-georama: "Georama", sans-serif;
 	--font-roboto: "Roboto Mono", monospace;
+
+	/* colors */
+	--gondola: #240b1a;
+	--natural-black: #0b030a;
+	--champion-blue: #14152e;
+	--pastel-pink: #f4b3d8;
 }
 
 @layer base {
@@ -14,46 +21,64 @@
 		-moz-osx-font-smoothing: grayscale;
 	}
 
-	html,
 	body,
-	main,
-	#root {
+	main {
 		width: 100dvw;
 		height: 100dvh;
 		margin: 0;
 		padding: 0;
 	}
+
+	::selection {
+		background: var(--pastel-pink);
+		color: var(--natural-black);
+	}
 }
 
 @layer components {
-	.desktop-wrapper,
-	.desktop-bg {
+	.viewport-overlay {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 20;
+		height: 100dvh;
+		width: 100dvw;
+		background: linear-gradient(
+			45deg,
+			var(--gondola),
+			var(--natural-black),
+			var(--champion-blue)
+		);
+	}
+
+	.desktop-container {
 		width: 736px;
 		height: 380px;
 		overflow: hidden;
-	}
-
-	.desktop-bg,
-	.overlay-bg {
-		background: #0b030a;
-	}
-
-	.desktop-bg {
+		border: 1px solid var(--natural-black);
+		border-radius: 2px;
 		background-image: url("/desktop/lofi-cafe.gif");
 		background-repeat: no-repeat;
 		background-size: 736px;
 	}
 
-	.overlay-bg {
-		background: linear-gradient(45deg, #240b1a, #0b030a, #0c0f21);
-	}
-
-	.fullscreen-overlay {
-		@apply flex-center fixed top-0 left-0 z-20 h-dvh w-dvw;
-	}
-
 	.card-container {
 		@apply font-roboto rounded border border-stone-800/50 bg-stone-900/20 font-bold text-stone-200 backdrop-blur-xs;
+	}
+
+	.button {
+		@apply cursor-pointer rounded border-2 p-2 transition-colors hover:bg-stone-300 hover:text-stone-950 bg-stone-900/20 font-bold text-stone-200 backdrop-blur-xs;
+
+		&.-primary {
+			@apply border-stone-300;
+		}
+
+		&.-secondary {
+			@apply border-stone-800/50 hover:border-stone-300;
+		}
 	}
 
 	.cursor {

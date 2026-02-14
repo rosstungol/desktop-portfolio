@@ -1,6 +1,7 @@
 import { Canvas } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
-
+import { useRef } from 'react'
+import type * as THREE from 'three'
 import type { SceneState } from '@/App'
 import DesktopContainer from '@/features/desktop/components/DesktopContainer'
 
@@ -10,11 +11,9 @@ import Lighting from './Lighting'
 import RoomModel from './RoomModel'
 import Skybox from './Skybox'
 
-type SceneProps = {
-	sceneState: SceneState
-}
+export default function Scene({ sceneState }: { sceneState: SceneState }) {
+	const screenRef = useRef<THREE.Group | null>(null)
 
-export default function Scene({ sceneState }: SceneProps) {
 	return (
 		<Canvas
 			shadows
@@ -23,8 +22,8 @@ export default function Scene({ sceneState }: SceneProps) {
 			className='z-10'
 		>
 			<FixedWidthCamera />
-			<CameraController sceneState={sceneState} />
-			<DesktopContainer />
+			<CameraController sceneState={sceneState} screenRef={screenRef} />
+			<DesktopContainer screenRef={screenRef} />
 			<Skybox />
 			<Lighting />
 			<RoomModel />

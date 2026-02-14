@@ -1,7 +1,7 @@
 import { startTransition } from 'react'
 
 export default function StartScreen({ onStart }: { onStart: () => void }) {
-	const onStartTransition = () => {
+	const handleStartTransition = () => {
 		startTransition(onStart)
 	}
 
@@ -12,8 +12,8 @@ export default function StartScreen({ onStart }: { onStart: () => void }) {
 			</div>
 			<button
 				type='button'
-				onClick={onStartTransition}
-				className='w-full cursor-pointer rounded border-2 border-stone-300 px-8 py-2 transition-colors hover:bg-stone-300 hover:text-black'
+				onClick={handleStartTransition}
+				className='button -primary w-full'
 			>
 				enter
 			</button>
