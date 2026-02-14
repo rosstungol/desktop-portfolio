@@ -24,7 +24,7 @@ export default function SceneControls({
 				<span className='sr-only'>Zoom Out</span>
 			</>
 		)
-	} else {
+	} else if (sceneState === 'idle') {
 		zoomIcon = (
 			<>
 				<ZoomIn />

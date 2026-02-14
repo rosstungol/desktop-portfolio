@@ -33,11 +33,6 @@
 		background: var(--pastel-pink);
 		color: var(--natural-black);
 	}
-
-	::-moz-selection {
-		background: var(--pastel-pink);
-		color: var(--natural-black);
-	}
 }
 
 @layer components {
