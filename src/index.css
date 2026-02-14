@@ -58,7 +58,7 @@
 		width: 736px;
 		height: 380px;
 		overflow: hidden;
-		border: 1px solid #0b030a;
+		border: 1px solid var(--natural-black);
 		border-radius: 2px;
 		background-image: url("/desktop/lofi-cafe.gif");
 		background-repeat: no-repeat;

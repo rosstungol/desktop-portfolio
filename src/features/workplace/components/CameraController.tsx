@@ -76,7 +76,8 @@ export default function CameraController({
 		}
 
 		if (sceneState === 'focus') {
-			screenRef.current?.getWorldPosition(screenTarget.current)
+			if (!screenRef.current) return
+			screenRef.current.getWorldPosition(screenTarget.current)
 
 			animateRef.current = gsap.to(camera.position, {
 				x: -8,
