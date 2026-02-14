@@ -17,11 +17,7 @@ export default function App() {
 
 	useEffect(() => {
 		const handleFocusTransition = () => {
-			if (sceneState === 'start') {
-				startTransition(() => setSceneState('focus'))
-			} else {
-				setSceneState('focus')
-			}
+			startTransition(() => setSceneState('focus'))
 		}
 
 		let timeoutId: ReturnType<typeof setTimeout> | undefined
