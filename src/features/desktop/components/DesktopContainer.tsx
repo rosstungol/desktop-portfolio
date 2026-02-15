@@ -9,7 +9,7 @@ export default function DesktopContainer({
 	screenRef: RefObject<THREE.Group | null>
 }) {
 	return (
-		<group ref={screenRef} position={[-16.17, 26.23, 0.27]}>
+		<group ref={screenRef} position={[-24.26, 39.33, 0.41]}>
 			<Html
 				rotation-y={Math.PI / 1.915}
 				transform

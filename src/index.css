@@ -55,22 +55,22 @@
 	}
 
 	.desktop-container {
-		width: 736px;
-		height: 380px;
+		width: 1098px;
+		height: 570px;
 		overflow: hidden;
 		border: 1px solid var(--natural-black);
 		border-radius: 2px;
 		background-image: url("/desktop/lofi-cafe.gif");
 		background-repeat: no-repeat;
-		background-size: 736px;
+		background-size: 1100px;
 	}
 
 	.card-container {
-		@apply font-roboto rounded border border-stone-800/50 bg-stone-900/20 font-bold text-stone-200 backdrop-blur-xs;
+		@apply font-roboto rounded border border-stone-800/50 bg-stone-900/20 font-bold text-stone-200 shadow-md backdrop-blur-xs;
 	}
 
 	.button {
-		@apply cursor-pointer rounded border-2 p-2 transition-colors hover:bg-stone-300 hover:text-stone-950 bg-stone-900/20 font-bold text-stone-200 backdrop-blur-xs;
+		@apply cursor-pointer rounded border-2 p-2 transition-colors hover:bg-stone-300 hover:text-stone-950 bg-stone-900/20 font-bold text-stone-200 shadow-md backdrop-blur-xs;
 
 		&.-primary {
 			@apply border-stone-300;
