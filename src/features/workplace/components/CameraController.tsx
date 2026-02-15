@@ -16,7 +16,7 @@ export default function CameraController({
 }: CameraControllerProps) {
 	const { camera } = useThree()
 	const animateRef = useRef<gsap.core.Tween | gsap.core.Timeline | null>(null)
-	const lookAt = useRef(new THREE.Vector3(0, 10, 0))
+	const lookAt = useRef(new THREE.Vector3(-3, 18, 0))
 	const screenTarget = useRef(new THREE.Vector3())
 
 	useFrame(() => {
@@ -27,25 +27,25 @@ export default function CameraController({
 		animateRef.current?.kill()
 		gsap.killTweensOf(lookAt.current)
 
-		const addDefaultCameraPosition = (
+		const defaultCameraPosition = (
 			duration: number,
 			ease: 'power3.out' | 'sine.inOut'
 		): gsap.core.Tween => {
 			return gsap.to(camera.position, {
-				x: 50,
-				y: 30,
-				z: 30,
+				x: 68,
+				y: 50,
+				z: 45,
 				duration: duration,
 				ease: ease,
 			})
 		}
 
-		const addCameraOscillation = (): gsap.core.Tween => {
+		const cameraOscillation = (): gsap.core.Tween => {
 			return gsap.to(camera.position, {
-				x: 30,
-				y: 30,
-				z: 46,
-				duration: 8,
+				x: 25,
+				y: 50,
+				z: 78,
+				duration: 12,
 				ease: 'sine.inOut',
 				repeat: -1,
 				yoyo: true,
@@ -55,19 +55,19 @@ export default function CameraController({
 		if (sceneState === 'start') {
 			const tl = gsap.timeline({ overwrite: 'auto' })
 
-			animateRef.current = tl.add(addDefaultCameraPosition(3, 'power3.out'))
-			tl.add(addCameraOscillation())
+			animateRef.current = tl.add(defaultCameraPosition(3, 'power3.out'))
+			tl.add(cameraOscillation())
 		}
 
 		if (sceneState === 'idle') {
 			const tl = gsap.timeline({ overwrite: 'auto' })
 
-			animateRef.current = tl.add(addDefaultCameraPosition(1.5, 'sine.inOut'))
-			tl.add(addCameraOscillation())
+			animateRef.current = tl.add(defaultCameraPosition(1.5, 'sine.inOut'))
+			tl.add(cameraOscillation())
 
 			gsap.to(lookAt.current, {
-				x: 0,
-				y: 10,
+				x: -3,
+				y: 18,
 				z: 0,
 				duration: 1.5,
 				ease: 'sine.inOut',
@@ -80,9 +80,9 @@ export default function CameraController({
 			screenRef.current.getWorldPosition(screenTarget.current)
 
 			animateRef.current = gsap.to(camera.position, {
-				x: -8,
-				y: 26.3,
-				z: -0.3,
+				x: -12,
+				y: 39.3,
+				z: -0.45,
 				duration: 1.5,
 				ease: 'sine.inOut',
 				overwrite: 'auto',

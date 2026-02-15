@@ -17,7 +17,7 @@ export default function Scene({ sceneState }: { sceneState: SceneState }) {
 	return (
 		<Canvas
 			shadows
-			camera={{ position: [60, 150, 100] }}
+			camera={{ position: [60, 180, 120] }}
 			dpr={[1, 1.5]}
 			className='z-10'
 		>
