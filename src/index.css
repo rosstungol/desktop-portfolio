@@ -66,11 +66,11 @@
 	}
 
 	.card-container {
-		@apply font-roboto rounded border border-stone-800/50 bg-stone-900/20 font-bold text-stone-200 shadow-md backdrop-blur-xs;
+		@apply glass font-roboto rounded border border-stone-800/50 font-bold text-stone-200;
 	}
 
 	.button {
-		@apply cursor-pointer rounded border-2 p-2 transition-colors hover:bg-stone-300 hover:text-stone-950 bg-stone-900/20 font-bold text-stone-200 shadow-md backdrop-blur-xs;
+		@apply glass cursor-pointer rounded border-2 p-2 transition-colors hover:bg-stone-300 hover:text-stone-950 font-bold text-stone-200;
 
 		&.-primary {
 			@apply border-stone-300;
@@ -98,6 +98,10 @@
 			animation: none;
 		}
 	}
+}
+
+@utility glass {
+	@apply bg-stone-900/30 shadow-md backdrop-blur-xs;
 }
 
 @utility flex-center {
