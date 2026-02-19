@@ -1,6 +1,7 @@
+import { useGSAP } from '@gsap/react'
 import { useFrame, useThree } from '@react-three/fiber'
 import gsap from 'gsap'
-import { type RefObject, useEffect, useRef } from 'react'
+import { type RefObject, useRef } from 'react'
 import * as THREE from 'three'
 
 import type { SceneState } from '@/App'
@@ -23,7 +24,7 @@ export default function CameraController({
 		camera.lookAt(lookAt.current)
 	})
 
-	useEffect(() => {
+	useGSAP(() => {
 		animateRef.current?.kill()
 		gsap.killTweensOf(lookAt.current)
 
