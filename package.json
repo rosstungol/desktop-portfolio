@@ -21,6 +21,7 @@
 		"lucide-react": "^0.564.0",
 		"react": "^19.3.0-canary-ed4bd540-20260202",
 		"react-dom": "^19.3.0-canary-ed4bd540-20260202",
+		"react-tooltip": "^5.30.0",
 		"tailwindcss": "^4.1.17",
 		"three": "^0.181.2",
 		"three-stdlib": "^2.36.1"

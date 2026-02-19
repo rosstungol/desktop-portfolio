@@ -55,6 +55,7 @@
 	}
 
 	.desktop-container {
+		position: relative;
 		width: 1098px;
 		height: 570px;
 		overflow: hidden;
@@ -66,7 +67,7 @@
 	}
 
 	.card-container {
-		@apply glass font-roboto rounded border border-stone-800/50 font-bold text-stone-200;
+		@apply glass font-roboto rounded-lg border border-stone-300/10 font-bold text-stone-200;
 	}
 
 	.button {
@@ -77,8 +78,12 @@
 		}
 
 		&.-secondary {
-			@apply border-stone-800/50 hover:border-stone-300;
+			@apply border-stone-300/10 hover:border-stone-300;
 		}
+	}
+
+	.tooltip {
+		@apply text-xs! rounded! py-1! px-2!;
 	}
 
 	.cursor {
@@ -101,7 +106,7 @@
 }
 
 @utility glass {
-	@apply bg-stone-900/30 shadow-md backdrop-blur-xs;
+	@apply select-none bg-stone-800/30 shadow-md backdrop-blur-xs;
 }
 
 @utility flex-center {
