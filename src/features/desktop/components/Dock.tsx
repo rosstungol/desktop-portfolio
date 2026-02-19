@@ -7,8 +7,6 @@ import { dockApps } from '@/data/constants'
 export default function Dock() {
 	const dockRef = useRef<HTMLDivElement | null>(null)
 
-	const toggleApp = () => {}
-
 	useGSAP(() => {
 		const dock = dockRef.current
 		if (!dock) return
@@ -58,6 +56,10 @@ export default function Dock() {
 		}
 	}, [])
 
+	const toggleApp = () => {
+		// TODO Implement Open Window logic
+	}
+
 	return (
 		<section className='absolute bottom-1.5 left-1/2 -translate-x-1/2'>
 			<div ref={dockRef} className='card-container flex items-center gap-1 p-1'>
@@ -81,7 +83,7 @@ export default function Dock() {
 					</div>
 				))}
 				<div className='h-10 w-px bg-stone-200/30' />
-				<div key='trash' className='flex-center'>
+				<div className='flex-center'>
 					<button
 						type='button'
 						aria-label='Trash'

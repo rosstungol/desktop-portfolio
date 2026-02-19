@@ -24,4 +24,4 @@ export const dockApps = [
 		name: 'Terminal',
 		icon: 'terminal.png',
 	},
-]
+] as const
