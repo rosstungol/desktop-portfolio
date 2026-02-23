@@ -33,7 +33,7 @@ export default function SceneControls({
 		)
 	}
 
-	const handleToggle = () => {
+	const handleFocusToggle = () => {
 		if (sceneState === 'focus') {
 			onIdle()
 		} else if (sceneState === 'idle') {
@@ -46,7 +46,7 @@ export default function SceneControls({
 			<div className='fixed top-6 left-6 z-20'>
 				<button
 					type='button'
-					onClick={handleToggle}
+					onClick={handleFocusToggle}
 					className='button -secondary'
 				>
 					{zoomIcon}
