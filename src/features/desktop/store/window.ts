@@ -106,6 +106,8 @@ export const useWindowStore = create<WindowStore>()(
 			set((state) => {
 				const appWindow = state.windows[windowKey]
 
+				if (!appWindow.isOpen) return
+
 				appWindow.zIndex = state.nextZIndex++
 			}),
 	}))

@@ -2,13 +2,20 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { useRef } from 'react'
 import { Tooltip } from 'react-tooltip'
+import { useShallow } from 'zustand/shallow'
+
 import { dockApps } from '@/data/constants'
+
 import { useWindowStore, type WindowKey } from '../store/window'
 
 export default function Dock() {
-	const windows = useWindowStore((state) => state.windows)
-	const openWindow = useWindowStore((state) => state.openWindow)
-	const closeWindow = useWindowStore((state) => state.closeWindow)
+	const { windows, openWindow, focusWindow } = useWindowStore(
+		useShallow((state) => ({
+			windows: state.windows,
+			openWindow: state.openWindow,
+			focusWindow: state.focusWindow,
+		}))
+	)
 
 	const dockRef = useRef<HTMLDivElement | null>(null)
 
@@ -65,7 +72,7 @@ export default function Dock() {
 		const appWindow = windows[id]
 
 		if (appWindow.isOpen) {
-			closeWindow(id)
+			focusWindow(id)
 		} else {
 			openWindow(id)
 		}
