@@ -2,9 +2,21 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { useRef } from 'react'
 import { Tooltip } from 'react-tooltip'
+import { useShallow } from 'zustand/shallow'
+
 import { dockApps } from '@/data/constants'
 
+import { useWindowStore, type WindowKey } from '../store/window'
+
 export default function Dock() {
+	const { windows, openWindow, focusWindow } = useWindowStore(
+		useShallow((state) => ({
+			windows: state.windows,
+			openWindow: state.openWindow,
+			focusWindow: state.focusWindow,
+		}))
+	)
+
 	const dockRef = useRef<HTMLDivElement | null>(null)
 
 	useGSAP(() => {
@@ -56,8 +68,14 @@ export default function Dock() {
 		}
 	}, [])
 
-	const toggleApp = () => {
-		// TODO Implement Open Window logic
+	const handleAppToggle = (id: WindowKey) => {
+		const appWindow = windows[id]
+
+		if (appWindow.isOpen) {
+			focusWindow(id)
+		} else {
+			openWindow(id)
+		}
 	}
 
 	return (
@@ -70,7 +88,7 @@ export default function Dock() {
 							aria-label={name}
 							data-tooltip-id='dock-tooltip'
 							data-tooltip-content={name}
-							onClick={() => toggleApp()}
+							onClick={() => handleAppToggle(id)}
 							className='dock-icon'
 						>
 							<img
@@ -82,14 +100,16 @@ export default function Dock() {
 						</button>
 					</div>
 				))}
+
 				<div className='h-10 w-px bg-stone-200/30' />
+
 				<div className='flex-center'>
 					<button
 						type='button'
 						aria-label='Trash'
 						data-tooltip-id='dock-tooltip'
 						data-tooltip-content='Trash'
-						onClick={() => toggleApp()}
+						onClick={() => handleAppToggle('trash')}
 						className='dock-icon'
 					>
 						<img

@@ -1,10 +1,9 @@
 import { startTransition, useEffect, useState } from 'react'
 
+import SceneIntro from '@/features/intro/components/SceneIntro'
+import ClickToStart from '@/features/workplace/components/ClickToStart'
 import Scene from '@/features/workplace/components/Scene'
-
-import SceneIntro from './features/intro/components/SceneIntro'
-import ClickToStart from './features/workplace/components/ClickToStart'
-import SceneControls from './features/workplace/components/SceneControls'
+import SceneControls from '@/features/workplace/components/SceneControls'
 
 export type SceneState = 'loading' | 'intro' | 'start' | 'focus' | 'idle'
 
