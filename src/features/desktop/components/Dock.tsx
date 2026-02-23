@@ -6,7 +6,9 @@ import { dockApps } from '@/data/constants'
 import { useWindowStore, type WindowKey } from '../store/window'
 
 export default function Dock() {
-	const { windows, openWindow, closeWindow } = useWindowStore()
+	const windows = useWindowStore((state) => state.windows)
+	const openWindow = useWindowStore((state) => state.openWindow)
+	const closeWindow = useWindowStore((state) => state.closeWindow)
 
 	const dockRef = useRef<HTMLDivElement | null>(null)
 
@@ -60,14 +62,16 @@ export default function Dock() {
 	}, [])
 
 	const handleAppToggle = (id: WindowKey) => {
-		const window = windows[id]
+		const appWindow = windows[id]
 
-		if (window.isOpen) {
+		if (appWindow.isOpen) {
 			closeWindow(id)
 		} else {
 			openWindow(id)
 		}
 	}
+
+	console.log(windows)
 
 	return (
 		<section className='absolute bottom-1.5 left-1/2 -translate-x-1/2'>

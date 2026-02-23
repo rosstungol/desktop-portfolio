@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 
-type WindowData = unknown | null
+type WindowData = unknown
 
 type WindowState = {
 	isOpen: boolean
@@ -84,29 +84,29 @@ export const useWindowStore = create<WindowStore>()(
 	immer((set) => ({
 		windows: WINDOW_CONFIG,
 		nextZIndex: INITIAL_Z_INDEX + 1,
-		openWindow: (windowKey, data = null) =>
+		openWindow: (windowKey, data?: WindowData) =>
 			set((state) => {
-				const window = state.windows[windowKey]
+				const appWindow = state.windows[windowKey]
 
-				window.isOpen = true
-				window.zIndex = state.nextZIndex
-				window.data = data ?? window.data
+				appWindow.isOpen = true
+				appWindow.zIndex = state.nextZIndex
+				appWindow.data = data !== undefined ? data : appWindow.data
 
 				state.nextZIndex++
 			}),
 		closeWindow: (windowKey) =>
 			set((state) => {
-				const window = state.windows[windowKey]
+				const appWindow = state.windows[windowKey]
 
-				window.isOpen = false
-				window.zIndex = INITIAL_Z_INDEX
-				window.data = null
+				appWindow.isOpen = false
+				appWindow.zIndex = INITIAL_Z_INDEX
+				appWindow.data = null
 			}),
 		focusWindow: (windowKey) =>
 			set((state) => {
-				const window = state.windows[windowKey]
+				const appWindow = state.windows[windowKey]
 
-				window.zIndex = state.nextZIndex++
+				appWindow.zIndex = state.nextZIndex++
 			}),
 	}))
 )
