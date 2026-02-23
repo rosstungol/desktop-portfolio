@@ -71,8 +71,6 @@ export default function Dock() {
 		}
 	}
 
-	console.log(windows)
-
 	return (
 		<section className='absolute bottom-1.5 left-1/2 -translate-x-1/2'>
 			<div ref={dockRef} className='card-container flex items-center gap-1 p-1'>
