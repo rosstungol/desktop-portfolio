@@ -1,4 +1,5 @@
 import { Banana } from 'lucide-react'
+
 import DigitalClock from './DigitalClock'
 
 export default function Navbar() {

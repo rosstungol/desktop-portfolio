@@ -1,7 +1,6 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { TextPlugin } from 'gsap/TextPlugin'
-
 // @ts-expect-error React canary: ViewTransition not typed yet (remove when stable version is available)
 import { useRef, ViewTransition } from 'react'
 
