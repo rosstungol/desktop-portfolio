@@ -92,7 +92,7 @@ export default function Dock() {
 							className='dock-icon'
 						>
 							<img
-								src={`/icons/${icon}`}
+								src={`/desktop/icons/${icon}`}
 								alt={name}
 								loading='lazy'
 								className='size-10'
@@ -113,7 +113,7 @@ export default function Dock() {
 						className='dock-icon'
 					>
 						<img
-							src={`/icons/trash.png`}
+							src={`/desktop/icons/trash.png`}
 							alt='Trash'
 							loading='lazy'
 							className='size-9'
