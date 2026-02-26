@@ -5,12 +5,12 @@ export default function Skybox() {
 		<Environment
 			background
 			files={[
-				'/skybox/corona_ft.jpg',
-				'/skybox/corona_bk.jpg',
-				'/skybox/corona_up.jpg',
-				'/skybox/corona_dn.jpg',
-				'/skybox/corona_rt.jpg',
-				'/skybox/corona_lf.jpg',
+				'/workplace/skybox/corona_ft.webp',
+				'/workplace/skybox/corona_bk.webp',
+				'/workplace/skybox/corona_up.webp',
+				'/workplace/skybox/corona_dn.webp',
+				'/workplace/skybox/corona_rt.webp',
+				'/workplace/skybox/corona_lf.webp',
 			]}
 		/>
 	)

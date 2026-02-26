@@ -30,7 +30,7 @@ type GLTFResult = GLTF & {
 
 export default function RoomModel(props: JSX.IntrinsicElements['group']) {
 	const { nodes, materials } = useGLTF(
-		'/models/cozy_workplace_corner-transformed.glb'
+		'/workplace/models/cozy_workplace_corner-transformed.glb'
 	) as unknown as GLTFResult
 
 	return (
@@ -123,4 +123,4 @@ export default function RoomModel(props: JSX.IntrinsicElements['group']) {
 	)
 }
 
-useGLTF.preload('/models/cozy_workplace_corner-transformed.glb')
+useGLTF.preload('/workplace/models/cozy_workplace_corner-transformed.glb')
