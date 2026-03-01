@@ -9,6 +9,8 @@ export default function WindowControls({ target }: { target: WindowKey }) {
 			<button
 				type='button'
 				className='size-3 rounded-full border border-red-500 bg-red-400'
+				aria-label='Close window'
+				title='Close window'
 				onClick={() => closeWindow(target)}
 			/>
 			<button
