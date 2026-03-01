@@ -4,9 +4,10 @@ import { useRef } from 'react'
 import { Tooltip } from 'react-tooltip'
 import { useShallow } from 'zustand/shallow'
 
-import { dockApps } from '@/data/constants'
+import { dockApps } from '@/features/desktop/data/constants'
 
-import { useWindowStore, type WindowKey } from '../store/window'
+import type { WindowKey } from '../data/types'
+import { useWindowStore } from '../store/window'
 
 export default function Dock() {
 	const { windows, openWindow, focusWindow } = useWindowStore(
@@ -101,7 +102,7 @@ export default function Dock() {
 					</div>
 				))}
 
-				<div className='h-10 w-px bg-stone-200/30' />
+				<div className='h-10 w-px bg-gray-200/30' />
 
 				<div className='flex-center'>
 					<button
