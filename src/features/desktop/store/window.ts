@@ -1,26 +1,6 @@
 import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
-
-type WindowData = unknown
-
-type WindowState = {
-	isOpen: boolean
-	zIndex: number
-	data: WindowData
-}
-
-export type WindowKey =
-	| 'finder'
-	| 'safari'
-	| 'contact'
-	| 'photos'
-	| 'terminal'
-	| 'trash'
-	| 'resume'
-	| 'textFile'
-	| 'imageFile'
-
-type WindowsRecord = Record<WindowKey, WindowState>
+import type { WindowData, WindowKey, WindowsRecord } from '../data/types'
 
 const INITIAL_Z_INDEX = 1000
 

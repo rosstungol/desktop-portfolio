@@ -25,3 +25,8 @@ export const dockApps = [
 		icon: 'terminal.png',
 	},
 ] as const
+
+export const contactLinks = {
+	linkedIn: 'https://www.linkedin.com/in/ross-jonathan-tungol-34b2b9259/',
+	github: 'https://www.github.com/rosstungol',
+} as const
