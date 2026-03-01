@@ -67,18 +67,22 @@
 	}
 
 	.card-container {
-		@apply glass font-roboto rounded-lg border border-stone-300/10 font-bold text-stone-200;
+		@apply glass font-roboto rounded-lg border border-gray-300/10 font-bold text-gray-200;
+
+		&.-dark {
+			@apply bg-gray-900/95;
+		}
 	}
 
 	.button {
-		@apply glass cursor-pointer rounded border-2 p-2 transition-colors hover:bg-stone-300 hover:text-stone-950 font-bold text-stone-200;
+		@apply glass cursor-pointer rounded border-2 p-2 transition-colors hover:bg-gray-300 hover:text-gray-950 font-bold text-gray-200;
 
 		&.-primary {
-			@apply border-stone-300;
+			@apply border-gray-300;
 		}
 
 		&.-secondary {
-			@apply border-stone-300/10 hover:border-stone-300;
+			@apply border-gray-300/10 hover:border-gray-300;
 		}
 	}
 
@@ -106,7 +110,7 @@
 }
 
 @utility glass {
-	@apply select-none bg-stone-800/30 shadow-md backdrop-blur-xs;
+	@apply select-none bg-gray-800/20 shadow-lg backdrop-blur-xs;
 }
 
 @utility flex-center {

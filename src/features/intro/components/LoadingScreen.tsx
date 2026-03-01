@@ -14,9 +14,9 @@ export default function LoadingScreen({ onLoaded }: { onLoaded: () => void }) {
 	}, [progress, onLoaded])
 
 	return (
-		<h1 className='font-semibold text-5xl text-stone-200'>
+		<h1 className='font-semibold text-5xl text-gray-200'>
 			{progressRounded}
-			<span className='ml-1 text-2xl text-stone-700'>%</span>
+			<span className='ml-1 text-2xl text-gray-700'>%</span>
 		</h1>
 	)
 }
