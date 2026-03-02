@@ -74,22 +74,6 @@
 		}
 	}
 
-	.button {
-		@apply glass cursor-pointer rounded border-2 p-2 transition-colors hover:bg-gray-300 hover:text-gray-950 font-bold text-gray-200;
-
-		&.-primary {
-			@apply border-gray-300;
-		}
-
-		&.-secondary {
-			@apply border-gray-300/10 hover:border-gray-300;
-		}
-
-		&.-sm {
-			@apply p-1;
-		}
-	}
-
 	.tooltip {
 		@apply text-xs! rounded! py-1! px-2!;
 	}

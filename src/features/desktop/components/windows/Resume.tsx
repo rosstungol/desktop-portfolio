@@ -4,6 +4,8 @@ import { Document, Page, pdfjs } from 'react-pdf'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 import 'react-pdf/dist/Page/TextLayer.css'
 
+import { Button } from '@/components/Button'
+
 import WindowHeader from '../wrapper/WindowHeader'
 import WindowWrapper from '../wrapper/WindowWrapper'
 
@@ -19,11 +21,11 @@ function Resume() {
 				title='Resume.pdf'
 				target='resume'
 				rightButton={
-					<button type='button' className='button -secondary -sm'>
-						<a href='/files/resume.pdf' download title='Download Resume'>
+					<a href='/files/resume.pdf' title='Download Resume' download>
+						<Button variant='secondary' size='sm'>
 							<Download size={12} />
-						</a>
-					</button>
+						</Button>
+					</a>
 				}
 			/>
 			<div className='px-1 pb-1'>

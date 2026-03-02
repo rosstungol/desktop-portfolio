@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react'
 
+import { Button } from '@/components/Button'
+
 import { contactLinks } from '../../data/constants'
 import Github from '../icons/Github'
 import LinkedIn from '../icons/LinkedIn'
@@ -23,9 +25,10 @@ function ContactLink({
 				rel='noopener noreferrer'
 				aria-label={label}
 				title={label}
-				className='button -secondary size-12 flex-center rounded-full'
 			>
-				{Icon}
+				<Button variant='secondary' roundedFull={true}>
+					{Icon}
+				</Button>
 			</a>
 		</li>
 	)
