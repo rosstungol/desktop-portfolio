@@ -11,7 +11,10 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 }
 
 const baseStyles =
-	'glass inline-flex items-center cursor-pointer rounded border-2 font-bold text-gray-200 transition-colors hover:bg-gray-300 hover:text-gray-950'
+	'glass flex-center cursor-pointer rounded border-2 font-bold text-gray-200 transition-colors hover:bg-gray-300 hover:text-gray-950'
+
+const disabledStyles =
+	'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-gray-200'
 
 const variantStyles: Record<ButtonVariant, string> = {
 	primary: 'border-gray-300',
@@ -35,6 +38,7 @@ export function Button({
 			type='button'
 			className={clsx(
 				baseStyles,
+				disabledStyles,
 				variantStyles[variant],
 				sizeStyles[size],
 				className
