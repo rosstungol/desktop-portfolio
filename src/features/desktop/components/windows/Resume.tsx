@@ -22,6 +22,7 @@ function Resume() {
 					<a
 						href='/files/resume.pdf'
 						title='Download Resume'
+						aria-label='Download Resume'
 						download
 						className='flex-center cursor-pointer rounded border-2 border-gray-300/10 p-1 text-gray-200 transition-colors hover:border-gray-300 hover:bg-gray-300 hover:text-gray-950'
 					>

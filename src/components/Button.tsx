@@ -7,12 +7,11 @@ type ButtonSize = 'md' | 'sm'
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 	variant?: ButtonVariant
 	size?: ButtonSize
-	roundedFull?: boolean
 	children: ReactNode
 }
 
 const baseStyles =
-	'glass cursor-pointer rounded border-2 font-bold text-gray-200 transition-colors hover:bg-gray-300 hover:text-gray-950'
+	'glass inline-flex items-center cursor-pointer rounded border-2 font-bold text-gray-200 transition-colors hover:bg-gray-300 hover:text-gray-950'
 
 const variantStyles: Record<ButtonVariant, string> = {
 	primary: 'border-gray-300',
