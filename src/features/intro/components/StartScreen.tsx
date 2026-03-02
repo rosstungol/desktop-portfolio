@@ -1,5 +1,7 @@
 import { startTransition } from 'react'
 
+import { Button } from '@/components/Button'
+
 export default function StartScreen({ onStart }: { onStart: () => void }) {
 	const handleStartTransition = () => {
 		startTransition(onStart)
@@ -10,13 +12,9 @@ export default function StartScreen({ onStart }: { onStart: () => void }) {
 			<div className='mb-4'>
 				<p>rosstungol.com</p>
 			</div>
-			<button
-				type='button'
-				onClick={handleStartTransition}
-				className='button -primary w-full'
-			>
+			<Button className='w-full' onClick={handleStartTransition}>
 				enter
-			</button>
+			</Button>
 		</div>
 	)
 }

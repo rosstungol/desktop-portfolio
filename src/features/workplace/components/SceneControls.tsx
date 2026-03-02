@@ -3,6 +3,7 @@ import { ZoomIn, ZoomOut } from 'lucide-react'
 import { type ReactNode, ViewTransition } from 'react'
 
 import type { SceneState } from '@/App'
+import { Button } from '@/components/Button'
 
 type SceneControlsProps = {
 	sceneState: SceneState
@@ -44,13 +45,9 @@ export default function SceneControls({
 	return (
 		<ViewTransition>
 			<div className='fixed top-6 left-6 z-20'>
-				<button
-					type='button'
-					onClick={handleFocusToggle}
-					className='button -secondary'
-				>
+				<Button variant='secondary' onClick={handleFocusToggle}>
 					{zoomIcon}
-				</button>
+				</Button>
 			</div>
 		</ViewTransition>
 	)
