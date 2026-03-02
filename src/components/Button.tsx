@@ -8,7 +8,6 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 	variant?: ButtonVariant
 	size?: ButtonSize
 	roundedFull?: boolean
-	className?: string
 	children: ReactNode
 }
 
@@ -28,7 +27,6 @@ const sizeStyles: Record<ButtonSize, string> = {
 export function Button({
 	variant = 'primary',
 	size = 'md',
-	roundedFull = false,
 	className,
 	children,
 	...props
@@ -40,7 +38,6 @@ export function Button({
 				baseStyles,
 				variantStyles[variant],
 				sizeStyles[size],
-				roundedFull ? 'rounded-full' : 'rounded',
 				className
 			)}
 			{...props}
