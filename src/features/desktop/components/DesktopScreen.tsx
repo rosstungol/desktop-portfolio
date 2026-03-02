@@ -1,10 +1,10 @@
 import gsap from 'gsap'
 import { Draggable } from 'gsap/Draggable'
 
-import Contact from '@/features/desktop/components/windows/Contact'
-
 import Dock from './Dock'
 import Navbar from './Navbar'
+import Contact from './windows/Contact'
+import Resume from './windows/Resume'
 
 gsap.registerPlugin(Draggable)
 
@@ -15,6 +15,7 @@ export default function DesktopScreen() {
 			<Dock />
 
 			<Contact />
+			<Resume />
 		</div>
 	)
 }
