@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
+
 import type { WindowData, WindowKey, WindowsRecord } from '../data/types'
 
 const INITIAL_Z_INDEX = 1000
@@ -60,7 +61,7 @@ type WindowStore = {
 	focusWindow: (windowKey: WindowKey) => void
 }
 
-export const useWindowStore = create<WindowStore>()(
+const useWindowStore = create<WindowStore>()(
 	immer((set) => ({
 		windows: WINDOW_CONFIG,
 		nextZIndex: INITIAL_Z_INDEX + 1,
@@ -92,3 +93,5 @@ export const useWindowStore = create<WindowStore>()(
 			}),
 	}))
 )
+
+export default useWindowStore

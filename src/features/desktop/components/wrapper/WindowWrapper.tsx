@@ -3,8 +3,9 @@ import gsap from 'gsap'
 import { Draggable } from 'gsap/Draggable'
 import { useLayoutEffect, useRef } from 'react'
 import { useShallow } from 'zustand/shallow'
-import { useWindowStore } from '@/features/desktop/store/window'
+
 import type { WindowKey } from '../../data/types'
+import useWindowStore from '../../stores/window'
 
 export default function WindowWrapper<P extends object>(
 	Component: React.ComponentType<P>,

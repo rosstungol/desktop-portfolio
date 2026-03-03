@@ -1,5 +1,5 @@
 import type { WindowKey } from '@/features/desktop/data/types'
-import { useWindowStore } from '@/features/desktop/store/window'
+import useWindowStore from '@/features/desktop/stores/window'
 
 export default function WindowControls({ target }: { target: WindowKey }) {
 	const closeWindow = useWindowStore((state) => state.closeWindow)
