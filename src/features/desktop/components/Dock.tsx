@@ -7,7 +7,7 @@ import { useShallow } from 'zustand/shallow'
 import { dockApps } from '@/features/desktop/data/constants'
 
 import type { WindowKey } from '../data/types'
-import { useWindowStore } from '../store/window'
+import useWindowStore from '../stores/window'
 
 export default function Dock() {
 	const { windows, openWindow, focusWindow } = useWindowStore(
