@@ -24,7 +24,7 @@ function Resume() {
 						title='Download Resume'
 						aria-label='Download Resume'
 						download
-						className='flex-center cursor-pointer rounded border-2 border-gray-300/10 p-1 text-gray-200 transition-colors hover:border-gray-300 hover:bg-gray-300 hover:text-gray-950'
+						className='flex-center cursor-pointer rounded border-2 border-blue-500/10 p-1 text-gray-200 transition-colors hover:border-blue-100 hover:bg-blue-100 hover:text-gray-950'
 					>
 						<Download size={12} />
 					</a>

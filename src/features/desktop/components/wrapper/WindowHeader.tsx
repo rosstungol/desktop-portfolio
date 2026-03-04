@@ -16,7 +16,7 @@ export default function WindowHeader({
 	return (
 		<div
 			className={clsx(
-				'relative flex items-center justify-between rounded-t-xl text-xs',
+				'relative flex items-center justify-between rounded-t-xl border-blue-500/5 border-b text-xs',
 				rightButton ? 'px-2.5 py-1' : 'p-2.5'
 			)}
 		>

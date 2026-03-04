@@ -23,7 +23,7 @@ function ContactLink({
 				rel='noopener noreferrer'
 				aria-label={label}
 				title={label}
-				className='flex-center rounded-full border-2 border-gray-300/10 p-2 font-bold text-gray-200 transition-colors hover:border-gray-300 hover:bg-gray-300 hover:text-gray-950'
+				className='flex-center rounded-full border-2 border-blue-500/10 p-2 font-bold text-gray-200 transition-colors hover:border-blue-100 hover:bg-blue-100 hover:text-gray-950'
 			>
 				{Icon}
 			</a>
