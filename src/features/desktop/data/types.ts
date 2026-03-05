@@ -1,3 +1,6 @@
+import type { LucideProps } from 'lucide-react'
+import type { ForwardRefExoticComponent, RefAttributes } from 'react'
+
 // Window Store types
 export type WindowData = unknown
 
@@ -47,7 +50,9 @@ export type Location = {
 	id: number
 	type: string
 	name: string
-	icon: string
+	Icon: ForwardRefExoticComponent<
+		Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>
+	>
 	kind: string
 	children: LocationChild[]
 }
