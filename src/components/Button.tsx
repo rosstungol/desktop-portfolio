@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import type { ButtonHTMLAttributes } from 'react'
 
 type ButtonVariant = 'primary' | 'secondary'
 type ButtonSize = 'md' | 'sm'
@@ -7,12 +7,11 @@ type ButtonSize = 'md' | 'sm'
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 	variant?: ButtonVariant
 	size?: ButtonSize
-	children: ReactNode
 }
 
 const baseStyles =
-	'glass flex-center cursor-pointer rounded-lg border-2 font-bold text-gray-200 transition-colors hover:bg-blue-100 hover:text-gray-950'
-
+	'glass flex-center cursor-pointer rounded-lg border-2 font-bold text-gray-200'
+const hoverStyles = 'transition-colors hover:bg-blue-100 hover:text-gray-950'
 const disabledStyles =
 	'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-gray-200'
 
@@ -26,7 +25,7 @@ const sizeStyles: Record<ButtonSize, string> = {
 	md: 'p-2 gap-2 text-sm',
 }
 
-export function Button({
+export default function Button({
 	variant = 'primary',
 	size = 'md',
 	className,
@@ -38,6 +37,7 @@ export function Button({
 			type='button'
 			className={clsx(
 				baseStyles,
+				hoverStyles,
 				disabledStyles,
 				variantStyles[variant],
 				sizeStyles[size],
