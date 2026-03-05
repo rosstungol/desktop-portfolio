@@ -15,7 +15,7 @@ function Finder() {
 		}))
 	)
 
-	if (activeLocation == null) return
+	if (activeLocation == null) return null
 
 	const renderList = (name: string, items: Location[]) => (
 		<div>

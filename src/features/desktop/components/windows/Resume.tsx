@@ -24,7 +24,6 @@ function Resume() {
 						href='/files/resume.pdf'
 						label='Download Resume'
 						size='sm'
-						rounded={false}
 						download
 					>
 						<Download size={12} />

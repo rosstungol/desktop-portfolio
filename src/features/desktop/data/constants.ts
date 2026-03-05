@@ -38,7 +38,7 @@ export const contactLinks = [
 	},
 	{
 		link: 'https://www.github.com/rosstungol',
-		label: 'LinkedIn profile',
+		label: 'GitHub profile',
 		Icon: Github,
 	},
 ] as const

@@ -6,7 +6,7 @@ type IconLinkSize = 'md' | 'sm'
 type IconLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
 	label: string
 	size?: IconLinkSize
-	rounded: boolean
+	rounded?: boolean
 }
 
 const baseStyles =
@@ -23,7 +23,7 @@ export default function IconLink({
 	href,
 	label,
 	size = 'md',
-	rounded,
+	rounded = false,
 	children,
 	...props
 }: IconLinkProps) {
