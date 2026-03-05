@@ -34,8 +34,8 @@ export default function ClickToStart() {
 
 	return (
 		<ViewTransition>
-			<div className='card-container fixed bottom-28 left-1/2 z-20 w-max -translate-x-1/2 px-4 py-2 text-sm md:bottom-28 md:text-base'>
-				<p>
+			<div className='card-container fixed bottom-28 left-1/2 z-20 w-max -translate-x-1/2 px-4 py-2 md:bottom-28'>
+				<p className='font-bold font-roboto text-sm md:text-base'>
 					<span ref={textRef} />
 					<span className='cursor'>_</span>
 				</p>

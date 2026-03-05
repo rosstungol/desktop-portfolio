@@ -3,7 +3,7 @@ import { ZoomIn, ZoomOut } from 'lucide-react'
 import { type ReactNode, ViewTransition } from 'react'
 
 import type { SceneState } from '@/App'
-import { Button } from '@/components/Button'
+import Button from '@/components/Button'
 
 type SceneControlsProps = {
 	sceneState: SceneState

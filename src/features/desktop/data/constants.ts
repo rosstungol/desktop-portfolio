@@ -1,3 +1,7 @@
+import { Blocks, FileCodeCorner, Monitor, Trash } from 'lucide-react'
+import Github from '../components/icons/Github'
+import LinkedIn from '../components/icons/LinkedIn'
+
 export const dockApps = [
 	{
 		id: 'finder',
@@ -26,16 +30,24 @@ export const dockApps = [
 	},
 ] as const
 
-export const contactLinks = {
-	linkedIn: 'https://www.linkedin.com/in/ross-jonathan-tungol-34b2b9259/',
-	github: 'https://www.github.com/rosstungol',
-} as const
+export const contactLinks = [
+	{
+		link: 'https://www.linkedin.com/in/ross-jonathan-tungol-34b2b9259/',
+		label: 'LinkedIn profile',
+		Icon: LinkedIn,
+	},
+	{
+		link: 'https://www.github.com/rosstungol',
+		label: 'GitHub profile',
+		Icon: Github,
+	},
+] as const
 
 const APPLICATIONS_LOCATION = {
 	id: 1,
 	type: 'applications',
 	name: 'Applications',
-	icon: '',
+	Icon: Blocks,
 	kind: 'folder',
 	children: [],
 }
@@ -44,7 +56,7 @@ const DESKTOP_LOCATION = {
 	id: 2,
 	type: 'desktop',
 	name: 'Desktop',
-	icon: '',
+	Icon: Monitor,
 	kind: 'folder',
 	children: [],
 }
@@ -53,7 +65,7 @@ const PROJECTS_LOCATION = {
 	id: 3,
 	type: 'projects',
 	name: 'Projects',
-	icon: '',
+	Icon: FileCodeCorner,
 	kind: 'folder',
 	children: [],
 }
@@ -62,7 +74,7 @@ const TRASH_LOCATION = {
 	id: 4,
 	type: 'trash',
 	name: 'Trash',
-	icon: '',
+	Icon: Trash,
 	kind: 'folder',
 	children: [],
 }

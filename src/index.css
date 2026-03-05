@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 
 @import "tailwindcss";
 
 @theme {
 	/* fonts */
-	--font-georama: "Georama", sans-serif;
+	--font-inter: "Inter", sans-serif;
 	--font-roboto: "Roboto Mono", monospace;
 
 	/* colors */
@@ -67,10 +67,10 @@
 	}
 
 	.card-container {
-		@apply glass font-roboto rounded-lg border border-gray-300/10 font-bold text-gray-200;
+		@apply glass rounded-2xl border border-blue-500/20 text-gray-200 outline outline-gray-800/40;
 
 		&.-dark {
-			@apply bg-gray-900/95;
+			@apply bg-gray-900/85 outline outline-gray-900/80;
 		}
 	}
 
@@ -98,7 +98,7 @@
 }
 
 @utility glass {
-	@apply select-none bg-gray-800/20 shadow-lg backdrop-blur-xs;
+	@apply select-none bg-gray-800/20 shadow-lg backdrop-blur;
 }
 
 @utility flex-center {

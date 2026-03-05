@@ -1,35 +1,7 @@
-import type { ReactNode } from 'react'
-
 import { contactLinks } from '../../data/constants'
-import Github from '../icons/Github'
-import LinkedIn from '../icons/LinkedIn'
+import IconLink from '../IconLink'
 import WindowHeader from '../wrapper/WindowHeader'
 import WindowWrapper from '../wrapper/WindowWrapper'
-
-function ContactLink({
-	link,
-	label,
-	Icon,
-}: {
-	link: string
-	label: string
-	Icon: ReactNode
-}) {
-	return (
-		<li>
-			<a
-				href={link}
-				target='_blank'
-				rel='noopener noreferrer'
-				aria-label={label}
-				title={label}
-				className='flex-center rounded-full border-2 border-gray-300/10 p-2 font-bold text-gray-200 transition-colors hover:border-gray-300 hover:bg-gray-300 hover:text-gray-950'
-			>
-				{Icon}
-			</a>
-		</li>
-	)
-}
 
 function Contact() {
 	return (
@@ -40,16 +12,19 @@ function Contact() {
 				<h1 className='mb-3 font-bold text-3xl'>Ross Tungol</h1>
 				<div>
 					<ul className='flex gap-6'>
-						<ContactLink
-							link={contactLinks.linkedIn}
-							label='LinkedIn profile'
-							Icon={<LinkedIn />}
-						/>
-						<ContactLink
-							link={contactLinks.github}
-							label='GitHub profile'
-							Icon={<Github />}
-						/>
+						{contactLinks.map(({ link, label, Icon }) => (
+							<li key={label}>
+								<IconLink
+									href={link}
+									label={label}
+									rounded={true}
+									target='_blank'
+									rel='noopener noreferrer'
+								>
+									<Icon />
+								</IconLink>
+							</li>
+						))}
 					</ul>
 				</div>
 			</div>
