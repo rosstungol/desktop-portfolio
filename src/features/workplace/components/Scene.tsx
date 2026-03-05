@@ -12,6 +12,8 @@ import Lighting from './Lighting'
 import RoomModel from './RoomModel'
 import Skybox from './Skybox'
 
+const DESKTOP_RENDER_STATES = new Set(['intro', 'start', 'focus', 'idle'])
+
 export default function Scene({ sceneState }: { sceneState: SceneState }) {
 	const screenRef = useRef<THREE.Group | null>(null)
 
@@ -24,10 +26,14 @@ export default function Scene({ sceneState }: { sceneState: SceneState }) {
 		>
 			<FixedWidthCamera />
 			<CameraController sceneState={sceneState} screenRef={screenRef} />
-			<DesktopContainer screenRef={screenRef} />
 			<Skybox />
 			<Lighting />
 			<RoomModel />
+
+			{DESKTOP_RENDER_STATES.has(sceneState) && (
+				<DesktopContainer screenRef={screenRef} />
+			)}
+
 			{import.meta.env.DEV && <Perf />}
 		</Canvas>
 	)

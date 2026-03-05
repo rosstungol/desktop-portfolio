@@ -7,9 +7,9 @@ import SceneControls from '@/features/workplace/components/SceneControls'
 
 export type SceneState = 'loading' | 'intro' | 'start' | 'focus' | 'idle'
 
-const SCENE_INTRO_VISIBLE_STATES = new Set(['loading', 'intro'])
-const CLICK_TO_START_VISIBLE_STATES = new Set(['start', 'idle'])
-const SCENE_CONTROLS_VISIBLE_STATES = new Set(['focus', 'idle'])
+const SCENE_INTRO_RENDER_STATES = new Set(['loading', 'intro'])
+const CLICK_TO_START_RENDER_STATES = new Set(['start', 'idle'])
+const SCENE_CONTROLS_RENDER_STATES = new Set(['focus', 'idle'])
 
 export default function App() {
 	const [sceneState, setSceneState] = useState<SceneState>('loading')
@@ -21,7 +21,7 @@ export default function App() {
 
 		let timeoutId: ReturnType<typeof setTimeout> | undefined
 
-		if (CLICK_TO_START_VISIBLE_STATES.has(sceneState)) {
+		if (CLICK_TO_START_RENDER_STATES.has(sceneState)) {
 			timeoutId = setTimeout(() => {
 				document.body.addEventListener('click', handleFocusTransition)
 			}, 1000)
@@ -35,7 +35,7 @@ export default function App() {
 
 	return (
 		<main>
-			{SCENE_INTRO_VISIBLE_STATES.has(sceneState) && (
+			{SCENE_INTRO_RENDER_STATES.has(sceneState) && (
 				<SceneIntro
 					sceneState={sceneState}
 					onLoaded={() => setSceneState('intro')}
@@ -43,9 +43,9 @@ export default function App() {
 				/>
 			)}
 
-			{CLICK_TO_START_VISIBLE_STATES.has(sceneState) && <ClickToStart />}
+			{CLICK_TO_START_RENDER_STATES.has(sceneState) && <ClickToStart />}
 
-			{SCENE_CONTROLS_VISIBLE_STATES.has(sceneState) && (
+			{SCENE_CONTROLS_RENDER_STATES.has(sceneState) && (
 				<SceneControls
 					sceneState={sceneState}
 					onFocus={() => setSceneState('focus')}
