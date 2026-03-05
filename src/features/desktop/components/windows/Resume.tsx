@@ -4,6 +4,7 @@ import { Document, Page, pdfjs } from 'react-pdf'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 import 'react-pdf/dist/Page/TextLayer.css'
 
+import IconLink from '../IconLink'
 import WindowHeader from '../wrapper/WindowHeader'
 import WindowWrapper from '../wrapper/WindowWrapper'
 
@@ -19,18 +20,18 @@ function Resume() {
 				title='Resume.pdf'
 				target='resume'
 				rightButton={
-					<a
+					<IconLink
 						href='/files/resume.pdf'
-						title='Download Resume'
-						aria-label='Download Resume'
+						label='Download Resume'
+						size='sm'
+						rounded={false}
 						download
-						className='flex-center cursor-pointer rounded border-2 border-blue-500/10 p-1 text-gray-200 transition-colors hover:border-blue-100 hover:bg-blue-100 hover:text-gray-950'
 					>
 						<Download size={12} />
-					</a>
+					</IconLink>
 				}
 			/>
-			<div className='px-1 pb-1'>
+			<div className='px-2 pb-2'>
 				<Document
 					file='/files/resume.pdf'
 					loading={
