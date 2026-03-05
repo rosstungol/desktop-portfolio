@@ -67,10 +67,10 @@
 	}
 
 	.card-container {
-		@apply glass rounded-2xl border border-blue-500/10 text-gray-200;
+		@apply glass rounded-2xl border border-blue-500/20 text-gray-200 outline outline-gray-800/40;
 
 		&.-dark {
-			@apply bg-gray-900/95;
+			@apply bg-gray-900/85 outline outline-gray-900/80;
 		}
 	}
 
@@ -98,7 +98,7 @@
 }
 
 @utility glass {
-	@apply select-none bg-gray-800/20 shadow-lg backdrop-blur-xs;
+	@apply select-none bg-gray-800/20 shadow-lg backdrop-blur;
 }
 
 @utility flex-center {
