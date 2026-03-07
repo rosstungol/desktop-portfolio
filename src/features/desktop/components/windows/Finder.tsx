@@ -2,9 +2,8 @@ import clsx from 'clsx'
 import { useShallow } from 'zustand/shallow'
 
 import { locations } from '../../data/constants'
-import type { Location, LocationChild } from '../../data/types'
+import type { Location } from '../../data/types'
 import { useLocationStore } from '../../stores/location'
-import { useWindowStore } from '../../stores/window'
 import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
 
@@ -61,6 +60,4 @@ function Finder() {
 	)
 }
 
-const FinderWindow = WindowWrapper(Finder, 'finder')
-
-export default FinderWindow
+export const FinderWindow = WindowWrapper(Finder, 'finder')
