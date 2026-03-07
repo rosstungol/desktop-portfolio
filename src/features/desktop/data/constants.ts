@@ -49,7 +49,17 @@ const APPLICATIONS_LOCATION = {
 	name: 'Applications',
 	Icon: Blocks,
 	kind: 'folder',
-	children: [],
+	children: [
+		{
+			id: 11,
+			name: 'Contact',
+			icon: 'contact.png',
+			kind: 'shortcut',
+			fileType: 'alias',
+			finderPosition: 'absolute top-6 left-6',
+			description: ['test'],
+		},
+	],
 }
 
 const DESKTOP_LOCATION = {
@@ -58,7 +68,17 @@ const DESKTOP_LOCATION = {
 	name: 'Desktop',
 	Icon: Monitor,
 	kind: 'folder',
-	children: [],
+	children: [
+		{
+			id: 21,
+			name: 'Resume',
+			icon: 'pdf.png',
+			kind: 'file',
+			fileType: 'pdf',
+			finderPosition: 'absolute top-6 left-6',
+			description: ['test'],
+		},
+	],
 }
 
 const PROJECTS_LOCATION = {

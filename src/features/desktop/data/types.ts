@@ -30,7 +30,8 @@ type File = {
 	icon: string
 	kind: string
 	fileType: string
-	position: string
+	finderPosition: string
+	dekstopPosition?: string
 	description: string[]
 }
 
@@ -39,8 +40,8 @@ type Folder = {
 	name: string
 	icon: string
 	kind: string
-	position: string
-	windowPosition: string
+	finderPosition: string
+	dekstopPosition?: string
 	children: File[]
 }
 
