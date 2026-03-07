@@ -10,6 +10,7 @@ export type SceneState = 'loading' | 'intro' | 'start' | 'focus' | 'idle'
 const SCENE_INTRO_RENDER_STATES = new Set(['loading', 'intro'])
 const CLICK_TO_START_RENDER_STATES = new Set(['start', 'idle'])
 const SCENE_CONTROLS_RENDER_STATES = new Set(['focus', 'idle'])
+const SCENE_RENDER_STATES = new Set(['intro', 'start', 'focus', 'idle'])
 
 export function App() {
 	const [sceneState, setSceneState] = useState<SceneState>('loading')
@@ -53,7 +54,9 @@ export function App() {
 				/>
 			)}
 
-			<WorkplaceScene sceneState={sceneState} />
+			{SCENE_RENDER_STATES.has(sceneState) && (
+				<WorkplaceScene sceneState={sceneState} />
+			)}
 		</main>
 	)
 }

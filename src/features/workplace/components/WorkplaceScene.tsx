@@ -12,8 +12,6 @@ import { Lighting } from './Lighting'
 import { RoomModel } from './RoomModel'
 import { Skybox } from './Skybox'
 
-const DESKTOP_RENDER_STATES = new Set(['intro', 'start', 'focus', 'idle'])
-
 export function WorkplaceScene({ sceneState }: { sceneState: SceneState }) {
 	const screenRef = useRef<THREE.Group | null>(null)
 
@@ -29,10 +27,7 @@ export function WorkplaceScene({ sceneState }: { sceneState: SceneState }) {
 			<Skybox />
 			<Lighting />
 			<RoomModel />
-
-			{DESKTOP_RENDER_STATES.has(sceneState) && (
-				<DesktopContainer screenRef={screenRef} />
-			)}
+			<DesktopContainer screenRef={screenRef} />
 
 			{import.meta.env.DEV && <Perf />}
 		</Canvas>
