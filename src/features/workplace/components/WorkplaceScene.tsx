@@ -4,17 +4,15 @@ import { useRef } from 'react'
 import type * as THREE from 'three'
 
 import type { SceneState } from '@/App'
-import DesktopContainer from '@/features/desktop/components/DesktopContainer'
+import { DesktopContainer } from '@/features/desktop/components/layout/DesktopContainer'
 
-import CameraController from './CameraController'
-import FixedWidthCamera from './FixedWidthCamera'
-import Lighting from './Lighting'
-import RoomModel from './RoomModel'
-import Skybox from './Skybox'
+import { CameraController } from './CameraController'
+import { FixedWidthCamera } from './FixedWidthCamera'
+import { Lighting } from './Lighting'
+import { RoomModel } from './RoomModel'
+import { Skybox } from './Skybox'
 
-const DESKTOP_RENDER_STATES = new Set(['intro', 'start', 'focus', 'idle'])
-
-export default function Scene({ sceneState }: { sceneState: SceneState }) {
+export function WorkplaceScene({ sceneState }: { sceneState: SceneState }) {
 	const screenRef = useRef<THREE.Group | null>(null)
 
 	return (
@@ -29,10 +27,7 @@ export default function Scene({ sceneState }: { sceneState: SceneState }) {
 			<Skybox />
 			<Lighting />
 			<RoomModel />
-
-			{DESKTOP_RENDER_STATES.has(sceneState) && (
-				<DesktopContainer screenRef={screenRef} />
-			)}
+			<DesktopContainer screenRef={screenRef} />
 
 			{import.meta.env.DEV && <Perf />}
 		</Canvas>

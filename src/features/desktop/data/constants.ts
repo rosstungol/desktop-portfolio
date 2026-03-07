@@ -1,6 +1,6 @@
 import { Blocks, FileCodeCorner, Monitor, Trash } from 'lucide-react'
-import Github from '../components/icons/Github'
-import LinkedIn from '../components/icons/LinkedIn'
+import { Github } from '../components/icons/Github'
+import { LinkedIn } from '../components/icons/LinkedIn'
 
 export const dockApps = [
 	{

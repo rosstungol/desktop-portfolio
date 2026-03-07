@@ -44,7 +44,7 @@ type Folder = {
 	children: File[]
 }
 
-type LocationChild = Folder | File
+export type LocationChild = Folder | File
 
 export type Location = {
 	id: number

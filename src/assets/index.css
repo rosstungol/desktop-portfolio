@@ -12,6 +12,14 @@
 	--natural-black: #0b030a;
 	--champion-blue: #14152e;
 	--pastel-pink: #f4b3d8;
+
+	/* background */
+	--gradient-bg: linear-gradient(
+		45deg,
+		var(--gondola),
+		var(--natural-black),
+		var(--champion-blue)
+	);
 }
 
 @layer base {
@@ -27,6 +35,7 @@
 		height: 100dvh;
 		margin: 0;
 		padding: 0;
+		background: var(--gradient-bg);
 	}
 
 	::selection {
@@ -46,12 +55,7 @@
 		z-index: 20;
 		height: 100dvh;
 		width: 100dvw;
-		background: linear-gradient(
-			45deg,
-			var(--gondola),
-			var(--natural-black),
-			var(--champion-blue)
-		);
+		background: var(--gradient-bg);
 	}
 
 	.desktop-container {

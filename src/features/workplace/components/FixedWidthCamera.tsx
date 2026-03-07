@@ -17,7 +17,7 @@ const DESIGN_VERTICAL_FOV = 78
 
 const FIXED_HORIZONTAL_FOV = vFovToHFov(DESIGN_VERTICAL_FOV, DESIGN_ASPECT)
 
-export default function FixedWidthCamera() {
+export function FixedWidthCamera() {
 	const { camera, size } = useThree()
 
 	useEffect(() => {

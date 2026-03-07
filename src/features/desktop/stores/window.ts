@@ -61,7 +61,7 @@ type WindowStore = {
 	focusWindow: (windowKey: WindowKey) => void
 }
 
-const useWindowStore = create<WindowStore>()(
+export const useWindowStore = create<WindowStore>()(
 	immer((set) => ({
 		windows: WINDOW_CONFIG,
 		nextZIndex: INITIAL_Z_INDEX + 1,
@@ -93,5 +93,3 @@ const useWindowStore = create<WindowStore>()(
 			}),
 	}))
 )
-
-export default useWindowStore

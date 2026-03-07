@@ -1,7 +1,7 @@
 import { contactLinks } from '../../data/constants'
-import IconLink from '../IconLink'
-import WindowHeader from '../wrapper/WindowHeader'
-import WindowWrapper from '../wrapper/WindowWrapper'
+import { IconLink } from '../ui/IconLink'
+import { WindowHeader } from '../wrapper/WindowHeader'
+import { WindowWrapper } from '../wrapper/WindowWrapper'
 
 function Contact() {
 	return (
@@ -32,6 +32,4 @@ function Contact() {
 	)
 }
 
-const ContactWindow = WindowWrapper(Contact, 'contact')
-
-export default ContactWindow
+export const ContactWindow = WindowWrapper(Contact, 'contact')

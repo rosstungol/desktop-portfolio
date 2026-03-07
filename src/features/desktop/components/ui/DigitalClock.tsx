@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import { useEffect, useRef } from 'react'
 
-export default function DigitalClock() {
+export function DigitalClock() {
 	const timeRef = useRef<HTMLTimeElement>(null)
 
 	useEffect(() => {

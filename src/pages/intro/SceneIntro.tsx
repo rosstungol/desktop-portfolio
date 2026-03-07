@@ -3,8 +3,8 @@ import { type ReactNode, ViewTransition } from 'react'
 
 import type { SceneState } from '@/App'
 
-import LoadingScreen from './LoadingScreen'
-import StartScreen from './StartScreen'
+import { LoadingScreen } from './LoadingScreen'
+import { StartScreen } from './StartScreen'
 
 type SceneIntroProps = {
 	sceneState: SceneState
@@ -12,11 +12,7 @@ type SceneIntroProps = {
 	onStart: () => void
 }
 
-export default function SceneIntro({
-	sceneState,
-	onLoaded,
-	onStart,
-}: SceneIntroProps) {
+export function SceneIntro({ sceneState, onLoaded, onStart }: SceneIntroProps) {
 	let screenContent: ReactNode
 
 	if (sceneState === 'loading') {

@@ -3,9 +3,9 @@ import { useShallow } from 'zustand/shallow'
 
 import { locations } from '../../data/constants'
 import type { Location } from '../../data/types'
-import useLocationStore from '../../stores/location'
-import WindowHeader from '../wrapper/WindowHeader'
-import WindowWrapper from '../wrapper/WindowWrapper'
+import { useLocationStore } from '../../stores/location'
+import { WindowHeader } from '../wrapper/WindowHeader'
+import { WindowWrapper } from '../wrapper/WindowWrapper'
 
 function Finder() {
 	const { activeLocation, setActiveLocation } = useLocationStore(
@@ -60,6 +60,4 @@ function Finder() {
 	)
 }
 
-const FinderWindow = WindowWrapper(Finder, 'finder')
-
-export default FinderWindow
+export const FinderWindow = WindowWrapper(Finder, 'finder')

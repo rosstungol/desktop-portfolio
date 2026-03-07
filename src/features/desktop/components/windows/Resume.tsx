@@ -4,9 +4,9 @@ import { Document, Page, pdfjs } from 'react-pdf'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 import 'react-pdf/dist/Page/TextLayer.css'
 
-import IconLink from '../IconLink'
-import WindowHeader from '../wrapper/WindowHeader'
-import WindowWrapper from '../wrapper/WindowWrapper'
+import { IconLink } from '../ui/IconLink'
+import { WindowHeader } from '../wrapper/WindowHeader'
+import { WindowWrapper } from '../wrapper/WindowWrapper'
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 	'pdfjs-dist/build/pdf.worker.min.mjs',
@@ -54,6 +54,4 @@ function Resume() {
 	)
 }
 
-const ResumeWindow = WindowWrapper(Resume, 'resume')
-
-export default ResumeWindow
+export const ResumeWindow = WindowWrapper(Resume, 'resume')
