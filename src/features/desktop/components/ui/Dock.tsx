@@ -9,8 +9,6 @@ import { dockApps } from '@/features/desktop/data/constants'
 import type { WindowKey } from '../../data/types'
 import { useWindowStore } from '../../stores/window'
 
-const imagePath = '/src/features/desktop/assets/icons/'
-
 export function Dock() {
 	const { windows, openWindow, focusWindow } = useWindowStore(
 		useShallow((state) => ({
@@ -95,7 +93,7 @@ export function Dock() {
 							className='dock-icon'
 						>
 							<img
-								src={`${imagePath}${icon}`}
+								src={`/desktop/icons/${icon}`}
 								alt={name}
 								loading='lazy'
 								className='size-10'
@@ -116,7 +114,7 @@ export function Dock() {
 						className='dock-icon'
 					>
 						<img
-							src={`${imagePath}trash.png`}
+							src={`/desktop/icons/trash.png`}
 							alt='Trash'
 							loading='lazy'
 							className='size-9'

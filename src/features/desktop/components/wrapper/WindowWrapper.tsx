@@ -7,6 +7,8 @@ import { useShallow } from 'zustand/shallow'
 import type { WindowKey } from '../../data/types'
 import { useWindowStore } from '../../stores/window'
 
+gsap.registerPlugin(Draggable)
+
 export function WindowWrapper<P extends object>(
 	Component: React.ComponentType<P>,
 	windowKey: WindowKey
