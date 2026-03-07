@@ -2,9 +2,9 @@ import { Html } from '@react-three/drei'
 import type { RefObject } from 'react'
 import type * as THREE from 'three'
 
-import DesktopScreen from './DesktopScreen'
+import { DesktopScreen } from './DesktopScreen'
 
-export default function DesktopContainer({
+export function DesktopContainer({
 	screenRef,
 }: {
 	screenRef: RefObject<THREE.Group | null>

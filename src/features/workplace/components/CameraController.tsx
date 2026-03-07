@@ -11,7 +11,7 @@ type CameraControllerProps = {
 	screenRef: RefObject<THREE.Group | null>
 }
 
-export default function CameraController({
+export function CameraController({
 	sceneState,
 	screenRef,
 }: CameraControllerProps) {

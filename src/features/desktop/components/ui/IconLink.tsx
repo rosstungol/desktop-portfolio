@@ -19,7 +19,7 @@ const sizeStyles: Record<IconLinkSize, string> = {
 	md: 'p-2',
 }
 
-export default function IconLink({
+export function IconLink({
 	href,
 	label,
 	size = 'md',

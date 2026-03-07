@@ -5,9 +5,9 @@ import { useLayoutEffect, useRef } from 'react'
 import { useShallow } from 'zustand/shallow'
 
 import type { WindowKey } from '../../data/types'
-import useWindowStore from '../../stores/window'
+import { useWindowStore } from '../../stores/window'
 
-export default function WindowWrapper<P extends object>(
+export function WindowWrapper<P extends object>(
 	Component: React.ComponentType<P>,
 	windowKey: WindowKey
 ) {

@@ -1,4 +1,4 @@
-export default function Lighting() {
+export function Lighting() {
 	return (
 		<spotLight
 			castShadow

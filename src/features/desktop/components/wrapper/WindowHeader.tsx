@@ -2,9 +2,9 @@ import clsx from 'clsx'
 import type { ReactNode } from 'react'
 
 import type { WindowKey } from '../../data/types'
-import WindowControls from './WindowControls'
+import { WindowControls } from './WindowControls'
 
-export default function WindowHeader({
+export function WindowHeader({
 	title,
 	target,
 	rightButton,

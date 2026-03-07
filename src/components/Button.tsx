@@ -25,7 +25,7 @@ const sizeStyles: Record<ButtonSize, string> = {
 	md: 'p-2 gap-2 text-sm',
 }
 
-export default function Button({
+export function Button({
 	variant = 'primary',
 	size = 'md',
 	className,

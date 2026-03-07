@@ -8,7 +8,7 @@ gsap.registerPlugin(TextPlugin)
 
 const FULL_TEXT = 'click anywhere to start'
 
-export default function ClickToStart() {
+export function ClickToStart() {
 	const textRef = useRef<HTMLSpanElement | null>(null)
 
 	useGSAP(() => {

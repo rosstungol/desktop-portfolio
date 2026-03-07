@@ -1,8 +1,8 @@
 import { startTransition } from 'react'
 
-import Button from '@/components/Button'
+import { Button } from '@/components/Button'
 
-export default function StartScreen({ onStart }: { onStart: () => void }) {
+export function StartScreen({ onStart }: { onStart: () => void }) {
 	const handleStartTransition = () => {
 		startTransition(onStart)
 	}

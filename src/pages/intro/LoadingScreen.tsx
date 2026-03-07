@@ -1,7 +1,7 @@
 import { useProgress } from '@react-three/drei'
 import { useEffect, useRef } from 'react'
 
-export default function LoadingScreen({ onLoaded }: { onLoaded: () => void }) {
+export function LoadingScreen({ onLoaded }: { onLoaded: () => void }) {
 	const { progress } = useProgress()
 	const hasLoadedRef = useRef(false)
 	const progressRounded = Math.round(progress)

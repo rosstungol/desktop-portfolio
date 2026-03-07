@@ -6,10 +6,12 @@ import { useShallow } from 'zustand/shallow'
 
 import { dockApps } from '@/features/desktop/data/constants'
 
-import type { WindowKey } from '../data/types'
-import useWindowStore from '../stores/window'
+import type { WindowKey } from '../../data/types'
+import { useWindowStore } from '../../stores/window'
 
-export default function Dock() {
+const imagePath = '/src/features/desktop/assets/icons/'
+
+export function Dock() {
 	const { windows, openWindow, focusWindow } = useWindowStore(
 		useShallow((state) => ({
 			windows: state.windows,
@@ -93,7 +95,7 @@ export default function Dock() {
 							className='dock-icon'
 						>
 							<img
-								src={`/desktop/icons/${icon}`}
+								src={`${imagePath}${icon}`}
 								alt={name}
 								loading='lazy'
 								className='size-10'
@@ -114,7 +116,7 @@ export default function Dock() {
 						className='dock-icon'
 					>
 						<img
-							src={`/desktop/icons/trash.png`}
+							src={`${imagePath}trash.png`}
 							alt='Trash'
 							loading='lazy'
 							className='size-9'

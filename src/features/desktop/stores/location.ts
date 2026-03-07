@@ -12,7 +12,7 @@ type LocationStore = {
 	resetActiveLocation: () => void
 }
 
-const useLocationStore = create<LocationStore>()(
+export const useLocationStore = create<LocationStore>()(
 	immer((set) => ({
 		activeLocation: DEFAULT_LOCATION,
 		setActiveLocation: (location = null) =>
@@ -25,5 +25,3 @@ const useLocationStore = create<LocationStore>()(
 			}),
 	}))
 )
-
-export default useLocationStore
