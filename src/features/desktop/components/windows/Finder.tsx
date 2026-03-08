@@ -1,10 +1,15 @@
 import { locations } from '../../data/constants'
+import { useLocationStore } from '../../stores/location'
+import { FinderMenu } from '../ui/FinderMenu'
+import { IconList } from '../ui/IconList'
 import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
-import { FinderContent } from './FinderContent'
-import { FinderMenu } from './FinderMenu'
 
 function Finder() {
+	const activeLocation = useLocationStore((state) => state.activeLocation)
+
+	if (!activeLocation) return null
+
 	return (
 		<>
 			<WindowHeader title='Finder' target='finder' />
@@ -14,7 +19,7 @@ function Finder() {
 				</div>
 
 				<div className='relative w-full'>
-					<FinderContent />
+					<IconList location={activeLocation} desktop={false} />
 				</div>
 			</div>
 		</>

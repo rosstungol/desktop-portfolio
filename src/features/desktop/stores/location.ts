@@ -2,13 +2,13 @@ import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 
 import { locations } from '../data/constants'
-import type { Location } from '../data/types'
+import type { WindowLocation } from '../data/types'
 
-const DEFAULT_LOCATION: Location = locations.applications
+const DEFAULT_LOCATION: WindowLocation = locations.applications
 
 type LocationStore = {
-	activeLocation: Location | null
-	setActiveLocation: (location?: Location | null) => void
+	activeLocation: WindowLocation | null
+	setActiveLocation: (location?: WindowLocation | null) => void
 	resetActiveLocation: () => void
 }
 

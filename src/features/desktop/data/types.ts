@@ -31,7 +31,7 @@ type File = {
 	kind: string
 	fileType: string
 	finderPosition: string
-	dekstopPosition?: string
+	desktopPosition?: string
 	description: string[]
 }
 
@@ -41,13 +41,13 @@ type Folder = {
 	icon: string
 	kind: string
 	finderPosition: string
-	dekstopPosition?: string
+	desktopPosition?: string
 	children: File[]
 }
 
 export type LocationChild = Folder | File
 
-export type Location = {
+export type WindowLocation = {
 	id: number
 	type: string
 	name: string

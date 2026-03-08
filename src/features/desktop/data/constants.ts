@@ -56,13 +56,13 @@ const APPLICATIONS_LOCATION = {
 			icon: 'contact.png',
 			kind: 'shortcut',
 			fileType: 'alias',
-			finderPosition: 'absolute top-6 left-6',
+			finderPosition: 'top-6 left-6',
 			description: ['test'],
 		},
 	],
 }
 
-const DESKTOP_LOCATION = {
+export const DESKTOP_LOCATION = {
 	id: 2,
 	type: 'desktop',
 	name: 'Desktop',
@@ -75,7 +75,8 @@ const DESKTOP_LOCATION = {
 			icon: 'pdf.png',
 			kind: 'file',
 			fileType: 'pdf',
-			finderPosition: 'absolute top-6 left-6',
+			finderPosition: 'top-6 left-6',
+			desktopPosition: 'top-10 right-8',
 			description: ['test'],
 		},
 	],

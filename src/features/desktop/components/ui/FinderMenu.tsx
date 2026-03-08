@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { useShallow } from 'zustand/shallow'
 
-import type { Location } from '../../data/types'
+import type { WindowLocation } from '../../data/types'
 import { useLocationStore } from '../../stores/location'
 
 export function FinderMenu({
@@ -9,7 +9,7 @@ export function FinderMenu({
 	items,
 }: {
 	name: string
-	items: Location[]
+	items: WindowLocation[]
 }) {
 	const { activeLocation, setActiveLocation } = useLocationStore(
 		useShallow((state) => ({
@@ -24,7 +24,7 @@ export function FinderMenu({
 		<div>
 			<h3 className='mb-1 font-semibold text-[10px] text-gray-400'>{name}</h3>
 			<ul className='flex flex-col gap-1'>
-				{items.map((item: Location) => {
+				{items.map((item: WindowLocation) => {
 					return (
 						<li key={item.id}>
 							<button
