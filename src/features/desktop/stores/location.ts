@@ -6,7 +6,7 @@ import type { WindowLocation } from '../data/types'
 const DEFAULT_LOCATION: WindowLocation = locations.applications
 
 type LocationStore = {
-	activeLocation: WindowLocation | null
+	activeLocation: WindowLocation
 	setActiveLocation: (location: WindowLocation) => void
 	resetActiveLocation: () => void
 }
