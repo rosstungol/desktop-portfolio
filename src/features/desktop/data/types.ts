@@ -42,10 +42,14 @@ type Folder = {
 	window: WindowKey
 	finderPosition: string
 	desktopPosition?: string
-	children: LocationChild[]
+	children: LocationItem[]
 }
 
-export type LocationChild = Folder | File
+export type LocationItem = Folder | File
+
+export type DesktopItem = LocationItem & {
+	desktopPosition: string
+}
 
 export type WindowLocation = {
 	id: number
@@ -53,5 +57,5 @@ export type WindowLocation = {
 	Icon: ForwardRefExoticComponent<
 		Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>
 	>
-	children: LocationChild[]
+	children: LocationItem[]
 }

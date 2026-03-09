@@ -17,7 +17,9 @@ export function IconList({ location, type }: IconListProps) {
 					key={item.id}
 					className={clsx(
 						'absolute',
-						type === 'desktop' ? item.desktopPosition : item.finderPosition
+						type === 'desktop' && item.desktopPosition
+							? item.desktopPosition
+							: item.finderPosition
 					)}
 				>
 					<button
@@ -27,7 +29,8 @@ export function IconList({ location, type }: IconListProps) {
 					>
 						<img
 							src={`/desktop/icons/${item.icon}`}
-							alt={item.name}
+							alt=''
+							aria-hidden='true'
 							className='size-10'
 						/>
 						<p

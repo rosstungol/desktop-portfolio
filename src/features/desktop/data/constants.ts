@@ -1,7 +1,7 @@
 import { Blocks, FileCodeCorner, Monitor, Trash } from 'lucide-react'
 import { Github } from '../components/icons/Github'
 import { LinkedIn } from '../components/icons/LinkedIn'
-import type { LocationChild } from './types'
+import type { DesktopItem, LocationItem } from './types'
 
 export const dockApps = [
 	{
@@ -57,8 +57,8 @@ const APPLICATIONS_LOCATION = {
 			fileType: 'alias',
 			finderPosition: 'top-6 left-6',
 			description: ['test'],
-		} as LocationChild,
-	],
+		},
+	] satisfies LocationItem[],
 }
 
 export const DESKTOP_LOCATION = {
@@ -75,8 +75,8 @@ export const DESKTOP_LOCATION = {
 			finderPosition: 'top-6 left-4',
 			desktopPosition: 'top-10 right-8',
 			description: ['test'],
-		} as LocationChild,
-	],
+		},
+	] satisfies DesktopItem[],
 }
 
 const PROJECTS_LOCATION = {

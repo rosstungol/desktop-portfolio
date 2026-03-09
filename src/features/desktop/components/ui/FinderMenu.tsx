@@ -27,6 +27,7 @@ export function FinderMenu({ name, items }: FinderMenuProps) {
 							<button
 								type='button'
 								onClick={() => setActiveLocation(item)}
+								aria-pressed={item.id === activeLocation?.id}
 								className={clsx(
 									'flex w-full items-center gap-1 rounded p-1 text-[10px]',
 									'transition-colors hover:bg-blue-500/10',
