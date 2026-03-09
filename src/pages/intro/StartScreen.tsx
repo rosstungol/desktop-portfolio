@@ -11,6 +11,10 @@ export function StartScreen({ onStart }: { onStart: () => void }) {
 		const el = ref.current
 
 		if (!el) return
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+			gsap.set(el, { scale: 1, opacity: 1, y: 0 })
+			return
+		}
 
 		el.style.display = 'block'
 
