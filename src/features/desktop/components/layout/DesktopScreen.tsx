@@ -11,7 +11,7 @@ export function DesktopScreen() {
 		<div>
 			<Navbar />
 			<Dock />
-			<IconList location={DESKTOP_LOCATION} desktop={true} />
+			<IconList location={DESKTOP_LOCATION} type='desktop' />
 
 			<FinderWindow />
 			<ContactWindow />

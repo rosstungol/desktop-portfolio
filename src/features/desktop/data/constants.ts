@@ -1,6 +1,7 @@
 import { Blocks, FileCodeCorner, Monitor, Trash } from 'lucide-react'
 import { Github } from '../components/icons/Github'
 import { LinkedIn } from '../components/icons/LinkedIn'
+import type { WindowKey } from './types'
 
 export const dockApps = [
 	{
@@ -45,16 +46,14 @@ export const contactLinks = [
 
 const APPLICATIONS_LOCATION = {
 	id: 1,
-	type: 'applications',
 	name: 'Applications',
 	Icon: Blocks,
-	kind: 'folder',
 	children: [
 		{
 			id: 11,
 			name: 'Contact',
 			icon: 'contact.png',
-			kind: 'shortcut',
+			window: 'contact' as WindowKey,
 			fileType: 'alias',
 			finderPosition: 'top-6 left-6',
 			description: ['test'],
@@ -64,18 +63,16 @@ const APPLICATIONS_LOCATION = {
 
 export const DESKTOP_LOCATION = {
 	id: 2,
-	type: 'desktop',
 	name: 'Desktop',
 	Icon: Monitor,
-	kind: 'folder',
 	children: [
 		{
 			id: 21,
-			name: 'Resume',
+			name: 'Resume.pdf',
 			icon: 'pdf.png',
-			kind: 'file',
+			window: 'resume' as WindowKey,
 			fileType: 'pdf',
-			finderPosition: 'top-6 left-6',
+			finderPosition: 'top-6 left-4',
 			desktopPosition: 'top-10 right-8',
 			description: ['test'],
 		},
@@ -84,19 +81,15 @@ export const DESKTOP_LOCATION = {
 
 const PROJECTS_LOCATION = {
 	id: 3,
-	type: 'projects',
 	name: 'Projects',
 	Icon: FileCodeCorner,
-	kind: 'folder',
 	children: [],
 }
 
 const TRASH_LOCATION = {
 	id: 4,
-	type: 'trash',
 	name: 'Trash',
 	Icon: Trash,
-	kind: 'folder',
 	children: [],
 }
 

@@ -8,8 +8,6 @@ import { WindowWrapper } from '../wrapper/WindowWrapper'
 function Finder() {
 	const activeLocation = useLocationStore((state) => state.activeLocation)
 
-	if (!activeLocation) return null
-
 	return (
 		<>
 			<WindowHeader title='Finder' target='finder' />
@@ -19,7 +17,9 @@ function Finder() {
 				</div>
 
 				<div className='relative w-full'>
-					<IconList location={activeLocation} desktop={false} />
+					{activeLocation && (
+						<IconList location={activeLocation} type='finder' />
+					)}
 				</div>
 			</div>
 		</>

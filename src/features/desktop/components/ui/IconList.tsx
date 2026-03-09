@@ -1,26 +1,14 @@
 import clsx from 'clsx'
-import type { LocationChild, WindowLocation } from '../../data/types'
+import type { WindowLocation } from '../../data/types'
 import { useWindowStore } from '../../stores/window'
 
-export function IconList({
-	location,
-	desktop,
-}: {
+type IconListProps = {
 	location: WindowLocation
-	desktop: boolean
-}) {
-	const openWindow = useWindowStore((state) => state.openWindow)
+	type: 'desktop' | 'finder'
+}
 
-	const openItem = (item: LocationChild) => {
-		switch (item.name) {
-			case 'Resume':
-				return openWindow('resume')
-			case 'Contact':
-				return openWindow('contact')
-			default:
-				throw new Error('Unknown item type')
-		}
-	}
+export function IconList({ location, type }: IconListProps) {
+	const openWindow = useWindowStore((state) => state.openWindow)
 
 	return (
 		<ul>
@@ -29,12 +17,12 @@ export function IconList({
 					key={item.id}
 					className={clsx(
 						'absolute',
-						desktop ? item.desktopPosition : item.finderPosition
+						type === 'desktop' ? item.desktopPosition : item.finderPosition
 					)}
 				>
 					<button
 						type='button'
-						onClick={() => openItem(item)}
+						onClick={() => openWindow(item.window)}
 						className='col-center'
 					>
 						<img
@@ -45,7 +33,7 @@ export function IconList({
 						<p
 							className={clsx(
 								'text-[10px] text-gray-200',
-								desktop && 'drop-shadow drop-shadow-gray-900'
+								type === 'desktop' && 'drop-shadow drop-shadow-gray-900'
 							)}
 						>
 							{item.name}

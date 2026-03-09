@@ -28,7 +28,7 @@ type File = {
 	id: number
 	name: string
 	icon: string
-	kind: string
+	window: WindowKey
 	fileType: string
 	finderPosition: string
 	desktopPosition?: string
@@ -39,21 +39,19 @@ type Folder = {
 	id: number
 	name: string
 	icon: string
-	kind: string
+	window: WindowKey
 	finderPosition: string
 	desktopPosition?: string
-	children: File[]
+	children: Folder[] | File[]
 }
 
 export type LocationChild = Folder | File
 
 export type WindowLocation = {
 	id: number
-	type: string
 	name: string
 	Icon: ForwardRefExoticComponent<
 		Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>
 	>
-	kind: string
 	children: LocationChild[]
 }
