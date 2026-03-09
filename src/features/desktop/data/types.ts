@@ -1,5 +1,4 @@
-import type { LucideProps } from 'lucide-react'
-import type { ForwardRefExoticComponent, RefAttributes } from 'react'
+import type { LucideIcon } from 'lucide-react'
 
 // Window Store types
 export type WindowData = unknown
@@ -32,7 +31,7 @@ type File = {
 	fileType: string
 	finderPosition: string
 	desktopPosition?: string
-	description: string[]
+	description?: string[]
 }
 
 type Folder = {
@@ -54,8 +53,6 @@ export type DesktopItem = LocationItem & {
 export type WindowLocation = {
 	id: number
 	name: string
-	Icon: ForwardRefExoticComponent<
-		Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>
-	>
+	Icon: LucideIcon
 	children: LocationItem[]
 }
