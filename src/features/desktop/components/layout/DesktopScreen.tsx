@@ -1,4 +1,4 @@
-import { DESKTOP_LOCATION } from '../../data/constants'
+import { DESKTOP_LOCATION } from '../../data/constants/locations'
 import { Navbar } from '../layout/Navbar'
 import { Dock } from '../ui/Dock'
 import { IconList } from '../ui/IconList'

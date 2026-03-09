@@ -1,4 +1,4 @@
-import { locations } from '../../data/constants'
+import { locations } from '../../data/constants/locations'
 import { useLocationStore } from '../../stores/location'
 import { FinderMenu } from '../ui/FinderMenu'
 import { IconList } from '../ui/IconList'
