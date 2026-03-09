@@ -1,7 +1,6 @@
 import { create } from 'zustand'
-import { immer } from 'zustand/middleware/immer'
 
-import { locations } from '../data/constants'
+import { locations } from '../data/constants/locations'
 import type { WindowLocation } from '../data/types'
 
 const DEFAULT_LOCATION: WindowLocation = locations.applications
@@ -12,16 +11,14 @@ type LocationStore = {
 	resetActiveLocation: () => void
 }
 
-export const useLocationStore = create<LocationStore>()(
-	immer((set) => ({
-		activeLocation: DEFAULT_LOCATION,
-		setActiveLocation: (location = null) =>
-			set((state) => {
-				state.activeLocation = location
-			}),
-		resetActiveLocation: () =>
-			set((state) => {
-				state.activeLocation = DEFAULT_LOCATION
-			}),
-	}))
-)
+export const useLocationStore = create<LocationStore>((set) => ({
+	activeLocation: DEFAULT_LOCATION,
+	setActiveLocation: (location = null) =>
+		set({
+			activeLocation: location,
+		}),
+	resetActiveLocation: () =>
+		set({
+			activeLocation: DEFAULT_LOCATION,
+		}),
+}))
