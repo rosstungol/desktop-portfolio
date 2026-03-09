@@ -1,7 +1,7 @@
 import { Blocks, FileCodeCorner, Monitor, Trash } from 'lucide-react'
 import { Github } from '../components/icons/Github'
 import { LinkedIn } from '../components/icons/LinkedIn'
-import type { WindowKey } from './types'
+import type { LocationChild } from './types'
 
 export const dockApps = [
 	{
@@ -53,11 +53,11 @@ const APPLICATIONS_LOCATION = {
 			id: 11,
 			name: 'Contact',
 			icon: 'contact.png',
-			window: 'contact' as WindowKey,
+			window: 'contact',
 			fileType: 'alias',
 			finderPosition: 'top-6 left-6',
 			description: ['test'],
-		},
+		} as LocationChild,
 	],
 }
 
@@ -70,12 +70,12 @@ export const DESKTOP_LOCATION = {
 			id: 21,
 			name: 'Resume.pdf',
 			icon: 'pdf.png',
-			window: 'resume' as WindowKey,
+			window: 'resume',
 			fileType: 'pdf',
 			finderPosition: 'top-6 left-4',
 			desktopPosition: 'top-10 right-8',
 			description: ['test'],
-		},
+		} as LocationChild,
 	],
 }
 

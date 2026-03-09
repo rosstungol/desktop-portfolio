@@ -16,7 +16,7 @@ function Finder() {
 					<FinderMenu name='Favorites' items={Object.values(locations)} />
 				</div>
 
-				<div className='relative w-full'>
+				<div className='w-full'>
 					{activeLocation && (
 						<IconList location={activeLocation} type='finder' />
 					)}

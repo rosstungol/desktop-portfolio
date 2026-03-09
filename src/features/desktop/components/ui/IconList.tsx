@@ -11,7 +11,7 @@ export function IconList({ location, type }: IconListProps) {
 	const openWindow = useWindowStore((state) => state.openWindow)
 
 	return (
-		<ul>
+		<ul className='relative'>
 			{location.children.map((item) => (
 				<li
 					key={item.id}

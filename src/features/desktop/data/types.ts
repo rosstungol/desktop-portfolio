@@ -42,7 +42,7 @@ type Folder = {
 	window: WindowKey
 	finderPosition: string
 	desktopPosition?: string
-	children: Folder[] | File[]
+	children: LocationChild[]
 }
 
 export type LocationChild = Folder | File
