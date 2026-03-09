@@ -7,13 +7,13 @@ const DEFAULT_LOCATION: WindowLocation = locations.applications
 
 type LocationStore = {
 	activeLocation: WindowLocation | null
-	setActiveLocation: (location?: WindowLocation | null) => void
+	setActiveLocation: (location: WindowLocation) => void
 	resetActiveLocation: () => void
 }
 
 export const useLocationStore = create<LocationStore>((set) => ({
 	activeLocation: DEFAULT_LOCATION,
-	setActiveLocation: (location = null) =>
+	setActiveLocation: (location) =>
 		set({
 			activeLocation: location,
 		}),
