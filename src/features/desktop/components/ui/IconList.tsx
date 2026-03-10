@@ -1,18 +1,30 @@
 import clsx from 'clsx'
-import type { WindowLocation } from '../../data/types'
+
+import type { LocationItem } from '../../data/types'
+import { useLocationStore } from '../../stores/location'
 import { useWindowStore } from '../../stores/window'
 
 type IconListProps = {
-	location: WindowLocation
+	items: LocationItem[] | undefined
 	type: 'desktop' | 'finder'
 }
 
-export function IconList({ location, type }: IconListProps) {
+export function IconList({ items, type }: IconListProps) {
 	const openWindow = useWindowStore((state) => state.openWindow)
+	const setActiveLocation = useLocationStore((state) => state.setActiveLocation)
+
+	const openItem = (item: LocationItem) => {
+		if (item.window === 'finder') setActiveLocation(item)
+		if (item.window === 'resume') openWindow('resume')
+		if (item.window === 'contact') openWindow('contact')
+		if (item.window === 'imageFile') openWindow(item.window, item)
+		if (item.window === 'textFile') openWindow(item.window, item)
+		if (item.type === 'url') return window.open(item.href, '_blank')
+	}
 
 	return (
 		<ul className='relative'>
-			{location.children.map((item) => (
+			{items?.map((item) => (
 				<li
 					key={item.id}
 					className={clsx(
@@ -24,13 +36,12 @@ export function IconList({ location, type }: IconListProps) {
 				>
 					<button
 						type='button'
-						onClick={() => openWindow(item.window)}
+						onClick={() => openItem(item)}
 						className='col-center'
 					>
 						<img
 							src={`/desktop/icons/${item.icon}`}
-							alt=''
-							aria-hidden='true'
+							alt={item.name}
 							className='size-10'
 						/>
 						<p
