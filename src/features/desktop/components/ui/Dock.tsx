@@ -71,10 +71,10 @@ export function Dock() {
 		}
 	}, [])
 
-	const handleAppToggle = (id: WindowKey) => {
+	const handleAppToggle = (id: WindowKey, finderLocation?: 'trash') => {
 		const appWindow = windows[id]
 
-		if (id === 'trash') {
+		if (id === 'finder' && finderLocation === 'trash') {
 			setActiveLocation(locations.trash)
 			appWindow.isOpen ? focusWindow('finder') : openWindow('finder')
 		} else if (appWindow.isOpen) {
@@ -115,7 +115,7 @@ export function Dock() {
 						aria-label='Trash'
 						data-tooltip-id='dock-tooltip'
 						data-tooltip-content='Trash'
-						onClick={() => handleAppToggle('trash')}
+						onClick={() => handleAppToggle('finder', 'trash')}
 						className='dock-icon'
 					>
 						<img
