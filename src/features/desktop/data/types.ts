@@ -15,7 +15,6 @@ export type WindowKey =
 	| 'contact'
 	| 'photos'
 	| 'terminal'
-	| 'trash'
 	| 'resume'
 	| 'textFile'
 	| 'imageFile'
@@ -23,36 +22,42 @@ export type WindowKey =
 export type WindowsRecord = Record<WindowKey, WindowState>
 
 // Location Store types
-type File = {
+type ItemType = WindowKey | 'url' | 'folder'
+
+export type BaseItem = {
 	id: number
 	name: string
-	icon: string
-	window: WindowKey
-	fileType: string
-	finderPosition: string
-	desktopPosition?: string
-	description?: string[]
 }
 
-type Folder = {
-	id: number
-	name: string
-	icon: string
-	window: WindowKey
-	finderPosition: string
+export type BaseLocationItem = BaseItem & {
+	icon?: string
+	Icon?: LucideIcon
+	type?: ItemType
+	href?: string
+	children?: LocationItem[]
+	finderPosition?: string
 	desktopPosition?: string
+	fileContent?: string[]
+}
+
+type UrlItem = BaseLocationItem & {
+	type: 'url'
+	href: string
+}
+
+type FolderItem = BaseLocationItem & {
+	type: 'folder'
 	children: LocationItem[]
 }
 
-export type LocationItem = Folder | File
-
-export type DesktopItem = LocationItem & {
-	desktopPosition: string
+type FileItem = BaseLocationItem & {
+	type: WindowKey
+	fileContent?: string[]
 }
 
-export type WindowLocation = {
-	id: number
-	name: string
+export type FinderLocationItem = BaseLocationItem & {
 	Icon: LucideIcon
 	children: LocationItem[]
 }
+
+export type LocationItem = UrlItem | FolderItem | FileItem | FinderLocationItem

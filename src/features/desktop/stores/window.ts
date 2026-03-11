@@ -31,11 +31,6 @@ const WINDOW_CONFIG: WindowsRecord = {
 		zIndex: INITIAL_Z_INDEX,
 		data: null,
 	},
-	trash: {
-		isOpen: false,
-		zIndex: INITIAL_Z_INDEX,
-		data: null,
-	},
 	resume: {
 		isOpen: false,
 		zIndex: INITIAL_Z_INDEX,

@@ -1,51 +1,39 @@
-import { Blocks, FileCodeCorner, Monitor, Trash } from 'lucide-react'
-import type { DesktopItem, LocationItem, WindowLocation } from '../types'
+import { Blocks, Code2, Monitor, Trash2 } from 'lucide-react'
 
-const APPLICATIONS_LOCATION: WindowLocation = {
+import type { FinderLocationItem } from '../types'
+import {
+	applicationsItems,
+	desktopItems,
+	projectsItems,
+	trashItems,
+} from './locationItems'
+
+const APPLICATIONS_LOCATION: FinderLocationItem = {
 	id: 1,
 	name: 'Applications',
 	Icon: Blocks,
-	children: [
-		{
-			id: 11,
-			name: 'Contact',
-			icon: 'contact.png',
-			window: 'contact',
-			fileType: 'alias',
-			finderPosition: 'top-6 left-6',
-		},
-	] satisfies LocationItem[],
+	children: applicationsItems,
 }
 
-export const DESKTOP_LOCATION: WindowLocation = {
+const DESKTOP_LOCATION: FinderLocationItem = {
 	id: 2,
 	name: 'Desktop',
 	Icon: Monitor,
-	children: [
-		{
-			id: 21,
-			name: 'Resume.pdf',
-			icon: 'pdf.png',
-			window: 'resume',
-			fileType: 'pdf',
-			finderPosition: 'top-6 left-4',
-			desktopPosition: 'top-10 right-8',
-		},
-	] satisfies DesktopItem[],
+	children: desktopItems,
 }
 
-const PROJECTS_LOCATION: WindowLocation = {
+const PROJECTS_LOCATION: FinderLocationItem = {
 	id: 3,
 	name: 'Projects',
-	Icon: FileCodeCorner,
-	children: [],
+	Icon: Code2,
+	children: projectsItems,
 }
 
-const TRASH_LOCATION: WindowLocation = {
+const TRASH_LOCATION: FinderLocationItem = {
 	id: 4,
 	name: 'Trash',
-	Icon: Trash,
-	children: [],
+	Icon: Trash2,
+	children: trashItems,
 }
 
 export const locations = {

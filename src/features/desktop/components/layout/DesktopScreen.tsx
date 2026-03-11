@@ -1,4 +1,4 @@
-import { DESKTOP_LOCATION } from '../../data/constants/locations'
+import { locations } from '../../data/constants/locations'
 import { Navbar } from '../layout/Navbar'
 import { Dock } from '../ui/Dock'
 import { IconList } from '../ui/IconList'
@@ -11,7 +11,7 @@ export function DesktopScreen() {
 		<div>
 			<Navbar />
 			<Dock />
-			<IconList location={DESKTOP_LOCATION} type='desktop' />
+			<IconList items={locations.desktop.children ?? []} location='desktop' />
 
 			<FinderWindow />
 			<ContactWindow />
