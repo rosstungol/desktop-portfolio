@@ -8,9 +8,9 @@ import { DesktopContainer } from '@/features/desktop/components/layout/DesktopCo
 
 import { CameraController } from '../camera/CameraController'
 import { FixedWidthCamera } from '../camera/FixedWidthCamera'
-import { RoomModel } from '../scene/RoomModel'
-import { Skybox } from '../scene/Skybox'
 import { Lighting } from './Lighting'
+import { RoomModel } from './RoomModel'
+import { Skybox } from './Skybox'
 
 export function WorkplaceScene({ sceneState }: { sceneState: SceneState }) {
 	const screenRef = useRef<THREE.Group | null>(null)
