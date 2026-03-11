@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { useShallow } from 'zustand/shallow'
 
-import type { LocationItem } from '../../data/types'
+import type { MenuItem } from '../../data/types'
 import { useLocationStore } from '../../stores/location'
 
 export function FinderMenu({
@@ -9,7 +9,7 @@ export function FinderMenu({
 	items,
 }: {
 	name: string
-	items: LocationItem[] | undefined
+	items: MenuItem[]
 }) {
 	const { activeLocation, setActiveLocation } = useLocationStore(
 		useShallow((state) => ({

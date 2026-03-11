@@ -1,29 +1,27 @@
 import { FolderCode } from 'lucide-react'
 
-import type { LocationItem } from '../types'
+import type { IconItem, LocationItem } from '../types'
 
 export const applicationsItems = [
 	{
 		id: 11,
 		name: 'Contact',
 		icon: 'contact.png',
-		window: 'contact',
-		type: 'alias',
+		type: 'contact',
 		finderPosition: 'top-6 left-6',
 	},
-] satisfies LocationItem[]
+] satisfies IconItem[]
 
 export const desktopItems = [
 	{
 		id: 21,
 		name: 'Resume.pdf',
 		icon: 'pdf.png',
-		window: 'resume',
-		type: 'pdf',
+		type: 'resume',
 		finderPosition: 'top-6 left-4',
 		desktopPosition: 'top-10 right-8',
 	},
-] satisfies LocationItem[]
+] satisfies IconItem[]
 
 export const projectsItems = [
 	// TODO: Replace placeholders with actual projects
@@ -33,15 +31,13 @@ export const projectsItems = [
 		icon: 'folder.png',
 		Icon: FolderCode,
 		type: 'folder',
-		window: 'finder',
 		finderPosition: 'top-6 left-4',
 		children: [
 			{
 				id: 41,
 				name: 'ProjectFile1',
 				icon: 'pdf.png',
-				window: 'finder',
-				type: 'pdf',
+				type: 'textFile',
 				finderPosition: 'top-6 left-4',
 			},
 			{
@@ -60,15 +56,13 @@ export const projectsItems = [
 		icon: 'folder.png',
 		Icon: FolderCode,
 		type: 'folder',
-		window: 'finder',
 		finderPosition: 'top-6 left-24',
 		children: [
 			{
 				id: 43,
 				name: 'ProjectFile2',
 				icon: 'pdf.png',
-				window: 'finder',
-				type: 'pdf',
+				type: 'textFile',
 				finderPosition: 'top-6 left-4',
 			},
 			{
@@ -83,4 +77,4 @@ export const projectsItems = [
 	},
 ] satisfies LocationItem[]
 
-export const trashItems = [] satisfies LocationItem[]
+export const trashItems = [] satisfies IconItem[]

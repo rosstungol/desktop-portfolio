@@ -1,25 +1,25 @@
 import clsx from 'clsx'
 
-import type { LocationItem } from '../../data/types'
+import type { IconItem, LocationItem } from '../../data/types'
 import { useLocationStore } from '../../stores/location'
 import { useWindowStore } from '../../stores/window'
 
 type IconListProps = {
-	items: LocationItem[] | undefined
-	type: 'desktop' | 'finder'
+	items: IconItem[]
+	location: 'desktop' | 'finder'
 }
 
-export function IconList({ items, type }: IconListProps) {
+export function IconList({ items, location }: IconListProps) {
 	const openWindow = useWindowStore((state) => state.openWindow)
 	const setActiveLocation = useLocationStore((state) => state.setActiveLocation)
 
 	const openItem = (item: LocationItem) => {
-		if (item.window === 'finder') setActiveLocation(item)
-		if (item.window === 'resume') openWindow('resume')
-		if (item.window === 'contact') openWindow('contact')
-		if (item.window === 'imageFile') openWindow(item.window, item)
-		if (item.window === 'textFile') openWindow(item.window, item)
 		if (item.type === 'url') return window.open(item.href, '_blank')
+		if (item.type === 'folder') setActiveLocation(item)
+		if (item.type === 'resume') openWindow('resume')
+		if (item.type === 'contact') openWindow('contact')
+		if (item.type === 'imageFile') openWindow(item.type, item)
+		if (item.type === 'textFile') openWindow(item.type, item)
 	}
 
 	return (
@@ -29,7 +29,7 @@ export function IconList({ items, type }: IconListProps) {
 					key={item.id}
 					className={clsx(
 						'absolute',
-						type === 'desktop' && item.desktopPosition
+						location === 'desktop' && item.desktopPosition
 							? item.desktopPosition
 							: item.finderPosition
 					)}
@@ -47,7 +47,7 @@ export function IconList({ items, type }: IconListProps) {
 						<p
 							className={clsx(
 								'text-[10px] text-gray-200',
-								type === 'desktop' && 'drop-shadow drop-shadow-gray-900'
+								location === 'desktop' && 'drop-shadow drop-shadow-gray-900'
 							)}
 						>
 							{item.name}
