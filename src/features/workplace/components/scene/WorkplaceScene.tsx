@@ -6,11 +6,11 @@ import type * as THREE from 'three'
 import type { SceneState } from '@/App'
 import { DesktopContainer } from '@/features/desktop/components/layout/DesktopContainer'
 
-import { CameraController } from './CameraController'
-import { FixedWidthCamera } from './FixedWidthCamera'
+import { CameraController } from '../camera/CameraController'
+import { FixedWidthCamera } from '../camera/FixedWidthCamera'
+import { RoomModel } from '../scene/RoomModel'
+import { Skybox } from '../scene/Skybox'
 import { Lighting } from './Lighting'
-import { RoomModel } from './RoomModel'
-import { Skybox } from './Skybox'
 
 export function WorkplaceScene({ sceneState }: { sceneState: SceneState }) {
 	const screenRef = useRef<THREE.Group | null>(null)
