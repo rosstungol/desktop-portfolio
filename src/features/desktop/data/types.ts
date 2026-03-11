@@ -55,18 +55,9 @@ type FileItem = BaseLocationItem & {
 	fileContent?: string[]
 }
 
-type MenuItem = BaseLocationItem & {
-	Icon: LucideIcon
-}
-
 export type FinderLocationItem = BaseLocationItem & {
 	Icon: LucideIcon
 	children: LocationItem[]
 }
 
-export type LocationItem =
-	| UrlItem
-	| FolderItem
-	| FileItem
-	| MenuItem
-	| FinderLocationItem
+export type LocationItem = UrlItem | FolderItem | FileItem | FinderLocationItem
