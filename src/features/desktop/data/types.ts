@@ -24,32 +24,49 @@ export type WindowsRecord = Record<WindowKey, WindowState>
 // Location Store types
 type ItemType = WindowKey | 'url' | 'folder'
 
-export type BaseLocationItem = {
+export type BaseItem = {
 	id: number
 	name: string
-	children?: LocationItem[]
 }
 
-export type LocationItem = BaseLocationItem & {
+export type BaseLocationItem = BaseItem & {
 	icon?: string
 	Icon?: LucideIcon
 	type?: ItemType
+	href?: string
+	children?: LocationItem[]
 	finderPosition?: string
 	desktopPosition?: string
-	href?: string
 	description?: string[]
 }
 
-export type MenuItem = Pick<LocationItem, 'id' | 'name' | 'Icon'>
+type UrlItem = BaseLocationItem & {
+	type: 'url'
+	href: string
+}
 
-export type IconItem = Pick<
-	LocationItem,
-	| 'id'
-	| 'name'
-	| 'icon'
-	| 'type'
-	| 'finderPosition'
-	| 'desktopPosition'
-	| 'href'
-	| 'children'
->
+type FolderItem = BaseLocationItem & {
+	type: 'folder'
+	children: LocationItem[]
+}
+
+type FileItem = BaseLocationItem & {
+	type: WindowKey
+	description?: LocationItem[]
+}
+
+type MenuItem = BaseLocationItem & {
+	Icon: LucideIcon
+}
+
+export type FinderLocationItem = BaseLocationItem & {
+	Icon: LucideIcon
+	children: LocationItem[]
+}
+
+export type LocationItem =
+	| UrlItem
+	| FolderItem
+	| FileItem
+	| MenuItem
+	| FinderLocationItem

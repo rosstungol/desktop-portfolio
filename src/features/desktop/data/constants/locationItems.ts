@@ -1,6 +1,6 @@
 import { FolderCode } from 'lucide-react'
 
-import type { IconItem, LocationItem } from '../types'
+import type { LocationItem } from '../types'
 
 export const applicationsItems = [
 	{
@@ -10,7 +10,7 @@ export const applicationsItems = [
 		type: 'contact',
 		finderPosition: 'top-6 left-6',
 	},
-] satisfies IconItem[]
+] satisfies LocationItem[]
 
 export const desktopItems = [
 	{
@@ -21,7 +21,7 @@ export const desktopItems = [
 		finderPosition: 'top-6 left-4',
 		desktopPosition: 'top-10 right-8',
 	},
-] satisfies IconItem[]
+] satisfies LocationItem[]
 
 export const projectsItems = [
 	// TODO: Replace placeholders with actual projects
@@ -77,4 +77,4 @@ export const projectsItems = [
 	},
 ] satisfies LocationItem[]
 
-export const trashItems = [] satisfies IconItem[]
+export const trashItems = [] satisfies LocationItem[]

@@ -1,11 +1,11 @@
 import clsx from 'clsx'
 
-import type { IconItem, LocationItem } from '../../data/types'
+import type { LocationItem } from '../../data/types'
 import { useLocationStore } from '../../stores/location'
 import { useWindowStore } from '../../stores/window'
 
 type IconListProps = {
-	items: IconItem[]
+	items: LocationItem[]
 	location: 'desktop' | 'finder'
 }
 

@@ -1,12 +1,12 @@
 import clsx from 'clsx'
 import { useShallow } from 'zustand/shallow'
 
-import type { MenuItem } from '../../data/types'
+import type { LocationItem } from '../../data/types'
 import { useLocationStore } from '../../stores/location'
 
 type FinderMenuProps = {
 	name: string
-	items: MenuItem[]
+	items: LocationItem[]
 }
 
 export function FinderMenu({ name, items }: FinderMenuProps) {

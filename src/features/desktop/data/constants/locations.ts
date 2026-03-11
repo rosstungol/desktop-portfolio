@@ -1,5 +1,6 @@
 import { Blocks, Code2, Monitor, Trash2 } from 'lucide-react'
-import type { LocationItem } from '../types'
+
+import type { FinderLocationItem } from '../types'
 import {
 	applicationsItems,
 	desktopItems,
@@ -7,28 +8,28 @@ import {
 	trashItems,
 } from './locationItems'
 
-const APPLICATIONS_LOCATION: LocationItem = {
+const APPLICATIONS_LOCATION: FinderLocationItem = {
 	id: 1,
 	name: 'Applications',
 	Icon: Blocks,
 	children: applicationsItems,
 }
 
-const DESKTOP_LOCATION: LocationItem = {
+const DESKTOP_LOCATION: FinderLocationItem = {
 	id: 2,
 	name: 'Desktop',
 	Icon: Monitor,
 	children: desktopItems,
 }
 
-const PROJECTS_LOCATION: LocationItem = {
+const PROJECTS_LOCATION: FinderLocationItem = {
 	id: 3,
 	name: 'Projects',
 	Icon: Code2,
 	children: projectsItems,
 }
 
-const TRASH_LOCATION: LocationItem = {
+const TRASH_LOCATION: FinderLocationItem = {
 	id: 4,
 	name: 'Trash',
 	Icon: Trash2,
