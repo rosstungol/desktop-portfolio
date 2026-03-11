@@ -1,8 +1,8 @@
 import { startTransition, useEffect, useState } from 'react'
 
-import { ClickToStart } from './features/workplace/components/ClickToStart'
-import { SceneControls } from './features/workplace/components/SceneControls'
-import { WorkplaceScene } from './features/workplace/components/WorkplaceScene'
+import { WorkplaceScene } from './features/workplace/components/scene/WorkplaceScene'
+import { ClickToStart } from './features/workplace/components/ui/ClickToStart'
+import { SceneControls } from './features/workplace/components/ui/SceneControls'
 import { SceneIntro } from './pages/intro/SceneIntro'
 
 export type SceneState = 'loading' | 'intro' | 'start' | 'focus' | 'idle'
