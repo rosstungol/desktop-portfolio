@@ -1,13 +1,13 @@
 import { create } from 'zustand'
 
 import { locations } from '../data/constants/locations'
-import type { LocationItem } from '../data/types'
+import type { BaseLocationItem } from '../data/types'
 
 const DEFAULT_LOCATION = locations.applications
 
 type LocationStore = {
-	activeLocation: LocationItem
-	setActiveLocation: (location: LocationItem) => void
+	activeLocation: BaseLocationItem
+	setActiveLocation: (location: BaseLocationItem) => void
 	resetActiveLocation: () => void
 }
 

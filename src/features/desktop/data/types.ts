@@ -25,9 +25,10 @@ export type WindowsRecord = Record<WindowKey, WindowState>
 // Location Store types
 type ItemType = WindowKey | 'url' | 'folder'
 
-type BaseLocationItem = {
+export type BaseLocationItem = {
 	id: number
 	name: string
+	children?: LocationItem[]
 }
 
 export type LocationItem = BaseLocationItem & {
@@ -37,7 +38,7 @@ export type LocationItem = BaseLocationItem & {
 	finderPosition?: string
 	desktopPosition?: string
 	href?: string
-	children?: LocationItem[]
+	description?: string[]
 }
 
 export type MenuItem = Pick<LocationItem, 'id' | 'name' | 'Icon'>

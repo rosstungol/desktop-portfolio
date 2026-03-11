@@ -16,10 +16,18 @@ export function IconList({ items, location }: IconListProps) {
 	const openItem = (item: LocationItem) => {
 		if (item.type === 'url') return window.open(item.href, '_blank')
 		if (item.type === 'folder') setActiveLocation(item)
-		if (item.type === 'resume') openWindow('resume')
-		if (item.type === 'contact') openWindow('contact')
-		if (item.type === 'imageFile') openWindow(item.type, item)
-		if (item.type === 'textFile') openWindow(item.type, item)
+		if (item.type === 'imageFile' || item.type === 'textFile')
+			openWindow(item.type, item)
+		if (
+			item.type === 'finder' ||
+			item.type === 'safari' ||
+			item.type === 'contact' ||
+			item.type === 'photos' ||
+			item.type === 'terminal' ||
+			item.type === 'resume'
+		) {
+			openWindow(item.type)
+		}
 	}
 
 	return (
@@ -39,11 +47,13 @@ export function IconList({ items, location }: IconListProps) {
 						onClick={() => openItem(item)}
 						className='col-center'
 					>
-						<img
-							src={`/desktop/icons/${item.icon}`}
-							alt={item.name}
-							className='size-10'
-						/>
+						{item.icon && (
+							<img
+								src={`/desktop/icons/${item.icon}`}
+								alt={item.name}
+								className='size-10'
+							/>
+						)}
 						<p
 							className={clsx(
 								'text-[10px] text-gray-200',

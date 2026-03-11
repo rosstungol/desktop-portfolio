@@ -4,13 +4,12 @@ import { useShallow } from 'zustand/shallow'
 import type { MenuItem } from '../../data/types'
 import { useLocationStore } from '../../stores/location'
 
-export function FinderMenu({
-	name,
-	items,
-}: {
+type FinderMenuProps = {
 	name: string
 	items: MenuItem[]
-}) {
+}
+
+export function FinderMenu({ name, items }: FinderMenuProps) {
 	const { activeLocation, setActiveLocation } = useLocationStore(
 		useShallow((state) => ({
 			activeLocation: state.activeLocation,
