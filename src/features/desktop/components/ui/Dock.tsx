@@ -4,9 +4,10 @@ import { useRef } from 'react'
 import { Tooltip } from 'react-tooltip'
 import { useShallow } from 'zustand/shallow'
 
-import { dockApps } from '@/features/desktop/data/constants'
-
+import { dockApps } from '../../data/constants'
+import { locations } from '../../data/constants/locations'
 import type { WindowKey } from '../../data/types'
+import { useLocationStore } from '../../stores/location'
 import { useWindowStore } from '../../stores/window'
 
 export function Dock() {
@@ -18,6 +19,7 @@ export function Dock() {
 		}))
 	)
 
+	const setActiveLocation = useLocationStore((state) => state.setActiveLocation)
 	const dockRef = useRef<HTMLDivElement | null>(null)
 
 	useGSAP(() => {
@@ -72,7 +74,10 @@ export function Dock() {
 	const handleAppToggle = (id: WindowKey) => {
 		const appWindow = windows[id]
 
-		if (appWindow.isOpen) {
+		if (id === 'trash') {
+			setActiveLocation(locations.trash)
+			appWindow.isOpen ? focusWindow('finder') : openWindow('finder')
+		} else if (appWindow.isOpen) {
 			focusWindow(id)
 		} else {
 			openWindow(id)
