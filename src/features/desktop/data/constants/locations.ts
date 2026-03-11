@@ -14,14 +14,14 @@ const APPLICATIONS_LOCATION: LocationItem = {
 	children: applicationsItems,
 }
 
-export const DESKTOP_LOCATION: LocationItem = {
+const DESKTOP_LOCATION: LocationItem = {
 	id: 2,
 	name: 'Desktop',
 	Icon: Monitor,
 	children: desktopItems,
 }
 
-export const PROJECTS_LOCATION: LocationItem = {
+const PROJECTS_LOCATION: LocationItem = {
 	id: 3,
 	name: 'Projects',
 	Icon: Code2,
