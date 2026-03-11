@@ -15,7 +15,6 @@ export type WindowKey =
 	| 'contact'
 	| 'photos'
 	| 'terminal'
-	| 'trash'
 	| 'resume'
 	| 'textFile'
 	| 'imageFile'
