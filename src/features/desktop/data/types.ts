@@ -37,7 +37,7 @@ export type BaseLocationItem = BaseItem & {
 	children?: LocationItem[]
 	finderPosition?: string
 	desktopPosition?: string
-	description?: string[]
+	fileContent?: string[]
 }
 
 type UrlItem = BaseLocationItem & {
@@ -52,7 +52,7 @@ type FolderItem = BaseLocationItem & {
 
 type FileItem = BaseLocationItem & {
 	type: WindowKey
-	description?: LocationItem[]
+	fileContent?: string[]
 }
 
 type MenuItem = BaseLocationItem & {
