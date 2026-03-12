@@ -15,7 +15,7 @@ export const applicationsItems = [
 		name: 'Contact',
 		icon: 'contact.png',
 		type: 'contact',
-		finderPosition: 'top-6 left-6',
+		finderPosition: 'top-6 left-4',
 	},
 ] satisfies FinderItem[]
 
@@ -43,7 +43,7 @@ export const projectsItems = [
 			{
 				id: 41,
 				name: 'ProjectFile1',
-				icon: 'pdf.png',
+				icon: 'file.png',
 				type: 'textFile',
 				finderPosition: 'top-6 left-4',
 				fileContent: {
@@ -77,7 +77,7 @@ export const projectsItems = [
 			{
 				id: 43,
 				name: 'ProjectFile2',
-				icon: 'pdf.png',
+				icon: 'file.png',
 				type: 'textFile',
 				finderPosition: 'top-6 left-4',
 				fileContent: {
