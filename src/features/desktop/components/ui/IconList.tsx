@@ -45,6 +45,7 @@ export function IconList({ items, location }: IconListProps) {
 					<button
 						type='button'
 						onClick={() => openItem(item)}
+						title={item.name}
 						className='col-center size-18'
 					>
 						{item.icon && (

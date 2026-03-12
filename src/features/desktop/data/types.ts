@@ -6,7 +6,7 @@ export type WindowData = LocationItem
 type WindowState = {
 	isOpen: boolean
 	zIndex: number
-	data: WindowData
+	data: WindowData | null
 }
 
 export type WindowKey =
@@ -28,7 +28,7 @@ type FileContent = {
 	text?: string[]
 }
 
-type ItemType = WindowKey | 'url' | 'folder' | 'finderLocation' | 'desktop'
+type ItemType = WindowKey | 'url' | 'folder' | 'finderLocation'
 
 export type BaseItem = {
 	id: number
@@ -46,23 +46,28 @@ export type BaseLocationItem = BaseItem & {
 	fileContent?: FileContent
 }
 
-export type FinderLocationItem = BaseLocationItem & {
-	type: ItemType
-	Icon: LucideIcon
-	children: LocationItem[]
-}
-
 export type FinderItem = BaseLocationItem & {
 	icon: string
 	type: ItemType
 	finderPosition: string
 }
 
+export type FinderLocationItem = BaseLocationItem & {
+	type: 'finderLocation'
+	Icon: LucideIcon
+	children: LocationItem[]
+}
+
 export type DesktopItem = BaseLocationItem & {
 	icon: string
-	type: ItemType
+	type: 'resume' | 'textFile' | 'imageFile' | 'folder'
 	finderPosition: string
 	desktopPosition: string
+}
+
+export type FileItem = BaseLocationItem & {
+	type: 'textFile' | 'imageFile'
+	fileContent: FileContent
 }
 
 export type FolderItem = BaseLocationItem & {
@@ -75,15 +80,10 @@ export type UrlItem = BaseLocationItem & {
 	href: string
 }
 
-export type FileItem = BaseLocationItem & {
-	type: WindowKey
-	fileContent: FileContent
-}
-
 export type LocationItem =
-	| FinderLocationItem
 	| FinderItem
+	| FinderLocationItem
 	| DesktopItem
-	| UrlItem
-	| FolderItem
 	| FileItem
+	| FolderItem
+	| UrlItem
