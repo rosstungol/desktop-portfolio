@@ -1,7 +1,7 @@
 import type { LucideIcon } from 'lucide-react'
 
 // Window Store types
-export type WindowData = unknown
+export type WindowData = LocationItem
 
 type WindowState = {
 	isOpen: boolean
@@ -22,7 +22,13 @@ export type WindowKey =
 export type WindowsRecord = Record<WindowKey, WindowState>
 
 // Location Store types
-type ItemType = WindowKey | 'url' | 'folder'
+type FileContent = {
+	image?: string
+	title?: string
+	text?: string[]
+}
+
+type ItemType = WindowKey | 'url' | 'folder' | 'finderLocation' | 'desktop'
 
 export type BaseItem = {
 	id: number
@@ -37,27 +43,47 @@ export type BaseLocationItem = BaseItem & {
 	children?: LocationItem[]
 	finderPosition?: string
 	desktopPosition?: string
-	fileContent?: string[]
-}
-
-type UrlItem = BaseLocationItem & {
-	type: 'url'
-	href: string
-}
-
-type FolderItem = BaseLocationItem & {
-	type: 'folder'
-	children: LocationItem[]
-}
-
-type FileItem = BaseLocationItem & {
-	type: WindowKey
-	fileContent?: string[]
+	fileContent?: FileContent
 }
 
 export type FinderLocationItem = BaseLocationItem & {
+	type: ItemType
 	Icon: LucideIcon
 	children: LocationItem[]
 }
 
-export type LocationItem = UrlItem | FolderItem | FileItem | FinderLocationItem
+export type FinderItem = BaseLocationItem & {
+	icon: string
+	type: ItemType
+	finderPosition: string
+}
+
+export type DesktopItem = BaseLocationItem & {
+	icon: string
+	type: ItemType
+	finderPosition: string
+	desktopPosition: string
+}
+
+export type FolderItem = BaseLocationItem & {
+	type: 'folder'
+	children: LocationItem[]
+}
+
+export type UrlItem = BaseLocationItem & {
+	type: 'url'
+	href: string
+}
+
+export type FileItem = BaseLocationItem & {
+	type: WindowKey
+	fileContent: FileContent
+}
+
+export type LocationItem =
+	| FinderLocationItem
+	| FinderItem
+	| DesktopItem
+	| UrlItem
+	| FolderItem
+	| FileItem

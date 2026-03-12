@@ -1,6 +1,13 @@
 import { FolderCode } from 'lucide-react'
 
-import type { LocationItem } from '../types'
+import type {
+	DesktopItem,
+	FileItem,
+	FinderItem,
+	FolderItem,
+	LocationItem,
+	UrlItem,
+} from '../types'
 
 export const applicationsItems = [
 	{
@@ -10,7 +17,7 @@ export const applicationsItems = [
 		type: 'contact',
 		finderPosition: 'top-6 left-6',
 	},
-] satisfies LocationItem[]
+] satisfies FinderItem[]
 
 export const desktopItems = [
 	{
@@ -21,7 +28,7 @@ export const desktopItems = [
 		finderPosition: 'top-6 left-4',
 		desktopPosition: 'top-10 right-8',
 	},
-] satisfies LocationItem[]
+] satisfies DesktopItem[]
 
 export const projectsItems = [
 	// TODO: Replace placeholders with actual projects
@@ -39,7 +46,16 @@ export const projectsItems = [
 				icon: 'pdf.png',
 				type: 'textFile',
 				finderPosition: 'top-6 left-4',
-			},
+				fileContent: {
+					title: 'test',
+					text: [
+						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
+						'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+						'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+						'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+					],
+				},
+			} satisfies FileItem,
 			{
 				id: 42,
 				name: 'ProjectLink1',
@@ -47,9 +63,9 @@ export const projectsItems = [
 				icon: 'safari.png',
 				type: 'url',
 				finderPosition: 'top-6 left-24',
-			},
+			} satisfies UrlItem,
 		],
-	},
+	} satisfies FolderItem,
 	{
 		id: 32,
 		name: 'Project2',
@@ -64,7 +80,16 @@ export const projectsItems = [
 				icon: 'pdf.png',
 				type: 'textFile',
 				finderPosition: 'top-6 left-4',
-			},
+				fileContent: {
+					title: 'title 2',
+					text: [
+						'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+						'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+						'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
+					],
+				},
+			} satisfies FileItem,
 			{
 				id: 44,
 				name: 'ProjectLink2',
@@ -72,9 +97,9 @@ export const projectsItems = [
 				icon: 'safari.png',
 				type: 'url',
 				finderPosition: 'top-6 left-24',
-			},
+			} satisfies UrlItem,
 		],
-	},
+	} satisfies FolderItem,
 ] satisfies LocationItem[]
 
-export const trashItems = [] satisfies LocationItem[]
+export const trashItems = [] satisfies FinderItem[]

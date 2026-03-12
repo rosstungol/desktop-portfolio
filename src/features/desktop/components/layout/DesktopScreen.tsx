@@ -5,6 +5,7 @@ import { IconList } from '../ui/IconList'
 import { ContactWindow } from '../windows/Contact'
 import { FinderWindow } from '../windows/Finder'
 import { ResumeWindow } from '../windows/Resume'
+import { TextWindow } from '../windows/Text'
 
 export function DesktopScreen() {
 	return (
@@ -16,6 +17,7 @@ export function DesktopScreen() {
 			<FinderWindow />
 			<ContactWindow />
 			<ResumeWindow />
+			<TextWindow />
 		</div>
 	)
 }
