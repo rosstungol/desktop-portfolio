@@ -45,7 +45,8 @@ export function IconList({ items, location }: IconListProps) {
 					<button
 						type='button'
 						onClick={() => openItem(item)}
-						className='col-center'
+						title={item.name}
+						className='col-center size-18'
 					>
 						{item.icon && (
 							<img
@@ -56,7 +57,7 @@ export function IconList({ items, location }: IconListProps) {
 						)}
 						<p
 							className={clsx(
-								'text-[10px] text-gray-200',
+								'w-18 truncate text-[10px] text-gray-200',
 								location === 'desktop' && 'drop-shadow drop-shadow-gray-900'
 							)}
 						>
