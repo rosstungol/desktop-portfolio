@@ -7,7 +7,7 @@ function Contact() {
 	return (
 		<>
 			<WindowHeader title='Contact' target='contact' />
-			<div className='col-center rounded-b-xl p-8 text-xs'>
+			<div className='col-center w-80 rounded-b-xl p-8 text-xs'>
 				<div className='mb-4 size-32 flex-center rounded-full bg-gray-800' />
 				<h1 className='mb-3 font-bold text-3xl'>Ross Tungol</h1>
 				<div>
