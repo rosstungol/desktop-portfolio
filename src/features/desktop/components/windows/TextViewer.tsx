@@ -3,8 +3,7 @@ import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
 
 function TextViewer() {
-	const windows = useWindowStore((state) => state.windows)
-	const data = windows.textFile?.data
+	const data = useWindowStore((state) => state.windows.textFile?.data)
 
 	if (!data) return null
 
