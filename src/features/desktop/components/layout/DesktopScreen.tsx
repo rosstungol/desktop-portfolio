@@ -4,8 +4,9 @@ import { Dock } from '../ui/Dock'
 import { IconList } from '../ui/IconList'
 import { ContactWindow } from '../windows/Contact'
 import { FinderWindow } from '../windows/Finder'
+import { ImageWindow } from '../windows/ImageViewer'
 import { ResumeWindow } from '../windows/Resume'
-import { TextWindow } from '../windows/Text'
+import { TextWindow } from '../windows/TextViewer'
 
 export function DesktopScreen() {
 	return (
@@ -18,6 +19,7 @@ export function DesktopScreen() {
 			<ContactWindow />
 			<ResumeWindow />
 			<TextWindow />
+			<ImageWindow />
 		</div>
 	)
 }
