@@ -1,12 +1,20 @@
-import { type ReactNode, useState } from 'react'
+import { type ReactNode, useEffect, useState } from 'react'
 
 import { useWindowStore } from '../../stores/window'
 import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
 
 function ImageViewer() {
+	const [imageSrc, setImageSrc] = useState<string | undefined>(undefined)
 	const [hasError, setHasError] = useState(false)
+
 	const data = useWindowStore((state) => state.windows.imageFile?.data)
+	const image = data?.fileContent?.image
+
+	useEffect(() => {
+		setImageSrc(image)
+		setHasError(false)
+	}, [image])
 
 	if (!data) return null
 
@@ -26,7 +34,7 @@ function ImageViewer() {
 							imageFallback
 						) : (
 							<img
-								src={fileContent.image}
+								src={imageSrc}
 								alt={name}
 								className='block h-auto max-w-full object-cover'
 								onError={() => setHasError(true)}
