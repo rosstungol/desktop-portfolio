@@ -2,9 +2,8 @@ import { useWindowStore } from '../../stores/window'
 import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
 
-function Text() {
-	const windows = useWindowStore((state) => state.windows)
-	const data = windows.textFile?.data
+function TextViewer() {
+	const data = useWindowStore((state) => state.windows.textFile?.data)
 
 	if (!data) return null
 
@@ -38,4 +37,4 @@ function Text() {
 	)
 }
 
-export const TextWindow = WindowWrapper(Text, 'textFile')
+export const TextWindow = WindowWrapper(TextViewer, 'textFile')

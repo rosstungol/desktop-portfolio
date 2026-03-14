@@ -11,7 +11,7 @@ import type {
 
 export const applicationsItems = [
 	{
-		id: 11,
+		id: 1000,
 		name: 'Contact',
 		icon: 'contact.png',
 		type: 'contact',
@@ -21,7 +21,7 @@ export const applicationsItems = [
 
 export const desktopItems = [
 	{
-		id: 21,
+		id: 2000,
 		name: 'Resume.pdf',
 		icon: 'pdf.png',
 		type: 'resume',
@@ -33,7 +33,7 @@ export const desktopItems = [
 export const projectsItems = [
 	// TODO: Replace placeholders with actual projects
 	{
-		id: 31,
+		id: 3000,
 		name: 'Project1',
 		icon: 'folder.png',
 		Icon: FolderCode,
@@ -41,7 +41,7 @@ export const projectsItems = [
 		finderPosition: 'top-6 left-4',
 		children: [
 			{
-				id: 41,
+				id: 3001,
 				name: 'ProjectFile1',
 				icon: 'file.png',
 				type: 'textFile',
@@ -57,7 +57,7 @@ export const projectsItems = [
 				},
 			} satisfies FileItem,
 			{
-				id: 42,
+				id: 3002,
 				name: 'ProjectLink1',
 				href: 'https://google.com',
 				icon: 'safari.png',
@@ -67,7 +67,7 @@ export const projectsItems = [
 		],
 	} satisfies FolderItem,
 	{
-		id: 32,
+		id: 3100,
 		name: 'Project2',
 		icon: 'folder.png',
 		Icon: FolderCode,
@@ -75,7 +75,7 @@ export const projectsItems = [
 		finderPosition: 'top-6 left-24',
 		children: [
 			{
-				id: 43,
+				id: 3101,
 				name: 'ProjectFile2',
 				icon: 'file.png',
 				type: 'textFile',
@@ -91,7 +91,7 @@ export const projectsItems = [
 				},
 			} satisfies FileItem,
 			{
-				id: 44,
+				id: 3102,
 				name: 'ProjectLink2',
 				href: 'https://google.com',
 				icon: 'safari.png',
@@ -102,4 +102,15 @@ export const projectsItems = [
 	} satisfies FolderItem,
 ] satisfies LocationItem[]
 
-export const trashItems = [] satisfies FinderItem[]
+export const trashItems = [
+	{
+		id: 4000,
+		name: 'Maki',
+		icon: 'jpg.png',
+		type: 'imageFile',
+		finderPosition: 'top-6 left-4',
+		fileContent: {
+			image: '/desktop/images/maki.avif',
+		},
+	} satisfies FileItem,
+] satisfies FinderItem[]
