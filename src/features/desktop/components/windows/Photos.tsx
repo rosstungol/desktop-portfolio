@@ -23,6 +23,7 @@ function Photos() {
 								alt={item.name}
 								className='h-full w-full object-cover'
 								onError={(e) => {
+									if (e.currentTarget.src.endsWith('placeholder.avif')) return
 									e.currentTarget.src = '/desktop/images/placeholder.avif'
 								}}
 							/>
