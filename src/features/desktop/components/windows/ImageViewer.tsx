@@ -37,7 +37,7 @@ function ImageViewer() {
 								src={imageSrc}
 								alt={name}
 								loading='lazy'
-								className='h-auto max-h-full w-full object-cover'
+								className='max-h-full max-w-full object-contain'
 								onError={() => setHasError(true)}
 							/>
 						)}
