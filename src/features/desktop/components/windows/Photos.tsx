@@ -22,6 +22,9 @@ function Photos() {
 								src={item.fileContent.image}
 								alt={item.name}
 								className='h-full w-full object-cover'
+								onError={(e) => {
+									e.currentTarget.src = '/desktop/images/placeholder.avif'
+								}}
 							/>
 						</button>
 					</li>
