@@ -21,6 +21,8 @@ function Photos() {
 							<img
 								src={item.fileContent.image}
 								alt={item.name}
+								loading='lazy'
+								decoding='async'
 								className='h-full w-full object-cover'
 								onError={(e) => {
 									if (e.currentTarget.src.endsWith('placeholder.avif')) return

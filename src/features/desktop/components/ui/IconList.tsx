@@ -52,6 +52,7 @@ export function IconList({ items, location }: IconListProps) {
 							<img
 								src={`/desktop/icons/${item.icon}`}
 								alt={item.name}
+								loading='lazy'
 								className='size-10'
 							/>
 						)}
