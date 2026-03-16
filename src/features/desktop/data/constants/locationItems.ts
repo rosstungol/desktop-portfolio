@@ -17,6 +17,13 @@ export const applicationsItems = [
 		type: 'contact',
 		finderPosition: 'top-6 left-4',
 	},
+	{
+		id: 1001,
+		name: 'Photos',
+		icon: 'photos.png',
+		type: 'photos',
+		finderPosition: 'top-6 left-24',
+	},
 ] satisfies FinderItem[]
 
 export const desktopItems = [

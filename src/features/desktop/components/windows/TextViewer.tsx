@@ -15,7 +15,7 @@ function TextViewer() {
 			<div className='flex max-h-96 flex-col gap-2 overflow-y-auto rounded-b-2xl bg-gray-900/80 p-6'>
 				{fileContent?.image && (
 					<div className='mb-4 max-h-60 w-full flex-center overflow-clip rounded'>
-						<img src={fileContent.image} alt={name} />
+						<img src={fileContent.image} alt={name} loading='lazy' />
 					</div>
 				)}
 

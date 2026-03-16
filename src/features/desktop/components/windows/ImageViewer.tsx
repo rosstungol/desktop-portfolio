@@ -36,7 +36,8 @@ function ImageViewer() {
 							<img
 								src={imageSrc}
 								alt={name}
-								className='block h-auto max-w-full object-cover'
+								loading='lazy'
+								className='max-h-full max-w-full object-contain'
 								onError={() => setHasError(true)}
 							/>
 						)}

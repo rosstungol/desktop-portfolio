@@ -1,5 +1,6 @@
 import { Github } from '../../components/icons/Github'
 import { LinkedIn } from '../../components/icons/LinkedIn'
+import type { FileItem } from '../types'
 
 export const dockApps = [
 	{
@@ -41,3 +42,31 @@ export const contactLinks = [
 		Icon: Github,
 	},
 ] as const
+
+export const photos = [
+	// TODO: Replace placeholders with actual photos
+	{
+		id: 101,
+		name: 'Maki',
+		type: 'imageFile',
+		fileContent: {
+			image: '/desktop/images/maki.avif',
+		},
+	},
+	{
+		id: 102,
+		name: 'Maki',
+		type: 'imageFile',
+		fileContent: {
+			image: '/desktop/images/maki.avif',
+		},
+	},
+	{
+		id: 103,
+		name: 'Maki',
+		type: 'imageFile',
+		fileContent: {
+			image: '/desktop/images/maki.avif',
+		},
+	},
+] satisfies FileItem[]
