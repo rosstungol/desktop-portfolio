@@ -36,7 +36,7 @@ function ImageViewer() {
 							<img
 								src={imageSrc}
 								alt={name}
-								className='block h-auto max-w-full object-cover'
+								className='h-full w-full object-cover'
 								onError={() => setHasError(true)}
 							/>
 						)}
