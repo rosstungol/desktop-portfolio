@@ -15,6 +15,7 @@ function Photos() {
 						<button
 							type='button'
 							onClick={() => openWindow('imageFile', item)}
+							aria-label={`View ${item.name}`}
 							className='h-full w-full cursor-pointer'
 						>
 							<img
