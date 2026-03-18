@@ -7,6 +7,7 @@ import { FinderWindow } from '../windows/Finder'
 import { ImageWindow } from '../windows/ImageViewer'
 import { PhotosWindow } from '../windows/Photos'
 import { ResumeWindow } from '../windows/Resume'
+import { TerminalWindow } from '../windows/Terminal'
 import { TextWindow } from '../windows/TextViewer'
 
 export function DesktopScreen() {
@@ -19,6 +20,7 @@ export function DesktopScreen() {
 			<FinderWindow />
 			<ContactWindow />
 			<PhotosWindow />
+			<TerminalWindow />
 			<ResumeWindow />
 			<TextWindow />
 			<ImageWindow />

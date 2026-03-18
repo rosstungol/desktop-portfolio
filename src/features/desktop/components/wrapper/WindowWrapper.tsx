@@ -55,6 +55,8 @@ export function WindowWrapper<P extends object>(
 			const [instance] = Draggable.create(el, {
 				onPress: () => focusWindow(windowKey),
 				bounds: '.desktop-container',
+				dragClickables: false,
+				allowEventDefault: true,
 			})
 
 			return () => instance.kill()

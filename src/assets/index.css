@@ -12,6 +12,7 @@
 	--natural-black: #0b030a;
 	--champion-blue: #14152e;
 	--pastel-pink: #f4b3d8;
+	--white-gray: #e5e7eb;
 
 	/* background */
 	--gradient-bg: linear-gradient(
@@ -99,10 +100,17 @@
 			animation: none;
 		}
 	}
+
+	.terminal-input {
+		caret-shape: block;
+		caret-color: var(--white-gray);
+		outline: none;
+		font-family: var(--font-roboto);
+	}
 }
 
 @utility glass {
-	@apply select-none bg-gray-800/20 shadow-lg backdrop-blur;
+	@apply bg-gray-800/20 shadow-lg backdrop-blur;
 }
 
 @utility flex-center {
