@@ -54,7 +54,7 @@ export const skills = [
 	<br key={crypto.randomUUID()} />,
 
 	<p key={crypto.randomUUID()} className='subheading'>
-		Version control{' '}
+		Version control
 	</p>,
 	<p key={crypto.randomUUID()}>↳ Git, Github, Bitbucket</p>,
 	<br key={crypto.randomUUID()} />,
