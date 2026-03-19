@@ -15,7 +15,6 @@ import { WindowWrapper } from '../wrapper/WindowWrapper'
 type OutputItem = {
 	id: string
 	content: ReactNode
-	asPre?: boolean
 }
 
 function Prompt({ command }: { command?: string }) {
@@ -34,9 +33,11 @@ function Terminal() {
 		{
 			id: crypto.randomUUID(),
 			content: (
-				<p>
-					type <strong>'help'</strong> to view a list of available commands.
-				</p>
+				<div className='output-section mb-4'>
+					<p>
+						type <strong>'help'</strong> to view a list of available commands.
+					</p>
+				</div>
 			),
 		},
 	])
@@ -68,10 +69,10 @@ function Terminal() {
 						id: crypto.randomUUID(),
 						content: <Prompt command={inputValue} />,
 					},
-					...about.map((node) => ({
+					{
 						id: crypto.randomUUID(),
-						content: node,
-					})),
+						content: about,
+					},
 				])
 				break
 
@@ -82,10 +83,10 @@ function Terminal() {
 						id: crypto.randomUUID(),
 						content: <Prompt command={inputValue} />,
 					},
-					...skills.map((node) => ({
+					{
 						id: crypto.randomUUID(),
-						content: node,
-					})),
+						content: skills,
+					},
 				])
 				break
 
@@ -100,25 +101,6 @@ function Terminal() {
 				])
 				break
 
-			case 'kitten':
-				setOutput((prev) => [
-					...prev,
-					{
-						id: crypto.randomUUID(),
-						content: <Prompt command={inputValue} />,
-					},
-					...kitten.map((node) => ({
-						id: crypto.randomUUID(),
-						content: node,
-						asPre: true,
-					})),
-				])
-				break
-
-			case 'clear':
-				setOutput([])
-				break
-
 			case 'help':
 				setOutput((prev) => [
 					...prev,
@@ -126,11 +108,29 @@ function Terminal() {
 						id: crypto.randomUUID(),
 						content: <Prompt command={inputValue} />,
 					},
-					...help.map((node) => ({
+					{
 						id: crypto.randomUUID(),
-						content: node,
-					})),
+						content: help,
+					},
 				])
+				break
+
+			case 'kitten':
+				setOutput((prev) => [
+					...prev,
+					{
+						id: crypto.randomUUID(),
+						content: <Prompt command={inputValue} />,
+					},
+					{
+						id: crypto.randomUUID(),
+						content: kitten,
+					},
+				])
+				break
+
+			case 'clear':
+				setOutput([])
 				break
 
 			case '':
@@ -178,13 +178,9 @@ function Terminal() {
 						/>
 					</div>
 					<output className='font-roboto'>
-						{output.map((item) =>
-							item.asPre ? (
-								<pre key={item.id}>{item.content}</pre>
-							) : (
-								<div key={item.id}>{item.content}</div>
-							)
-						)}
+						{output.map((item) => (
+							<div key={item.id}>{item.content}</div>
+						))}
 					</output>
 				</div>
 			</div>

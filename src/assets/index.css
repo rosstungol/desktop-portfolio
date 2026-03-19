@@ -114,9 +114,22 @@
 		}
 	}
 
-	.terminal {
-		color: var(--white-gray);
+	.terminal-input {
+		caret-shape: block;
+		caret-color: var(--white-gray);
+		font-family: var(--font-roboto);
+		outline: none;
+	}
 
+	.terminal-output {
+		padding-top: 16px;
+		padding-bottom: 16px;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.output-section {
 		.subheading,
 		strong {
 			color: var(--light-sky-blue);
@@ -132,13 +145,6 @@
 		> .tilde {
 			color: var(--light-sky-blue);
 		}
-	}
-
-	.terminal-input {
-		caret-shape: block;
-		caret-color: var(--white-gray);
-		font-family: var(--font-roboto);
-		outline: none;
 	}
 }
 
