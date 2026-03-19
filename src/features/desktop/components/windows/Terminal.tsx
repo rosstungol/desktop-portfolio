@@ -33,18 +33,17 @@ function Terminal() {
 		(state) => state.windows.terminal.isOpen
 	)
 	const inputRef = useRef<HTMLInputElement>(null)
-	const terminalRef = useRef<HTMLInputElement>(null)
+	const terminalRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
 		if (terminalIsOpen) inputRef.current?.focus()
 
-		terminalRef.current?.addEventListener('click', () => {
-			inputRef.current?.focus()
-		})
+		const handleClick = () => inputRef.current?.focus()
+		const terminal = terminalRef.current
 
-		return terminalRef.current?.removeEventListener('click', () => {
-			inputRef.current?.focus()
-		})
+		terminal?.addEventListener('click', handleClick)
+
+		return () => terminal?.removeEventListener('click', handleClick)
 	}, [terminalIsOpen])
 
 	const handleEnter = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -103,7 +102,11 @@ function Terminal() {
 				break
 
 			default:
-				setOutput([...output, `command not found: ${inputValue}`])
+				setOutput([
+					...output,
+					<Prompt key={crypto.randomUUID()} command={inputValue} />,
+					`command not found: ${inputValue}`,
+				])
 		}
 
 		setInputValue('')
@@ -130,8 +133,8 @@ function Terminal() {
 						/>
 					</div>
 					<output className='font-roboto'>
-						{output.map((item) => (
-							<pre key={crypto.randomUUID()}>{item}</pre>
+						{output.map((item, index) => (
+							<pre key={`${index}-${item?.toString.length}`}>{item}</pre>
 						))}
 					</output>
 				</div>

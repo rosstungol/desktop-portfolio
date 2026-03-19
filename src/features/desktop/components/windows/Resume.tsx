@@ -27,7 +27,7 @@ function Resume() {
 						size='sm'
 						onClick={(e) => {
 							e.preventDefault()
-							downloadResume
+							downloadResume()
 						}}
 					>
 						<Download size={12} />
