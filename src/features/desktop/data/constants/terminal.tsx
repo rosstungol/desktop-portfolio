@@ -15,7 +15,7 @@ export const help = [
 	<p key={crypto.randomUUID()} className='subheading'>
 		cv
 	</p>,
-	<p key={crypto.randomUUID()}>↳ download my resume</p>,
+	<p key={crypto.randomUUID()}>↳ downloads my resumé</p>,
 	<br key={crypto.randomUUID()} />,
 
 	<p key={crypto.randomUUID()} className='subheading'>
@@ -38,7 +38,9 @@ export const help = [
 ] as const
 
 // TODO: Replace placeholder with description
-export const about = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,'
+export const about = [
+	'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
+]
 
 export const skills = [
 	<br key={crypto.randomUUID()} />,
@@ -84,7 +86,8 @@ export const skills = [
 	<br key={crypto.randomUUID()} />,
 ] as const
 
-export const kitten = `
+export const kitten = [
+	`
         ██            ██
       ██░░██        ██░░██
       ██░░▒▒████████▒▒░░██                ████
@@ -103,4 +106,5 @@ export const kitten = `
       ██▓▓░░▓▓▓▓░░▓▓░░░░░░▓▓░░▓▓▓▓░░▓▓██
         ██░░████░░██████████░░████▒▒██
         ████    ████      ████    ████
-`
+`,
+]

@@ -12,6 +12,12 @@ import { downloadResume } from '../../utils/downloadResume'
 import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
 
+type OutputItem = {
+	id: string
+	content: ReactNode
+	asPre?: boolean
+}
+
 function Prompt({ command }: { command?: string }) {
 	return (
 		<span className='prompt space-x-2 font-roboto'>
@@ -24,10 +30,15 @@ function Prompt({ command }: { command?: string }) {
 
 function Terminal() {
 	const [inputValue, setInputValue] = useState<string>('')
-	const [output, setOutput] = useState<string[] | ReactNode[]>([
-		<p key={crypto.randomUUID()}>
-			type <strong>'help'</strong> to view a list of available commands.
-		</p>,
+	const [output, setOutput] = useState<OutputItem[]>([
+		{
+			id: crypto.randomUUID(),
+			content: (
+				<p>
+					type <strong>'help'</strong> to view a list of available commands.
+				</p>
+			),
+		},
 	])
 	const terminalIsOpen = useWindowStore(
 		(state) => state.windows.terminal.isOpen
@@ -51,34 +62,56 @@ function Terminal() {
 
 		switch (inputValue.trim()) {
 			case 'about':
-				setOutput([
-					...output,
-					<Prompt key={crypto.randomUUID()} command={inputValue} />,
-					about,
+				setOutput((prev) => [
+					...prev,
+					{
+						id: crypto.randomUUID(),
+						content: <Prompt command={inputValue} />,
+					},
+					...about.map((node) => ({
+						id: crypto.randomUUID(),
+						content: node,
+					})),
 				])
 				break
 
 			case 'skills':
-				setOutput([
-					...output,
-					<Prompt key={crypto.randomUUID()} command={inputValue} />,
-					skills,
+				setOutput((prev) => [
+					...prev,
+					{
+						id: crypto.randomUUID(),
+						content: <Prompt command={inputValue} />,
+					},
+					...skills.map((node) => ({
+						id: crypto.randomUUID(),
+						content: node,
+					})),
 				])
 				break
 
 			case 'cv':
 				downloadResume()
-				setOutput([
-					...output,
-					<Prompt key={crypto.randomUUID()} command={inputValue} />,
+				setOutput((prev) => [
+					...prev,
+					{
+						id: crypto.randomUUID(),
+						content: <Prompt command={inputValue} />,
+					},
 				])
 				break
 
 			case 'kitten':
-				setOutput([
-					...output,
-					<Prompt key={crypto.randomUUID()} command={inputValue} />,
-					kitten,
+				setOutput((prev) => [
+					...prev,
+					{
+						id: crypto.randomUUID(),
+						content: <Prompt command={inputValue} />,
+					},
+					...kitten.map((node) => ({
+						id: crypto.randomUUID(),
+						content: node,
+						asPre: true,
+					})),
 				])
 				break
 
@@ -87,25 +120,37 @@ function Terminal() {
 				break
 
 			case 'help':
-				setOutput([
-					...output,
-					<Prompt key={crypto.randomUUID()} command={inputValue} />,
-					help,
+				setOutput((prev) => [
+					...prev,
+					{
+						id: crypto.randomUUID(),
+						content: <Prompt command={inputValue} />,
+					},
+					...help.map((node) => ({
+						id: crypto.randomUUID(),
+						content: node,
+					})),
 				])
 				break
 
 			case '':
-				setOutput([
-					...output,
-					<Prompt key={crypto.randomUUID()} command={inputValue} />,
+				setOutput((prev) => [
+					...prev,
+					{
+						id: crypto.randomUUID(),
+						content: <Prompt command={inputValue} />,
+					},
 				])
 				break
 
 			default:
-				setOutput([
-					...output,
-					<Prompt key={crypto.randomUUID()} command={inputValue} />,
-					`command not found: ${inputValue}`,
+				setOutput((prev) => [
+					...prev,
+					{ id: crypto.randomUUID(), content: <Prompt command={inputValue} /> },
+					{
+						id: crypto.randomUUID(),
+						content: `command not found: ${inputValue}`,
+					},
 				])
 		}
 
@@ -133,9 +178,13 @@ function Terminal() {
 						/>
 					</div>
 					<output className='font-roboto'>
-						{output.map((item, index) => (
-							<pre key={`${index}-${item?.toString.length}`}>{item}</pre>
-						))}
+						{output.map((item) =>
+							item.asPre ? (
+								<pre key={item.id}>{item.content}</pre>
+							) : (
+								<div key={item.id}>{item.content}</div>
+							)
+						)}
 					</output>
 				</div>
 			</div>
