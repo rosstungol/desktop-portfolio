@@ -6,9 +6,9 @@ import { WindowWrapper } from '../wrapper/WindowWrapper'
 
 function Prompt({ command }: { command?: string }) {
 	return (
-		<span className='space-x-2 font-roboto'>
-			<span className='text-green-300'>➜</span>
-			<span className='mr-2 text-teal-300'>~</span>
+		<span className='prompt space-x-2 font-roboto'>
+			<span className='arrow'>➜</span>
+			<span className='tilde mr-2'>~</span>
 			{command}
 		</span>
 	)
@@ -18,8 +18,7 @@ function Terminal() {
 	const [inputValue, setInputValue] = useState<string>('')
 	const [output, setOutput] = useState<string[] | ReactNode[]>([
 		<p key={crypto.randomUUID()}>
-			type <span className='font-bold text-teal-300'>'help'</span> to view a
-			list of available commands.
+			type <strong>'help'</strong> to view a list of available commands.
 		</p>,
 	])
 	const inputRef = useRef<HTMLInputElement>(null)
@@ -81,8 +80,8 @@ function Terminal() {
 	return (
 		<>
 			<WindowHeader title='Terminal' target='terminal' />
-			<div id='terminal' className='h-96'>
-				<div className='flex max-h-96 w-[500px] flex-col-reverse overflow-y-auto p-3 text-xs'>
+			<div className='terminal h-[480px]'>
+				<div className='flex max-h-[480px] w-[500px] flex-col-reverse overflow-y-auto p-3 text-xs'>
 					<div className='mb-2 flex'>
 						<Prompt />
 						<input
@@ -90,11 +89,12 @@ function Terminal() {
 							ref={inputRef}
 							type='text'
 							value={inputValue}
+							spellCheck={false}
+							className='terminal-input flex-1'
 							onChange={(e) => setInputValue(e.target.value)}
 							onKeyDown={(e) => {
 								if (e.key === 'Enter') handleEnter(e)
 							}}
-							className='terminal-input flex-1'
 						/>
 					</div>
 					<output className='font-roboto'>

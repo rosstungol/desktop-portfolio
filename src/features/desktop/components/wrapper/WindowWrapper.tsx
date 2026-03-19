@@ -75,7 +75,7 @@ export function WindowWrapper<P extends object>(
 				id={windowKey}
 				ref={ref}
 				style={{ zIndex }}
-				className='card-container -dark abs-center min-h-40 min-w-60 shadow-xl'
+				className='card-container -window abs-center min-h-40 min-w-60 shadow-xl'
 			>
 				<Component {...props} />
 			</section>
