@@ -45,7 +45,7 @@ export const skills = [
 	<p key={crypto.randomUUID()} className='subheading'>
 		Primary languages, libraries & frameworks I use
 	</p>,
-	<p key={crypto.randomUUID()}>↳ HTML5, CSS3 & Sass, Javacript, Typescript</p>,
+	<p key={crypto.randomUUID()}>↳ HTML5, CSS3 & Sass, JavaScript, TypeScript</p>,
 	<p key={crypto.randomUUID()}>
 		↳ React.js, Next.js, React Native, Express, Tailwind CSS
 	</p>,

@@ -21,7 +21,15 @@ function Resume() {
 				title='Resume.pdf'
 				target='resume'
 				rightButton={
-					<IconLink label='Download Resume' size='sm' onClick={downloadResume}>
+					<IconLink
+						href='#'
+						label='Download Resume'
+						size='sm'
+						onClick={(e) => {
+							e.preventDefault()
+							downloadResume
+						}}
+					>
 						<Download size={12} />
 					</IconLink>
 				}

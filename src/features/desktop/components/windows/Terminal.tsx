@@ -107,8 +107,8 @@ function Terminal() {
 						/>
 					</div>
 					<output className='font-roboto'>
-						{output.map((item, index) => (
-							<pre key={`${index}-${item}`}>{item}</pre>
+						{output.map((item) => (
+							<pre key={crypto.randomUUID()}>{item}</pre>
 						))}
 					</output>
 				</div>
