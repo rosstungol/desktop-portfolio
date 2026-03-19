@@ -24,6 +24,13 @@ export const applicationsItems = [
 		type: 'photos',
 		finderPosition: 'top-6 left-24',
 	},
+	{
+		id: 1002,
+		name: 'Terminal',
+		icon: 'terminal.png',
+		type: 'terminal',
+		finderPosition: 'top-6 left-44',
+	},
 ] satisfies FinderItem[]
 
 export const desktopItems = [
