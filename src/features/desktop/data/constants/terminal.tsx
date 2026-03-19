@@ -13,6 +13,12 @@ export const help = [
 	<br key={crypto.randomUUID()} />,
 
 	<p key={crypto.randomUUID()} className='subheading'>
+		cv
+	</p>,
+	<p key={crypto.randomUUID()}>↳ download my resume</p>,
+	<br key={crypto.randomUUID()} />,
+
+	<p key={crypto.randomUUID()} className='subheading'>
 		kitten
 	</p>,
 	<p key={crypto.randomUUID()}>↳ displays a cat</p>,

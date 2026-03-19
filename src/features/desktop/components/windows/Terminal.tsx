@@ -1,6 +1,7 @@
 import { type KeyboardEvent, type ReactNode, useRef, useState } from 'react'
 
 import { about, help, kitten, skills } from '../../data/constants/terminal'
+import { downloadResume } from '../../utils/downloadResume'
 import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
 
@@ -40,6 +41,14 @@ function Terminal() {
 					...output,
 					<Prompt key={crypto.randomUUID()} command={inputValue} />,
 					skills,
+				])
+				break
+
+			case 'cv':
+				downloadResume()
+				setOutput([
+					...output,
+					<Prompt key={crypto.randomUUID()} command={inputValue} />,
 				])
 				break
 
