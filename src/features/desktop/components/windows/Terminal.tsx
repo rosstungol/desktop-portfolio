@@ -1,6 +1,13 @@
-import { type KeyboardEvent, type ReactNode, useRef, useState } from 'react'
+import {
+	type KeyboardEvent,
+	type ReactNode,
+	useEffect,
+	useRef,
+	useState,
+} from 'react'
 
 import { about, help, kitten, skills } from '../../data/constants/terminal'
+import { useWindowStore } from '../../stores/window'
 import { downloadResume } from '../../utils/downloadResume'
 import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
@@ -22,7 +29,23 @@ function Terminal() {
 			type <strong>'help'</strong> to view a list of available commands.
 		</p>,
 	])
+	const terminalIsOpen = useWindowStore(
+		(state) => state.windows.terminal.isOpen
+	)
 	const inputRef = useRef<HTMLInputElement>(null)
+	const terminalRef = useRef<HTMLInputElement>(null)
+
+	useEffect(() => {
+		if (terminalIsOpen) inputRef.current?.focus()
+
+		terminalRef.current?.addEventListener('click', () => {
+			inputRef.current?.focus()
+		})
+
+		return terminalRef.current?.removeEventListener('click', () => {
+			inputRef.current?.focus()
+		})
+	}, [terminalIsOpen])
 
 	const handleEnter = (e: KeyboardEvent<HTMLInputElement>) => {
 		e.preventDefault()
@@ -87,7 +110,7 @@ function Terminal() {
 	}
 
 	return (
-		<>
+		<div ref={terminalRef}>
 			<WindowHeader title='Terminal' target='terminal' />
 			<div className='terminal h-[480px]'>
 				<div className='flex max-h-[480px] w-[500px] flex-col-reverse overflow-y-auto p-3 text-xs'>
@@ -113,7 +136,7 @@ function Terminal() {
 					</output>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 
