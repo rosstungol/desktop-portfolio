@@ -11,21 +11,21 @@ import type {
 
 export const applicationsItems = [
 	{
-		id: crypto.randomUUID(),
+		id: 'contact-icon',
 		name: 'Contact',
 		icon: 'contact.png',
 		type: 'contact',
 		finderPosition: 'top-6 left-4',
 	},
 	{
-		id: crypto.randomUUID(),
+		id: 'photos-icon',
 		name: 'Photos',
 		icon: 'photos.png',
 		type: 'photos',
 		finderPosition: 'top-6 left-24',
 	},
 	{
-		id: crypto.randomUUID(),
+		id: 'terminal-icon',
 		name: 'Terminal',
 		icon: 'terminal.png',
 		type: 'terminal',
@@ -35,7 +35,7 @@ export const applicationsItems = [
 
 export const desktopItems = [
 	{
-		id: crypto.randomUUID(),
+		id: 'resume-icon',
 		name: 'Resume.pdf',
 		icon: 'pdf.png',
 		type: 'resume',
@@ -47,7 +47,7 @@ export const desktopItems = [
 export const projectsItems = [
 	// TODO: Replace placeholders with actual projects
 	{
-		id: crypto.randomUUID(),
+		id: 'project-1-icon',
 		name: 'Project1',
 		icon: 'folder.png',
 		Icon: FolderCode,
@@ -55,7 +55,7 @@ export const projectsItems = [
 		finderPosition: 'top-6 left-4',
 		children: [
 			{
-				id: crypto.randomUUID(),
+				id: 'project-1-file-icon',
 				name: 'ProjectFile1',
 				icon: 'file.png',
 				type: 'textFile',
@@ -73,7 +73,7 @@ export const projectsItems = [
 				},
 			} satisfies FileItem,
 			{
-				id: crypto.randomUUID(),
+				id: 'project-1-link-icon',
 				name: 'ProjectLink1',
 				href: 'https://google.com',
 				icon: 'safari.png',
@@ -83,7 +83,7 @@ export const projectsItems = [
 		],
 	} satisfies FolderItem,
 	{
-		id: crypto.randomUUID(),
+		id: 'project-2-icon',
 		name: 'Project2',
 		icon: 'folder.png',
 		Icon: FolderCode,
@@ -91,7 +91,7 @@ export const projectsItems = [
 		finderPosition: 'top-6 left-24',
 		children: [
 			{
-				id: crypto.randomUUID(),
+				id: 'project-2-file-icon',
 				name: 'ProjectFile2',
 				icon: 'file.png',
 				type: 'textFile',
@@ -108,7 +108,7 @@ export const projectsItems = [
 				},
 			} satisfies FileItem,
 			{
-				id: crypto.randomUUID(),
+				id: 'project-2-link-icon',
 				name: 'ProjectLink2',
 				href: 'https://google.com',
 				icon: 'safari.png',
@@ -121,7 +121,7 @@ export const projectsItems = [
 
 export const trashItems = [
 	{
-		id: crypto.randomUUID(),
+		id: 'maki-icon',
 		name: 'Maki',
 		icon: 'jpg.png',
 		type: 'imageFile',

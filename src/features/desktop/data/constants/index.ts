@@ -46,7 +46,7 @@ export const contactLinks = [
 export const photos = [
 	// TODO: Replace placeholders with actual photos
 	{
-		id: crypto.randomUUID(),
+		id: 'placeholder-image-1',
 		name: 'Maki',
 		type: 'imageFile',
 		fileContent: {
@@ -54,7 +54,7 @@ export const photos = [
 		},
 	},
 	{
-		id: crypto.randomUUID(),
+		id: 'placeholder-image-2',
 		name: 'Maki',
 		type: 'imageFile',
 		fileContent: {
@@ -62,7 +62,7 @@ export const photos = [
 		},
 	},
 	{
-		id: crypto.randomUUID(),
+		id: 'placeholder-image-3',
 		name: 'Maki',
 		type: 'imageFile',
 		fileContent: {

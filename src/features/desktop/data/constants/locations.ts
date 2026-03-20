@@ -9,7 +9,7 @@ import {
 } from './locationItems'
 
 const APPLICATIONS_LOCATION: FinderLocationItem = {
-	id: crypto.randomUUID(),
+	id: 'applications-location',
 	name: 'Applications',
 	type: 'finderLocation',
 	Icon: Blocks,
@@ -17,7 +17,7 @@ const APPLICATIONS_LOCATION: FinderLocationItem = {
 }
 
 const DESKTOP_LOCATION: FinderLocationItem = {
-	id: crypto.randomUUID(),
+	id: 'desktop-location',
 	name: 'Desktop',
 	type: 'finderLocation',
 	Icon: Monitor,
@@ -25,7 +25,7 @@ const DESKTOP_LOCATION: FinderLocationItem = {
 }
 
 const PROJECTS_LOCATION: FinderLocationItem = {
-	id: crypto.randomUUID(),
+	id: 'projects-location',
 	name: 'Projects',
 	type: 'finderLocation',
 	Icon: Code2,
@@ -33,7 +33,7 @@ const PROJECTS_LOCATION: FinderLocationItem = {
 }
 
 const TRASH_LOCATION: FinderLocationItem = {
-	id: crypto.randomUUID(),
+	id: 'trash-location',
 	name: 'Trash',
 	type: 'finderLocation',
 	Icon: Trash2,
