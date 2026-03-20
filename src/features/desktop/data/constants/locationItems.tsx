@@ -11,21 +11,21 @@ import type {
 
 export const applicationsItems = [
 	{
-		id: 1000,
+		id: 'contact-icon',
 		name: 'Contact',
 		icon: 'contact.png',
 		type: 'contact',
 		finderPosition: 'top-6 left-4',
 	},
 	{
-		id: 1001,
+		id: 'photos-icon',
 		name: 'Photos',
 		icon: 'photos.png',
 		type: 'photos',
 		finderPosition: 'top-6 left-24',
 	},
 	{
-		id: 1002,
+		id: 'terminal-icon',
 		name: 'Terminal',
 		icon: 'terminal.png',
 		type: 'terminal',
@@ -35,7 +35,7 @@ export const applicationsItems = [
 
 export const desktopItems = [
 	{
-		id: 2000,
+		id: 'resume-icon',
 		name: 'Resume.pdf',
 		icon: 'pdf.png',
 		type: 'resume',
@@ -47,7 +47,7 @@ export const desktopItems = [
 export const projectsItems = [
 	// TODO: Replace placeholders with actual projects
 	{
-		id: 3000,
+		id: 'project-1-icon',
 		name: 'Project1',
 		icon: 'folder.png',
 		Icon: FolderCode,
@@ -55,23 +55,25 @@ export const projectsItems = [
 		finderPosition: 'top-6 left-4',
 		children: [
 			{
-				id: 3001,
+				id: 'project-1-file-icon',
 				name: 'ProjectFile1',
 				icon: 'file.png',
 				type: 'textFile',
 				finderPosition: 'top-6 left-4',
 				fileContent: {
 					title: 'test',
-					text: [
-						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
-						'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-						'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
-					],
+					text: (
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+							enim ad minim veniam, quis nostrud exercitation ullamco laboris
+							nisi ut aliquip ex ea commodo consequat.
+						</p>
+					),
 				},
 			} satisfies FileItem,
 			{
-				id: 3002,
+				id: 'project-1-link-icon',
 				name: 'ProjectLink1',
 				href: 'https://google.com',
 				icon: 'safari.png',
@@ -81,7 +83,7 @@ export const projectsItems = [
 		],
 	} satisfies FolderItem,
 	{
-		id: 3100,
+		id: 'project-2-icon',
 		name: 'Project2',
 		icon: 'folder.png',
 		Icon: FolderCode,
@@ -89,23 +91,24 @@ export const projectsItems = [
 		finderPosition: 'top-6 left-24',
 		children: [
 			{
-				id: 3101,
+				id: 'project-2-file-icon',
 				name: 'ProjectFile2',
 				icon: 'file.png',
 				type: 'textFile',
 				finderPosition: 'top-6 left-4',
 				fileContent: {
 					title: 'title 2',
-					text: [
-						'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-						'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
-						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
-					],
+					text: (
+						<p>
+							Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
+							aut fugit, sed quia consequuntur magni dolores eos qui ratione
+							voluptatem sequi nesciunt.
+						</p>
+					),
 				},
 			} satisfies FileItem,
 			{
-				id: 3102,
+				id: 'project-2-link-icon',
 				name: 'ProjectLink2',
 				href: 'https://google.com',
 				icon: 'safari.png',
@@ -118,7 +121,7 @@ export const projectsItems = [
 
 export const trashItems = [
 	{
-		id: 4000,
+		id: 'maki-icon',
 		name: 'Maki',
 		icon: 'jpg.png',
 		type: 'imageFile',

@@ -10,7 +10,7 @@ import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-	'pdfjs-dist/build/pdf.worker.min.mjs',
+	`pdfjs-dist/build/pdf.worker.min.mjs`,
 	import.meta.url
 ).toString()
 
