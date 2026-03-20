@@ -9,7 +9,10 @@ import { IconLink } from '../ui/IconLink'
 import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
 
-pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+	`pdfjs-dist/build/pdf.worker.min.mjs`,
+	import.meta.url
+).toString()
 
 function Resume() {
 	return (
