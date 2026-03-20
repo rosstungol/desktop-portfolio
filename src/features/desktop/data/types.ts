@@ -1,4 +1,5 @@
 import type { LucideIcon } from 'lucide-react'
+import type { ReactNode } from 'react'
 
 // Window Store types
 export type WindowData = LocationItem
@@ -25,13 +26,13 @@ export type WindowsRecord = Record<WindowKey, WindowState>
 type FileContent = {
 	image?: string
 	title?: string
-	text?: string[]
+	text?: ReactNode
 }
 
 type ItemType = WindowKey | 'url' | 'folder' | 'finderLocation'
 
 export type BaseItem = {
-	id: number
+	id: string
 	name: string
 }
 

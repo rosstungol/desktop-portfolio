@@ -12,7 +12,7 @@ function TextViewer() {
 	return (
 		<>
 			<WindowHeader title={name} target={'textFile'} />
-			<div className='flex max-h-96 flex-col gap-2 overflow-y-auto rounded-b-2xl bg-gray-900/80 p-6'>
+			<div className='flex max-h-96 flex-col gap-2 overflow-y-auto rounded-b-2xl bg-gray-900/70 p-6'>
 				{fileContent?.image && (
 					<div className='mb-4 max-h-60 w-full flex-center overflow-clip rounded'>
 						<img src={fileContent.image} alt={name} loading='lazy' />
@@ -20,18 +20,10 @@ function TextViewer() {
 				)}
 
 				{fileContent?.title && (
-					<h3 className='font-bold'>{fileContent.title}</h3>
+					<h1 className='font-bold'>{fileContent.title}</h1>
 				)}
 
-				{Array.isArray(fileContent?.text) && fileContent?.text.length > 0 && (
-					<div className='space-y-1 text-base leading-relaxed'>
-						{fileContent.text.map((item: string, index) => (
-							<p key={`${index}-${item.length}`} className='mb-2'>
-								{item}
-							</p>
-						))}
-					</div>
-				)}
+				{fileContent?.text && <div>{fileContent.text}</div>}
 			</div>
 		</>
 	)
