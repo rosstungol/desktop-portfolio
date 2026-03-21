@@ -1,4 +1,4 @@
-import { create } from 'zustand'
+import { create, type StoreApi, type UseBoundStore } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 
 import type { WindowData, WindowKey, WindowsRecord } from '../data/types'
@@ -56,35 +56,39 @@ type WindowStore = {
 	focusWindow: (windowKey: WindowKey) => void
 }
 
-export const useWindowStore = create<WindowStore>()(
-	immer((set) => ({
-		windows: WINDOW_CONFIG,
-		nextZIndex: INITIAL_Z_INDEX + 1,
-		openWindow: (windowKey, data?: WindowData) =>
-			set((state) => {
-				const appWindow = state.windows[windowKey]
+export const useWindowStore: UseBoundStore<StoreApi<WindowStore>> =
+	create<WindowStore>()(
+		immer((set) => ({
+			windows: WINDOW_CONFIG,
+			nextZIndex: INITIAL_Z_INDEX + 1,
 
-				appWindow.isOpen = true
-				appWindow.zIndex = state.nextZIndex
-				appWindow.data = data !== undefined ? data : appWindow.data
+			openWindow: (windowKey, data?: WindowData) =>
+				set((state) => {
+					const appWindow = state.windows[windowKey]
 
-				state.nextZIndex++
-			}),
-		closeWindow: (windowKey) =>
-			set((state) => {
-				const appWindow = state.windows[windowKey]
+					appWindow.isOpen = true
+					appWindow.zIndex = state.nextZIndex
+					appWindow.data = data !== undefined ? data : appWindow.data
 
-				appWindow.isOpen = false
-				appWindow.zIndex = INITIAL_Z_INDEX
-				appWindow.data = null
-			}),
-		focusWindow: (windowKey) =>
-			set((state) => {
-				const appWindow = state.windows[windowKey]
+					state.nextZIndex++
+				}),
 
-				if (!appWindow.isOpen) return
+			closeWindow: (windowKey) =>
+				set((state) => {
+					const appWindow = state.windows[windowKey]
 
-				appWindow.zIndex = state.nextZIndex++
-			}),
-	}))
-)
+					appWindow.isOpen = false
+					appWindow.zIndex = INITIAL_Z_INDEX
+					appWindow.data = null
+				}),
+
+			focusWindow: (windowKey) =>
+				set((state) => {
+					const appWindow = state.windows[windowKey]
+
+					if (!appWindow.isOpen) return
+
+					appWindow.zIndex = state.nextZIndex++
+				}),
+		}))
+	)
