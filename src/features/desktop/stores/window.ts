@@ -36,12 +36,12 @@ const WINDOW_CONFIG: WindowsRecord = {
 		zIndex: INITIAL_Z_INDEX,
 		data: null,
 	},
-	textFile: {
+	file: {
 		isOpen: false,
 		zIndex: INITIAL_Z_INDEX,
 		data: null,
 	},
-	imageFile: {
+	image: {
 		isOpen: false,
 		zIndex: INITIAL_Z_INDEX,
 		data: null,

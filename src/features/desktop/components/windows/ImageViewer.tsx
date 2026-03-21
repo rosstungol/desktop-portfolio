@@ -8,7 +8,7 @@ function ImageViewer() {
 	const [imageSrc, setImageSrc] = useState<string | undefined>(undefined)
 	const [hasError, setHasError] = useState(false)
 
-	const data = useWindowStore((state) => state.windows.imageFile?.data)
+	const data = useWindowStore((state) => state.windows.image?.data)
 	const image = data?.fileContent?.image
 
 	useEffect(() => {
@@ -26,7 +26,7 @@ function ImageViewer() {
 
 	return (
 		<>
-			<WindowHeader title={name} target={'imageFile'} />
+			<WindowHeader title={name} target='image' />
 			<div className='p-2'>
 				{fileContent?.image ? (
 					<div className='max-h-[500px] flex-center overflow-hidden rounded-lg'>
@@ -50,4 +50,4 @@ function ImageViewer() {
 	)
 }
 
-export const ImageWindow = WindowWrapper(ImageViewer, 'imageFile')
+export const ImageWindow = WindowWrapper(ImageViewer, 'image')
