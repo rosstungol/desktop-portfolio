@@ -3,7 +3,7 @@ import { immer } from 'zustand/middleware/immer'
 
 import type { WindowData, WindowKey, WindowsRecord } from '../data/types'
 
-const INITIAL_Z_INDEX = 1000
+export const INITIAL_Z_INDEX = 1000
 
 const WINDOW_CONFIG: WindowsRecord = {
 	finder: {
