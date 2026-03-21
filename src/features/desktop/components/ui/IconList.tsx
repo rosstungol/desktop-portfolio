@@ -16,7 +16,7 @@ export function IconList({ items, location }: IconListProps) {
 	const openItem = (item: LocationItem) => {
 		if (item.type === 'url') return window.open(item.href, '_blank')
 		if (item.type === 'folder') setActiveLocation(item)
-		if (item.type === 'imageFile' || item.type === 'textFile')
+		if (item.type === 'image' || item.type === 'file')
 			openWindow(item.type, item)
 		if (
 			item.type === 'finder' ||

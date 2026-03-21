@@ -48,7 +48,7 @@ export const photos = [
 	{
 		id: 'placeholder-image-1',
 		name: 'Maki',
-		type: 'imageFile',
+		type: 'image',
 		fileContent: {
 			image: '/desktop/images/maki.avif',
 		},
@@ -56,7 +56,7 @@ export const photos = [
 	{
 		id: 'placeholder-image-2',
 		name: 'Maki',
-		type: 'imageFile',
+		type: 'image',
 		fileContent: {
 			image: '/desktop/images/maki.avif',
 		},
@@ -64,7 +64,7 @@ export const photos = [
 	{
 		id: 'placeholder-image-3',
 		name: 'Maki',
-		type: 'imageFile',
+		type: 'image',
 		fileContent: {
 			image: '/desktop/images/maki.avif',
 		},

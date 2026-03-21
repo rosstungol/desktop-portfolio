@@ -3,7 +3,7 @@ import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
 
 function TextViewer() {
-	const data = useWindowStore((state) => state.windows.textFile?.data)
+	const data = useWindowStore((state) => state.windows.file?.data)
 
 	if (!data) return null
 
@@ -11,7 +11,7 @@ function TextViewer() {
 
 	return (
 		<>
-			<WindowHeader title={name} target={'textFile'} />
+			<WindowHeader title={name} target='file' />
 			<div className='flex max-h-96 flex-col gap-2 overflow-y-auto rounded-b-2xl bg-gray-900/70 p-6'>
 				{fileContent?.image && (
 					<div className='mb-4 max-h-60 w-full flex-center overflow-clip rounded'>
@@ -29,4 +29,4 @@ function TextViewer() {
 	)
 }
 
-export const TextWindow = WindowWrapper(TextViewer, 'textFile')
+export const TextWindow = WindowWrapper(TextViewer, 'file')

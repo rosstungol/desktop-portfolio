@@ -14,7 +14,7 @@ function Photos() {
 					<li key={item.id} className='h-40 overflow-hidden rounded'>
 						<button
 							type='button'
-							onClick={() => openWindow('imageFile', item)}
+							onClick={() => openWindow('image', item)}
 							aria-label={`View ${item.name}`}
 							className='h-full w-full cursor-pointer'
 						>

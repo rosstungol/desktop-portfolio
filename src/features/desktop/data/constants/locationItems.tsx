@@ -58,7 +58,7 @@ export const projectsItems = [
 				id: 'project-1-file-icon',
 				name: 'ProjectFile1',
 				icon: 'file.png',
-				type: 'textFile',
+				type: 'file',
 				finderPosition: 'top-6 left-4',
 				fileContent: {
 					title: 'test',
@@ -94,7 +94,7 @@ export const projectsItems = [
 				id: 'project-2-file-icon',
 				name: 'ProjectFile2',
 				icon: 'file.png',
-				type: 'textFile',
+				type: 'file',
 				finderPosition: 'top-6 left-4',
 				fileContent: {
 					title: 'title 2',
@@ -124,7 +124,7 @@ export const trashItems = [
 		id: 'maki-icon',
 		name: 'Maki',
 		icon: 'jpg.png',
-		type: 'imageFile',
+		type: 'image',
 		finderPosition: 'top-6 left-4',
 		fileContent: {
 			image: '/desktop/images/maki.avif',

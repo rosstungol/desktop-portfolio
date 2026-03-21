@@ -17,8 +17,8 @@ export type WindowKey =
 	| 'photos'
 	| 'terminal'
 	| 'resume'
-	| 'textFile'
-	| 'imageFile'
+	| 'file'
+	| 'image'
 
 export type WindowsRecord = Record<WindowKey, WindowState>
 
@@ -61,13 +61,13 @@ export type FinderLocationItem = BaseLocationItem & {
 
 export type DesktopItem = BaseLocationItem & {
 	icon: string
-	type: 'resume' | 'textFile' | 'imageFile' | 'folder'
+	type: 'resume' | 'file' | 'image' | 'folder'
 	finderPosition: string
 	desktopPosition: string
 }
 
 export type FileItem = BaseLocationItem & {
-	type: 'textFile' | 'imageFile'
+	type: 'file' | 'image'
 	fileContent: FileContent
 }
 
