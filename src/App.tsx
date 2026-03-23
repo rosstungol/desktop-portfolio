@@ -3,14 +3,13 @@ import { startTransition, useEffect, useState } from 'react'
 import { WorkplaceScene } from './features/workplace/components/scene/WorkplaceScene'
 import { ClickToStart } from './features/workplace/components/ui/ClickToStart'
 import { SceneControls } from './features/workplace/components/ui/SceneControls'
-import { SceneIntro } from './pages/intro/SceneIntro'
+import { SceneIntro } from './screens/intro/SceneIntro'
 
 export type SceneState = 'loading' | 'intro' | 'start' | 'focus' | 'idle'
 
 const SCENE_INTRO_RENDER_STATES = new Set(['loading', 'intro'])
 const CLICK_TO_START_RENDER_STATES = new Set(['start', 'idle'])
 const SCENE_CONTROLS_RENDER_STATES = new Set(['focus', 'idle'])
-const SCENE_RENDER_STATES = new Set(['intro', 'start', 'focus', 'idle'])
 
 export function App() {
 	const [sceneState, setSceneState] = useState<SceneState>('loading')
@@ -54,9 +53,7 @@ export function App() {
 				/>
 			)}
 
-			{SCENE_RENDER_STATES.has(sceneState) && (
-				<WorkplaceScene sceneState={sceneState} />
-			)}
+			<WorkplaceScene sceneState={sceneState} />
 		</main>
 	)
 }
