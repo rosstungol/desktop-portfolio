@@ -1,22 +1,57 @@
 import { useProgress } from '@react-three/drei'
+import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
 export function LoadingScreen({ onLoaded }: { onLoaded: () => void }) {
 	const progress = useProgress((state) => state.progress)
 	const hasLoadedRef = useRef(false)
+	const loadingRef = useRef(null)
+
 	const progressRounded = Math.round(progress)
 
 	useEffect(() => {
+		const el = loadingRef.current
+
+		if (!el) return
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+			gsap.set(el, { scale: 1, opacity: 1, y: 0 })
+			return
+		}
+
 		if (progress >= 100 && !hasLoadedRef.current) {
 			hasLoadedRef.current = true
-			onLoaded()
+
+			gsap.fromTo(
+				el,
+				{
+					scale: 1,
+					opacity: 1,
+					y: 0,
+				},
+				{
+					scale: 0.8,
+					opacity: 0,
+					y: 40,
+					duration: 0.4,
+					delay: 0.4,
+					ease: 'power3.out',
+					onComplete: () => onLoaded(),
+				}
+			)
 		}
 	}, [progress, onLoaded])
 
 	return (
-		<div className='col-center'>
+		<div ref={loadingRef} className='col-center'>
 			<img src='/images/desktop.png' alt='desktop' className='mb-6 h-24' />
-			<div className='progress-bar w-40'>
+			<div
+				className='progress-bar w-40'
+				role='progressbar'
+				aria-valuenow={progressRounded}
+				aria-valuemin={0}
+				aria-valuemax={100}
+				aria-label='Loading progress'
+			>
 				<div className='fill h-full' style={{ width: `${progressRounded}%` }} />
 			</div>
 		</div>

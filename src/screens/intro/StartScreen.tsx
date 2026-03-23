@@ -27,8 +27,7 @@ export function StartScreen({ onStart }: { onStart: () => void }) {
 				scale: 1,
 				opacity: 1,
 				y: 0,
-				duration: 0.6,
-				delay: 0.4,
+				duration: 0.4,
 				ease: 'power3.out',
 			}
 		)
