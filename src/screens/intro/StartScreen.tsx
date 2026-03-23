@@ -5,18 +5,16 @@ import { startTransition, useRef } from 'react'
 import { Button } from '@/components/Button'
 
 export function StartScreen({ onStart }: { onStart: () => void }) {
-	const ref = useRef<HTMLDivElement | null>(null)
+	const startRef = useRef<HTMLDivElement | null>(null)
 
 	useGSAP(() => {
-		const el = ref.current
+		const el = startRef.current
 
 		if (!el) return
 		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 			gsap.set(el, { scale: 1, opacity: 1, y: 0 })
 			return
 		}
-
-		el.style.display = 'block'
 
 		gsap.fromTo(
 			el,
@@ -30,6 +28,7 @@ export function StartScreen({ onStart }: { onStart: () => void }) {
 				opacity: 1,
 				y: 0,
 				duration: 0.6,
+				delay: 0.4,
 				ease: 'power3.out',
 			}
 		)
@@ -40,7 +39,10 @@ export function StartScreen({ onStart }: { onStart: () => void }) {
 	}
 
 	return (
-		<div ref={ref} className='card-container col-center m-4 min-w-56 max-w-96'>
+		<div
+			ref={startRef}
+			className='card-container col-center m-4 block min-w-56 max-w-96'
+		>
 			<div className='border-blue-500/10 border-b p-4'>
 				<h1 className='text-center font-bold font-roboto'>rosstungol.com</h1>
 			</div>

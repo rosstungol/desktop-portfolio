@@ -14,9 +14,11 @@ export function LoadingScreen({ onLoaded }: { onLoaded: () => void }) {
 	}, [progress, onLoaded])
 
 	return (
-		<h1 className='font-semibold text-5xl text-gray-200'>
-			{progressRounded}
-			<span className='ml-1 text-2xl text-gray-700'>%</span>
-		</h1>
+		<div className='col-center'>
+			<img src='/images/desktop.png' alt='desktop' className='mb-6 h-24' />
+			<div className='progress-bar w-40'>
+				<div className='fill h-full' style={{ width: `${progressRounded}%` }} />
+			</div>
+		</div>
 	)
 }

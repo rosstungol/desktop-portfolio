@@ -12,9 +12,12 @@
 	--natural-black: #0b030a;
 	--champion-blue: #14152e;
 	--pastel-pink: #f4b3d8;
-	--white-gray: #e5e7eb;
 	--light-sky-blue: #7dcfff;
 	--easter-green: #9ece6a;
+
+	--gray-200: #e5e7eb;
+	--gray-800: #1e2939;
+	--gray-900: #101828;
 
 	/* background */
 	--gradient-bg: linear-gradient(
@@ -72,6 +75,18 @@
 		background: var(--gradient-bg);
 	}
 
+	.progress-bar {
+		height: 6px;
+		border-radius: 3px;
+		background-color: var(--gray-900);
+		border: 1px solid var(--gray-800);
+		overflow: hidden;
+
+		> .fill {
+			background-color: var(--gray-200);
+		}
+	}
+
 	.desktop-container {
 		position: relative;
 		width: 1098px;
@@ -116,7 +131,7 @@
 
 	.terminal-input {
 		caret-shape: block;
-		caret-color: var(--white-gray);
+		caret-color: var(--gray-200);
 		font-family: var(--font-roboto);
 		outline: none;
 	}
