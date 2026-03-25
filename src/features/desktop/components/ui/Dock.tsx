@@ -100,7 +100,6 @@ export function Dock() {
 							<img
 								src={`/desktop/icons/${icon}`}
 								alt={name}
-								loading='lazy'
 								className='size-10'
 							/>
 						</button>
@@ -121,7 +120,6 @@ export function Dock() {
 						<img
 							src={`/desktop/icons/trash.png`}
 							alt='Trash'
-							loading='lazy'
 							className='size-9'
 						/>
 					</button>

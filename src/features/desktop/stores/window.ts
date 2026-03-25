@@ -11,8 +11,8 @@ const WINDOW_CONFIG: WindowsRecord = {
 		zIndex: INITIAL_Z_INDEX,
 		data: null,
 	},
-	safari: {
-		isOpen: false,
+	about: {
+		isOpen: true,
 		zIndex: INITIAL_Z_INDEX,
 		data: null,
 	},

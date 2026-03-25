@@ -11,25 +11,32 @@ import type {
 
 export const applicationsItems = [
 	{
+		id: 'about-icon',
+		name: 'About',
+		icon: 'safari.png',
+		type: 'about',
+		finderPosition: 'top-6 left-4',
+	},
+	{
 		id: 'contact-icon',
 		name: 'Contact',
 		icon: 'contact.png',
 		type: 'contact',
-		finderPosition: 'top-6 left-4',
+		finderPosition: 'top-6 left-24',
 	},
 	{
 		id: 'photos-icon',
 		name: 'Photos',
 		icon: 'photos.png',
 		type: 'photos',
-		finderPosition: 'top-6 left-24',
+		finderPosition: 'top-6 left-44',
 	},
 	{
 		id: 'terminal-icon',
 		name: 'Terminal',
 		icon: 'terminal.png',
 		type: 'terminal',
-		finderPosition: 'top-6 left-44',
+		finderPosition: 'top-6 left-64',
 	},
 ] satisfies FinderItem[]
 

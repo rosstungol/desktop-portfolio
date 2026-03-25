@@ -9,8 +9,8 @@ export const dockApps = [
 		icon: 'finder.png',
 	},
 	{
-		id: 'safari',
-		name: 'Safari',
+		id: 'about',
+		name: 'About',
 		icon: 'safari.png',
 	},
 	{
