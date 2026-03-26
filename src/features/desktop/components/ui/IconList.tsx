@@ -20,7 +20,7 @@ export function IconList({ items, location }: IconListProps) {
 			openWindow(item.type, item)
 		if (
 			item.type === 'finder' ||
-			item.type === 'safari' ||
+			item.type === 'about' ||
 			item.type === 'contact' ||
 			item.type === 'photos' ||
 			item.type === 'terminal' ||
@@ -52,7 +52,6 @@ export function IconList({ items, location }: IconListProps) {
 							<img
 								src={`/desktop/icons/${item.icon}`}
 								alt={item.name}
-								loading='lazy'
 								className='size-10'
 							/>
 						)}

@@ -21,23 +21,13 @@ export function LoadingScreen({ onLoaded }: { onLoaded: () => void }) {
 		if (progress >= 100 && !hasLoadedRef.current) {
 			hasLoadedRef.current = true
 
-			gsap.fromTo(
-				el,
-				{
-					scale: 1,
-					opacity: 1,
-					y: 0,
-				},
-				{
-					scale: 0.8,
-					opacity: 0,
-					y: 40,
-					duration: 0.4,
-					delay: 0.4,
-					ease: 'power3.out',
-					onComplete: () => onLoaded(),
-				}
-			)
+			gsap.to(el, {
+				opacity: 0,
+				duration: 0.4,
+				delay: 0.4,
+				ease: 'power3.out',
+				onComplete: () => onLoaded(),
+			})
 		}
 	}, [progress, onLoaded])
 

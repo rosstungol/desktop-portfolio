@@ -2,6 +2,7 @@ import { locations } from '../../data/constants/locations'
 import { Navbar } from '../layout/Navbar'
 import { Dock } from '../ui/Dock'
 import { IconList } from '../ui/IconList'
+import { AboutWindow } from '../windows/About'
 import { ContactWindow } from '../windows/Contact'
 import { FinderWindow } from '../windows/Finder'
 import { ImageWindow } from '../windows/ImageViewer'
@@ -18,6 +19,7 @@ export function DesktopScreen() {
 			<IconList items={locations.desktop.children ?? []} location='desktop' />
 
 			<FinderWindow />
+			<AboutWindow />
 			<ContactWindow />
 			<PhotosWindow />
 			<TerminalWindow />

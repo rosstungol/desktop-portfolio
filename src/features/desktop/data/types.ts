@@ -12,7 +12,7 @@ type WindowState = {
 
 export type WindowKey =
 	| 'finder'
-	| 'safari'
+	| 'about'
 	| 'contact'
 	| 'photos'
 	| 'terminal'
