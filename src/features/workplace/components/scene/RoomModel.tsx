@@ -34,7 +34,7 @@ export function RoomModel(props: JSX.IntrinsicElements['group']) {
 	) as unknown as GLTFResult
 
 	return (
-		<group {...props} dispose={null} scale={[24, 24, 24]}>
+		<group {...props} dispose={null} scale={[46, 46, 46]}>
 			<EffectComposer>
 				<Bloom
 					intensity={1}
