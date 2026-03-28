@@ -19,7 +19,13 @@ export function CameraController({
 }: CameraControllerProps) {
 	const { camera } = useThree()
 	const animateRef = useRef<gsap.core.Tween | gsap.core.Timeline | null>(null)
-	const lookAt = useRef(new THREE.Vector3(-6, 28, 0))
+	const lookAt = useRef(
+		new THREE.Vector3(
+			CAMERA_CONFIG.defaultLookAt.x,
+			CAMERA_CONFIG.defaultLookAt.y,
+			CAMERA_CONFIG.defaultLookAt.z
+		)
+	)
 	const screenTarget = useRef(new THREE.Vector3())
 
 	useFrame(() => {
