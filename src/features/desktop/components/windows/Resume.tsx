@@ -30,11 +30,11 @@ function Resume() {
 							downloadResume()
 						}}
 					>
-						<Download size={12} />
+						<Download size={26} />
 					</IconLink>
 				}
 			/>
-			<div className='px-2 pb-2'>
+			<div className='px-3 pb-3'>
 				<Document
 					file='/files/resume.pdf'
 					loading={
@@ -48,7 +48,7 @@ function Resume() {
 				>
 					<Page
 						pageNumber={1}
-						width={360}
+						width={720}
 						renderTextLayer
 						renderAnnotationLayer
 					/>

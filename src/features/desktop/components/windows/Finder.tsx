@@ -11,15 +11,14 @@ function Finder() {
 	return (
 		<>
 			<WindowHeader title='Finder' target='finder' />
-			<div className='flex h-80 w-[520px]'>
-				<div className='m-1 w-36 rounded-xl border border-blue-500/10 bg-gray-600/10 p-2'>
+			<div className='flex h-[700px] w-[1200px]'>
+				<div className='m-3 w-72 rounded-2xl border border-blue-500/10 bg-gray-600/10 p-4'>
 					<FinderMenu name='Favorites' items={Object.values(locations)} />
 					<FinderMenu
 						name='Projects'
 						items={locations.projects.children ?? []}
 					/>
 				</div>
-
 				<div className='w-full'>
 					<IconList items={activeLocation?.children ?? []} location='finder' />
 				</div>

@@ -85,8 +85,11 @@ export function Dock() {
 	}
 
 	return (
-		<section className='absolute bottom-1.5 left-1/2 -translate-x-1/2'>
-			<div ref={dockRef} className='card-container flex items-center gap-1 p-1'>
+		<section className='absolute bottom-3 left-1/2 -translate-x-1/2'>
+			<div
+				ref={dockRef}
+				className='card-container -dock flex items-center gap-2 p-2'
+			>
 				{dockApps.map(({ id, name, icon }) => (
 					<div key={id} className='flex-center'>
 						<button
@@ -100,13 +103,13 @@ export function Dock() {
 							<img
 								src={`/desktop/icons/${icon}`}
 								alt={name}
-								className='size-10'
+								className='size-18'
 							/>
 						</button>
 					</div>
 				))}
 
-				<div className='h-10 w-px bg-gray-200/30' />
+				<div className='h-16 w-0.5 bg-gray-200/40' />
 
 				<div className='flex-center'>
 					<button
@@ -120,7 +123,7 @@ export function Dock() {
 						<img
 							src={`/desktop/icons/trash.png`}
 							alt='Trash'
-							className='size-9'
+							className='size-18'
 						/>
 					</button>
 				</div>

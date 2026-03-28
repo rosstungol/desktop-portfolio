@@ -7,7 +7,7 @@ function About() {
 	return (
 		<>
 			<WindowHeader title='About' target='about' />
-			<div className='h-[440px] w-[900px]'>
+			<div className='h-[900px] w-[1400px]'>
 				<AboutScreen />
 			</div>
 		</>

@@ -20,9 +20,9 @@ export function Navbar() {
 	const navHeading = topWindow?.window ?? 'finder'
 
 	return (
-		<nav className='glass flex w-full items-center justify-between border-blue-500/10 border-b px-4 py-0.5 text-gray-200 text-xs'>
-			<div className='flex items-center gap-2 font-bold'>
-				<Banana size={10} />
+		<nav className='glass flex w-full items-center justify-between border-blue-500/10 border-b px-10 py-2 text-gray-200 text-xl'>
+			<div className='flex items-center gap-6 font-bold'>
+				<Banana size={22} />
 				<h3 className='capitalize'>{navHeading}</h3>
 			</div>
 			<DigitalClock />

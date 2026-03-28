@@ -9,9 +9,9 @@ function Photos() {
 	return (
 		<>
 			<WindowHeader title='Photos' target='photos' />
-			<ul className='grid max-h-96 w-[480px] grid-cols-3 gap-2 overflow-y-auto rounded-b-2xl bg-gray-900/80 p-3'>
+			<ul className='grid max-h-[800px] w-[880px] grid-cols-3 gap-4 overflow-y-auto rounded-b-xl p-4'>
 				{photos.map((item) => (
-					<li key={item.id} className='h-40 overflow-hidden rounded'>
+					<li key={item.id} className='h-72 overflow-hidden rounded-xl'>
 						<button
 							type='button'
 							onClick={() => openWindow('image', item)}
