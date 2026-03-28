@@ -1,7 +1,9 @@
+import { resume } from '../data/constants'
+
 export const downloadResume = () => {
 	const link = document.createElement('a')
-	link.href = `${import.meta.env.BASE_URL}files/resume.pdf`
-	link.download = 'Ross-Tungol-Resume.pdf'
+	link.href = resume.link
+	link.download = resume.fileName
 	document.body.appendChild(link)
 	link.click()
 	document.body.removeChild(link)
