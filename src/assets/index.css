@@ -180,7 +180,7 @@
 }
 
 @utility glass {
-	@apply select-none bg-gray-800/20 shadow-lg backdrop-blur-lg;
+	@apply bg-gray-800/20 shadow-lg backdrop-blur-lg;
 }
 
 @utility flex-center {

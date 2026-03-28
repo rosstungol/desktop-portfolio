@@ -85,7 +85,7 @@ export function Dock() {
 	}
 
 	return (
-		<section className='absolute bottom-3 left-1/2 -translate-x-1/2'>
+		<section className='absolute bottom-3 left-1/2 -translate-x-1/2 select-none'>
 			<div
 				ref={dockRef}
 				className='card-container -dock flex items-center gap-2 p-2'

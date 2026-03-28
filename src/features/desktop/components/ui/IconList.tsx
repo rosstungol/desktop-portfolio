@@ -31,7 +31,7 @@ export function IconList({ items, location }: IconListProps) {
 	}
 
 	return (
-		<ul className='relative'>
+		<ul className='relative select-none'>
 			{items?.map((item) => (
 				<li
 					key={item.id}
