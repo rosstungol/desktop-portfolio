@@ -18,7 +18,7 @@ export function WorkplaceScene({ sceneState }: { sceneState: SceneState }) {
 	return (
 		<Canvas
 			shadows
-			camera={{ position: [60, 180, 120] }}
+			camera={{ position: [120, 420, 130] }}
 			dpr={[1, 1.5]}
 			className='z-10'
 		>

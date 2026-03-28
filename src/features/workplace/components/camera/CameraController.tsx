@@ -17,7 +17,7 @@ export function CameraController({
 }: CameraControllerProps) {
 	const { camera } = useThree()
 	const animateRef = useRef<gsap.core.Tween | gsap.core.Timeline | null>(null)
-	const lookAt = useRef(new THREE.Vector3(-3, 18, 0))
+	const lookAt = useRef(new THREE.Vector3(-6, 28, 0))
 	const screenTarget = useRef(new THREE.Vector3())
 
 	useFrame(() => {
@@ -33,9 +33,9 @@ export function CameraController({
 			ease: 'power3.out' | 'sine.inOut'
 		): gsap.core.Tween => {
 			return gsap.to(camera.position, {
-				x: 68,
-				y: 50,
-				z: 45,
+				x: 120,
+				y: 100,
+				z: 100,
 				duration: duration,
 				ease: ease,
 			})
@@ -43,10 +43,10 @@ export function CameraController({
 
 		const cameraOscillation = (): gsap.core.Tween => {
 			return gsap.to(camera.position, {
-				x: 25,
-				y: 50,
-				z: 78,
-				duration: 12,
+				x: 75,
+				y: 100,
+				z: 140,
+				duration: 10,
 				ease: 'sine.inOut',
 				repeat: -1,
 				yoyo: true,
@@ -67,8 +67,8 @@ export function CameraController({
 			tl.add(cameraOscillation())
 
 			gsap.to(lookAt.current, {
-				x: -3,
-				y: 18,
+				x: -6,
+				y: 28,
 				z: 0,
 				duration: 1.5,
 				ease: 'sine.inOut',
@@ -81,9 +81,9 @@ export function CameraController({
 			screenRef.current.getWorldPosition(screenTarget.current)
 
 			animateRef.current = gsap.to(camera.position, {
-				x: -12,
-				y: 39.3,
-				z: -0.45,
+				x: -23.5,
+				y: 75.4,
+				z: -0.82,
 				duration: 1.5,
 				ease: 'sine.inOut',
 				overwrite: 'auto',
