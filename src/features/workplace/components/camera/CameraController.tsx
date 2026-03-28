@@ -6,6 +6,8 @@ import * as THREE from 'three'
 
 import type { SceneState } from '@/App'
 
+import { CAMERA_CONFIG } from '../../sceneConfig'
+
 type CameraControllerProps = {
 	sceneState: SceneState
 	screenRef: RefObject<THREE.Group | null>
@@ -33,9 +35,7 @@ export function CameraController({
 			ease: 'power3.out' | 'sine.inOut'
 		): gsap.core.Tween => {
 			return gsap.to(camera.position, {
-				x: 120,
-				y: 100,
-				z: 100,
+				...CAMERA_CONFIG.defaultPosition,
 				duration: duration,
 				ease: ease,
 			})
@@ -43,9 +43,7 @@ export function CameraController({
 
 		const cameraOscillation = (): gsap.core.Tween => {
 			return gsap.to(camera.position, {
-				x: 75,
-				y: 100,
-				z: 140,
+				...CAMERA_CONFIG.oscillationPosition,
 				duration: 10,
 				ease: 'sine.inOut',
 				repeat: -1,
@@ -67,9 +65,7 @@ export function CameraController({
 			tl.add(cameraOscillation())
 
 			gsap.to(lookAt.current, {
-				x: -6,
-				y: 28,
-				z: 0,
+				...CAMERA_CONFIG.defaultLookAt,
 				duration: 1.5,
 				ease: 'sine.inOut',
 				overwrite: 'auto',
@@ -81,9 +77,7 @@ export function CameraController({
 			screenRef.current.getWorldPosition(screenTarget.current)
 
 			animateRef.current = gsap.to(camera.position, {
-				x: -23.5,
-				y: 75.4,
-				z: -0.82,
+				...CAMERA_CONFIG.focusPosition,
 				duration: 1.5,
 				ease: 'sine.inOut',
 				overwrite: 'auto',

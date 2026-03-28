@@ -5,6 +5,8 @@ import type { JSX } from 'react'
 import type * as THREE from 'three'
 import type { GLTF } from 'three-stdlib'
 
+import { ROOM_MODEL_SCALE } from '../../sceneConfig'
+
 type GLTFResult = GLTF & {
 	nodes: {
 		Monoblock_Metal_0: THREE.Mesh
@@ -34,7 +36,11 @@ export function RoomModel(props: JSX.IntrinsicElements['group']) {
 	) as unknown as GLTFResult
 
 	return (
-		<group {...props} dispose={null} scale={[46, 46, 46]}>
+		<group
+			{...props}
+			dispose={null}
+			scale={[ROOM_MODEL_SCALE, ROOM_MODEL_SCALE, ROOM_MODEL_SCALE]}
+		>
 			<EffectComposer>
 				<Bloom
 					intensity={1}

@@ -1,15 +1,17 @@
+import { LIGHTING_CONFIG } from '../../sceneConfig'
+
 export function Lighting() {
 	return (
 		<>
-			<ambientLight color={'#eb95d6'} intensity={0.3} />
+			<ambientLight color={LIGHTING_CONFIG.color} intensity={0.3} />
 			<spotLight
-				castShadow
-				angle={1}
-				color={'#eb95d6'}
-				distance={200}
+				position={LIGHTING_CONFIG.spotlightPosition}
+				color={LIGHTING_CONFIG.color}
 				intensity={80000}
+				distance={200}
 				penumbra={1}
-				position={[60, 162, 18]}
+				angle={1}
+				castShadow
 				shadow-bias={-0.0003}
 				shadow-mapSize={[2048, 2048]}
 			/>

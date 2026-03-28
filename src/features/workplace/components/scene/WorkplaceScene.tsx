@@ -6,6 +6,7 @@ import type * as THREE from 'three'
 import type { SceneState } from '@/App'
 import { DesktopContainer } from '@/features/desktop/components/layout/DesktopContainer'
 
+import { CAMERA_CONFIG } from '../../sceneConfig'
 import { CameraController } from '../camera/CameraController'
 import { FixedWidthCamera } from '../camera/FixedWidthCamera'
 import { Lighting } from './Lighting'
@@ -18,7 +19,7 @@ export function WorkplaceScene({ sceneState }: { sceneState: SceneState }) {
 	return (
 		<Canvas
 			shadows
-			camera={{ position: [120, 420, 130] }}
+			camera={{ position: [...CAMERA_CONFIG.initialPosition] }}
 			dpr={[1, 1.5]}
 			className='z-10'
 		>
