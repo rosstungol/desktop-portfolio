@@ -18,9 +18,9 @@ export function FinderMenu({ name, items }: FinderMenuProps) {
 	)
 
 	return (
-		<div className='mb-3'>
-			<h3 className='mb-1 font-semibold text-[10px] text-gray-400'>{name}</h3>
-			<ul className='flex flex-col gap-0.5'>
+		<div className='mb-8'>
+			<h3 className='mb-2 font-semibold text-gray-400 text-xl'>{name}</h3>
+			<ul className='flex flex-col gap-2'>
 				{items?.map((item) => (
 					<li key={item.id}>
 						<button
@@ -28,13 +28,13 @@ export function FinderMenu({ name, items }: FinderMenuProps) {
 							onClick={() => setActiveLocation(item)}
 							aria-pressed={item.id === activeLocation?.id}
 							className={clsx(
-								'flex w-full items-center gap-1 rounded p-1 text-[10px]',
+								'flex w-full items-center gap-2 rounded-xl px-4 py-2',
 								'transition-colors hover:bg-blue-500/10',
 								item.id === activeLocation?.id && 'bg-blue-500/10 text-blue-400'
 							)}
 						>
-							{item.Icon && <item.Icon size={12} />}
-							<span className='font-semibold text-[10px]'>{item.name}</span>
+							{item.Icon && <item.Icon size={20} />}
+							<span className='font-semibold text-xl'>{item.name}</span>
 						</button>
 					</li>
 				))}

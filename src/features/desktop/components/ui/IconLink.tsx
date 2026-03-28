@@ -10,13 +10,13 @@ type IconLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
 }
 
 const baseStyles =
-	'flex-center cursor-pointer border-2 border-blue-500/10 font-bold text-gray-200'
+	'flex-center cursor-pointer border-4 border-blue-500/10 font-bold text-gray-200'
 const hoverStyles =
 	'transition-colors hover:border-blue-100 hover:bg-blue-100 hover:text-gray-950'
 
 const sizeStyles: Record<IconLinkSize, string> = {
-	sm: 'p-1',
-	md: 'p-2',
+	sm: 'p-2',
+	md: 'p-4',
 }
 
 export function IconLink({
@@ -36,7 +36,7 @@ export function IconLink({
 				baseStyles,
 				hoverStyles,
 				sizeStyles[size],
-				rounded ? 'rounded-full' : 'rounded-lg'
+				rounded ? 'rounded-full' : 'rounded-xl'
 			)}
 			{...props}
 		>

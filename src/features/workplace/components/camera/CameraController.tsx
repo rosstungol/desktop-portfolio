@@ -6,6 +6,8 @@ import * as THREE from 'three'
 
 import type { SceneState } from '@/App'
 
+import { CAMERA_CONFIG } from '../../sceneConfig'
+
 type CameraControllerProps = {
 	sceneState: SceneState
 	screenRef: RefObject<THREE.Group | null>
@@ -17,7 +19,13 @@ export function CameraController({
 }: CameraControllerProps) {
 	const { camera } = useThree()
 	const animateRef = useRef<gsap.core.Tween | gsap.core.Timeline | null>(null)
-	const lookAt = useRef(new THREE.Vector3(-3, 18, 0))
+	const lookAt = useRef(
+		new THREE.Vector3(
+			CAMERA_CONFIG.defaultLookAt.x,
+			CAMERA_CONFIG.defaultLookAt.y,
+			CAMERA_CONFIG.defaultLookAt.z
+		)
+	)
 	const screenTarget = useRef(new THREE.Vector3())
 
 	useFrame(() => {
@@ -33,9 +41,7 @@ export function CameraController({
 			ease: 'power3.out' | 'sine.inOut'
 		): gsap.core.Tween => {
 			return gsap.to(camera.position, {
-				x: 68,
-				y: 50,
-				z: 45,
+				...CAMERA_CONFIG.defaultPosition,
 				duration: duration,
 				ease: ease,
 			})
@@ -43,10 +49,8 @@ export function CameraController({
 
 		const cameraOscillation = (): gsap.core.Tween => {
 			return gsap.to(camera.position, {
-				x: 25,
-				y: 50,
-				z: 78,
-				duration: 12,
+				...CAMERA_CONFIG.oscillationPosition,
+				duration: 10,
 				ease: 'sine.inOut',
 				repeat: -1,
 				yoyo: true,
@@ -67,9 +71,7 @@ export function CameraController({
 			tl.add(cameraOscillation())
 
 			gsap.to(lookAt.current, {
-				x: -3,
-				y: 18,
-				z: 0,
+				...CAMERA_CONFIG.defaultLookAt,
 				duration: 1.5,
 				ease: 'sine.inOut',
 				overwrite: 'auto',
@@ -81,9 +83,7 @@ export function CameraController({
 			screenRef.current.getWorldPosition(screenTarget.current)
 
 			animateRef.current = gsap.to(camera.position, {
-				x: -12,
-				y: 39.3,
-				z: -0.45,
+				...CAMERA_CONFIG.focusPosition,
 				duration: 1.5,
 				ease: 'sine.inOut',
 				overwrite: 'auto',

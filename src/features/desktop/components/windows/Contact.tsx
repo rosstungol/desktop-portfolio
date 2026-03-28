@@ -7,9 +7,9 @@ function Contact() {
 	return (
 		<>
 			<WindowHeader title='Contact' target='contact' />
-			<div className='col-center w-80 rounded-b-xl p-8 text-xs'>
-				<div className='mb-4 size-32 flex-center rounded-full bg-gray-800' />
-				<h1 className='mb-3 font-bold text-3xl'>Ross Tungol</h1>
+			<div className='col-center w-[560px] rounded-b-xl p-16'>
+				<div className='mb-8 size-52 flex-center rounded-full bg-gray-800' />
+				<h1 className='mb-6 font-bold text-6xl'>Ross Tungol</h1>
 				<div>
 					<ul className='flex gap-6'>
 						{contactLinks.map(({ link, label, Icon }) => (

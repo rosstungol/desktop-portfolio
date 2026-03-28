@@ -15,28 +15,28 @@ export const applicationsItems = [
 		name: 'About',
 		icon: 'safari.png',
 		type: 'about',
-		finderPosition: 'top-6 left-4',
+		finderPosition: 'top-10 left-10',
 	},
 	{
 		id: 'contact-icon',
 		name: 'Contact',
 		icon: 'contact.png',
 		type: 'contact',
-		finderPosition: 'top-6 left-24',
+		finderPosition: 'top-10 left-50',
 	},
 	{
 		id: 'photos-icon',
 		name: 'Photos',
 		icon: 'photos.png',
 		type: 'photos',
-		finderPosition: 'top-6 left-44',
+		finderPosition: 'top-10 left-90',
 	},
 	{
 		id: 'terminal-icon',
 		name: 'Terminal',
 		icon: 'terminal.png',
 		type: 'terminal',
-		finderPosition: 'top-6 left-64',
+		finderPosition: 'top-10 left-130',
 	},
 ] satisfies FinderItem[]
 
@@ -46,8 +46,8 @@ export const desktopItems = [
 		name: 'Resume.pdf',
 		icon: 'pdf.png',
 		type: 'resume',
-		finderPosition: 'top-6 left-4',
-		desktopPosition: 'top-10 right-8',
+		finderPosition: 'top-10 left-10',
+		desktopPosition: 'top-10 right-10',
 	},
 ] satisfies DesktopItem[]
 
@@ -59,14 +59,14 @@ export const projectsItems = [
 		icon: 'folder.png',
 		Icon: FolderCode,
 		type: 'folder',
-		finderPosition: 'top-6 left-4',
+		finderPosition: 'top-10 left-10',
 		children: [
 			{
 				id: 'project-1-file-icon',
 				name: 'ProjectFile1',
 				icon: 'file.png',
 				type: 'file',
-				finderPosition: 'top-6 left-4',
+				finderPosition: 'top-10 left-10',
 				fileContent: {
 					title: 'test',
 					text: (
@@ -85,7 +85,7 @@ export const projectsItems = [
 				href: 'https://google.com',
 				icon: 'safari.png',
 				type: 'url',
-				finderPosition: 'top-6 left-24',
+				finderPosition: 'top-10 left-50',
 			} satisfies UrlItem,
 		],
 	} satisfies FolderItem,
@@ -95,14 +95,14 @@ export const projectsItems = [
 		icon: 'folder.png',
 		Icon: FolderCode,
 		type: 'folder',
-		finderPosition: 'top-6 left-24',
+		finderPosition: 'top-10 left-50',
 		children: [
 			{
 				id: 'project-2-file-icon',
 				name: 'ProjectFile2',
 				icon: 'file.png',
 				type: 'file',
-				finderPosition: 'top-6 left-4',
+				finderPosition: 'top-10 left-10',
 				fileContent: {
 					title: 'title 2',
 					text: (
@@ -120,7 +120,7 @@ export const projectsItems = [
 				href: 'https://google.com',
 				icon: 'safari.png',
 				type: 'url',
-				finderPosition: 'top-6 left-24',
+				finderPosition: 'top-10 left-50',
 			} satisfies UrlItem,
 		],
 	} satisfies FolderItem,
@@ -132,7 +132,7 @@ export const trashItems = [
 		name: 'Maki',
 		icon: 'jpg.png',
 		type: 'image',
-		finderPosition: 'top-6 left-4',
+		finderPosition: 'top-10 left-10',
 		fileContent: {
 			image: '/desktop/images/maki.avif',
 		},

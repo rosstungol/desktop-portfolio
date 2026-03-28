@@ -160,9 +160,9 @@ function Terminal() {
 	return (
 		<div ref={terminalRef}>
 			<WindowHeader title='Terminal' target='terminal' />
-			<div className='terminal h-[480px]'>
-				<div className='flex max-h-[480px] w-[500px] flex-col-reverse overflow-y-auto p-3 text-xs'>
-					<div className='mb-2 flex'>
+			<div className='terminal h-[800px]'>
+				<div className='flex max-h-[800px] w-[800px] flex-col-reverse overflow-y-auto p-4 text-xl'>
+					<div className='mb-2 flex py-1'>
 						<Prompt />
 						<input
 							name='terminal'
@@ -179,7 +179,9 @@ function Terminal() {
 					</div>
 					<output className='font-roboto'>
 						{output.map((item) => (
-							<div key={item.id}>{item.content}</div>
+							<div key={item.id} className='py-1'>
+								{item.content}
+							</div>
 						))}
 					</output>
 				</div>

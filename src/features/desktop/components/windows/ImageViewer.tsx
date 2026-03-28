@@ -21,7 +21,11 @@ function ImageViewer() {
 	const { name, fileContent } = data
 
 	const imageFallback: ReactNode = (
-		<div className='p-4 text-center text-red-400'>Failed to load image</div>
+		<div>
+			<p className='mx-auto my-10 text-2xl text-red-400'>
+				Failed to load image
+			</p>
+		</div>
 	)
 
 	return (
@@ -29,7 +33,7 @@ function ImageViewer() {
 			<WindowHeader title={name} target='image' />
 			<div className='p-2'>
 				{fileContent?.image ? (
-					<div className='max-h-[500px] flex-center overflow-hidden rounded-lg'>
+					<div className='max-h-[800px] flex-center overflow-hidden rounded-lg'>
 						{hasError ? (
 							imageFallback
 						) : (

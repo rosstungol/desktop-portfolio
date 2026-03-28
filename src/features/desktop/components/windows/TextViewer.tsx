@@ -12,18 +12,20 @@ function TextViewer() {
 	return (
 		<>
 			<WindowHeader title={name} target='file' />
-			<div className='flex max-h-96 flex-col gap-2 overflow-y-auto rounded-b-2xl bg-gray-900/70 p-6'>
+			<div className='flex max-h-[880px] min-h-[200px] flex-col gap-2 overflow-y-auto rounded-b-2xl bg-gray-900/60 px-10 py-16 text-3xl'>
 				{fileContent?.image && (
-					<div className='mb-4 max-h-60 w-full flex-center overflow-clip rounded'>
+					<div className='mb-6 max-h-60 w-full flex-center overflow-clip rounded'>
 						<img src={fileContent.image} alt={name} loading='lazy' />
 					</div>
 				)}
 
 				{fileContent?.title && (
-					<h3 className='font-bold'>{fileContent.title}</h3>
+					<h3 className='mb-6 font-bold'>{fileContent.title}</h3>
 				)}
 
-				{fileContent?.text && <div>{fileContent.text}</div>}
+				{fileContent?.text && (
+					<div className='leading-relaxed'>{fileContent.text}</div>
+				)}
 			</div>
 		</>
 	)
