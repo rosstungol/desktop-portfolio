@@ -72,6 +72,6 @@ export const photos = [
 ] satisfies FileItem[]
 
 export const resume = {
-	link: `${import.meta.env.BASE_URL}files/resume.pdf`,
+	filePath: `${import.meta.env.BASE_URL}files/resume.pdf`,
 	fileName: 'Ross-Tungol-Resume.pdf',
 } as const

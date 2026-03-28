@@ -22,7 +22,7 @@ function Resume() {
 				target='resume'
 				rightButton={
 					<IconLink
-						href={resume.link}
+						href={resume.filePath}
 						label='Download Resume'
 						size='sm'
 						download={resume.fileName}
@@ -33,7 +33,7 @@ function Resume() {
 			/>
 			<div className='px-3 pb-3'>
 				<Document
-					file='/files/resume.pdf'
+					file={resume.filePath}
 					loading={
 						<div className='p-4 text-center text-gray-400'>Loading...</div>
 					}

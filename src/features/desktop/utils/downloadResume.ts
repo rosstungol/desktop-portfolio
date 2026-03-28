@@ -2,7 +2,7 @@ import { resume } from '../data/constants'
 
 export const downloadResume = () => {
 	const link = document.createElement('a')
-	link.href = resume.link
+	link.href = resume.filePath
 	link.download = resume.fileName
 	document.body.appendChild(link)
 	link.click()
