@@ -6,6 +6,8 @@ import { createRoot } from 'react-dom/client'
 import './assets/index.css'
 
 import { App } from './App'
+import { ErrorBoundary } from './components/error/ErrorBoundary'
+import { ErrorMessage } from './components/error/ErrorMessage'
 
 gsap.registerPlugin(useGSAP)
 
@@ -14,7 +16,9 @@ const root = document.getElementById('root')
 if (root) {
 	createRoot(root).render(
 		<StrictMode>
-			<App />
+			<ErrorBoundary fallback={<ErrorMessage />}>
+				<App />
+			</ErrorBoundary>
 		</StrictMode>
 	)
 }
