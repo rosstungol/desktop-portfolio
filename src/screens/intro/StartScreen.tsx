@@ -2,7 +2,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { startTransition, useRef } from 'react'
 
-import { Button } from '@/components/Button'
+import { DialogBox } from '@/components/ui/DialogBox'
 
 export function StartScreen({ onStart }: { onStart: () => void }) {
 	const startRef = useRef<HTMLDivElement | null>(null)
@@ -33,23 +33,12 @@ export function StartScreen({ onStart }: { onStart: () => void }) {
 		)
 	}, [])
 
-	const handleStartTransition = () => {
-		startTransition(onStart)
-	}
-
 	return (
-		<div
+		<DialogBox
 			ref={startRef}
-			className='card-container col-center m-4 block min-w-56 max-w-96'
-		>
-			<div className='border-blue-500/10 border-b p-4'>
-				<h1 className='text-center font-bold font-roboto'>rosstungol.com</h1>
-			</div>
-			<div className='p-4 sm:px-8 sm:py-6'>
-				<Button className='w-full' onClick={handleStartTransition}>
-					enter
-				</Button>
-			</div>
-		</div>
+			title='rosstungol.com'
+			buttonText='enter'
+			action={() => startTransition(onStart)}
+		/>
 	)
 }
