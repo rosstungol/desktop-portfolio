@@ -161,25 +161,17 @@
 			color: var(--light-sky-blue);
 		}
 	}
-
-	.card-container {
-		@apply glass rounded-xl border border-blue-500/20 text-gray-200 outline-2 outline-gray-800/40;
-
-		&.-dock {
-			@apply rounded-2xl;
-		}
-
-		&.-window {
-			@apply rounded-3xl bg-gray-900/85 border-2 outline outline-gray-950/80 overflow-hidden;
-		}
-	}
-
-	.tooltip {
-		@apply text-lg! rounded! py-1! px-3!;
-	}
 }
 
-@utility glass {
+@utility window-border {
+	@apply border-2 border-blue-500/20 outline outline-gray-950/80;
+}
+
+@utility card-border {
+	@apply border border-blue-500/20 outline-2 outline-gray-800/40;
+}
+
+@utility glass-bg {
 	@apply bg-gray-800/20 shadow-lg backdrop-blur-lg;
 }
 
