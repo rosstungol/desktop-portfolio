@@ -1,5 +1,4 @@
 import { locations } from '../../data/constants/locations'
-import { Navbar } from '../layout/Navbar'
 import { Dock } from '../ui/Dock'
 import { IconList } from '../ui/IconList'
 import { AboutWindow } from '../windows/About'
@@ -10,11 +9,12 @@ import { PhotosWindow } from '../windows/Photos'
 import { ResumeWindow } from '../windows/Resume'
 import { TerminalWindow } from '../windows/Terminal'
 import { TextWindow } from '../windows/TextViewer'
+import { Header } from './Header'
 
 export function DesktopScreen() {
 	return (
 		<div>
-			<Navbar />
+			<Header />
 			<Dock />
 			<IconList items={locations.desktop.children ?? []} location='desktop' />
 

@@ -19,7 +19,7 @@ export function FinderMenu({ name, items }: FinderMenuProps) {
 
 	return (
 		<div className='mb-8'>
-			<h3 className='mb-2 font-semibold text-gray-400 text-xl'>{name}</h3>
+			<h2 className='mb-2 font-semibold text-gray-400 text-xl'>{name}</h2>
 			<ul className='flex flex-col gap-2'>
 				{items?.map((item) => (
 					<li key={item.id}>

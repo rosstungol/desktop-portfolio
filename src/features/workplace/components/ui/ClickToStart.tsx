@@ -34,7 +34,7 @@ export function ClickToStart() {
 
 	return (
 		<ViewTransition>
-			<div className='card-container fixed bottom-28 left-1/2 z-20 w-max -translate-x-1/2 px-4 pt-1.5 pb-2.5 md:bottom-28'>
+			<div className='glass-bg card-border fixed bottom-28 left-1/2 z-20 w-max -translate-x-1/2 rounded-xl px-4 pt-1.5 pb-2.5 text-gray-200'>
 				<p className='font-bold font-roboto text-sm md:text-base'>
 					<span ref={textRef} className='mr-1' />
 					<span className='cursor text-xl'>▊</span>

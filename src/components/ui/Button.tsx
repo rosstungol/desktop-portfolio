@@ -7,10 +7,11 @@ type ButtonSize = 'md' | 'sm'
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 	variant?: ButtonVariant
 	size?: ButtonSize
+	fullWidth?: boolean
 }
 
 const baseStyles =
-	'glass flex-center cursor-pointer rounded-lg border-2 font-bold text-gray-200'
+	'glass-bg flex-center cursor-pointer rounded-lg border-2 font-bold text-gray-200 font-roboto'
 const hoverStyles = 'transition-colors hover:bg-blue-100 hover:text-gray-950'
 const disabledStyles =
 	'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-gray-200'
@@ -28,6 +29,7 @@ const sizeStyles: Record<ButtonSize, string> = {
 export function Button({
 	variant = 'primary',
 	size = 'md',
+	fullWidth = false,
 	className,
 	children,
 	...props
@@ -41,6 +43,7 @@ export function Button({
 				disabledStyles,
 				variantStyles[variant],
 				sizeStyles[size],
+				fullWidth && 'w-full',
 				className
 			)}
 			{...props}

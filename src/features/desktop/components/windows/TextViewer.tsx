@@ -20,7 +20,7 @@ function TextViewer() {
 				)}
 
 				{fileContent?.title && (
-					<h3 className='mb-6 font-bold'>{fileContent.title}</h3>
+					<h2 className='mb-6 font-bold'>{fileContent.title}</h2>
 				)}
 
 				{fileContent?.text && (

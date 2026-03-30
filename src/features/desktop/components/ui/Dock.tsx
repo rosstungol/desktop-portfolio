@@ -88,7 +88,7 @@ export function Dock() {
 		<section className='absolute bottom-3 left-1/2 -translate-x-1/2 select-none'>
 			<div
 				ref={dockRef}
-				className='card-container -dock flex items-center gap-2 p-2'
+				className='glass-bg card-border flex items-center gap-2 rounded-2xl'
 			>
 				{dockApps.map(({ id, name, icon }) => (
 					<div key={id} className='flex-center'>
@@ -127,7 +127,11 @@ export function Dock() {
 						/>
 					</button>
 				</div>
-				<Tooltip id='dock-tooltip' place='top' className='tooltip' />
+				<Tooltip
+					id='dock-tooltip'
+					place='top'
+					className='rounded! px-3! py-1! text-lg!'
+				/>
 			</div>
 		</section>
 	)
