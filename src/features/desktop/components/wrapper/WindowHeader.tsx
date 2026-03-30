@@ -21,7 +21,7 @@ export function WindowHeader({
 			)}
 		>
 			<WindowControls target={target} />
-			<p className='abs-center font-semibold'>{title}</p>
+			<h2 className='abs-center font-semibold'>{title}</h2>
 			<div>{rightButton}</div>
 		</div>
 	)
