@@ -3,7 +3,7 @@ import { Banana } from 'lucide-react'
 import { useWindowStore } from '../../stores/window'
 import { DigitalClock } from '../ui/DigitalClock'
 
-export function Navbar() {
+export function Header() {
 	const windows = useWindowStore((state) => state.windows)
 
 	const openWindows = Object.entries(windows)
@@ -17,15 +17,15 @@ export function Navbar() {
 				)
 			: null
 
-	const navHeading = topWindow?.window ?? 'finder'
+	const title = topWindow?.window ?? 'finder'
 
 	return (
-		<nav className='glass-bg flex w-full select-none items-center justify-between border-blue-500/10 border-b px-10 py-2 text-gray-200 text-xl'>
+		<header className='glass-bg flex w-full select-none items-center justify-between border-blue-500/10 border-b px-10 py-2 text-gray-200 text-xl'>
 			<div className='flex items-center gap-6 font-bold'>
 				<Banana size={22} />
-				<h3 className='capitalize'>{navHeading}</h3>
+				<h1 className='capitalize'>{title}</h1>
 			</div>
 			<DigitalClock />
-		</nav>
+		</header>
 	)
 }
