@@ -6,8 +6,8 @@ import { createRoot } from 'react-dom/client'
 import './assets/index.css'
 
 import { App } from './App'
-import { ErrorBoundary } from './components/error/ErrorBoundary'
-import { ErrorMessage } from './components/error/ErrorMessage'
+import { ErrorBoundary } from './screens/error/ErrorBoundary'
+import { ErrorMessage } from './screens/error/ErrorScreen'
 
 gsap.registerPlugin(useGSAP)
 
