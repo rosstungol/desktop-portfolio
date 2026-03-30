@@ -35,14 +35,17 @@ export function LoadingScreen({ onLoaded }: { onLoaded: () => void }) {
 		<div ref={loadingRef} className='col-center'>
 			<img src='/images/desktop.png' alt='desktop' className='mb-6 h-24' />
 			<div
-				className='progress-bar w-40'
+				className='h-1.5 w-40 overflow-hidden rounded border border-gray-800 bg-gray-900'
 				role='progressbar'
 				aria-valuenow={progressRounded}
 				aria-valuemin={0}
 				aria-valuemax={100}
 				aria-label='Loading progress'
 			>
-				<div className='fill h-full' style={{ width: `${progressRounded}%` }} />
+				<div
+					className='h-full bg-gray-200'
+					style={{ width: `${progressRounded}%` }}
+				/>
 			</div>
 		</div>
 	)

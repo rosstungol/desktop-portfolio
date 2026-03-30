@@ -16,8 +16,6 @@
 	--easter-green: #9ece6a;
 
 	--gray-200: #e5e7eb;
-	--gray-800: #1e2939;
-	--gray-900: #101828;
 
 	/* background */
 	--gradient-bg: linear-gradient(
@@ -84,18 +82,6 @@
 		height: 100dvh;
 		width: 100dvw;
 		background: var(--gradient-bg);
-	}
-
-	.progress-bar {
-		height: 6px;
-		border-radius: 3px;
-		background-color: var(--gray-900);
-		border: 1px solid var(--gray-800);
-		overflow: hidden;
-
-		> .fill {
-			background-color: var(--gray-200);
-		}
 	}
 
 	.desktop-container {
