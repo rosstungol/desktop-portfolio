@@ -6,7 +6,7 @@ type CardProps = HTMLAttributes<HTMLElement> & {
 	title: string
 	buttonText: string
 	action: () => void
-	ref?: RefObject<HTMLDivElement | null>
+	ref?: RefObject<HTMLElement | null>
 	children?: ReactNode
 }
 
@@ -16,11 +16,13 @@ export function DialogBox({
 	action,
 	ref,
 	children,
+	...props
 }: CardProps) {
 	return (
 		<section
 			ref={ref}
 			className='glass-bg card-border min-w-56 max-w-96 rounded-xl text-gray-200'
+			{...props}
 		>
 			<div className='border-blue-500/10 border-b p-4'>
 				<h1 className='text-center font-bold font-roboto'>{title}</h1>
