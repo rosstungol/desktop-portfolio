@@ -1,5 +1,6 @@
-import clsx from 'clsx'
 import type { AnchorHTMLAttributes } from 'react'
+
+import { cn } from '@/utils/cn'
 
 type IconLinkSize = 'md' | 'sm'
 
@@ -32,7 +33,7 @@ export function IconLink({
 			href={href}
 			aria-label={label}
 			title={label}
-			className={clsx(
+			className={cn(
 				baseStyles,
 				hoverStyles,
 				sizeStyles[size],

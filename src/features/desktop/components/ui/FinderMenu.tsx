@@ -1,5 +1,6 @@
-import clsx from 'clsx'
 import { useShallow } from 'zustand/shallow'
+
+import { cn } from '@/utils/cn'
 
 import type { LocationItem } from '../../data/types'
 import { useLocationStore } from '../../stores/location'
@@ -27,7 +28,7 @@ export function FinderMenu({ name, items }: FinderMenuProps) {
 							type='button'
 							onClick={() => setActiveLocation(item)}
 							aria-pressed={item.id === activeLocation?.id}
-							className={clsx(
+							className={cn(
 								'flex w-full items-center gap-2 rounded-xl px-4 py-2',
 								'transition-colors hover:bg-blue-500/10',
 								item.id === activeLocation?.id && 'bg-blue-500/10 text-blue-400'
