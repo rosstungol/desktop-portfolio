@@ -1,4 +1,4 @@
-import { resume } from '../data/constants'
+import { resume } from '../features/desktop/data/constants'
 
 export const downloadResume = () => {
 	const link = document.createElement('a')
