@@ -25,7 +25,7 @@ export function DialogBox({
 			{...props}
 		>
 			<div className='border-blue-500/10 border-b p-4'>
-				<h1 className='text-center font-bold font-roboto'>{title}</h1>
+				<h1 className='text-center font-bold font-mono'>{title}</h1>
 			</div>
 			<div className='col-center gap-6 p-6'>
 				{children}
