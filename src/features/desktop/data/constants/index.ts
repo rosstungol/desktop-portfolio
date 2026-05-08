@@ -1,5 +1,6 @@
-import { Github } from '../../components/icons/Github'
-import { LinkedIn } from '../../components/icons/LinkedIn'
+import { Github } from '@/components/icons/Github'
+import { LinkedIn } from '@/components/icons/LinkedIn'
+
 import type { FileItem } from '../types'
 
 export const dockApps = [
