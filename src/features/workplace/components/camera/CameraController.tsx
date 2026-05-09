@@ -4,7 +4,7 @@ import gsap from 'gsap'
 import { type RefObject, useRef } from 'react'
 import * as THREE from 'three'
 
-import type { SceneState } from '@/App'
+import type { SceneState } from '@/data/types'
 
 import { CAMERA_CONFIG } from '../../sceneConfig'
 

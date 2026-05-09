@@ -3,7 +3,7 @@ import { Perf } from 'r3f-perf'
 import { useRef } from 'react'
 import type * as THREE from 'three'
 
-import type { SceneState } from '@/App'
+import type { SceneState } from '@/data/types'
 import { DesktopContainer } from '@/features/desktop/components/layout/DesktopContainer'
 
 import { CAMERA_CONFIG } from '../../sceneConfig'

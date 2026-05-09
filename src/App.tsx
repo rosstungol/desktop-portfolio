@@ -1,11 +1,10 @@
 import { startTransition, useEffect, useState } from 'react'
 
+import type { SceneState } from './data/types'
 import { WorkplaceScene } from './features/workplace/components/scene/WorkplaceScene'
 import { ClickToStart } from './features/workplace/components/ui/ClickToStart'
 import { SceneControls } from './features/workplace/components/ui/SceneControls'
 import { SceneIntro } from './screens/intro/SceneIntro'
-
-export type SceneState = 'loading' | 'intro' | 'start' | 'focus' | 'idle'
 
 const SCENE_INTRO_RENDER_STATES = new Set(['loading', 'intro'])
 const CLICK_TO_START_RENDER_STATES = new Set(['start', 'idle'])
