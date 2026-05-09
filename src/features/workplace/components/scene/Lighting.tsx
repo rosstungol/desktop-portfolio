@@ -13,7 +13,7 @@ export function Lighting() {
 				angle={1}
 				castShadow
 				shadow-bias={-0.0003}
-				shadow-mapSize={[2048, 2048]}
+				shadow-mapSize={[256, 256]}
 			/>
 		</>
 	)
