@@ -6,7 +6,7 @@ export const resmyze: Project = {
 	description:
 		'A lightweight AI-powered tool that analyzes your resume against a specific job target and provides clear, actionable feedback.',
 	github: 'https://github.com/rosstungol/resume-analyzer',
-	demo: 'https://resmyze-28ah8.puter.site',
+	url: 'https://resmyze-28ah8.puter.site',
 	tags: ['React', 'React Router', 'Puter'],
 }
 
@@ -16,6 +16,7 @@ export const portfolio: Project = {
 	description:
 		'My portfolio website, built with Three.js and React Three Fiber.',
 	github: 'https://github.com/rosstungol/desktop-portfolio',
+	url: 'https://rosstungol.com',
 	tags: ['React', 'Three.js', 'React Three Fiber', 'Zustand'],
 }
 

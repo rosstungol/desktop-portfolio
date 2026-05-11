@@ -37,12 +37,12 @@ export function ProjectList() {
 												</IconLink>
 											</li>
 										)}
-										{project.demo && (
+										{project.url && (
 											<li>
 												<IconLink
-													href={project.demo}
+													href={project.url}
 													size='sm'
-													label='Live Demo'
+													label='URL'
 													target='_blank'
 													rel='noopener noreferrer'
 												>

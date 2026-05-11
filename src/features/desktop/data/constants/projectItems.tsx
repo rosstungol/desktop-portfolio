@@ -67,7 +67,7 @@ export const projectsItems = [
 			{
 				id: 'project-1-link-icon',
 				name: resmyze.title,
-				href: resmyze.demo,
+				href: resmyze.url,
 				icon: 'resmyze.avif',
 				type: 'url',
 				finderPosition: 'top-10 left-50',
