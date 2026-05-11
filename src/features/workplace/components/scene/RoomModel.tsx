@@ -50,7 +50,6 @@ export function RoomModel(props: JSX.IntrinsicElements['group']) {
 				<Noise opacity={0.03} blendFunction={BlendFunction.VIVID_LIGHT} />
 			</EffectComposer>
 			<mesh
-				castShadow
 				receiveShadow
 				geometry={nodes.Monoblock_Metal_0.geometry}
 				material={materials.PaletteMaterial001}
@@ -71,7 +70,6 @@ export function RoomModel(props: JSX.IntrinsicElements['group']) {
 			/>
 			<mesh
 				castShadow
-				receiveShadow
 				geometry={nodes.Monoblock_Screen_0.geometry}
 				material={materials.Screen}
 				position={[-1.011, 1.639, 0.017]}
@@ -91,7 +89,6 @@ export function RoomModel(props: JSX.IntrinsicElements['group']) {
 			/>
 			<mesh
 				castShadow
-				receiveShadow
 				geometry={nodes.Soft_Paper_Lamp_Paper_Lamp_0.geometry}
 				position={[-0.899, 1.229, 1.077]}
 				rotation={[-Math.PI / 2, 0, 0]}
@@ -106,8 +103,6 @@ export function RoomModel(props: JSX.IntrinsicElements['group']) {
 				/>
 			</mesh>
 			<mesh
-				castShadow
-				receiveShadow
 				geometry={nodes.Poster_Photo_0.geometry}
 				material={materials.Photo}
 				position={[-0.368, 2.203, -1.295]}
@@ -117,7 +112,6 @@ export function RoomModel(props: JSX.IntrinsicElements['group']) {
 			/>
 			<mesh
 				castShadow
-				receiveShadow
 				geometry={nodes.Curtain_L_Curtains_0.geometry}
 				material={materials.PaletteMaterial006}
 				position={[0.385, 1.744, -1.209]}

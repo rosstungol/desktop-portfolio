@@ -6,9 +6,10 @@ import {
 	useState,
 } from 'react'
 
+import { downloadResume } from '@/utils/downloadResume'
+
 import { about, help, kitten, skills } from '../../data/constants/terminal'
 import { useWindowStore } from '../../stores/window'
-import { downloadResume } from '../../utils/downloadResume'
 import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
 
@@ -19,7 +20,7 @@ type OutputItem = {
 
 function Prompt({ command }: { command?: string }) {
 	return (
-		<span className='prompt space-x-2 font-roboto'>
+		<span className='prompt space-x-2 font-mono'>
 			<span className='arrow'>➜</span>
 			<span className='tilde mr-2'>~</span>
 			{command}
@@ -177,7 +178,7 @@ function Terminal() {
 							}}
 						/>
 					</div>
-					<output className='font-roboto'>
+					<output className='font-mono'>
 						{output.map((item) => (
 							<div key={item.id} className='py-1'>
 								{item.content}

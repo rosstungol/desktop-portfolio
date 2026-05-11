@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import { cn } from '@/utils/cn'
 
 import type { LocationItem } from '../../data/types'
 import { useLocationStore } from '../../stores/location'
@@ -35,7 +35,7 @@ export function IconList({ items, location }: IconListProps) {
 			{items?.map((item) => (
 				<li
 					key={item.id}
-					className={clsx(
+					className={cn(
 						'absolute',
 						location === 'desktop' && item.desktopPosition
 							? item.desktopPosition
@@ -56,7 +56,7 @@ export function IconList({ items, location }: IconListProps) {
 							/>
 						)}
 						<p
-							className={clsx(
+							className={cn(
 								'w-32 truncate text-gray-200 text-xl',
 								location === 'desktop' && 'drop-shadow drop-shadow-gray-900'
 							)}

@@ -1,5 +1,6 @@
-import clsx from 'clsx'
 import type { ReactNode } from 'react'
+
+import { cn } from '@/utils/cn'
 
 import type { WindowKey } from '../../data/types'
 import { WindowControls } from './WindowControls'
@@ -15,7 +16,7 @@ export function WindowHeader({
 }) {
 	return (
 		<div
-			className={clsx(
+			className={cn(
 				'relative flex items-center justify-between rounded-t-xl border-blue-500/15 border-b text-xl',
 				rightButton ? 'px-4 py-1' : 'p-4'
 			)}

@@ -1,5 +1,6 @@
-import clsx from 'clsx'
 import type { AnchorHTMLAttributes } from 'react'
+
+import { cn } from '@/utils/cn'
 
 type IconLinkSize = 'md' | 'sm'
 
@@ -10,7 +11,7 @@ type IconLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
 }
 
 const baseStyles =
-	'flex-center cursor-pointer border-4 border-blue-500/10 font-bold text-gray-200'
+	'flex-center w-fit cursor-pointer border-4 border-blue-500/10 font-bold text-gray-200'
 const hoverStyles =
 	'transition-colors hover:border-blue-100 hover:bg-blue-100 hover:text-gray-950'
 
@@ -25,6 +26,7 @@ export function IconLink({
 	size = 'md',
 	rounded = false,
 	children,
+	className,
 	...props
 }: IconLinkProps) {
 	return (
@@ -32,11 +34,12 @@ export function IconLink({
 			href={href}
 			aria-label={label}
 			title={label}
-			className={clsx(
+			className={cn(
 				baseStyles,
 				hoverStyles,
 				sizeStyles[size],
-				rounded ? 'rounded-full' : 'rounded-xl'
+				rounded ? 'rounded-full' : 'rounded-xl',
+				className
 			)}
 			{...props}
 		>

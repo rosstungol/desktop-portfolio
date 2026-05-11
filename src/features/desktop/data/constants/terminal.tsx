@@ -1,9 +1,6 @@
-// TODO: Replace placeholder with description
-export const about = (
-	<div className='terminal-output'>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-	</div>
-)
+import { aboutText } from '@/data/constants'
+
+export const about = <div className='terminal-output'>{aboutText}</div>
 
 export const skills = (
 	<div className='terminal-output'>

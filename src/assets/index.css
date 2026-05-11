@@ -1,11 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Syne:wght@400..800&display=swap");
+@import url("about-grid");
 @import "tailwindcss";
 
 @theme {
 	/* fonts */
-	--font-inter: "Inter", sans-serif;
-	--font-roboto: "Roboto Mono", monospace;
+	--font-sans: "Outfit", sans-serif;
+	--font-mono: "Roboto Mono", monospace;
+	--font-display: "Syne", sans-serif;
 
 	/* colors */
 	--gondola: #240b1a;
@@ -118,7 +119,7 @@
 	.terminal-input {
 		caret-shape: block;
 		caret-color: var(--gray-200);
-		font-family: var(--font-roboto);
+		font-family: var(--font-mono);
 		outline: none;
 	}
 
@@ -147,6 +148,16 @@
 			color: var(--light-sky-blue);
 		}
 	}
+
+	.text-content {
+		h3 {
+			@apply text-3xl;
+		}
+
+		p {
+			@apply text-2xl;
+		}
+	}
 }
 
 @utility window-border {
@@ -171,4 +182,24 @@
 
 @utility abs-center {
 	@apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+}
+
+@utility card-shadow {
+	box-shadow: 4px 4px 0px 0px var(--natural-black);
+}
+
+@utility noise {
+	--lines: 0.0003px;
+	--noise-color: rgba(98, 98, 98, 0.1);
+
+	background: repeating-radial-gradient(
+		circle at center,
+		var(--noise-color),
+		var(--lines),
+		var(--noise-color),
+		var(--lines),
+		#0000,
+		calc(var(--lines) * 2),
+		#0000 0
+	);
 }
