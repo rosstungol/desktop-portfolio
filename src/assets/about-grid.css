@@ -1,0 +1,27 @@
+@layer components {
+	.about-grid {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		grid-template-rows: 2fr 3fr;
+		gap: 24px;
+		grid-template-areas:
+			"ti ti ti ti ti ti ti pr pr pr pr pr"
+			"ab ab ab ab re re re pr pr pr pr pr";
+
+		> .title {
+			grid-area: ti;
+		}
+
+		> .about {
+			grid-area: ab;
+		}
+
+		> .resume {
+			grid-area: re;
+		}
+
+		> .projects {
+			grid-area: pr;
+		}
+	}
+}

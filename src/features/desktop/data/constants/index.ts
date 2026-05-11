@@ -1,6 +1,3 @@
-import { Github } from '@/components/icons/Github'
-import { LinkedIn } from '@/components/icons/LinkedIn'
-
 import type { FileItem } from '../types'
 
 export const dockApps = [
@@ -12,7 +9,7 @@ export const dockApps = [
 	{
 		id: 'about',
 		name: 'About',
-		icon: 'safari.png',
+		icon: 'about.avif',
 	},
 	{
 		id: 'contact',
@@ -28,19 +25,6 @@ export const dockApps = [
 		id: 'terminal',
 		name: 'Terminal',
 		icon: 'terminal.png',
-	},
-] as const
-
-export const contactLinks = [
-	{
-		link: 'https://www.linkedin.com/in/ross-jonathan-tungol-34b2b9259/',
-		label: 'LinkedIn profile',
-		Icon: LinkedIn,
-	},
-	{
-		link: 'https://www.github.com/rosstungol',
-		label: 'GitHub profile',
-		Icon: Github,
 	},
 ] as const
 

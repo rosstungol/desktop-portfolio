@@ -7,7 +7,7 @@ function About() {
 	return (
 		<>
 			<WindowHeader title='About' target='about' />
-			<div className='h-[900px] w-[1400px]'>
+			<div className='h-[900px] w-[1800px] overflow-y-scroll'>
 				<AboutScreen />
 			</div>
 		</>
