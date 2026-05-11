@@ -1,4 +1,5 @@
-import { contactLinks } from '../../data/constants'
+import { contactLinks } from '@/data/constants'
+
 import { IconLink } from '../ui/IconLink'
 import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
@@ -8,7 +9,9 @@ function Contact() {
 		<>
 			<WindowHeader title='Contact' target='contact' />
 			<div className='col-center w-[560px] rounded-b-xl p-16'>
-				<div className='mb-8 size-52 flex-center rounded-full bg-gray-800' />
+				<div className='mb-8 size-52 flex-center overflow-clip rounded-full'>
+					<img src='/images/me.avif' alt='me' />
+				</div>
 				<h2 className='mb-6 font-bold text-6xl'>Ross Tungol</h2>
 				<div>
 					<ul className='flex gap-6'>
