@@ -1,12 +1,10 @@
 import { Blocks, Code2, Monitor, Trash2 } from 'lucide-react'
 
 import type { FinderLocationItem } from '../types'
-import {
-	applicationsItems,
-	desktopItems,
-	projectsItems,
-	trashItems,
-} from './locationItems'
+import { applicationsItems } from './applicationItems'
+import { desktopItems } from './desktopItems'
+import { projectsItems } from './projectItems'
+import { trashItems } from './trashItems'
 
 const APPLICATIONS_LOCATION: FinderLocationItem = {
 	id: 'applications-location',
