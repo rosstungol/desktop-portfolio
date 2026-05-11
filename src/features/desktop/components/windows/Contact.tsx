@@ -10,7 +10,7 @@ function Contact() {
 			<WindowHeader title='Contact' target='contact' />
 			<div className='col-center w-[560px] rounded-b-xl p-16'>
 				<div className='mb-8 size-52 flex-center overflow-clip rounded-full'>
-					<img src='/images/me.avif' alt='me' />
+					<img src='/images/me.avif' alt='Portrait of Ross Tungol' />
 				</div>
 				<h2 className='mb-6 font-bold text-6xl'>Ross Tungol</h2>
 				<div>

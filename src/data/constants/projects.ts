@@ -14,10 +14,10 @@ export const portfolio: Project = {
 	image: '/images/projects/portfolio.avif',
 	title: 'rosstungol.com',
 	description:
-		'My portfolio website, built with Three.js and React Three Fiber.',
+		'My portfolio website, built with Three.js and React Three Fiber. I created this project to explore creative web development and 3D experiences on the web.',
 	github: 'https://github.com/rosstungol/desktop-portfolio',
 	url: 'https://rosstungol.com',
-	tags: ['React', 'Three.js', 'React Three Fiber', 'Zustand'],
+	tags: ['React', 'Three.js', 'React Three Fiber', 'Zustand', 'GSAP'],
 }
 
 export const projects = [resmyze, portfolio] satisfies Project[]

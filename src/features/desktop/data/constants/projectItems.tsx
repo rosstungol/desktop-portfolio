@@ -3,7 +3,6 @@ import { portfolio, resmyze } from '@/data/constants/projects'
 import type { FileItem, FolderItem, LocationItem, UrlItem } from '../types'
 
 export const projectsItems = [
-	// TODO: Replace placeholders with actual projects
 	{
 		id: 'project-1-icon',
 		name: resmyze.title,
@@ -27,7 +26,6 @@ export const projectsItems = [
 								a specific job target and provides clear, actionable feedback—so
 								you can apply with more confidence (and better results).
 							</p>
-
 							<div>
 								<h3 className=''>Job-Specific Analysis</h3>
 								<p>
@@ -35,7 +33,6 @@ export const projectsItems = [
 									summary.
 								</p>
 							</div>
-
 							<div>
 								<h3>Resume Upload</h3>
 								<p>Upload a PDF and get instant insights.</p>
@@ -89,24 +86,28 @@ export const projectsItems = [
 				type: 'file',
 				finderPosition: 'top-10 left-10',
 				fileContent: {
-					title: 'title 2',
+					title: portfolio.title,
 					text: (
-						<p>
-							Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-							aut fugit, sed quia consequuntur magni dolores eos qui ratione
-							voluptatem sequi nesciunt.
-						</p>
+						<>
+							<p>
+								My portfolio website, built with Three.js and React Three Fiber.
+								I created this project to explore creative web development and
+								3D experiences on the web.
+							</p>
+							<div>
+								<h3>Tech Stack</h3>
+								<ul className='list-disc pl-6 text-2xl'>
+									<li>React</li>
+									<li>Three.js</li>
+									<li>React Three Fiber</li>
+									<li>Zustand</li>
+									<li>GSAP</li>
+								</ul>
+							</div>
+						</>
 					),
 				},
 			} satisfies FileItem,
-			{
-				id: 'project-2-link-icon',
-				name: 'ProjectLink2',
-				href: 'https://google.com',
-				icon: 'safari.png',
-				type: 'url',
-				finderPosition: 'top-10 left-50',
-			} satisfies UrlItem,
 		],
 	} satisfies FolderItem,
 ] satisfies LocationItem[]

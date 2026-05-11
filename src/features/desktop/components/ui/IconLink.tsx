@@ -26,6 +26,7 @@ export function IconLink({
 	size = 'md',
 	rounded = false,
 	children,
+	className,
 	...props
 }: IconLinkProps) {
 	return (
@@ -37,7 +38,8 @@ export function IconLink({
 				baseStyles,
 				hoverStyles,
 				sizeStyles[size],
-				rounded ? 'rounded-full' : 'rounded-xl'
+				rounded ? 'rounded-full' : 'rounded-xl',
+				className
 			)}
 			{...props}
 		>

@@ -1,10 +1,6 @@
-export const about = (
-	<div className='terminal-output'>
-		I’m a front-end engineer with experience in both development and design,
-		focused on crafting intuitive, responsive, and visually refined web
-		applications using modern front-end technologies.
-	</div>
-)
+import { aboutText } from '@/data/constants'
+
+export const about = <div className='terminal-output'>{aboutText}</div>
 
 export const skills = (
 	<div className='terminal-output'>

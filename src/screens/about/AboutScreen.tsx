@@ -34,6 +34,7 @@ export function AboutScreen() {
 						<p className='mb-10 font-light text-4xl'>Front-end Engineer</p>
 						<button
 							type='button'
+							aria-label='Dismiss intro'
 							onClick={() => handleFadeOut()}
 							className='cursor-pointer border p-2 transition-colors hover:bg-neutral-50 hover:text-neutral-950'
 						>
