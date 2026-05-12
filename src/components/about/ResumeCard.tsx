@@ -20,7 +20,7 @@ export function ResumeCard() {
 				onClick={handleClick}
 				className='flex w-fit cursor-pointer items-center gap-2 border border-slate-100 p-2 px-4 transition-colors hover:bg-slate-100 hover:text-neutral-950'
 			>
-				<span className='font-semibold text-xl'>
+				<span className='font-bold font-mono text-xl'>
 					{isMobile ? 'Download' : 'View'} Resume
 				</span>
 			</button>

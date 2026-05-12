@@ -13,11 +13,11 @@ export function TitleCard({ sceneState }: { sceneState?: SceneState }) {
 	return (
 		<GridCard className='relative' title>
 			<header className='absolute top-6 left-6 z-20 p-0'>
-				<div className='md:space-y-2'>
+				<div className='lg:space-y-2'>
 					<h3 className='font-black font-display text-4xl tracking-tight md:text-6xl'>
 						Ross Tungol
 					</h3>
-					<p className='font font-light text-xl md:text-3xl'>
+					<p className='font-light text-xl md:px-1 lg:px-0 lg:text-3xl'>
 						Front-end Engineer
 					</p>
 				</div>
@@ -27,7 +27,7 @@ export function TitleCard({ sceneState }: { sceneState?: SceneState }) {
 					<li key={label}>
 						<a
 							href={link}
-							className='flex items-center gap-1 font-semibold text-md md:text-xl'
+							className='flex items-center gap-1 text-md lg:text-xl'
 							target='_blank'
 							rel='noopener noreferrer'
 						>
