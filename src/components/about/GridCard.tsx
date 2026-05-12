@@ -2,17 +2,13 @@ import type { ReactNode } from 'react'
 
 import { cn } from '@/utils/cn'
 
-type AboutScreenCardProps = {
+type GridCardProps = {
 	children: ReactNode
 	className?: string
 	title?: boolean
 }
 
-export function AboutScreenCard({
-	children,
-	className,
-	title,
-}: AboutScreenCardProps) {
+export function GridCard({ children, className, title }: GridCardProps) {
 	return (
 		<div
 			className={cn(

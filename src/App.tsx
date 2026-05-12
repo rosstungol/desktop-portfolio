@@ -5,7 +5,7 @@ import { WorkplaceScene } from './features/workplace/components/scene/WorkplaceS
 import { ClickToStart } from './features/workplace/components/ui/ClickToStart'
 import { SceneControls } from './features/workplace/components/ui/SceneControls'
 import { useIsMobile } from './hooks/useIsMobile'
-import { AboutContent } from './screens/about/AboutContent'
+import { AboutGrid } from './screens/about/AboutGrid'
 import { SceneIntro } from './screens/intro/SceneIntro'
 
 const SCENE_INTRO_RENDER_STATES = new Set(['loading', 'intro'])
@@ -64,7 +64,7 @@ export function App() {
 				</div>
 			) : (
 				<div className='h-dvh w-fit'>
-					<AboutContent sceneState={sceneState} />
+					<AboutGrid sceneState={sceneState} />
 				</div>
 			)}
 		</main>

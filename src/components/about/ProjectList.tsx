@@ -4,7 +4,7 @@ import { projects } from '@/data/constants/projects'
 import { IconLink } from '@/features/desktop/components/ui/IconLink'
 
 import { Github } from '../icons/Github'
-import { AboutScreenCard } from './AboutScreenCard'
+import { GridCard } from './GridCard'
 
 export function ProjectList() {
 	return (
@@ -12,7 +12,7 @@ export function ProjectList() {
 			<ul className='mb-4 space-y-6 has-hover:*:not-hover:opacity-50'>
 				{projects.map((project) => (
 					<li key={project.title}>
-						<AboutScreenCard className='hover:card-shadow space-y-8 transition hover:-translate-y-0.5'>
+						<GridCard className='hover:card-shadow space-y-8 transition hover:-translate-y-0.5'>
 							<div className='flex flex-col items-center gap-6 sm:flex-row'>
 								<div className='h-auto w-full overflow-clip border border-neutral-500/50 sm:h-28 sm:w-52'>
 									<img
@@ -55,7 +55,7 @@ export function ProjectList() {
 									</ul>
 								</div>
 							</div>
-							<p className='font-light text-lg md:text-xl lg:text-2xl'>
+							<p className='font-light md:text-xl lg:text-2xl'>
 								{project.description}
 							</p>
 							<div className='flex flex-wrap gap-2'>
@@ -68,7 +68,7 @@ export function ProjectList() {
 									</div>
 								))}
 							</div>
-						</AboutScreenCard>
+						</GridCard>
 					</li>
 				))}
 			</ul>

@@ -2,7 +2,7 @@ import { useWindowStore } from '@/features/desktop/stores/window'
 import { useIsMobile } from '@/hooks/useIsMobile'
 import { downloadResume } from '@/utils/downloadResume'
 
-import { AboutScreenCard } from './AboutScreenCard'
+import { GridCard } from './GridCard'
 
 export function ResumeCard() {
 	const isMobile = useIsMobile()
@@ -14,7 +14,7 @@ export function ResumeCard() {
 		: () => openWindow('resume')
 
 	return (
-		<AboutScreenCard className='flex-center'>
+		<GridCard className='flex-center'>
 			<button
 				type='button'
 				onClick={handleClick}
@@ -24,6 +24,6 @@ export function ResumeCard() {
 					{isMobile ? 'Download' : 'View'} Resume
 				</span>
 			</button>
-		</AboutScreenCard>
+		</GridCard>
 	)
 }

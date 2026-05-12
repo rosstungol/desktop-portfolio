@@ -5,13 +5,13 @@ import type { SceneState } from '@/data/types'
 import { WorkplaceScene } from '@/features/workplace/components/scene/WorkplaceScene'
 import { useIsMobile } from '@/hooks/useIsMobile'
 
-import { AboutScreenCard } from './AboutScreenCard'
+import { GridCard } from './GridCard'
 
 export function TitleCard({ sceneState }: { sceneState?: SceneState }) {
 	const isMobile = useIsMobile()
 
 	return (
-		<AboutScreenCard className='relative' title>
+		<GridCard className='relative' title>
 			<header className='absolute top-6 left-6 z-20 p-0'>
 				<div className='md:space-y-2'>
 					<h3 className='font-black font-display text-4xl tracking-tight md:text-6xl'>
@@ -43,6 +43,6 @@ export function TitleCard({ sceneState }: { sceneState?: SceneState }) {
 					<WorkplaceScene sceneState={sceneState} />
 				</div>
 			)}
-		</AboutScreenCard>
+		</GridCard>
 	)
 }

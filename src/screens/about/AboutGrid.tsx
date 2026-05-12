@@ -4,7 +4,7 @@ import { ResumeCard } from '@/components/about/ResumeCard'
 import { TitleCard } from '@/components/about/TitleCard'
 import type { SceneState } from '@/data/types'
 
-export function AboutContent({ sceneState }: { sceneState?: SceneState }) {
+export function AboutGrid({ sceneState }: { sceneState?: SceneState }) {
 	return (
 		<div className='about-grid noise text-neutral-50 has-hover:*:not-hover:opacity-50'>
 			<div className='title transition-opacity'>
