@@ -2,6 +2,7 @@ import gsap from 'gsap'
 import { ChevronsRight } from 'lucide-react'
 import { useRef, useState } from 'react'
 
+import { GridBackground } from '@/components/about/GridBackground'
 import { AboutGrid } from '@/screens/about/AboutGrid'
 
 import { WindowHeader } from '../wrapper/WindowHeader'
@@ -30,7 +31,7 @@ function About() {
 							ref={introRef}
 							className='fixed top-[54px] bottom-20 left-0 z-30 h-full w-full flex-center bg-neutral-950'
 						>
-							<div className='noise h-full w-full flex-col text-center'>
+							<div className='noise grid-bg z-10 h-full w-full flex-col text-center'>
 								<h3 className='mt-80 mb-2 font-black font-display text-8xl tracking-tight'>
 									Ross Tungol
 								</h3>
@@ -44,6 +45,7 @@ function About() {
 									<ChevronsRight size={40} />
 								</button>
 							</div>
+							<GridBackground />
 						</div>
 					)}
 					<AboutGrid />

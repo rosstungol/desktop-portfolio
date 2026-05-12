@@ -1,4 +1,5 @@
 import { AboutCard } from '@/components/about/AboutCard'
+import { GridBackground } from '@/components/about/GridBackground'
 import { ProjectCard } from '@/components/about/ProjectCard'
 import { ResumeCard } from '@/components/about/ResumeCard'
 import { TitleCard } from '@/components/about/TitleCard'
@@ -19,6 +20,7 @@ export function AboutGrid({ sceneState }: { sceneState?: SceneState }) {
 			<div className='projects transition-opacity'>
 				<ProjectCard />
 			</div>
+			<GridBackground />
 		</div>
 	)
 }

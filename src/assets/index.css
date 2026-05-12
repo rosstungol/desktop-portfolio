@@ -203,6 +203,13 @@
 	box-shadow: 4px 4px 0px 0px var(--natural-black);
 }
 
+@utility grid-bg {
+	background-size: 120px 120px;
+	background-image:
+		linear-gradient(to right, rgba(70, 70, 70, 0.1) 1px, transparent 1px),
+		linear-gradient(to bottom, rgb(70, 70, 70, 0.1) 1px, transparent 1px);
+}
+
 @utility noise {
 	--lines: 0.0003px;
 	--noise-color: rgba(98, 98, 98, 0.1);
