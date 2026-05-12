@@ -4,8 +4,8 @@ export function ErrorMessage() {
 	return (
 		<div className='viewport-overlay'>
 			<DialogBox
-				title='something went wrong'
-				buttonText='reload page'
+				title='Something went wrong'
+				buttonText='Reload page'
 				action={() => window.location.reload()}
 			>
 				<p>An error occurred. Please reload the page.</p>

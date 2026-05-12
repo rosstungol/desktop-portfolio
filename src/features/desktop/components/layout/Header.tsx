@@ -20,7 +20,7 @@ export function Header() {
 	const title = topWindow?.window ?? 'finder'
 
 	return (
-		<header className='glass-bg flex w-full select-none items-center justify-between border-blue-500/10 border-b px-10 py-2 text-gray-200 text-xl'>
+		<header className='glass-bg flex w-full select-none items-center justify-between px-10 py-2 text-neutral-200 text-xl'>
 			<div className='flex items-center gap-6 font-bold'>
 				<Banana size={22} />
 				<h1 className='capitalize'>{title}</h1>

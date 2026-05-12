@@ -1,8 +1,10 @@
 import { Globe } from 'lucide-react'
+
 import { projects } from '@/data/constants/projects'
 import { IconLink } from '@/features/desktop/components/ui/IconLink'
+
 import { Github } from '../icons/Github'
-import { AboutScreenCard } from './AboutScreenCard'
+import { GridCard } from './GridCard'
 
 export function ProjectList() {
 	return (
@@ -10,17 +12,17 @@ export function ProjectList() {
 			<ul className='mb-4 space-y-6 has-hover:*:not-hover:opacity-50'>
 				{projects.map((project) => (
 					<li key={project.title}>
-						<AboutScreenCard className='hover:card-shadow space-y-8 transition hover:-translate-y-0.5'>
-							<div className='flex items-center gap-6'>
-								<div className='h-28 w-52 overflow-clip border border-neutral-500/50'>
+						<GridCard className='hover:card-shadow space-y-8 transition hover:-translate-y-0.5'>
+							<div className='flex flex-col items-center gap-6 sm:flex-row'>
+								<div className='h-auto w-full overflow-clip border border-neutral-500/50 sm:h-28 sm:w-52'>
 									<img
 										src={project.image}
 										alt={project.title}
-										className='h-full w-auto object-cover'
+										className='h-full w-full object-cover'
 									/>
 								</div>
-								<div>
-									<h4 className='mb-2 font-bold font-display text-3xl'>
+								<div className='flex flex-col items-center sm:items-start'>
+									<h4 className='mb-2 font-bold font-display text-xl md:text-3xl'>
 										{project.title}
 									</h4>
 									<ul className='flex gap-4'>
@@ -53,22 +55,24 @@ export function ProjectList() {
 									</ul>
 								</div>
 							</div>
-							<p className='text-2xl'>{project.description}</p>
+							<p className='font-light md:text-xl lg:text-2xl'>
+								{project.description}
+							</p>
 							<div className='flex flex-wrap gap-2'>
 								{project.tags?.map((item) => (
 									<div
 										key={item}
-										className='w-fit rounded-full border border-neutral-300/20 bg-neutral-950 px-3 py-1'
+										className='w-fit rounded-full bg-slate-600/20 px-3 py-1'
 									>
-										<p className='font-semibold text-xl'>{item}</p>
+										<p className='font-semibold text-sm lg:text-xl'>{item}</p>
 									</div>
 								))}
 							</div>
-						</AboutScreenCard>
+						</GridCard>
 					</li>
 				))}
 			</ul>
-			<p className='py-4 text-center text-2xl'>
+			<p className='py-4 text-center font-light text-lg md:text-2xl'>
 				I'll be updating the list regularly. Check back again soon!
 			</p>
 		</>

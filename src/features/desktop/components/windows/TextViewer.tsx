@@ -12,7 +12,7 @@ function TextViewer() {
 	return (
 		<>
 			<WindowHeader title={name} target='file' />
-			<div className='flex max-h-[880px] min-h-[200px] flex-col gap-2 overflow-y-auto rounded-b-2xl bg-gray-900/60 px-10 py-16'>
+			<div className='flex max-h-[880px] min-h-[200px] flex-col gap-2 overflow-y-auto rounded-b-2xl bg-neutral-900/60 px-10 py-16'>
 				{fileContent?.image && (
 					<div className='mb-6 max-h-60 w-full flex-center overflow-clip rounded'>
 						<img src={fileContent.image} alt={name} loading='lazy' />

@@ -23,7 +23,7 @@ export function SceneIntro({ sceneState, onLoaded, onStart }: SceneIntroProps) {
 
 	return (
 		<ViewTransition>
-			<div className='viewport-overlay'>{screenContent}</div>
+			<div className='viewport-overlay z-30'>{screenContent}</div>
 		</ViewTransition>
 	)
 }

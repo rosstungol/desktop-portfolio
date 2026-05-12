@@ -4,6 +4,8 @@ import type { SceneState } from './data/types'
 import { WorkplaceScene } from './features/workplace/components/scene/WorkplaceScene'
 import { ClickToStart } from './features/workplace/components/ui/ClickToStart'
 import { SceneControls } from './features/workplace/components/ui/SceneControls'
+import { useIsMobile } from './hooks/useIsMobile'
+import { AboutGrid } from './screens/about/AboutGrid'
 import { SceneIntro } from './screens/intro/SceneIntro'
 
 const SCENE_INTRO_RENDER_STATES = new Set(['loading', 'intro'])
@@ -12,6 +14,7 @@ const SCENE_CONTROLS_RENDER_STATES = new Set(['focus', 'idle'])
 
 export function App() {
 	const [sceneState, setSceneState] = useState<SceneState>('loading')
+	const isMobile = useIsMobile()
 
 	useEffect(() => {
 		const handleFocusTransition = () => {
@@ -21,16 +24,17 @@ export function App() {
 		let timeoutId: ReturnType<typeof setTimeout> | undefined
 
 		if (CLICK_TO_START_RENDER_STATES.has(sceneState)) {
-			timeoutId = setTimeout(() => {
-				document.body.addEventListener('click', handleFocusTransition)
-			}, 1000)
+			if (!isMobile)
+				timeoutId = setTimeout(() => {
+					document.body.addEventListener('click', handleFocusTransition)
+				}, 1000)
 		}
 
 		return () => {
 			if (timeoutId) clearTimeout(timeoutId)
 			document.body.removeEventListener('click', handleFocusTransition)
 		}
-	}, [sceneState])
+	}, [sceneState, isMobile])
 
 	return (
 		<main>
@@ -42,9 +46,11 @@ export function App() {
 				/>
 			)}
 
-			{CLICK_TO_START_RENDER_STATES.has(sceneState) && <ClickToStart />}
+			{!isMobile && CLICK_TO_START_RENDER_STATES.has(sceneState) && (
+				<ClickToStart />
+			)}
 
-			{SCENE_CONTROLS_RENDER_STATES.has(sceneState) && (
+			{!isMobile && SCENE_CONTROLS_RENDER_STATES.has(sceneState) && (
 				<SceneControls
 					sceneState={sceneState}
 					onFocus={() => setSceneState('focus')}
@@ -52,7 +58,15 @@ export function App() {
 				/>
 			)}
 
-			<WorkplaceScene sceneState={sceneState} />
+			{!isMobile ? (
+				<div className='h-dvh'>
+					<WorkplaceScene sceneState={sceneState} />
+				</div>
+			) : (
+				<div className='h-dvh w-fit'>
+					<AboutGrid sceneState={sceneState} />
+				</div>
+			)}
 		</main>
 	)
 }

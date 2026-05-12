@@ -57,8 +57,8 @@ export function IconList({ items, location }: IconListProps) {
 						)}
 						<p
 							className={cn(
-								'w-32 truncate text-gray-200 text-xl',
-								location === 'desktop' && 'drop-shadow drop-shadow-gray-900'
+								'w-32 truncate text-neutral-200 text-xl',
+								location === 'desktop' && 'drop-shadow drop-shadow-neutral-900'
 							)}
 						>
 							{item.name}

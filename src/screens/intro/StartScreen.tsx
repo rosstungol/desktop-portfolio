@@ -3,9 +3,11 @@ import gsap from 'gsap'
 import { startTransition, useRef } from 'react'
 
 import { DialogBox } from '@/components/ui/DialogBox'
+import { useIsMobile } from '@/hooks/useIsMobile'
 
 export function StartScreen({ onStart }: { onStart: () => void }) {
 	const startRef = useRef<HTMLDivElement | null>(null)
+	const isMobile = useIsMobile()
 
 	useGSAP(() => {
 		const el = startRef.current
@@ -37,8 +39,20 @@ export function StartScreen({ onStart }: { onStart: () => void }) {
 		<DialogBox
 			ref={startRef}
 			title='rosstungol.com'
-			buttonText='enter'
+			buttonText={isMobile ? 'Enter anyway' : 'Enter'}
 			action={() => startTransition(onStart)}
-		/>
+		>
+			{isMobile && (
+				<>
+					<h2 className='font-semibold text-lg'>
+						Looks like you’re using a small screen
+					</h2>
+					<p>
+						The full interactive experience of this website is available on
+						desktop and laptop devices.
+					</p>
+				</>
+			)}
+		</DialogBox>
 	)
 }

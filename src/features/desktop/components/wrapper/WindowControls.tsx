@@ -8,19 +8,19 @@ export function WindowControls({ target }: { target: WindowKey }) {
 		<div className='flex gap-3'>
 			<button
 				type='button'
-				className='size-5 rounded-full border-2 border-red-500 bg-red-400'
+				className='size-5 rounded-full bg-red-400'
 				aria-label='Close window'
 				title='Close window'
 				onClick={() => closeWindow(target)}
 			/>
 			<button
 				type='button'
-				className='size-5 rounded-full border-2 border-gray-400 bg-gray-300'
+				className='size-5 rounded-full bg-neutral-300'
 				disabled={true}
 			/>
 			<button
 				type='button'
-				className='size-5 rounded-full border-2 border-gray-400 bg-gray-300'
+				className='size-5 rounded-full bg-neutral-300'
 				disabled={true}
 			/>
 		</div>

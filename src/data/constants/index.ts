@@ -2,7 +2,7 @@ import { Github } from '@/components/icons/Github'
 import { LinkedIn } from '@/components/icons/LinkedIn'
 
 export const aboutText =
-	'I’m a front-end engineer with experience in both development and design, focused on crafting intuitive, responsive, and visually refined web applications using modern front-end technologies.'
+	'I’m a front-end engineer with experience in both development and design. I take pride in crafting intuitive, responsive, and visually refined web applications using modern web technologies.'
 
 export const contactLinks = [
 	{

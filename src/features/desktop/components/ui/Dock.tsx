@@ -88,7 +88,7 @@ export function Dock() {
 		<section className='absolute bottom-3 left-1/2 -translate-x-1/2 select-none'>
 			<div
 				ref={dockRef}
-				className='glass-bg card-border flex items-center gap-2 rounded-2xl p-2'
+				className='glass-bg dock-border flex items-center gap-2 rounded-2xl p-2'
 			>
 				{dockApps.map(({ id, name, icon }) => (
 					<div key={id} className='flex-center'>
@@ -98,7 +98,7 @@ export function Dock() {
 							data-tooltip-id='dock-tooltip'
 							data-tooltip-content={name}
 							onClick={() => handleAppToggle(id)}
-							className='dock-icon'
+							className='dock-icon z-10'
 						>
 							<img
 								src={`/desktop/icons/${icon}`}
@@ -109,7 +109,7 @@ export function Dock() {
 					</div>
 				))}
 
-				<div className='h-16 w-0.5 bg-gray-200/40' />
+				<div className='h-16 w-0.5 bg-neutral-200/40' />
 
 				<div className='flex-center'>
 					<button
@@ -118,7 +118,7 @@ export function Dock() {
 						data-tooltip-id='dock-tooltip'
 						data-tooltip-content='Trash'
 						onClick={() => handleAppToggle('finder', 'trash')}
-						className='dock-icon'
+						className='dock-icon z-10'
 					>
 						<img
 							src={`/desktop/icons/trash.png`}

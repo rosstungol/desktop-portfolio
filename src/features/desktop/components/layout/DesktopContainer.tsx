@@ -3,6 +3,7 @@ import type { RefObject } from 'react'
 import type * as THREE from 'three'
 
 import { DESKTOP_POSITION } from '@/features/workplace/sceneConfig'
+import { useIsMobile } from '@/hooks/useIsMobile'
 
 import { DesktopScreen } from './DesktopScreen'
 
@@ -11,6 +12,8 @@ export function DesktopContainer({
 }: {
 	screenRef: RefObject<THREE.Group | null>
 }) {
+	const isMobile = useIsMobile()
+
 	return (
 		<group ref={screenRef} position={[...DESKTOP_POSITION]}>
 			<Html
@@ -20,7 +23,7 @@ export function DesktopContainer({
 				onPointerDown={(e) => e.stopPropagation()}
 			>
 				<div className='desktop-container'>
-					<DesktopScreen />
+					{!isMobile && <DesktopScreen />}
 				</div>
 			</Html>
 		</group>

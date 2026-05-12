@@ -1,27 +1,65 @@
 @layer components {
 	.about-grid {
+		height: 100%;
+		width: 100%;
+		padding: 24px;
 		display: grid;
-		grid-template-columns: repeat(12, 1fr);
-		grid-template-rows: 2fr 3fr;
 		gap: 24px;
-		grid-template-areas:
-			"ti ti ti ti ti ti ti pr pr pr pr pr"
-			"ab ab ab ab re re re pr pr pr pr pr";
 
 		> .title {
-			grid-area: ti;
+			grid-area: t;
 		}
 
 		> .about {
-			grid-area: ab;
+			grid-area: a;
 		}
 
 		> .resume {
-			grid-area: re;
+			grid-area: r;
 		}
 
 		> .projects {
-			grid-area: pr;
+			grid-area: p;
 		}
+	}
+}
+
+@media (min-width: 1024px) {
+	.about-grid {
+		height: 900px;
+		grid-template-rows: 2fr 3fr;
+		grid-template-columns: repeat(12, 1fr);
+		grid-template-areas:
+			"t t t t t t t p p p p p"
+			"a a a a r r r p p p p p";
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	.about-grid {
+		overflow-y: auto;
+		min-height: 100dvh;
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-columns: repeat(7, 1fr);
+		grid-template-areas:
+			"t t t t t t t"
+			"a a a a r r r"
+			"p p p p p p p";
+	}
+}
+
+@media (max-width: 767px) {
+	.about-grid {
+		overflow-y: auto;
+		min-height: 100dvh;
+		max-width: 100dvw;
+		padding: 16px;
+		grid-template-rows: repeat(4, 1fr);
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"t"
+			"a"
+			"r"
+			"p";
 	}
 }

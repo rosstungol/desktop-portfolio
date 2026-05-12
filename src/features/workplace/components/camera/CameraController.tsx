@@ -9,7 +9,7 @@ import type { SceneState } from '@/data/types'
 import { CAMERA_CONFIG } from '../../sceneConfig'
 
 type CameraControllerProps = {
-	sceneState: SceneState
+	sceneState?: SceneState
 	screenRef: RefObject<THREE.Group | null>
 }
 

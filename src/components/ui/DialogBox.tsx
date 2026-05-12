@@ -1,5 +1,7 @@
 import type { HTMLAttributes, ReactNode, RefObject } from 'react'
 
+import { cn } from '@/utils/cn'
+
 import { Button } from './Button'
 
 type CardProps = HTMLAttributes<HTMLElement> & {
@@ -21,15 +23,15 @@ export function DialogBox({
 	return (
 		<section
 			ref={ref}
-			className='glass-bg card-border min-w-56 max-w-96 rounded-xl text-gray-200'
+			className='glass-bg card-border m-4 min-w-56 max-w-96 rounded-xl text-neutral-200'
 			{...props}
 		>
-			<div className='border-blue-500/10 border-b p-4'>
-				<h1 className='text-center font-bold font-mono'>{title}</h1>
+			<div className='border-slate-800 border-b p-4'>
+				<h1 className='text-pretty text-center font-bold font-mono'>{title}</h1>
 			</div>
-			<div className='col-center gap-6 p-6'>
+			<div className='space-y-2 text-pretty p-4 text-center sm:p-6'>
 				{children}
-				<Button fullWidth onClick={action}>
+				<Button fullWidth onClick={action} className={cn(children && 'mt-6')}>
 					{buttonText}
 				</Button>
 			</div>

@@ -35,7 +35,7 @@ function Resume() {
 				<Document
 					file={resume.filePath}
 					loading={
-						<div className='p-4 text-center text-gray-400'>Loading...</div>
+						<div className='p-4 text-center text-neutral-400'>Loading...</div>
 					}
 					error={
 						<div className='p-4 text-center text-red-400'>
