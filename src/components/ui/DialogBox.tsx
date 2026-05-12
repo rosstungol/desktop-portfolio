@@ -21,10 +21,10 @@ export function DialogBox({
 	return (
 		<section
 			ref={ref}
-			className='glass-bg card-border min-w-56 max-w-96 rounded-xl text-gray-200'
+			className='glass-bg card-border min-w-56 max-w-96 rounded-xl text-neutral-200'
 			{...props}
 		>
-			<div className='border-blue-500/10 border-b p-4'>
+			<div className='border-slate-800 border-b p-4'>
 				<h1 className='text-center font-bold font-mono'>{title}</h1>
 			</div>
 			<div className='col-center gap-6 p-6'>

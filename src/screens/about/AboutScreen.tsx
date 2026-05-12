@@ -36,7 +36,7 @@ export function AboutScreen() {
 							type='button'
 							aria-label='Dismiss intro'
 							onClick={() => handleFadeOut()}
-							className='cursor-pointer border p-2 transition-colors hover:bg-neutral-50 hover:text-neutral-950'
+							className='cursor-pointer border border-slate-100 p-2 transition-colors hover:bg-slate-100 hover:text-neutral-950'
 						>
 							<ChevronsRight size={40} />
 						</button>

@@ -12,14 +12,15 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 }
 
 const baseStyles =
-	'glass-bg flex-center cursor-pointer rounded-lg border-2 font-bold text-gray-200 font-mono'
-const hoverStyles = 'transition-colors hover:bg-blue-100 hover:text-gray-950'
+	'glass-bg flex-center cursor-pointer rounded-lg border-2 font-bold text-neutral-200 font-mono'
+const hoverStyles =
+	'transition-colors hover:bg-slate-100 hover:text-neutral-950'
 const disabledStyles =
-	'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-gray-200'
+	'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-neutral-200'
 
 const variantStyles: Record<ButtonVariant, string> = {
-	primary: 'border-blue-100',
-	secondary: 'border-blue-500/10 hover:border-blue-100',
+	primary: 'border-slate-100',
+	secondary: 'border-slate-600 hover:border-slate-100',
 }
 
 const sizeStyles: Record<ButtonSize, string> = {

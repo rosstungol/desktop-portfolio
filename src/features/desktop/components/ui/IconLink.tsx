@@ -11,9 +11,9 @@ type IconLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
 }
 
 const baseStyles =
-	'flex-center w-fit cursor-pointer border-4 border-blue-500/10 font-bold text-gray-200'
+	'flex-center w-fit cursor-pointer bg-slate-600/20 font-bold text-neutral-200'
 const hoverStyles =
-	'transition-colors hover:border-blue-100 hover:bg-blue-100 hover:text-gray-950'
+	'transition-colors hover:bg-slate-100 hover:text-neutral-950'
 
 const sizeStyles: Record<IconLinkSize, string> = {
 	sm: 'p-2',

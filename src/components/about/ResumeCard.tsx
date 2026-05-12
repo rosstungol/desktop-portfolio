@@ -10,7 +10,7 @@ export function ResumeCard() {
 			<button
 				type='button'
 				onClick={() => openWindow('resume')}
-				className='flex w-fit cursor-pointer items-center gap-2 border p-2 px-4 transition-colors hover:bg-neutral-50 hover:text-neutral-950'
+				className='flex w-fit cursor-pointer items-center gap-2 border border-slate-100 p-2 px-4 transition-colors hover:bg-slate-100 hover:text-neutral-950'
 			>
 				<span className='font-semibold text-xl'>View Resume</span>
 			</button>

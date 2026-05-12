@@ -58,7 +58,7 @@ export function ProjectList() {
 								{project.tags?.map((item) => (
 									<div
 										key={item}
-										className='w-fit rounded-full border border-neutral-300/20 bg-neutral-950 px-3 py-1'
+										className='w-fit rounded-full bg-slate-600/20 px-3 py-1'
 									>
 										<p className='font-semibold text-xl'>{item}</p>
 									</div>
