@@ -13,7 +13,7 @@ import { Lighting } from './Lighting'
 import { RoomModel } from './RoomModel'
 import { Skybox } from './Skybox'
 
-export function WorkplaceScene({ sceneState }: { sceneState: SceneState }) {
+export function WorkplaceScene({ sceneState }: { sceneState?: SceneState }) {
 	const screenRef = useRef<THREE.Group | null>(null)
 
 	return (
