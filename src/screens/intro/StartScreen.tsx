@@ -39,7 +39,7 @@ export function StartScreen({ onStart }: { onStart: () => void }) {
 		<DialogBox
 			ref={startRef}
 			title='rosstungol.com'
-			buttonText={`Enter ${isMobile ? 'anyway' : ''}`}
+			buttonText={isMobile ? 'Enter anyway' : 'Enter'}
 			action={() => startTransition(onStart)}
 		>
 			{isMobile && (

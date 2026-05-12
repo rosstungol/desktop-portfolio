@@ -27,7 +27,7 @@ export function TitleCard({ sceneState }: { sceneState?: SceneState }) {
 					<li key={label}>
 						<a
 							href={link}
-							className='flex items-center gap-1 text-md lg:text-xl'
+							className='flex items-center gap-1 lg:text-xl'
 							target='_blank'
 							rel='noopener noreferrer'
 						>

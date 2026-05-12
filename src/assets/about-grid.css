@@ -35,7 +35,7 @@
 	}
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1023px) {
 	.about-grid {
 		overflow-y: auto;
 		min-height: 100dvh;
@@ -52,7 +52,7 @@
 	.about-grid {
 		overflow-y: auto;
 		min-height: 100dvh;
-		max-width: 100dvh;
+		max-width: 100dvw;
 		padding: 16px;
 		grid-template-rows: repeat(4, 1fr);
 		grid-template-columns: 1fr;
