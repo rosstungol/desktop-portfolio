@@ -1,32 +1,32 @@
-import { useGLTF } from '@react-three/drei'
-import { Bloom, EffectComposer, Noise } from '@react-three/postprocessing'
-import { BlendFunction } from 'postprocessing'
-import type { JSX } from 'react'
-import type * as THREE from 'three'
+import { useGLTF } from '@react-three/drei/core/Gltf'
+import { type JSX, lazy, Suspense } from 'react'
+import type { Mesh, MeshStandardMaterial } from 'three'
 import type { GLTF } from 'three-stdlib'
 
 import { ROOM_MODEL_SCALE } from '../../sceneConfig'
 
+const Effects = lazy(() => import('./Effects'))
+
 type GLTFResult = GLTF & {
 	nodes: {
-		Monoblock_Metal_0: THREE.Mesh
-		Monoblock_White_0: THREE.Mesh
-		Monoblock_Screen_0: THREE.Mesh
-		Tourbox_controller_Black1_0: THREE.Mesh
-		Soft_Paper_Lamp_Paper_Lamp_0: THREE.Mesh
-		window_plane_Light_Outside_0: THREE.Mesh
-		Poster_Photo_0: THREE.Mesh
-		Curtain_L_Curtains_0: THREE.Mesh
+		Monoblock_Metal_0: Mesh
+		Monoblock_White_0: Mesh
+		Monoblock_Screen_0: Mesh
+		Tourbox_controller_Black1_0: Mesh
+		Soft_Paper_Lamp_Paper_Lamp_0: Mesh
+		window_plane_Light_Outside_0: Mesh
+		Poster_Photo_0: Mesh
+		Curtain_L_Curtains_0: Mesh
 	}
 	materials: {
-		PaletteMaterial001: THREE.MeshStandardMaterial
-		PaletteMaterial002: THREE.MeshStandardMaterial
-		Screen: THREE.MeshStandardMaterial
-		PaletteMaterial003: THREE.MeshStandardMaterial
-		PaletteMaterial004: THREE.MeshStandardMaterial
-		PaletteMaterial005: THREE.MeshStandardMaterial
-		Photo: THREE.MeshStandardMaterial
-		PaletteMaterial006: THREE.MeshStandardMaterial
+		PaletteMaterial001: MeshStandardMaterial
+		PaletteMaterial002: MeshStandardMaterial
+		Screen: MeshStandardMaterial
+		PaletteMaterial003: MeshStandardMaterial
+		PaletteMaterial004: MeshStandardMaterial
+		PaletteMaterial005: MeshStandardMaterial
+		Photo: MeshStandardMaterial
+		PaletteMaterial006: MeshStandardMaterial
 	}
 }
 
@@ -41,14 +41,9 @@ export function RoomModel(props: JSX.IntrinsicElements['group']) {
 			dispose={null}
 			scale={[ROOM_MODEL_SCALE, ROOM_MODEL_SCALE, ROOM_MODEL_SCALE]}
 		>
-			<EffectComposer>
-				<Bloom
-					intensity={1}
-					luminanceThreshold={0.5}
-					luminanceSmoothing={0.5}
-				/>
-				<Noise opacity={0.03} blendFunction={BlendFunction.VIVID_LIGHT} />
-			</EffectComposer>
+			<Suspense fallback={null}>
+				<Effects />
+			</Suspense>
 			<mesh
 				receiveShadow
 				geometry={nodes.Monoblock_Metal_0.geometry}
@@ -122,5 +117,3 @@ export function RoomModel(props: JSX.IntrinsicElements['group']) {
 		</group>
 	)
 }
-
-useGLTF.preload('/workplace/models/cozy-workplace-corner.glb')

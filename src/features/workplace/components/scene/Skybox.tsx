@@ -1,4 +1,4 @@
-import { Environment } from '@react-three/drei'
+import { Environment } from '@react-three/drei/core/Environment'
 
 export function Skybox() {
 	return (

@@ -1,4 +1,4 @@
-import { useProgress } from '@react-three/drei'
+import { useProgress } from '@react-three/drei/core'
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 

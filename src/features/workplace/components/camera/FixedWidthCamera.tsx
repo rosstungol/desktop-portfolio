@@ -1,15 +1,15 @@
 import { useThree } from '@react-three/fiber'
 import { useEffect } from 'react'
-import * as THREE from 'three'
+import { MathUtils, PerspectiveCamera } from 'three'
 
 const vFovToHFov = (vFov: number, aspect: number) =>
-	THREE.MathUtils.radToDeg(
-		2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(vFov) / 2) * aspect)
+	MathUtils.radToDeg(
+		2 * Math.atan(Math.tan(MathUtils.degToRad(vFov) / 2) * aspect)
 	)
 
 const hFovToVFov = (hFov: number, aspect: number) =>
-	THREE.MathUtils.radToDeg(
-		2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(hFov) / 2) / aspect)
+	MathUtils.radToDeg(
+		2 * Math.atan(Math.tan(MathUtils.degToRad(hFov) / 2) / aspect)
 	)
 
 const DESIGN_ASPECT = 16 / 10
@@ -21,7 +21,7 @@ export function FixedWidthCamera() {
 	const { camera, size } = useThree()
 
 	useEffect(() => {
-		if (!(camera instanceof THREE.PerspectiveCamera)) return
+		if (!(camera instanceof PerspectiveCamera)) return
 		if (size.width === 0 || size.height === 0) return
 
 		const aspect = size.width / size.height

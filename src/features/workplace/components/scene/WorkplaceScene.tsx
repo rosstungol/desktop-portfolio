@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
 import { useRef } from 'react'
-import type * as THREE from 'three'
+import type { Group } from 'three'
 
 import type { SceneState } from '@/data/types'
 import { DesktopContainer } from '@/features/desktop/components/layout/DesktopContainer'
@@ -13,8 +13,12 @@ import { Lighting } from './Lighting'
 import { RoomModel } from './RoomModel'
 import { Skybox } from './Skybox'
 
-export function WorkplaceScene({ sceneState }: { sceneState?: SceneState }) {
-	const screenRef = useRef<THREE.Group | null>(null)
+export default function WorkplaceScene({
+	sceneState,
+}: {
+	sceneState?: SceneState
+}) {
+	const screenRef = useRef<Group | null>(null)
 
 	return (
 		<Canvas

@@ -1,7 +1,6 @@
-import { startTransition, useEffect, useState } from 'react'
+import { lazy, startTransition, useEffect, useState } from 'react'
 
 import type { SceneState } from './data/types'
-import { WorkplaceScene } from './features/workplace/components/scene/WorkplaceScene'
 import { ClickToStart } from './features/workplace/components/ui/ClickToStart'
 import { SceneControls } from './features/workplace/components/ui/SceneControls'
 import { useIsMobile } from './hooks/useIsMobile'
@@ -11,6 +10,10 @@ import { SceneIntro } from './screens/intro/SceneIntro'
 const SCENE_INTRO_RENDER_STATES = new Set(['loading', 'intro'])
 const CLICK_TO_START_RENDER_STATES = new Set(['start', 'idle'])
 const SCENE_CONTROLS_RENDER_STATES = new Set(['focus', 'idle'])
+
+const WorkplaceScene = lazy(
+	() => import('./features/workplace/components/scene/WorkplaceScene')
+)
 
 export function App() {
 	const [sceneState, setSceneState] = useState<SceneState>('loading')

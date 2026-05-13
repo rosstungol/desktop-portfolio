@@ -1,6 +1,6 @@
-import { Html } from '@react-three/drei'
+import { Html } from '@react-three/drei/web/Html'
 import type { RefObject } from 'react'
-import type * as THREE from 'three'
+import type { Group } from 'three'
 
 import { DESKTOP_POSITION } from '@/features/workplace/sceneConfig'
 import { useIsMobile } from '@/hooks/useIsMobile'
@@ -10,7 +10,7 @@ import { DesktopScreen } from './DesktopScreen'
 export function DesktopContainer({
 	screenRef,
 }: {
-	screenRef: RefObject<THREE.Group | null>
+	screenRef: RefObject<Group | null>
 }) {
 	const isMobile = useIsMobile()
 
