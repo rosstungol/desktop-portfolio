@@ -2,7 +2,7 @@ import { useGSAP } from '@gsap/react'
 import { useFrame, useThree } from '@react-three/fiber'
 import gsap from 'gsap'
 import { type RefObject, useRef } from 'react'
-import * as THREE from 'three'
+import { type Group, Vector3 } from 'three'
 
 import type { SceneState } from '@/data/types'
 
@@ -10,7 +10,7 @@ import { CAMERA_CONFIG } from '../../sceneConfig'
 
 type CameraControllerProps = {
 	sceneState?: SceneState
-	screenRef: RefObject<THREE.Group | null>
+	screenRef: RefObject<Group | null>
 }
 
 export function CameraController({
@@ -20,13 +20,13 @@ export function CameraController({
 	const { camera } = useThree()
 	const animateRef = useRef<gsap.core.Tween | gsap.core.Timeline | null>(null)
 	const lookAt = useRef(
-		new THREE.Vector3(
+		new Vector3(
 			CAMERA_CONFIG.defaultLookAt.x,
 			CAMERA_CONFIG.defaultLookAt.y,
 			CAMERA_CONFIG.defaultLookAt.z
 		)
 	)
-	const screenTarget = useRef(new THREE.Vector3())
+	const screenTarget = useRef(new Vector3())
 
 	useFrame(() => {
 		camera.lookAt(lookAt.current)
