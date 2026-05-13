@@ -1,4 +1,5 @@
-import { FolderCode } from 'lucide-react'
+import { FolderCode, SquareArrowOutUpRight } from 'lucide-react'
+
 import { portfolio, resmyze } from '@/data/constants/projects'
 import type { FileItem, FolderItem, LocationItem, UrlItem } from '../types'
 
@@ -43,7 +44,7 @@ export const projectsItems = [
 							</div>
 							<div>
 								<h3>Detailed Breakdown</h3>
-								<ul className='list-disc pl-6 text-2xl'>
+								<ul>
 									<li>ATS Compatibility</li>
 									<li>Writing Style</li>
 									<li>Content Quality</li>
@@ -64,7 +65,7 @@ export const projectsItems = [
 			{
 				id: 'project-1-link-icon',
 				name: resmyze.title,
-				href: resmyze.url,
+				href: resmyze.url as string,
 				icon: 'resmyze.avif',
 				type: 'url',
 				finderPosition: 'top-10 left-50',
@@ -90,18 +91,95 @@ export const projectsItems = [
 					text: (
 						<>
 							<p>
-								My portfolio website, built with Three.js and React Three Fiber.
-								I created this project to explore creative web development and
-								3D experiences on the web.
+								This is my portfolio, created to showcase my skills and
+								projects. I built it with Three.js and React Three Fiber to
+								explore creative web development and 3D experiences on the web.
 							</p>
 							<div>
 								<h3>Tech Stack</h3>
-								<ul className='list-disc pl-6 text-2xl'>
+								<ul>
 									<li>React</li>
 									<li>Three.js</li>
 									<li>React Three Fiber</li>
 									<li>Zustand</li>
 									<li>GSAP</li>
+									<li>Tailwind</li>
+								</ul>
+							</div>
+						</>
+					),
+				},
+			} satisfies FileItem,
+			{
+				id: 'project-2-file-icon',
+				name: 'credits',
+				icon: 'file.png',
+				type: 'file',
+				finderPosition: 'top-10 left-50',
+				fileContent: {
+					title: 'Credits',
+					text: (
+						<>
+							<p>
+								Special thanks to the creators of the assets, design resources,
+								and references that helped me design and develop this project.
+							</p>
+							<div>
+								<h3>Assets</h3>
+								<ul>
+									<li>
+										<span>3d Model</span>
+										<a
+											href='https://skfb.ly/pCnQQ'
+											target='_blank'
+											rel='noopener noreferrer'
+											className='flex items-center gap-2'
+										>
+											Virus - Cozy Workplace Corner
+											<SquareArrowOutUpRight size={18} />
+										</a>
+									</li>
+									<li>
+										<span>Skybox Background</span>
+										<a
+											href='https://opengameart.org/content/ulukais-space-skyboxes'
+											target='_blank'
+											rel='noopener noreferrer'
+											className='flex items-center gap-2'
+										>
+											Ulukai - Space Skyboxes
+											<SquareArrowOutUpRight size={18} />
+										</a>
+									</li>
+									<li>
+										<span>Desktop Background</span>
+										<a
+											href='https://www.artstation.com/artwork/rAlwZE'
+											target='_blank'
+											rel='noopener noreferrer'
+											className='flex items-center gap-2'
+										>
+											Bogdan mB0sco - Lofi Coffee
+											<SquareArrowOutUpRight size={18} />
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div>
+								<h3>Portfolio Concept</h3>
+								<ul>
+									<li>
+										<span>Joey de Ruiter</span>
+										<a
+											href='https://joeyderuiter.me/'
+											target='_blank'
+											rel='noopener noreferrer'
+											className='flex items-center gap-2'
+										>
+											Portfolio
+											<SquareArrowOutUpRight size={18} />
+										</a>
+									</li>
 								</ul>
 							</div>
 						</>

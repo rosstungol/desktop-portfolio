@@ -7,17 +7,23 @@ export const resmyze: Project = {
 		'A lightweight AI-powered tool that analyzes your resume against a specific job target and provides clear, actionable feedback.',
 	github: 'https://github.com/rosstungol/resume-analyzer',
 	url: 'https://resmyze-28ah8.puter.site',
-	tags: ['React', 'React Router', 'Puter'],
+	tags: ['React', 'React Router', 'Puter', 'Tailwind'],
 }
 
 export const portfolio: Project = {
 	image: '/images/projects/portfolio.avif',
 	title: 'rosstungol.com',
 	description:
-		'My portfolio website, built with Three.js and React Three Fiber. I created this project to explore creative web development and 3D experiences on the web.',
+		'This is my portfolio, created to showcase my skills and projects. I built it with Three.js and React Three Fiber to explore creative web development and 3D experiences on the web.',
 	github: 'https://github.com/rosstungol/desktop-portfolio',
-	url: 'https://rosstungol.com',
-	tags: ['React', 'Three.js', 'React Three Fiber', 'Zustand', 'GSAP'],
+	tags: [
+		'React',
+		'Three.js',
+		'React Three Fiber',
+		'Zustand',
+		'GSAP',
+		'Tailwind',
+	],
 }
 
 export const projects = [resmyze, portfolio] satisfies Project[]
