@@ -27,18 +27,18 @@ export default defineConfig({
 				manualChunks(id) {
 					if (id.includes('node_modules')) {
 						if (
-							id.includes('three') ||
-							id.includes('@react-three') ||
-							id.includes('three-stdlib')
+							id.includes('/node_modules/three/') ||
+							id.includes('/node_modules/@react-three/') ||
+							id.includes('/node_modules/three-stdlib/')
 						) {
 							return 'three'
 						}
 
-						if (id.includes('postprocessing')) {
+						if (id.includes('/node_modules/postprocessing/')) {
 							return 'postprocessing'
 						}
 
-						if (id.includes('gsap')) {
+						if (id.includes('/node_modules/gsap/')) {
 							return 'animation'
 						}
 
