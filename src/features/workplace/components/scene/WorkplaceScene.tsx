@@ -13,7 +13,11 @@ import { Lighting } from './Lighting'
 import { RoomModel } from './RoomModel'
 import { Skybox } from './Skybox'
 
-export function WorkplaceScene({ sceneState }: { sceneState?: SceneState }) {
+export default function WorkplaceScene({
+	sceneState,
+}: {
+	sceneState?: SceneState
+}) {
 	const screenRef = useRef<Group | null>(null)
 
 	return (

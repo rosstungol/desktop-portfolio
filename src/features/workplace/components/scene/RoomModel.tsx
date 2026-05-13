@@ -1,12 +1,12 @@
 import { useGLTF } from '@react-three/drei/core/Gltf'
-import { Bloom, EffectComposer, Noise } from '@react-three/postprocessing'
-import { BlendFunction } from 'postprocessing'
-import type { JSX } from 'react'
+import { type JSX, lazy, Suspense } from 'react'
 import type { MeshStandardMaterial } from 'three/src/materials/MeshStandardMaterial.js'
 import type { Mesh } from 'three/src/objects/Mesh.js'
 import type { GLTF } from 'three-stdlib'
 
 import { ROOM_MODEL_SCALE } from '../../sceneConfig'
+
+const Effects = lazy(() => import('./Effects'))
 
 type GLTFResult = GLTF & {
 	nodes: {
@@ -42,14 +42,9 @@ export function RoomModel(props: JSX.IntrinsicElements['group']) {
 			dispose={null}
 			scale={[ROOM_MODEL_SCALE, ROOM_MODEL_SCALE, ROOM_MODEL_SCALE]}
 		>
-			<EffectComposer>
-				<Bloom
-					intensity={1}
-					luminanceThreshold={0.5}
-					luminanceSmoothing={0.5}
-				/>
-				<Noise opacity={0.03} blendFunction={BlendFunction.VIVID_LIGHT} />
-			</EffectComposer>
+			<Suspense fallback={null}>
+				<Effects />
+			</Suspense>
 			<mesh
 				receiveShadow
 				geometry={nodes.Monoblock_Metal_0.geometry}

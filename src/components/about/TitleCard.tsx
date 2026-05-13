@@ -1,11 +1,15 @@
 import { SquareArrowOutUpRight } from 'lucide-react'
+import { lazy } from 'react'
 
 import { contactLinks } from '@/data/constants'
 import type { SceneState } from '@/data/types'
-import { WorkplaceScene } from '@/features/workplace/components/scene/WorkplaceScene'
 import { useIsMobile } from '@/hooks/useIsMobile'
 
 import { GridCard } from './GridCard'
+
+const WorkplaceScene = lazy(
+	() => import('@/features/workplace/components/scene/WorkplaceScene')
+)
 
 export function TitleCard({ sceneState }: { sceneState?: SceneState }) {
 	const isMobile = useIsMobile()
