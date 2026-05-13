@@ -7,7 +7,7 @@ import type { SceneState } from '@/data/types'
 
 export function AboutGrid({ sceneState }: { sceneState?: SceneState }) {
 	return (
-		<div className='about-grid noise text-neutral-50 has-hover:*:not-hover:opacity-50'>
+		<div className='about-grid noise p-4 text-neutral-50 has-hover:*:not-hover:opacity-50 md:p-6'>
 			<div className='title transition-opacity'>
 				<TitleCard sceneState={sceneState} />
 			</div>
