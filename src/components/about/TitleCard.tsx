@@ -39,7 +39,7 @@ export function TitleCard({ sceneState }: { sceneState?: SceneState }) {
 			</ul>
 
 			{isMobile && (
-				<div className='h-[calc(100vh-36px)] md:h-[calc(100vh-48px)]'>
+				<div className='h-[calc(100dvh-36px)] md:h-[calc(100dvh-48px)]'>
 					<WorkplaceScene sceneState={sceneState} />
 				</div>
 			)}
