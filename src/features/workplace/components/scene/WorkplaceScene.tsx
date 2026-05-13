@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
 import { useRef } from 'react'
-import type { Group } from 'three/src/objects/Group.js'
+import type { Group } from 'three'
 
 import type { SceneState } from '@/data/types'
 import { DesktopContainer } from '@/features/desktop/components/layout/DesktopContainer'

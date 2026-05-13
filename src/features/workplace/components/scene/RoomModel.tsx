@@ -1,7 +1,6 @@
 import { useGLTF } from '@react-three/drei/core/Gltf'
 import { type JSX, lazy, Suspense } from 'react'
-import type { MeshStandardMaterial } from 'three/src/materials/MeshStandardMaterial.js'
-import type { Mesh } from 'three/src/objects/Mesh.js'
+import type { Mesh, MeshStandardMaterial } from 'three'
 import type { GLTF } from 'three-stdlib'
 
 import { ROOM_MODEL_SCALE } from '../../sceneConfig'
