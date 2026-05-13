@@ -9,7 +9,7 @@ function Photos() {
 	return (
 		<>
 			<WindowHeader title='Photos' target='photos' />
-			<ul className='grid max-h-[800px] w-[880px] grid-cols-3 gap-4 overflow-y-auto rounded-b-xl p-4'>
+			<ul className='grid max-h-[800px] w-[600px] grid-cols-2 gap-4 overflow-y-auto rounded-b-xl p-4'>
 				{photos.map((item) => (
 					<li key={item.id} className='h-72 overflow-hidden rounded-xl'>
 						<button

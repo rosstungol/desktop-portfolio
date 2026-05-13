@@ -29,29 +29,20 @@ export const dockApps = [
 ] as const
 
 export const photos = [
-	// TODO: Replace placeholders with actual photos
 	{
-		id: 'placeholder-image-1',
-		name: 'Maki',
+		id: 'me-1',
+		name: 'me-1',
 		type: 'image',
 		fileContent: {
-			image: '/desktop/images/maki.avif',
+			image: '/desktop/images/me-1.avif',
 		},
 	},
 	{
-		id: 'placeholder-image-2',
-		name: 'Maki',
+		id: 'me-2',
+		name: 'me-2',
 		type: 'image',
 		fileContent: {
-			image: '/desktop/images/maki.avif',
-		},
-	},
-	{
-		id: 'placeholder-image-3',
-		name: 'Maki',
-		type: 'image',
-		fileContent: {
-			image: '/desktop/images/maki.avif',
+			image: '/desktop/images/me-2.avif',
 		},
 	},
 ] satisfies FileItem[]
