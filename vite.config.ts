@@ -18,4 +18,34 @@ export default defineConfig({
 			'@': path.resolve(__dirname, './src'),
 		},
 	},
+
+	build: {
+		chunkSizeWarningLimit: 1000,
+
+		rollupOptions: {
+			output: {
+				manualChunks(id) {
+					if (id.includes('node_modules')) {
+						if (
+							id.includes('three') ||
+							id.includes('@react-three') ||
+							id.includes('three-stdlib')
+						) {
+							return 'three'
+						}
+
+						if (id.includes('postprocessing')) {
+							return 'postprocessing'
+						}
+
+						if (id.includes('gsap')) {
+							return 'animation'
+						}
+
+						return 'vendor'
+					}
+				},
+			},
+		},
+	},
 })
