@@ -27,19 +27,19 @@ export function TitleCard({ sceneState }: { sceneState?: SceneState }) {
 					<li key={label}>
 						<a
 							href={link}
-							className='flex items-center gap-1 lg:text-xl'
+							className='flex items-center gap-1 font-light text-sm lg:text-xl'
 							target='_blank'
 							rel='noopener noreferrer'
 						>
 							{label}
-							<SquareArrowOutUpRight size={18} />
+							<SquareArrowOutUpRight size={isMobile ? 12 : 18} />
 						</a>
 					</li>
 				))}
 			</ul>
 
 			{isMobile && (
-				<div className='h-[calc(100vh-2.5rem)] md:h-[calc(100vh-3rem)]'>
+				<div className='h-[calc(100vh-36px)] md:h-[calc(100vh-48px)]'>
 					<WorkplaceScene sceneState={sceneState} />
 				</div>
 			)}
