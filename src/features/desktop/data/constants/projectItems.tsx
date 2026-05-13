@@ -82,40 +82,10 @@ export const projectsItems = [
 		children: [
 			{
 				id: 'project-2-file-icon',
-				name: 'readme',
-				icon: 'file.png',
-				type: 'file',
-				finderPosition: 'top-10 left-10',
-				fileContent: {
-					title: portfolio.title,
-					text: (
-						<>
-							<p>
-								This is my portfolio, created to showcase my skills and
-								projects. I built it with Three.js and React Three Fiber to
-								explore creative web development and 3D experiences on the web.
-							</p>
-							<div>
-								<h3>Tech Stack</h3>
-								<ul>
-									<li>React</li>
-									<li>Three.js</li>
-									<li>React Three Fiber</li>
-									<li>Zustand</li>
-									<li>GSAP</li>
-									<li>Tailwind</li>
-								</ul>
-							</div>
-						</>
-					),
-				},
-			} satisfies FileItem,
-			{
-				id: 'project-2-file-icon',
 				name: 'credits',
 				icon: 'file.png',
 				type: 'file',
-				finderPosition: 'top-10 left-50',
+				finderPosition: 'top-10 left-10',
 				fileContent: {
 					title: 'Credits',
 					text: (
