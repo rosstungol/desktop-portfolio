@@ -5,6 +5,7 @@ import type { Group } from 'three'
 
 import type { SceneState } from '@/data/types'
 import { DesktopContainer } from '@/features/desktop/components/layout/DesktopContainer'
+import { useIsUltrawide } from '@/hooks/useIsUltraWide'
 
 import { CAMERA_CONFIG } from '../../sceneConfig'
 import { CameraController } from '../camera/CameraController'
@@ -19,6 +20,7 @@ export default function WorkplaceScene({
 	sceneState?: SceneState
 }) {
 	const screenRef = useRef<Group | null>(null)
+	const isUltrawide = useIsUltrawide()
 
 	return (
 		<Canvas
@@ -27,7 +29,7 @@ export default function WorkplaceScene({
 			dpr={[1, 1.5]}
 			className='z-10'
 		>
-			<FixedWidthCamera />
+			{!isUltrawide && <FixedWidthCamera />}
 			<CameraController sceneState={sceneState} screenRef={screenRef} />
 			<Skybox />
 			<Lighting />
