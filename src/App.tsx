@@ -1,13 +1,19 @@
-import { lazy, startTransition, useEffect, useState } from 'react'
+import {
+	lazy,
+	startTransition,
+	useEffect,
+	useState,
+	// @ts-expect-error React canary: ViewTransition not typed yet (remove when stable version is available)
+	ViewTransition,
+} from 'react'
 
 import type { SceneState } from './data/types'
 import { ClickToStart } from './features/workplace/components/ui/ClickToStart'
 import { SceneControls } from './features/workplace/components/ui/SceneControls'
 import { useIsMobile } from './hooks/useIsMobile'
 import { AboutGrid } from './screens/about/AboutGrid'
-import { SceneIntro } from './screens/intro/SceneIntro'
+import { LoadingScreen } from './screens/loading/LoadingScreen'
 
-const SCENE_INTRO_RENDER_STATES = new Set(['loading', 'intro'])
 const CLICK_TO_START_RENDER_STATES = new Set(['start', 'idle'])
 const SCENE_CONTROLS_RENDER_STATES = new Set(['focus', 'idle'])
 
@@ -41,12 +47,14 @@ export function App() {
 
 	return (
 		<main>
-			{SCENE_INTRO_RENDER_STATES.has(sceneState) && (
-				<SceneIntro
-					sceneState={sceneState}
-					onLoaded={() => setSceneState('intro')}
-					onStart={() => setSceneState('start')}
-				/>
+			{sceneState === 'loading' && (
+				<ViewTransition>
+					<div className='viewport-overlay z-30'>
+						<LoadingScreen
+							onLoaded={() => startTransition(() => setSceneState('start'))}
+						/>
+					</div>
+				</ViewTransition>
 			)}
 
 			{!isMobile && CLICK_TO_START_RENDER_STATES.has(sceneState) && (

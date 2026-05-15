@@ -85,10 +85,10 @@ export function Dock() {
 	}
 
 	return (
-		<section className='absolute bottom-3 left-1/2 -translate-x-1/2 select-none'>
+		<section className='absolute bottom-1.5 left-1/2 -translate-x-1/2 select-none'>
 			<div
 				ref={dockRef}
-				className='glass-bg dock-border flex items-center gap-2 rounded-2xl p-2'
+				className='glass-bg dock-border flex items-center gap-2 rounded-2xl p-1.5'
 			>
 				{dockApps.map(({ id, name, icon }) => (
 					<div key={id} className='flex-center'>

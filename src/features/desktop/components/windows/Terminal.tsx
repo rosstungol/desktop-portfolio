@@ -161,8 +161,8 @@ function Terminal() {
 	return (
 		<div ref={terminalRef}>
 			<WindowHeader title='Terminal' target='terminal' />
-			<div className='terminal h-[800px]'>
-				<div className='flex max-h-[800px] w-[800px] flex-col-reverse overflow-y-auto p-4 text-xl'>
+			<div className='terminal h-200'>
+				<div className='flex max-h-200 w-200 flex-col-reverse overflow-y-auto p-4 text-xl'>
 					<div className='mb-2 flex py-1'>
 						<Prompt />
 						<input
@@ -171,7 +171,7 @@ function Terminal() {
 							type='text'
 							value={inputValue}
 							spellCheck={false}
-							className='terminal-input flex-1'
+							className='terminal-input flex-1 font-mono'
 							onChange={(e) => setInputValue(e.target.value)}
 							onKeyDown={(e) => {
 								if (e.key === 'Enter') handleEnter(e)

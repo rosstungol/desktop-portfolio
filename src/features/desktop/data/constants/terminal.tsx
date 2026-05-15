@@ -1,42 +1,24 @@
-import { aboutText } from '@/data/constants'
+import { aboutText, skillsList } from '@/data/constants'
 
 export const about = <div className='terminal-output'>{aboutText}</div>
 
 export const skills = (
 	<div className='terminal-output'>
 		<div className='output-section'>
-			<p className='subheading'>
-				Primary languages, libraries & frameworks I use
-			</p>
-			<p>↳ HTML5, CSS3 & Sass, JavaScript, TypeScript</p>
-			<p>↳ React.js, Next.js, React Native, Express, Tailwind CSS</p>
+			<h3 className='subheading'>Programming Languages</h3>
+			<p>↳ {skillsList.languages.join(', ')}</p>
 		</div>
-
 		<div className='output-section'>
-			<p className='subheading'>Version control</p>
-			<p>↳ Git, Github, Bitbucket</p>
+			<h3 className='subheading'>Libraries & Frameworks</h3>
+			<p>↳ {skillsList.libraries.join(', ')}</p>
 		</div>
-
 		<div className='output-section'>
-			<p className='subheading'>API</p>
-			<p>↳ REST, GraphQL</p>
+			<h3 className='subheading'>Tools & Platforms</h3>
+			<p>↳ {skillsList.tools.join(', ')}</p>
 		</div>
-
 		<div className='output-section'>
-			<p className='subheading'>Tests</p>
-			<p>↳ Jest, Vitest</p>
-		</div>
-
-		<div className='output-section'>
-			<p className='subheading'>Design</p>
-			<p>↳ UI/UX design, Figma</p>
-		</div>
-
-		<div className='output-section'>
-			<p className='subheading'>
-				Other languages & frameworks I have worked with
-			</p>
-			<p>↳ Dart & Flutter, Ruby & Ruby on Rails, Python & Django</p>
+			<h3 className='subheading'>Design</h3>
+			<p>↳ {skillsList.design.join(', ')}</p>
 		</div>
 	</div>
 )
@@ -44,32 +26,32 @@ export const skills = (
 export const help = (
 	<div className='terminal-output'>
 		<div className='output-section'>
-			<p className='subheading'>about</p>
+			<h3 className='subheading'>about</h3>
 			<p>↳ displays information about me</p>
 		</div>
 
 		<div className='output-section'>
-			<p className='subheading'>skills</p>
+			<h3 className='subheading'>skills</h3>
 			<p>↳ displays my tech stack</p>
 		</div>
 
 		<div className='output-section'>
-			<p className='subheading'>cv</p>
+			<h3 className='subheading'>cv</h3>
 			<p>↳ downloads my resumé</p>
 		</div>
 
 		<div className='output-section'>
-			<p className='subheading'>help</p>
+			<h3 className='subheading'>help</h3>
 			<p>↳ displays available commands</p>
 		</div>
 
 		<div className='output-section'>
-			<p className='subheading'>kitten</p>
+			<h3 className='subheading'>kitten</h3>
 			<p>↳ displays a cat</p>
 		</div>
 
 		<div className='output-section'>
-			<p className='subheading'>clear</p>
+			<h3 className='subheading'>clear</h3>
 			<p>↳ clears the terminal</p>
 		</div>
 	</div>
