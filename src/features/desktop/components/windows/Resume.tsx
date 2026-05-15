@@ -1,13 +1,14 @@
 import { Download } from 'lucide-react'
 import { Document, Page, pdfjs } from 'react-pdf'
 
-import 'react-pdf/dist/Page/AnnotationLayer.css'
-import 'react-pdf/dist/Page/TextLayer.css'
+import { resumePath } from '@/data/constants'
 
-import { resume } from '@/data/constants'
 import { IconLink } from '../ui/IconLink'
 import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
+
+import 'react-pdf/dist/Page/AnnotationLayer.css'
+import 'react-pdf/dist/Page/TextLayer.css'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
 
@@ -19,10 +20,10 @@ function Resume() {
 				target='resume'
 				rightButton={
 					<IconLink
-						href={resume.filePath}
+						href={resumePath}
 						label='Download Resume'
 						size='sm'
-						download={resume.fileName}
+						download
 					>
 						<Download size={26} />
 					</IconLink>
@@ -30,7 +31,7 @@ function Resume() {
 			/>
 			<div className='px-3 pb-3'>
 				<Document
-					file={resume.filePath}
+					file={resumePath}
 					loading={
 						<div className='p-4 text-center text-neutral-400'>Loading...</div>
 					}

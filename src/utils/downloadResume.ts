@@ -1,9 +1,8 @@
-import { resume } from '@/data/constants'
+import { resumePath } from '@/data/constants'
 
 export const downloadResume = () => {
 	const link = document.createElement('a')
-	link.href = resume.filePath
-	link.download = resume.fileName
+	link.href = resumePath
 	document.body.appendChild(link)
 	link.click()
 	document.body.removeChild(link)
