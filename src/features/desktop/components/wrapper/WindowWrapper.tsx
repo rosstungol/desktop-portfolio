@@ -20,8 +20,8 @@ export function WindowWrapper<P extends object>(
 				focusWindow: state.focusWindow,
 			}))
 		)
-		const { isOpen, zIndex } = windows[windowKey]
 		const ref = useRef<HTMLDivElement | null>(null)
+		const { isOpen, zIndex } = windows[windowKey]
 
 		useGSAP(() => {
 			const el = ref.current
@@ -70,12 +70,18 @@ export function WindowWrapper<P extends object>(
 			el.style.display = isOpen ? 'block' : 'none'
 		}, [isOpen])
 
+		const windowPosition = {
+			zIndex,
+			top:
+				windowKey === 'about' ? '40px' : windowKey === 'resume' ? '0' : '100px',
+		}
+
 		return (
 			<section
 				id={windowKey}
 				ref={ref}
-				style={{ zIndex }}
-				className='glass-bg card-border abs-center min-h-[200px] min-w-[500px] overflow-hidden rounded-2xl bg-neutral-900/85 text-neutral-200 shadow-xl'
+				style={windowPosition}
+				className='glass-bg card-border absolute left-1/2 min-h-50 min-w-125 -translate-x-1/2 overflow-hidden rounded-2xl bg-neutral-900/85 text-neutral-200 shadow-xl'
 			>
 				<Component {...props} />
 			</section>
