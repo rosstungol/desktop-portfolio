@@ -40,4 +40,7 @@ export const skillsList = {
 	design: ['UI/UX Design', 'Figma'],
 } as const
 
-export const resumePath = `${import.meta.env.BASE_URL}files/Ross-Tungol-Resume.pdf`
+export const resume = {
+	filePath: `${import.meta.env.BASE_URL}Ross-Tungol-Resume.pdf`,
+	fileName: 'Ross-Tungol-Resume.pdf',
+}
