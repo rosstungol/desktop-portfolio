@@ -118,7 +118,6 @@
 	.terminal-input {
 		caret-shape: block;
 		caret-color: var(--neutral-200);
-		font-family: var(--font-mono);
 		outline: none;
 	}
 
