@@ -17,7 +17,27 @@ export const contactLinks = [
 	},
 ] as const
 
-export const resume = {
-	filePath: `${import.meta.env.BASE_URL}files/resume.pdf`,
-	fileName: 'Ross-Tungol-Resume.pdf',
+export const skillsList = {
+	languages: [
+		'HTML',
+		'CSS & SASS',
+		'JavaScript',
+		'TypeScript',
+		'Dart',
+		'Python',
+	],
+	libraries: [
+		'React',
+		'Next.js',
+		'Node.js',
+		'Express.js',
+		'Tailwind CSS',
+		'Jest',
+		'Vitest',
+		'Flutter',
+	],
+	tools: ['Git', 'Github', 'Bitbucket', 'Vite', 'Vercel'],
+	design: ['UI/UX Design', 'Figma'],
 } as const
+
+export const resumePath = `${import.meta.env.BASE_URL}files/Ross-Tungol-Resume.pdf`
