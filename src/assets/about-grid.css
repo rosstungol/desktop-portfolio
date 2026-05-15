@@ -9,6 +9,10 @@
 			grid-area: t;
 		}
 
+		> .skills {
+			grid-area: s;
+		}
+
 		> .about {
 			grid-area: a;
 		}
@@ -29,8 +33,8 @@
 		grid-template-rows: 2fr 3fr;
 		grid-template-columns: repeat(12, 1fr);
 		grid-template-areas:
-			"t t t t t t t p p p p p"
-			"a a a a r r r p p p p p";
+			"t t t t t r r p p p p p"
+			"s s s a a a a p p p p p";
 	}
 }
 
@@ -38,11 +42,12 @@
 	.about-grid {
 		overflow-y: auto;
 		min-height: 100dvh;
-		grid-template-rows: repeat(3, 1fr);
+		grid-template-rows: repeat(4, 1fr);
 		grid-template-columns: repeat(7, 1fr);
 		grid-template-areas:
 			"t t t t t t t"
-			"a a a a r r r"
+			"a a a a a a a"
+			"s s s s r r r"
 			"p p p p p p p";
 	}
 }
@@ -58,6 +63,7 @@
 			"t"
 			"a"
 			"r"
+			"s"
 			"p";
 	}
 }
