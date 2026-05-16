@@ -8,7 +8,7 @@ function Contact() {
 	return (
 		<>
 			<WindowHeader title='Contact' target='contact' />
-			<div className='col-center w-[560px] rounded-b-xl p-16'>
+			<div className='col-center w-140 rounded-b-xl p-16'>
 				<div className='mb-8 size-52 flex-center overflow-clip rounded-full'>
 					<img src='/images/me.avif' alt='Portrait of Ross Tungol' />
 				</div>

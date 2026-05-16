@@ -11,7 +11,7 @@ function Finder() {
 	return (
 		<>
 			<WindowHeader title='Finder' target='finder' />
-			<div className='flex h-[700px] w-[1200px]'>
+			<div className='flex h-175 w-300'>
 				<aside className='m-3 w-72 rounded-lg bg-neutral-600/10 p-4'>
 					<FinderMenu name='Favorites' items={Object.values(locations)} />
 					<FinderMenu
