@@ -33,7 +33,7 @@ function ImageViewer() {
 			<WindowHeader title={name} target='image' />
 			<div className='p-2'>
 				{fileContent?.image ? (
-					<div className='max-h-[800px] flex-center overflow-hidden rounded-lg'>
+					<div className='max-h-200 flex-center overflow-hidden rounded-lg'>
 						{hasError ? (
 							imageFallback
 						) : (

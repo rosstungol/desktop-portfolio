@@ -24,12 +24,12 @@ function About() {
 	return (
 		<>
 			<WindowHeader title='About' target='about' />
-			<div className='h-[900px] w-[1800px]'>
+			<div className='h-225 w-450'>
 				<div className='h-fit bg-neutral-950'>
 					{aboutIntro && (
 						<div
 							ref={introRef}
-							className='fixed top-[54px] bottom-0 left-0 z-30 w-full flex-center bg-neutral-950'
+							className='fixed top-13.5 bottom-0 left-0 z-30 w-full flex-center bg-neutral-950'
 						>
 							<div className='noise grid-bg z-10 h-full w-full flex-col text-center'>
 								<h3 className='mt-80 mb-2 font-black font-display text-8xl tracking-tight'>
