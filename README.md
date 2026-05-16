@@ -1,22 +1,28 @@
-# React + TypeScript + Vite
+# Desktop Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR.
+This is my portfolio, created to showcase my skills and projects. 
 
-Currently, two official plugins are available:
+[rosstungol.com](https://rosstungol.com)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-This app currently uses the React Canary version, which is required for the `ViewTransition` component. It should be updated to use the stable version once it is available.
+### Installation
+Install the dependencies:
 
-## React Compiler
+```bash
+npm install
+```
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+### Development
+Start the development server:
 
-Note: This will impact Vite dev & build performances.
+```bash
+npm run dev
+``` 
 
-## Biome.js
-
+## Linter and Formatter
 Run the Biome.js linter and formatter:
 
-`npm run lint-format`
+```bash
+npm run lint-format
+```
