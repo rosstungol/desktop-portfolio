@@ -1,4 +1,5 @@
-import { Github } from '@/components/icons/Github'
+import { Mail } from 'lucide-react'
+
 import { LinkedIn } from '@/components/icons/LinkedIn'
 
 export const aboutText =
@@ -6,14 +7,14 @@ export const aboutText =
 
 export const contactLinks = [
 	{
+		link: 'mailto:rossjstungol@gmail.com',
+		label: 'Email',
+		Icon: Mail,
+	},
+	{
 		link: 'https://www.linkedin.com/in/ross-jonathan-tungol-34b2b9259/',
 		label: 'LinkedIn',
 		Icon: LinkedIn,
-	},
-	{
-		link: 'https://www.github.com/rosstungol',
-		label: 'GitHub',
-		Icon: Github,
 	},
 ] as const
 

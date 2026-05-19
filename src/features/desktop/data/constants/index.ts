@@ -31,18 +31,18 @@ export const dockApps = [
 export const photos = [
 	{
 		id: 'me-1',
-		name: 'me-1',
+		name: 'drummer',
 		type: 'image',
 		fileContent: {
-			image: '/desktop/images/me-1.avif',
+			image: '/desktop/images/drummer.avif',
 		},
 	},
 	{
 		id: 'me-2',
-		name: 'me-2',
+		name: 'selfie',
 		type: 'image',
 		fileContent: {
-			image: '/desktop/images/me-2.avif',
+			image: '/desktop/images/selfie.avif',
 		},
 	},
 ] satisfies FileItem[]

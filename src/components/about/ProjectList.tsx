@@ -1,6 +1,6 @@
 import { Globe } from 'lucide-react'
 
-import { projects } from '@/data/constants/projects'
+import { projectsList } from '@/data/constants/projects'
 import { IconLink } from '@/features/desktop/components/ui/IconLink'
 
 import { Github } from '../icons/Github'
@@ -10,7 +10,7 @@ export function ProjectList() {
 	return (
 		<>
 			<ul className='mb-4 space-y-6 has-hover:*:not-hover:opacity-50'>
-				{projects.map((project) => (
+				{projectsList.map((project) => (
 					<li key={project.title}>
 						<GridCard className='hover:card-shadow space-y-8 transition hover:-translate-y-0.5'>
 							<div className='flex flex-col items-center gap-6 sm:flex-row'>
@@ -34,9 +34,8 @@ export function ProjectList() {
 													label='Github'
 													target='_blank'
 													rel='noopener noreferrer'
-												>
-													<Github size={26} />
-												</IconLink>
+													Icon={Github}
+												/>
 											</li>
 										)}
 										{project.url && (
@@ -47,9 +46,8 @@ export function ProjectList() {
 													label='URL'
 													target='_blank'
 													rel='noopener noreferrer'
-												>
-													<Globe size={26} />
-												</IconLink>
+													Icon={Globe}
+												/>
 											</li>
 										)}
 									</ul>
