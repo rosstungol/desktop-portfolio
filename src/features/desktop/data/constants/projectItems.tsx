@@ -4,6 +4,12 @@ import { projects } from '@/data/constants/projects'
 
 import type { FileItem, FolderItem, LocationItem, UrlItem } from '../types'
 
+const resmyzeUrl = projects.resmyze.url
+
+if (!resmyzeUrl) {
+	throw new Error('Resmyze URL must be defined')
+}
+
 export const projectsItems = [
 	{
 		id: 'project-1-icon',
@@ -152,7 +158,7 @@ export const projectsItems = [
 			{
 				id: 'project-1-link-icon',
 				name: projects.resmyze.title,
-				href: projects.resmyze.url as string,
+				href: resmyzeUrl,
 				icon: 'resmyze.avif',
 				type: 'url',
 				finderPosition: 'top-10 left-50',
