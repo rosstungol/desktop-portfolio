@@ -1,13 +1,19 @@
-import type { AnchorHTMLAttributes } from 'react'
-
+import type { AnchorHTMLAttributes, ComponentType, SVGProps } from 'react'
 import { cn } from '@/utils/cn'
 
 type IconLinkSize = 'md' | 'sm'
+
+type IconProps = SVGProps<SVGSVGElement> & {
+	size?: number | string
+}
+
+type IconType = ComponentType<IconProps>
 
 type IconLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
 	label: string
 	size?: IconLinkSize
 	rounded?: boolean
+	Icon: IconType
 }
 
 const baseStyles =
@@ -25,6 +31,7 @@ export function IconLink({
 	label,
 	size = 'md',
 	rounded = false,
+	Icon,
 	children,
 	className,
 	...props
@@ -43,7 +50,7 @@ export function IconLink({
 			)}
 			{...props}
 		>
-			{children}
+			<Icon size={size === 'sm' ? 26 : 40} />
 		</a>
 	)
 }

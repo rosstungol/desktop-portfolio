@@ -21,11 +21,12 @@ function Contact() {
 									href={link}
 									label={label}
 									rounded={true}
-									target='_blank'
-									rel='noopener noreferrer'
-								>
-									<Icon />
-								</IconLink>
+									{...(label !== 'Email' && {
+										target: '_blank',
+										rel: 'noopener noreferrer',
+									})}
+									Icon={Icon}
+								/>
 							</li>
 						))}
 					</ul>

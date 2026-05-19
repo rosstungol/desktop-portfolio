@@ -24,9 +24,8 @@ function Resume() {
 						label='Download Resume'
 						size='sm'
 						download
-					>
-						<Download size={26} />
-					</IconLink>
+						Icon={Download}
+					/>
 				}
 			/>
 			<div className='px-3 pb-3'>
