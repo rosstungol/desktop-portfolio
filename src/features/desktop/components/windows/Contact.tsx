@@ -21,7 +21,7 @@ function Contact() {
 									href={link}
 									label={label}
 									rounded={true}
-									{...(label !== 'Email' && {
+									{...(!link.startsWith('mailto:') && {
 										target: '_blank',
 										rel: 'noopener noreferrer',
 									})}
