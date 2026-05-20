@@ -1,7 +1,7 @@
 import { SquareArrowOutUpRight } from 'lucide-react'
 import { lazy } from 'react'
 
-import { contactLinks } from '@/data/constants'
+import { socialLinks } from '@/data/constants'
 import type { SceneState } from '@/data/types'
 import { useIsMobile } from '@/hooks/useIsMobile'
 
@@ -27,7 +27,7 @@ export function TitleCard({ sceneState }: { sceneState?: SceneState }) {
 				</div>
 			</header>
 			<ul className='absolute right-6 bottom-6 z-20 space-y-1'>
-				{contactLinks.map(({ link, label }) => (
+				{socialLinks.map(({ link, label }) => (
 					<li key={label}>
 						<a
 							href={link}
