@@ -29,6 +29,7 @@
 		"tailwindcss": "^4.1.17",
 		"three": "^0.181.2",
 		"three-stdlib": "^2.36.1",
+		"zod": "^4.4.3",
 		"zustand": "^5.0.11"
 	},
 	"devDependencies": {
