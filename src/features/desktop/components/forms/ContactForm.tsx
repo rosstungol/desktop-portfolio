@@ -5,9 +5,9 @@ import { Button } from '@/components/ui/Button'
 import { cn } from '@/utils/cn'
 
 export const contactFormSchema = z.object({
-	name: z.string().min(1, 'Name is required'),
-	email: z.email().min(1, 'Email is required'),
-	message: z.string().min(1, 'Message is required'),
+	name: z.string().trim().min(1, 'Name is required'),
+	email: z.email().trim().min(1, 'Email is required'),
+	message: z.string().trim().min(1, 'Message is required'),
 })
 
 type ContactFormData = {
@@ -78,6 +78,14 @@ export function ContactForm() {
 		const payload = {
 			...formData,
 			access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+		}
+
+		if (!payload.access_key) {
+			showSubmitMessage(
+				'error',
+				'Contact form is not configured. Please try again later.'
+			)
+			return
 		}
 
 		const json = JSON.stringify(payload)
