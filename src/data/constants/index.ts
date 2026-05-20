@@ -1,5 +1,5 @@
-import { GitHub } from '@/components/icons/GitHub'
-import { LinkedIn } from '@/components/icons/LinkedIn'
+import { GitHubIcon } from '@/components/icons/GitHubIcon'
+import { LinkedInIcon } from '@/components/icons/LinkedInIcon'
 
 export const aboutText =
 	'I’m a front-end engineer with experience in both development and design. I take pride in crafting intuitive, responsive, and visually refined web applications using modern web technologies.'
@@ -8,12 +8,12 @@ export const socialLinks = [
 	{
 		link: 'https://www.linkedin.com/in/ross-jonathan-tungol-34b2b9259/',
 		label: 'LinkedIn',
-		Icon: LinkedIn,
+		Icon: LinkedInIcon,
 	},
 	{
 		link: 'https://github.com/rosstungol',
 		label: 'GitHub',
-		Icon: GitHub,
+		Icon: GitHubIcon,
 	},
 ] as const
 

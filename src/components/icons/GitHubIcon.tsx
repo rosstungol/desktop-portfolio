@@ -4,7 +4,7 @@ type IconProps = SVGProps<SVGSVGElement> & {
 	size?: number | string
 }
 
-export function GitHub({ size = 26 }: IconProps) {
+export function GitHubIcon({ size = 26 }: IconProps) {
 	return (
 		<svg
 			xmlns='http://www.w3.org/2000/svg'
