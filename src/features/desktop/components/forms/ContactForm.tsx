@@ -77,7 +77,7 @@ export function ContactForm() {
 
 		const payload = {
 			...formData,
-			access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+			access_key: 'de66a0f7-147b-4815-86b8-5e58c84b15f5',
 		}
 
 		if (!payload.access_key) {
