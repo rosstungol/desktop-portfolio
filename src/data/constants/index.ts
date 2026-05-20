@@ -1,4 +1,4 @@
-import { Github } from '@/components/icons/Github'
+import { GitHub } from '@/components/icons/GitHub'
 import { LinkedIn } from '@/components/icons/LinkedIn'
 
 export const aboutText =
@@ -12,8 +12,8 @@ export const socialLinks = [
 	},
 	{
 		link: 'https://github.com/rosstungol',
-		label: 'Github',
-		Icon: Github,
+		label: 'GitHub',
+		Icon: GitHub,
 	},
 ] as const
 
