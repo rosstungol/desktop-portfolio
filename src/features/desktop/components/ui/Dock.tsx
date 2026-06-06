@@ -121,7 +121,7 @@ export function Dock() {
 						className='dock-icon z-10'
 					>
 						<img
-							src={`/desktop/icons/trash.png`}
+							src={`/desktop/icons/trash.avif`}
 							alt='Trash'
 							className='size-18'
 						/>

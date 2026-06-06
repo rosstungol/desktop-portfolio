@@ -12,17 +12,17 @@ if (!resmyzeUrl) {
 
 export const projectsItems = [
 	{
-		id: 'project-1-icon',
+		id: 'portfolio-icon',
 		name: projects.portfolio.title,
-		icon: 'folder.png',
+		icon: 'folder.avif',
 		Icon: FolderCode,
 		type: 'folder',
 		finderPosition: 'top-10 left-10',
 		children: [
 			{
-				id: 'project-1-file-icon',
+				id: 'portfolio-file-icon',
 				name: 'credits',
-				icon: 'file.png',
+				icon: 'file.avif',
 				type: 'file',
 				finderPosition: 'top-10 left-10',
 				fileContent: {
@@ -44,7 +44,7 @@ export const projectsItems = [
 											rel='noopener noreferrer'
 											className='flex items-center gap-2'
 										>
-											Virus - Cozy Workplace Corner
+											virus - Cozy Workplace Corner
 											<SquareArrowOutUpRight size={18} />
 										</a>
 									</li>
@@ -98,17 +98,17 @@ export const projectsItems = [
 		],
 	} satisfies FolderItem,
 	{
-		id: 'project-2-icon',
+		id: 'resmyze-icon',
 		name: projects.resmyze.title,
-		icon: 'folder.png',
+		icon: 'folder.avif',
 		Icon: FolderCode,
 		type: 'folder',
 		finderPosition: 'top-10 left-50',
 		children: [
 			{
-				id: 'project-2-file-icon',
+				id: 'resmyze-file-icon',
 				name: 'readme',
-				icon: 'file.png',
+				icon: 'file.avif',
 				type: 'file',
 				finderPosition: 'top-10 left-10',
 				fileContent: {
@@ -156,7 +156,7 @@ export const projectsItems = [
 				},
 			} satisfies FileItem,
 			{
-				id: 'project-1-link-icon',
+				id: 'resmyze-link-icon',
 				name: projects.resmyze.title,
 				href: resmyzeUrl,
 				icon: 'resmyze.avif',
