@@ -77,7 +77,7 @@ export function ContactForm() {
 
 		const payload = {
 			...formData,
-			access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+			access_key: '5b41650a-1de2-4dbd-844e-3d4e089c2b54',
 		}
 
 		if (!payload.access_key) {
@@ -153,7 +153,7 @@ export function ContactForm() {
 						name='name'
 						value={formData.name}
 						onChange={handleChange}
-						placeholder='Your name'
+						placeholder='Juan dela Cruz'
 						className='rounded-lg border-2 border-slate-600 p-2 text-2xl transition-colors hover:border-slate-100 focus:border-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-400'
 						aria-invalid={!!formErrors.name}
 						aria-describedby={formErrors.name ? 'name-error' : undefined}
@@ -201,7 +201,7 @@ export function ContactForm() {
 						value={formData.message}
 						onChange={handleChange}
 						placeholder='Write your message here...'
-						className='rounded-lg border-2 border-slate-600 p-2 text-2xl transition-colors hover:border-slate-100 focus:border-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-400'
+						className='resize-none rounded-lg border-2 border-slate-600 p-2 text-2xl transition-colors hover:border-slate-100 focus:border-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-400'
 						aria-invalid={!!formErrors.message}
 						aria-describedby={formErrors.message ? 'message-error' : undefined}
 						rows={5}
