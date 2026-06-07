@@ -1,0 +1,14 @@
+@layer components {
+	.viewport-overlay {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 20;
+		height: 100dvh;
+		width: 100dvw;
+		background: var(--gradient-bg);
+	}
+}
