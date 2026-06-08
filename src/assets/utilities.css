@@ -19,6 +19,8 @@
 }
 
 @utility card-border {
+	position: relative;
+
 	&::before {
 		content: "";
 		position: absolute;
@@ -31,6 +33,8 @@
 }
 
 @utility dock-border {
+	position: relative;
+
 	&::before {
 		content: "";
 		position: absolute;
