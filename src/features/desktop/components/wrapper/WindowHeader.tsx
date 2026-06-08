@@ -17,7 +17,7 @@ export function WindowHeader({
 	return (
 		<div
 			className={cn(
-				'relative flex items-center justify-between rounded-t-xl border-slate-800 border-b text-xl',
+				'relative flex select-none items-center justify-between rounded-t-xl border-slate-800 border-b text-xl',
 				rightButton ? 'px-4 py-1' : 'p-4'
 			)}
 		>
