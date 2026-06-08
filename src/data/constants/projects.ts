@@ -10,7 +10,7 @@ export const playground = {
 		tags: ['React', 'Three.js', 'React Three Fiber'],
 		url: 'https://low-orbit.pages.dev/',
 	},
-}
+} satisfies Record<string, Project>
 
 export const projects = {
 	portfolio: {
@@ -37,7 +37,7 @@ export const projects = {
 		url: 'https://resmyze-28ah8.puter.site',
 		tags: ['React', 'React Router', 'Puter', 'Tailwind'],
 	},
-}
+} satisfies Record<string, Project>
 
 export const projectsList: Project[] = Object.values(projects)
 export const playgroundList: Project[] = Object.values(playground)
