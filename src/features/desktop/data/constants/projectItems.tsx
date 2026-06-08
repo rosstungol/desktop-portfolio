@@ -1,6 +1,6 @@
 import { FolderCode, SquareArrowOutUpRight } from 'lucide-react'
 
-import { projects } from '@/data/constants/projects'
+import { playground, projects } from '@/data/constants/projects'
 
 import type { FileItem, FolderItem, LocationItem, UrlItem } from '../types'
 
@@ -12,17 +12,17 @@ if (!resmyzeUrl) {
 
 export const projectsItems = [
 	{
-		id: 'project-1-icon',
+		id: 'portfolio-icon',
 		name: projects.portfolio.title,
-		icon: 'folder.png',
+		icon: 'folder.avif',
 		Icon: FolderCode,
 		type: 'folder',
 		finderPosition: 'top-10 left-10',
 		children: [
 			{
-				id: 'project-1-file-icon',
+				id: 'portfolio-file-icon',
 				name: 'credits',
-				icon: 'file.png',
+				icon: 'file.avif',
 				type: 'file',
 				finderPosition: 'top-10 left-10',
 				fileContent: {
@@ -44,7 +44,7 @@ export const projectsItems = [
 											rel='noopener noreferrer'
 											className='flex items-center gap-2'
 										>
-											Virus - Cozy Workplace Corner
+											virus - Cozy Workplace Corner
 											<SquareArrowOutUpRight size={18} />
 										</a>
 									</li>
@@ -98,17 +98,17 @@ export const projectsItems = [
 		],
 	} satisfies FolderItem,
 	{
-		id: 'project-2-icon',
+		id: 'resmyze-icon',
 		name: projects.resmyze.title,
-		icon: 'folder.png',
+		icon: 'folder.avif',
 		Icon: FolderCode,
 		type: 'folder',
 		finderPosition: 'top-10 left-50',
 		children: [
 			{
-				id: 'project-2-file-icon',
+				id: 'resmyze-file-icon',
 				name: 'readme',
-				icon: 'file.png',
+				icon: 'file.avif',
 				type: 'file',
 				finderPosition: 'top-10 left-10',
 				fileContent: {
@@ -156,13 +156,66 @@ export const projectsItems = [
 				},
 			} satisfies FileItem,
 			{
-				id: 'project-1-link-icon',
+				id: 'resmyze-link-icon',
 				name: projects.resmyze.title,
 				href: resmyzeUrl,
 				icon: 'resmyze.avif',
 				type: 'url',
 				finderPosition: 'top-10 left-50',
 			} satisfies UrlItem,
+		],
+	} satisfies FolderItem,
+	{
+		id: 'low-orbit-icon',
+		name: playground.lowOrbit.title,
+		icon: 'folder.avif',
+		Icon: FolderCode,
+		type: 'folder',
+		finderPosition: 'top-10 left-90',
+		children: [
+			{
+				id: 'low-orbit-file-icon',
+				name: 'credits',
+				icon: 'file.avif',
+				type: 'file',
+				finderPosition: 'top-10 left-10',
+				fileContent: {
+					title: 'Credits',
+					text: (
+						<>
+							<div>
+								<h3>Assets</h3>
+								<ul>
+									<li>
+										<span>3d Model</span>
+										<a
+											href='https://skfb.ly/6AOJB'
+											target='_blank'
+											rel='noopener noreferrer'
+											className='flex items-center gap-2'
+										>
+											cemayhan - Spaceship Agile
+											<SquareArrowOutUpRight size={18} />
+										</a>
+									</li>
+									<li>
+										<span>Skybox Background</span>
+										<a
+											href='https://l1nq.com/phj1wz6'
+											target='_blank'
+											rel='noopener noreferrer'
+											className='flex items-center gap-2'
+										>
+											Space HDRI Environment Maps
+											<SquareArrowOutUpRight size={18} />
+										</a>
+									</li>
+								</ul>
+							</div>
+						</>
+					),
+				},
+			} satisfies FileItem,
 		],
 	} satisfies FolderItem,
 ] satisfies LocationItem[]

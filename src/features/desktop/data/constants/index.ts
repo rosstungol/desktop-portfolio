@@ -4,7 +4,7 @@ export const dockApps = [
 	{
 		id: 'finder',
 		name: 'Finder',
-		icon: 'finder.png',
+		icon: 'finder.avif',
 	},
 	{
 		id: 'about',
@@ -14,17 +14,17 @@ export const dockApps = [
 	{
 		id: 'contact',
 		name: 'Contact',
-		icon: 'contact.png',
+		icon: 'contact.avif',
 	},
 	{
 		id: 'photos',
 		name: 'Photos',
-		icon: 'photos.png',
+		icon: 'photos.avif',
 	},
 	{
 		id: 'terminal',
 		name: 'Terminal',
-		icon: 'terminal.png',
+		icon: 'terminal.avif',
 	},
 ] as const
 

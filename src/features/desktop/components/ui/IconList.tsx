@@ -24,7 +24,8 @@ export function IconList({ items, location }: IconListProps) {
 			item.type === 'contact' ||
 			item.type === 'photos' ||
 			item.type === 'terminal' ||
-			item.type === 'resume'
+			item.type === 'resume' ||
+			item.type === 'lowOrbit'
 		) {
 			openWindow(item.type)
 		}

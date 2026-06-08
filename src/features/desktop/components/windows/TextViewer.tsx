@@ -24,7 +24,7 @@ function TextViewer() {
 				)}
 
 				{fileContent?.text && (
-					<div className='space-y-8 text-content leading-relaxed'>
+					<div className='space-y-8 text-2xl text-content leading-relaxed'>
 						{fileContent.text}
 					</div>
 				)}

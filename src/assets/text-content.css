@@ -1,0 +1,11 @@
+@layer components {
+	.text-content {
+		h3 {
+			font-weight: bold;
+		}
+
+		li {
+			@apply flex items-center justify-between pl-4;
+		}
+	}
+}

@@ -22,7 +22,7 @@ export function TitleCard({ sceneState }: { sceneState?: SceneState }) {
 						Ross Tungol
 					</h3>
 					<p className='font-light text-xl md:px-1 lg:px-0 lg:text-3xl'>
-						Front-end Engineer
+						Software Engineer
 					</p>
 				</div>
 			</header>

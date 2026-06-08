@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Syne:wght@400..800&display=swap");
-@import url("about-grid");
 @import "tailwindcss";
+@import "viewport-overlay.css";
+@import "desktop-container.css";
+@import "about-grid.css";
+@import "text-content.css";
+@import "terminal.css";
+@import "cursor.css";
+@import "utilities.css";
 
 @theme {
 	/* fonts */
@@ -69,161 +75,4 @@
 		width: 8px;
 		@apply bg-neutral-100/30;
 	}
-}
-
-@layer components {
-	.viewport-overlay {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: 20;
-		height: 100dvh;
-		width: 100dvw;
-		background: var(--gradient-bg);
-	}
-
-	.desktop-container {
-		position: relative;
-		width: 2102px;
-		height: 1092px;
-		overflow: hidden;
-		border: 2px solid var(--natural-black);
-		border-radius: 2px;
-		background-image: url("/desktop/bg/lofi-cafe.avif");
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-color: var(--natural-black);
-	}
-
-	.cursor {
-		display: inline-block;
-		margin-left: 2px;
-		animation: blink 1s steps(1) infinite;
-	}
-
-	@keyframes blink {
-		50% {
-			opacity: 0;
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.cursor {
-			animation: none;
-		}
-	}
-
-	.terminal-input {
-		caret-shape: block;
-		caret-color: var(--neutral-200);
-		outline: none;
-	}
-
-	.terminal-output {
-		padding-top: 24px;
-		padding-bottom: 24px;
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
-	}
-
-	.output-section {
-		.subheading,
-		strong {
-			color: var(--light-sky-blue);
-			font-weight: bold;
-		}
-	}
-
-	.prompt {
-		> .arrow {
-			color: var(--easter-green);
-		}
-
-		> .tilde {
-			color: var(--light-sky-blue);
-		}
-	}
-
-	.text-content {
-		@apply text-2xl;
-
-		h3 {
-			font-weight: bold;
-		}
-
-		li {
-			@apply flex items-center justify-between pl-4;
-		}
-	}
-}
-
-@utility card-border {
-	&::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		border-radius: inherit;
-		pointer-events: none;
-		box-shadow: inset 0 0 0 2px #1d293d;
-		z-index: 10;
-	}
-}
-
-@utility dock-border {
-	&::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		border-radius: inherit;
-		pointer-events: none;
-		box-shadow: inset 0 0 0 1px #45556c;
-		z-index: 10;
-	}
-}
-
-@utility glass-bg {
-	@apply bg-neutral-800/20 shadow-lg backdrop-blur-lg;
-}
-
-@utility flex-center {
-	@apply flex items-center justify-center;
-}
-
-@utility col-center {
-	@apply flex flex-col items-center justify-center;
-}
-
-@utility abs-center {
-	@apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
-}
-
-@utility card-shadow {
-	box-shadow: 4px 4px 0px 0px var(--natural-black);
-}
-
-@utility grid-bg {
-	background-size: 120px 120px;
-	background-image:
-		linear-gradient(to right, rgba(70, 70, 70, 0.1) 1px, transparent 1px),
-		linear-gradient(to bottom, rgb(70, 70, 70, 0.1) 1px, transparent 1px);
-}
-
-@utility noise {
-	--lines: 0.0003px;
-	--noise-color: rgba(98, 98, 98, 0.1);
-
-	background: repeating-radial-gradient(
-		circle at center,
-		var(--noise-color),
-		var(--lines),
-		var(--noise-color),
-		var(--lines),
-		#0000,
-		calc(var(--lines) * 2),
-		#0000 0
-	);
 }

@@ -1,0 +1,33 @@
+@layer components {
+	.terminal-input {
+		caret-shape: block;
+		caret-color: var(--neutral-200);
+		outline: none;
+	}
+
+	.terminal-output {
+		padding-top: 24px;
+		padding-bottom: 24px;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.output-section {
+		.subheading,
+		strong {
+			color: var(--light-sky-blue);
+			font-weight: bold;
+		}
+	}
+
+	.prompt {
+		> .arrow {
+			color: var(--easter-green);
+		}
+
+		> .tilde {
+			color: var(--light-sky-blue);
+		}
+	}
+}

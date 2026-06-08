@@ -1,5 +1,17 @@
 import type { Project } from '../types'
 
+export const playground = {
+	lowOrbit: {
+		image: '/images/projects/low-orbit.avif',
+		title: 'low orbit',
+		github: 'https://github.com/rosstungol/low-orbit',
+		description:
+			'A flying game built with Three.js and React Three Fiber. Playable on laptop and desktop devices.',
+		tags: ['React', 'Three.js', 'React Three Fiber'],
+		url: 'https://low-orbit.pages.dev/',
+	},
+} satisfies Record<string, Project>
+
 export const projects = {
 	portfolio: {
 		image: '/images/projects/portfolio.avif',
@@ -25,6 +37,7 @@ export const projects = {
 		url: 'https://resmyze-28ah8.puter.site',
 		tags: ['React', 'React Router', 'Puter', 'Tailwind'],
 	},
-}
+} satisfies Record<string, Project>
 
 export const projectsList: Project[] = Object.values(projects)
+export const playgroundList: Project[] = Object.values(playground)

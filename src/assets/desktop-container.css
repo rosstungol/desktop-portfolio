@@ -1,0 +1,13 @@
+@layer components {
+	.desktop-container {
+		position: relative;
+		width: 2102px;
+		height: 1092px;
+		overflow: hidden;
+		border: 2px solid var(--natural-black);
+		border-radius: 2px;
+		background-image: url("/desktop/bg/lofi-cafe.avif");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+}

@@ -19,6 +19,7 @@ export type WindowKey =
 	| 'resume'
 	| 'file'
 	| 'image'
+	| 'lowOrbit'
 
 export type WindowsRecord = Record<WindowKey, WindowState>
 
@@ -61,7 +62,7 @@ export type FinderLocationItem = BaseLocationItem & {
 
 export type DesktopItem = BaseLocationItem & {
 	icon: string
-	type: 'resume' | 'file' | 'image' | 'folder'
+	type: 'resume' | 'file' | 'image' | 'folder' | 'lowOrbit'
 	finderPosition: string
 	desktopPosition: string
 }

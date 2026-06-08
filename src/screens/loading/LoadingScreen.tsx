@@ -33,7 +33,7 @@ export function LoadingScreen({ onLoaded }: { onLoaded: () => void }) {
 
 	return (
 		<div ref={loadingRef} className='col-center'>
-			<img src='/images/desktop.png' alt='desktop' className='mb-6 h-24' />
+			<img src='/images/desktop.avif' alt='desktop' className='mb-6 h-24' />
 			<div
 				className='h-1.5 w-40 overflow-hidden rounded border border-slate-800 bg-neutral-900'
 				role='progressbar'

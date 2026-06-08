@@ -4,7 +4,7 @@ export const trashItems = [
 	{
 		id: 'maki-icon',
 		name: 'Maki',
-		icon: 'jpg.png',
+		icon: 'jpg.avif',
 		type: 'image',
 		finderPosition: 'top-10 left-10',
 		fileContent: {
