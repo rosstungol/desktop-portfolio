@@ -29,4 +29,11 @@ export const applicationsItems = [
 		type: 'terminal',
 		finderPosition: 'top-10 left-130',
 	},
+	{
+		id: 'low-orbit-icon',
+		name: 'Low Orbit',
+		icon: 'low-orbit.avif',
+		type: 'lowOrbit',
+		finderPosition: 'top-10 left-170',
+	},
 ] satisfies FinderItem[]

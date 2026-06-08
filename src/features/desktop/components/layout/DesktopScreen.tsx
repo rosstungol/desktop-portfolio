@@ -5,6 +5,7 @@ import { AboutWindow } from '../windows/About'
 import { ContactWindow } from '../windows/Contact'
 import { FinderWindow } from '../windows/Finder'
 import { ImageWindow } from '../windows/ImageViewer'
+import { LowOrbitWindow } from '../windows/LowOrbit'
 import { PhotosWindow } from '../windows/Photos'
 import { ResumeWindow } from '../windows/Resume'
 import { TerminalWindow } from '../windows/Terminal'
@@ -26,6 +27,7 @@ export function DesktopScreen() {
 			<ResumeWindow />
 			<TextWindow />
 			<ImageWindow />
+			<LowOrbitWindow />
 		</div>
 	)
 }
