@@ -174,7 +174,7 @@ export const projectsItems = [
 		finderPosition: 'top-10 left-90',
 		children: [
 			{
-				id: 'project-1-file-icon',
+				id: 'low-orbit-file-icon',
 				name: 'credits',
 				icon: 'file.avif',
 				type: 'file',
