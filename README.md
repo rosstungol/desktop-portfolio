@@ -6,23 +6,19 @@ This is my portfolio, created to showcase my skills and projects.
 
 ## Getting Started
 
-### Installation
 Install the dependencies:
-
 ```bash
 npm install
 ```
 
-### Development
 Start the development server:
-
 ```bash
 npm run dev
 ``` 
 
 ## Linter and Formatter
-Run the Biome.js linter and formatter:
 
+Run the Biome.js linter and formatter:
 ```bash
 npm run lint-format
 ```

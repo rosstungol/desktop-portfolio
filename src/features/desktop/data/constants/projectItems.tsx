@@ -5,6 +5,7 @@ import { playground, projects } from '@/data/constants/projects'
 import type { FileItem, FolderItem, LocationItem, UrlItem } from '../types'
 
 const resmyzeUrl = projects.resmyze.url
+const lowOrbitUrl = playground.lowOrbit.url
 
 if (!resmyzeUrl) {
 	throw new Error('Resmyze URL must be defined')
@@ -216,6 +217,14 @@ export const projectsItems = [
 					),
 				},
 			} satisfies FileItem,
+			{
+				id: 'low-orbit-link-icon',
+				name: playground.lowOrbit.title,
+				href: lowOrbitUrl,
+				icon: 'low-orbit.avif',
+				type: 'url',
+				finderPosition: 'top-10 left-50',
+			} satisfies UrlItem,
 		],
 	} satisfies FolderItem,
 ] satisfies LocationItem[]
