@@ -1,6 +1,12 @@
 import { aboutText, skillsList } from '@/data/constants'
 
-export const about = <div className='terminal-output'>{aboutText}</div>
+export const about = (
+	<div className='terminal-output'>
+		{aboutText.map((item) => (
+			<p key={item}>{item}</p>
+		))}
+	</div>
+)
 
 export const skills = (
 	<div className='terminal-output'>

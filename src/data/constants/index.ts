@@ -1,8 +1,10 @@
 import { GitHubIcon } from '@/components/icons/GitHubIcon'
 import { LinkedInIcon } from '@/components/icons/LinkedInIcon'
 
-export const aboutText =
-	'I’m a software engineer with experience in both development and design. I take pride in crafting intuitive, responsive, and visually refined web applications using modern web technologies.'
+export const aboutText = [
+	'I`m a software engineer specializing in building modern, scalable web applications.',
+	'I enjoy continuously learning new technologies, and creating software that solves problems.',
+]
 
 export const socialLinks = [
 	{
@@ -18,25 +20,18 @@ export const socialLinks = [
 ] as const
 
 export const skillsList = {
-	languages: [
-		'HTML',
-		'CSS & SASS',
-		'JavaScript',
-		'TypeScript',
-		'Dart',
-		'Python',
-	],
+	languages: ['HTML', 'CSS & SASS', 'JavaScript', 'TypeScript', 'Dart'],
 	libraries: [
 		'React',
 		'Next.js',
-		'Node.js',
 		'Express.js',
+		'Three.js',
 		'Tailwind CSS',
+		'Zustand',
 		'Jest',
-		'Vitest',
 		'Flutter',
 	],
-	tools: ['Git', 'Github', 'Bitbucket', 'Vite', 'Vercel'],
+	tools: ['Git', 'Github', 'Bitbucket', 'Vite', 'Webpack'],
 	design: ['UI/UX Design', 'Figma'],
 } as const
 
