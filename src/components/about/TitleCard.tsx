@@ -26,7 +26,7 @@ export function TitleCard({ sceneState }: { sceneState?: SceneState }) {
 					</p>
 				</div>
 			</header>
-			<ul className='absolute right-6 bottom-6 z-20 flex gap-4 space-y-1'>
+			<ul className='absolute right-6 bottom-6 z-20 flex gap-4'>
 				{socialLinks.map(({ link, label }) => (
 					<li key={label}>
 						<a
