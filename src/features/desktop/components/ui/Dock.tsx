@@ -27,10 +27,9 @@ export function Dock() {
 		const dock = dockRef.current
 		if (!dock) return
 
-		const icons = dock.querySelectorAll('.dock-icon')
-
 		const animateIcons = (mouseX: number) => {
 			const { left } = dock.getBoundingClientRect()
+			const icons = dock.querySelectorAll('.dock-icon')
 
 			icons.forEach((icon) => {
 				const { left: iconLeft, width } = icon.getBoundingClientRect()
@@ -53,7 +52,9 @@ export function Dock() {
 			animateIcons(e.clientX - left)
 		}
 
-		const resetIcons = () =>
+		const resetIcons = () => {
+			const icons = dock.querySelectorAll('.dock-icon')
+
 			icons.forEach((icon) => {
 				gsap.to(icon, {
 					scale: 1,
@@ -62,6 +63,7 @@ export function Dock() {
 					ease: 'power1.out',
 				})
 			})
+		}
 
 		dock.addEventListener('mousemove', handleMouseMove)
 		dock.addEventListener('mouseleave', resetIcons)
