@@ -1,7 +1,7 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { Draggable } from 'gsap/Draggable'
-import { useLayoutEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 
 import type { WindowKey } from '../../data/types'
@@ -27,8 +27,6 @@ export function WindowWrapper<P extends object>(
 			const el = ref.current
 
 			if (!el) return
-
-			if (!isOpen) return
 
 			gsap.killTweensOf(el)
 
@@ -77,16 +75,6 @@ export function WindowWrapper<P extends object>(
 
 			return () => instance.kill()
 		}, [])
-
-		useLayoutEffect(() => {
-			const el = ref.current
-
-			if (!el) return
-
-			if (!isOpen) {
-				el.style.display = 'none'
-			}
-		}, [isOpen])
 
 		const windowPosition = {
 			zIndex,
