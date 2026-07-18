@@ -6,6 +6,7 @@ export type WindowData = LocationItem
 
 type WindowState = {
 	isOpen: boolean
+	isMinimized: boolean
 	zIndex: number
 	data: WindowData | null
 }
