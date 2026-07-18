@@ -1,8 +1,15 @@
+import { useShallow } from 'zustand/react/shallow'
+
 import type { WindowKey } from '@/features/desktop/data/types'
 import { useWindowStore } from '@/features/desktop/stores/window'
 
 export function WindowControls({ target }: { target: WindowKey }) {
-	const closeWindow = useWindowStore((state) => state.closeWindow)
+	const { minimizeWindow, closeWindow } = useWindowStore(
+		useShallow((state) => ({
+			minimizeWindow: state.minimizeWindow,
+			closeWindow: state.closeWindow,
+		}))
+	)
 
 	return (
 		<div className='flex gap-3'>
@@ -15,8 +22,10 @@ export function WindowControls({ target }: { target: WindowKey }) {
 			/>
 			<button
 				type='button'
-				className='size-5 rounded-full bg-neutral-300'
-				disabled={true}
+				className='size-5 rounded-full bg-yellow-400'
+				aria-label='Minimize window'
+				title='Minimize window'
+				onClick={() => minimizeWindow(target)}
 			/>
 			<button
 				type='button'

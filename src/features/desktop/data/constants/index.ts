@@ -1,4 +1,4 @@
-import type { FileItem } from '../types'
+import type { FileItem, WindowKey } from '../types'
 
 export const dockApps = [
 	{
@@ -27,6 +27,18 @@ export const dockApps = [
 		icon: 'terminal.avif',
 	},
 ] as const
+
+export const windowIcons: Record<WindowKey, { name: string; icon: string }> = {
+	finder: { name: 'Finder', icon: 'finder.avif' },
+	about: { name: 'About', icon: 'about.avif' },
+	contact: { name: 'Contact', icon: 'contact.avif' },
+	photos: { name: 'Photos', icon: 'photos.avif' },
+	terminal: { name: 'Terminal', icon: 'terminal.avif' },
+	resume: { name: 'Resume', icon: 'pdf.avif' },
+	file: { name: 'File', icon: 'file.avif' },
+	image: { name: 'Image', icon: 'jpg.avif' },
+	lowOrbit: { name: 'Low Orbit', icon: 'low-orbit.avif' },
+}
 
 export const photos = [
 	{

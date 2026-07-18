@@ -2,20 +2,21 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { useRef } from 'react'
 import { Tooltip } from 'react-tooltip'
-import { useShallow } from 'zustand/shallow'
+import { useShallow } from 'zustand/react/shallow'
 
-import { dockApps } from '../../data/constants'
+import { dockApps, windowIcons } from '../../data/constants'
 import { locations } from '../../data/constants/locations'
 import type { WindowKey } from '../../data/types'
 import { useLocationStore } from '../../stores/location'
 import { useWindowStore } from '../../stores/window'
 
 export function Dock() {
-	const { windows, openWindow, focusWindow } = useWindowStore(
+	const { windows, openWindow, focusWindow, restoreWindow } = useWindowStore(
 		useShallow((state) => ({
 			windows: state.windows,
 			openWindow: state.openWindow,
 			focusWindow: state.focusWindow,
+			restoreWindow: state.restoreWindow,
 		}))
 	)
 
@@ -26,10 +27,9 @@ export function Dock() {
 		const dock = dockRef.current
 		if (!dock) return
 
-		const icons = dock.querySelectorAll('.dock-icon')
-
 		const animateIcons = (mouseX: number) => {
 			const { left } = dock.getBoundingClientRect()
+			const icons = dock.querySelectorAll('.dock-icon')
 
 			icons.forEach((icon) => {
 				const { left: iconLeft, width } = icon.getBoundingClientRect()
@@ -52,7 +52,9 @@ export function Dock() {
 			animateIcons(e.clientX - left)
 		}
 
-		const resetIcons = () =>
+		const resetIcons = () => {
+			const icons = dock.querySelectorAll('.dock-icon')
+
 			icons.forEach((icon) => {
 				gsap.to(icon, {
 					scale: 1,
@@ -61,6 +63,7 @@ export function Dock() {
 					ease: 'power1.out',
 				})
 			})
+		}
 
 		dock.addEventListener('mousemove', handleMouseMove)
 		dock.addEventListener('mouseleave', resetIcons)
@@ -76,7 +79,15 @@ export function Dock() {
 
 		if (id === 'finder' && finderLocation === 'trash') {
 			setActiveLocation(locations.trash)
-			appWindow.isOpen ? focusWindow('finder') : openWindow('finder')
+			if (appWindow.isMinimized) {
+				restoreWindow('finder')
+			} else if (appWindow.isOpen) {
+				focusWindow('finder')
+			} else {
+				openWindow('finder')
+			}
+		} else if (appWindow.isMinimized) {
+			restoreWindow(id)
 		} else if (appWindow.isOpen) {
 			focusWindow(id)
 		} else {
@@ -110,6 +121,31 @@ export function Dock() {
 				))}
 
 				<div className='h-16 w-0.5 bg-neutral-200/40' />
+
+				{Object.entries(windows)
+					.filter(([, value]) => value.isOpen && value.isMinimized)
+					.map(([key]) => {
+						const info = windowIcons[key as WindowKey]
+
+						return (
+							<div key={key} className='flex-center'>
+								<button
+									type='button'
+									aria-label={info.name}
+									data-tooltip-id='dock-tooltip'
+									data-tooltip-content={info.name}
+									onClick={() => restoreWindow(key as WindowKey)}
+									className='dock-icon z-10'
+								>
+									<img
+										src={`/desktop/icons/${info.icon}`}
+										alt={info.name}
+										className='size-18'
+									/>
+								</button>
+							</div>
+						)
+					})}
 
 				<div className='flex-center'>
 					<button

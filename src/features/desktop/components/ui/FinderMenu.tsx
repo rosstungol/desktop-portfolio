@@ -1,4 +1,4 @@
-import { useShallow } from 'zustand/shallow'
+import { useShallow } from 'zustand/react/shallow'
 
 import { cn } from '@/utils/cn'
 
