@@ -22,7 +22,7 @@ export const projects = {
 		description:
 			'A lightweight AI-powered tool that analyzes your resume against a specific job target and provides clear, actionable feedback.',
 		github: 'https://github.com/rosstungol/resume-analyzer',
-		url: 'https://resmyze-28ah8.puter.site',
+		url: 'https://resmyze.pages.dev',
 		tags: ['React', 'React Router', 'Puter', 'Tailwind'],
 	},
 } satisfies Record<string, Project>

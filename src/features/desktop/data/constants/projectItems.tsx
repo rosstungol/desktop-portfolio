@@ -11,6 +11,10 @@ if (!resmyzeUrl) {
 	throw new Error('Resmyze URL must be defined')
 }
 
+if (!lowOrbitUrl) {
+	throw new Error('Low Orbit URL must be defined')
+}
+
 export const projectsItems = [
 	{
 		id: 'portfolio-icon',
