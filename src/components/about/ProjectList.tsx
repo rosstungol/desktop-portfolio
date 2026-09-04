@@ -1,9 +1,8 @@
-import { Globe } from 'lucide-react'
+import { Github, Globe } from '@/components/icons/huge'
 
 import type { Project } from '@/data/types'
 import { IconLink } from '@/features/desktop/components/ui/IconLink'
 
-import { GitHubIcon } from '../icons/GitHubIcon'
 import { GridCard } from './GridCard'
 
 export function ProjectList({ list }: { list: Project[] }) {
@@ -33,7 +32,7 @@ export function ProjectList({ list }: { list: Project[] }) {
 												label='Github'
 												target='_blank'
 												rel='noopener noreferrer'
-												Icon={GitHubIcon}
+												Icon={Github}
 											/>
 										</li>
 									)}

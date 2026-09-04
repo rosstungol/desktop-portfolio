@@ -1,4 +1,4 @@
-import { SquareArrowOutUpRight } from 'lucide-react'
+import { SquareArrowOutUpRight } from '@/components/icons/huge'
 
 import { playground } from '@/data/constants/projects'
 

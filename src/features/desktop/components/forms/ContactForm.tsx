@@ -1,6 +1,11 @@
-import { CircleAlert, CircleCheck, ListRestart, Send } from 'lucide-react'
 import { type SyntheticEvent, useState } from 'react'
 import * as z from 'zod'
+import {
+	CircleAlert,
+	CircleCheck,
+	ListRestart,
+	Send,
+} from '@/components/icons/huge'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/utils/cn'
 

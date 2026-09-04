@@ -1,8 +1,8 @@
 import gsap from 'gsap'
-import { ChevronsRight } from 'lucide-react'
 import { useRef, useState } from 'react'
 
 import { GridBackground } from '@/components/about/GridBackground'
+import { ChevronsRight } from '@/components/icons/huge'
 import { AboutGrid } from '@/screens/about/AboutGrid'
 
 import { WindowHeader } from '../wrapper/WindowHeader'

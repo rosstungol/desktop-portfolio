@@ -1,4 +1,4 @@
-import { Banana } from 'lucide-react'
+import { Banana } from '@/components/icons/huge'
 
 import { useWindowStore } from '../../stores/window'
 import { DigitalClock } from '../ui/DigitalClock'
