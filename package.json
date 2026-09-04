@@ -19,7 +19,6 @@
 		"dayjs": "^1.11.19",
 		"gsap": "^3.13.0",
 		"immer": "^11.1.4",
-		"leva": "^0.10.1",
 		"lucide-react": "^0.564.0",
 		"react": "^19.3.0-canary-ed4bd540-20260202",
 		"react-dom": "^19.3.0-canary-ed4bd540-20260202",

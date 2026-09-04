@@ -52,4 +52,4 @@ function Resume() {
 	)
 }
 
-export const ResumeWindow = WindowWrapper(Resume, 'resume')
+export default WindowWrapper(Resume, 'resume')

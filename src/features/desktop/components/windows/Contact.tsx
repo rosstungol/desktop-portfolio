@@ -39,4 +39,4 @@ function Contact() {
 	)
 }
 
-export const ContactWindow = WindowWrapper(Contact, 'contact')
+export default WindowWrapper(Contact, 'contact')
