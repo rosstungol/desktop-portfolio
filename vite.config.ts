@@ -42,6 +42,18 @@ export default defineConfig({
 							return 'animation'
 						}
 
+						if (id.includes('/node_modules/react-pdf/')) {
+							return undefined
+						}
+
+						if (id.includes('/node_modules/pdfjs-dist/')) {
+							return undefined
+						}
+
+						if (id.includes('/node_modules/zod/')) {
+							return undefined
+						}
+
 						return 'vendor'
 					}
 				},
