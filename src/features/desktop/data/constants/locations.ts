@@ -1,4 +1,4 @@
-import { Blocks, Code2, Monitor, Trash2 } from 'lucide-react'
+import { Blocks, Code, Monitor, Trash } from '@/components/icons/huge'
 
 import type { FinderLocationItem } from '../types'
 import { applicationsItems } from './applicationItems'
@@ -26,7 +26,7 @@ const PROJECTS_LOCATION: FinderLocationItem = {
 	id: 'projects-location',
 	name: 'Projects',
 	type: 'finderLocation',
-	Icon: Code2,
+	Icon: Code,
 	children: projectsItems,
 }
 
@@ -34,7 +34,7 @@ const TRASH_LOCATION: FinderLocationItem = {
 	id: 'trash-location',
 	name: 'Trash',
 	type: 'finderLocation',
-	Icon: Trash2,
+	Icon: Trash,
 	children: trashItems,
 }
 

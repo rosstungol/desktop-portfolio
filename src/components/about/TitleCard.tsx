@@ -1,5 +1,5 @@
-import { SquareArrowOutUpRight } from 'lucide-react'
 import { lazy } from 'react'
+import { SquareArrowOutUpRight } from '@/components/icons/huge'
 
 import { socialLinks } from '@/data/constants'
 import type { SceneState } from '@/data/types'

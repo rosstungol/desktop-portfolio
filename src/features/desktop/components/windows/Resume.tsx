@@ -1,5 +1,5 @@
-import { Download } from 'lucide-react'
 import { Document, Page, pdfjs } from 'react-pdf'
+import { Download } from '@/components/icons/huge'
 
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 import 'react-pdf/dist/Page/TextLayer.css'

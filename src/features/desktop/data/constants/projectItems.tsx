@@ -1,4 +1,4 @@
-import { FolderCode, SquareArrowOutUpRight } from 'lucide-react'
+import { FolderCode, SquareArrowOutUpRight } from '@/components/icons/huge'
 
 import { playground, projects } from '@/data/constants/projects'
 

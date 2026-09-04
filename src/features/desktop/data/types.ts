@@ -1,5 +1,8 @@
-import type { LucideIcon } from 'lucide-react'
-import type { ReactNode } from 'react'
+import type { ComponentType, ReactNode } from 'react'
+
+import type { IconProps } from '@/components/icons/huge/HugeIcon'
+
+export type IconComponent = ComponentType<IconProps>
 
 // Window Store types
 export type WindowData = LocationItem
@@ -40,7 +43,7 @@ export type BaseItem = {
 
 export type BaseLocationItem = BaseItem & {
 	icon?: string
-	Icon?: LucideIcon
+	Icon?: IconComponent
 	type?: ItemType
 	href?: string
 	children?: LocationItem[]
@@ -57,7 +60,7 @@ export type FinderItem = BaseLocationItem & {
 
 export type FinderLocationItem = BaseLocationItem & {
 	type: 'finderLocation'
-	Icon: LucideIcon
+	Icon: IconComponent
 	children: LocationItem[]
 }
 
