@@ -1,4 +1,5 @@
 import type { AnchorHTMLAttributes, ComponentType, SVGProps } from 'react'
+
 import { cn } from '@/utils/cn'
 
 type IconLinkSize = 'md' | 'sm'
@@ -32,7 +33,6 @@ export function IconLink({
 	size = 'md',
 	rounded = false,
 	Icon,
-	children,
 	className,
 	...props
 }: IconLinkProps) {

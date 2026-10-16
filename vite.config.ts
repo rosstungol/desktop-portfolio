@@ -1,18 +1,40 @@
 import path from 'node:path'
+
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import { defineConfig, lazyPlugins } from 'vite-plus'
 
 // https://vite.dev/config/
 export default defineConfig({
-	plugins: [
+	staged: {
+		'*': 'vp check --fix',
+	},
+	fmt: {
+		useTabs: true,
+		tabWidth: 2,
+		printWidth: 80,
+		semi: false,
+		singleQuote: true,
+		jsxSingleQuote: true,
+		quoteProps: 'as-needed',
+		trailingComma: 'es5',
+		endOfLine: 'lf',
+		sortImports: true,
+		sortTailwindcss: true,
+	},
+	lint: {
+		jsPlugins: [{ name: 'vite-plus', specifier: 'vite-plus/oxlint-plugin' }],
+		rules: { 'vite-plus/prefer-vite-plus-imports': 'error' },
+		options: { typeAware: true, typeCheck: true },
+	},
+	plugins: lazyPlugins(() => [
 		react({
 			babel: {
 				plugins: [['babel-plugin-react-compiler']],
 			},
 		}),
 		tailwindcss(),
-	],
+	]),
 	resolve: {
 		alias: {
 			'@': path.resolve(__dirname, './src'),

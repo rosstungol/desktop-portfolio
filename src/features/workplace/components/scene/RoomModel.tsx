@@ -91,7 +91,10 @@ export function RoomModel(props: JSX.IntrinsicElements['group']) {
 				userData={{ name: 'Soft Paper Lamp_Paper Lamp_0' }}
 			>
 				<meshStandardMaterial
-					{...materials.PaletteMaterial004}
+					{...(materials.PaletteMaterial004 as unknown as Record<
+						string,
+						unknown
+					>)}
 					emissive={0xff9b53}
 					emissiveIntensity={2}
 					toneMapped={false}

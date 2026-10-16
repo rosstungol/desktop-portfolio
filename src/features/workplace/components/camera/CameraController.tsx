@@ -90,7 +90,9 @@ export function CameraController({
 			})
 
 			gsap.to(lookAt.current, {
-				...screenTarget.current,
+				x: screenTarget.current.x,
+				y: screenTarget.current.y,
+				z: screenTarget.current.z,
 				duration: 1.5,
 				ease: 'sine.inOut',
 				overwrite: 'auto',
