@@ -1,5 +1,4 @@
 import { SquareArrowOutUpRight } from '@/components/icons/huge'
-
 import { playground } from '@/data/constants/projects'
 
 import { WindowHeader } from '../wrapper/WindowHeader'
@@ -20,7 +19,7 @@ function LowOrbit() {
 					href={playground.lowOrbit.url}
 					target='_blank'
 					rel='noopener noreferrer'
-					className='absolute right-4 bottom-4 flex items-center gap-2 font-bold font-mono text-xl drop-shadow drop-shadow-neutral-900/80'
+					className='absolute right-4 bottom-4 flex items-center gap-2 font-mono text-xl font-bold drop-shadow drop-shadow-neutral-900/80'
 				>
 					Open in new tab
 					<SquareArrowOutUpRight size={18} />

@@ -1,7 +1,6 @@
-// @ts-expect-error React canary: ViewTransition not typed yet (remove when stable version is available)
 import { type ReactNode, ViewTransition } from 'react'
-import { ZoomIn, ZoomOut } from '@/components/icons/huge'
 
+import { ZoomIn, ZoomOut } from '@/components/icons/huge'
 import { Button } from '@/components/ui/Button'
 import type { SceneState } from '@/data/types'
 

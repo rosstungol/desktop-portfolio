@@ -25,7 +25,7 @@ export function Header() {
 		: 'Finder'
 
 	return (
-		<header className='glass-bg flex w-full select-none items-center justify-between px-10 py-2 text-neutral-200 text-xl'>
+		<header className='glass-bg flex w-full items-center justify-between px-10 py-2 text-xl text-neutral-200 select-none'>
 			<div className='flex items-center gap-6 font-bold'>
 				<Banana size={22} />
 				<h1>{title}</h1>

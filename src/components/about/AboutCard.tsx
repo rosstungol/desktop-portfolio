@@ -8,7 +8,7 @@ export function AboutCard() {
 			{aboutText.map((item) => (
 				<p
 					key={item}
-					className='my-8 text-balance font-light text-lg sm:text-3xl'
+					className='my-8 text-lg font-light text-balance sm:text-3xl'
 				>
 					{item}
 				</p>

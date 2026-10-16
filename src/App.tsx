@@ -3,7 +3,6 @@ import {
 	startTransition,
 	useEffect,
 	useState,
-	// @ts-expect-error React canary: ViewTransition not typed yet (remove when stable version is available)
 	ViewTransition,
 } from 'react'
 

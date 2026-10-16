@@ -1,5 +1,5 @@
 import { useGLTF } from '@react-three/drei/core/Gltf'
-import { type JSX, lazy, Suspense } from 'react'
+import { type JSX, lazy, Suspense, useMemo } from 'react'
 import type { Mesh, MeshStandardMaterial } from 'three'
 import type { GLTF } from 'three-stdlib'
 
@@ -34,6 +34,11 @@ export function RoomModel(props: JSX.IntrinsicElements['group']) {
 	const { nodes, materials } = useGLTF(
 		'/workplace/models/cozy-workplace-corner.glb'
 	) as unknown as GLTFResult
+
+	const lampMaterial = useMemo(
+		() => materials.PaletteMaterial004.clone(),
+		[materials.PaletteMaterial004]
+	)
 
 	return (
 		<group
@@ -90,8 +95,8 @@ export function RoomModel(props: JSX.IntrinsicElements['group']) {
 				scale={0.194}
 				userData={{ name: 'Soft Paper Lamp_Paper Lamp_0' }}
 			>
-				<meshStandardMaterial
-					{...materials.PaletteMaterial004}
+				<primitive
+					object={lampMaterial}
 					emissive={0xff9b53}
 					emissiveIntensity={2}
 					toneMapped={false}

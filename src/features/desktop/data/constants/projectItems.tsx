@@ -1,5 +1,4 @@
 import { FolderCode, SquareArrowOutUpRight } from '@/components/icons/huge'
-
 import { playground, projects } from '@/data/constants/projects'
 
 import type { FileItem, FolderItem, LocationItem, UrlItem } from '../types'
