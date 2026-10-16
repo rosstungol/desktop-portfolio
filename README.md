@@ -32,6 +32,6 @@ This is my portfolio, a React + TypeScript application built with Vite, featurin
 | `bun run format`  | Format the codebase with Oxfmt             |
 | `bun run test`    | Run tests with Vitest                      |
 
-Each script wraps the matching Vite+ built-in, so `vp dev`, `vp check`, `vp lint`, and so on also work directly.
+Most scripts wrap the matching Vite+ built-in. The `build` script also runs `tsc -b`; use `vp run build` to include that type check.
 
 A pre-commit hook runs `vp check --fix` on staged files, so formatting and lint fixes are applied automatically when you commit.
