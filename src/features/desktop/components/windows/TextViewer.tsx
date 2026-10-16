@@ -14,17 +14,17 @@ function TextViewer() {
 			<WindowHeader title={name} target='file' />
 			<div className='flex max-h-220 min-h-50 w-200 flex-col gap-2 overflow-y-auto rounded-b-2xl bg-neutral-900/60 px-10 py-16'>
 				{fileContent?.image && (
-					<div className='mb-6 max-h-60 w-full flex-center overflow-clip rounded'>
+					<div className='flex-center mb-6 max-h-60 w-full overflow-clip rounded'>
 						<img src={fileContent.image} alt={name} loading='lazy' />
 					</div>
 				)}
 
 				{fileContent?.title && (
-					<h2 className='mb-6 font-bold text-3xl'>{fileContent.title}</h2>
+					<h2 className='mb-6 text-3xl font-bold'>{fileContent.title}</h2>
 				)}
 
 				{fileContent?.text && (
-					<div className='space-y-8 text-2xl text-content leading-relaxed'>
+					<div className='text-content space-y-8 text-2xl leading-relaxed'>
 						{fileContent.text}
 					</div>
 				)}

@@ -1,5 +1,6 @@
 import { type SyntheticEvent, useState } from 'react'
 import * as z from 'zod'
+
 import {
 	CircleAlert,
 	CircleCheck,
@@ -143,11 +144,11 @@ export function ContactForm() {
 			<form onSubmit={onSubmit} className='space-y-8'>
 				<div className='flex flex-col gap-2'>
 					<div className='flex items-center justify-between'>
-						<label htmlFor='name' className='font-bold text-xl'>
+						<label htmlFor='name' className='text-xl font-bold'>
 							Name
 						</label>
 						{formErrors.name && (
-							<p id='name-error' className='text-red-400 text-xl'>
+							<p id='name-error' className='text-xl text-red-400'>
 								{formErrors.name}
 							</p>
 						)}
@@ -159,7 +160,7 @@ export function ContactForm() {
 						value={formData.name}
 						onChange={handleChange}
 						placeholder='Juan dela Cruz'
-						className='rounded-lg border-2 border-slate-600 p-2 text-2xl transition-colors hover:border-slate-100 focus:border-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-400'
+						className='rounded-lg border-2 border-slate-600 p-2 text-2xl transition-colors hover:border-slate-100 focus:border-slate-100 focus:ring-2 focus:ring-slate-400 focus:outline-none'
 						aria-invalid={!!formErrors.name}
 						aria-describedby={formErrors.name ? 'name-error' : undefined}
 					/>
@@ -167,11 +168,11 @@ export function ContactForm() {
 
 				<div className='flex flex-col gap-2'>
 					<div className='flex items-center justify-between'>
-						<label htmlFor='email' className='font-bold text-xl'>
+						<label htmlFor='email' className='text-xl font-bold'>
 							Email
 						</label>
 						{formErrors.email && (
-							<p id='email-error' className='text-red-400 text-xl'>
+							<p id='email-error' className='text-xl text-red-400'>
 								{formErrors.email}
 							</p>
 						)}
@@ -183,7 +184,7 @@ export function ContactForm() {
 						value={formData.email}
 						onChange={handleChange}
 						placeholder='you@example.com'
-						className='rounded-lg border-2 border-slate-600 p-2 text-2xl transition-colors hover:border-slate-100 focus:border-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-400'
+						className='rounded-lg border-2 border-slate-600 p-2 text-2xl transition-colors hover:border-slate-100 focus:border-slate-100 focus:ring-2 focus:ring-slate-400 focus:outline-none'
 						aria-invalid={!!formErrors.email}
 						aria-describedby={formErrors.email ? 'email-error' : undefined}
 					/>
@@ -191,11 +192,11 @@ export function ContactForm() {
 
 				<div className='flex flex-col gap-2'>
 					<div className='flex items-center justify-between'>
-						<label htmlFor='message' className='font-bold text-xl'>
+						<label htmlFor='message' className='text-xl font-bold'>
 							Message
 						</label>
 						{formErrors.message && (
-							<p id='message-error' className='text-red-400 text-xl'>
+							<p id='message-error' className='text-xl text-red-400'>
 								{formErrors.message}
 							</p>
 						)}
@@ -206,7 +207,7 @@ export function ContactForm() {
 						value={formData.message}
 						onChange={handleChange}
 						placeholder='Write your message here...'
-						className='resize-none rounded-lg border-2 border-slate-600 p-2 text-2xl transition-colors hover:border-slate-100 focus:border-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-400'
+						className='resize-none rounded-lg border-2 border-slate-600 p-2 text-2xl transition-colors hover:border-slate-100 focus:border-slate-100 focus:ring-2 focus:ring-slate-400 focus:outline-none'
 						aria-invalid={!!formErrors.message}
 						aria-describedby={formErrors.message ? 'message-error' : undefined}
 						rows={5}

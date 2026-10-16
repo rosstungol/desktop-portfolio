@@ -20,7 +20,7 @@ export function FinderMenu({ name, items }: FinderMenuProps) {
 
 	return (
 		<div className='mb-8'>
-			<h2 className='mb-2 font-semibold text-neutral-400 text-xl'>{name}</h2>
+			<h2 className='mb-2 text-xl font-semibold text-neutral-400'>{name}</h2>
 			<ul className='flex flex-col gap-2'>
 				{items?.map((item) => (
 					<li key={item.id}>
@@ -35,7 +35,7 @@ export function FinderMenu({ name, items }: FinderMenuProps) {
 							)}
 						>
 							{item.Icon && <item.Icon size={20} />}
-							<span className='font-semibold text-xl'>{item.name}</span>
+							<span className='text-xl font-semibold'>{item.name}</span>
 						</button>
 					</li>
 				))}

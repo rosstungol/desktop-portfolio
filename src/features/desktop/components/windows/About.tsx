@@ -29,13 +29,13 @@ function About() {
 					{aboutIntro && (
 						<div
 							ref={introRef}
-							className='fixed top-13.5 bottom-0 left-0 z-30 w-full flex-center bg-neutral-950'
+							className='flex-center fixed top-13.5 bottom-0 left-0 z-30 w-full bg-neutral-950'
 						>
 							<div className='noise grid-bg z-10 h-full w-full flex-col text-center'>
-								<h3 className='mt-80 mb-2 font-black font-display text-8xl tracking-tight'>
+								<h3 className='font-display mt-80 mb-2 text-8xl font-black tracking-tight'>
 									Ross Tungol
 								</h3>
-								<p className='mb-10 font-light text-4xl'>Software Engineer</p>
+								<p className='mb-10 text-4xl font-light'>Software Engineer</p>
 								<button
 									type='button'
 									aria-label='Dismiss intro'

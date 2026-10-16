@@ -1,5 +1,4 @@
 import { Github, Globe } from '@/components/icons/huge'
-
 import type { Project } from '@/data/types'
 import { IconLink } from '@/features/desktop/components/ui/IconLink'
 
@@ -20,7 +19,7 @@ export function ProjectList({ list }: { list: Project[] }) {
 								/>
 							</div>
 							<div className='flex flex-col items-center sm:items-start'>
-								<h4 className='mb-2 font-bold font-display text-xl md:text-3xl'>
+								<h4 className='font-display mb-2 text-xl font-bold md:text-3xl'>
 									{project.title}
 								</h4>
 								<ul className='flex gap-4'>
@@ -60,7 +59,7 @@ export function ProjectList({ list }: { list: Project[] }) {
 									key={item}
 									className='w-fit rounded-full bg-slate-600/20 px-3 py-1'
 								>
-									<p className='font-semibold text-sm lg:text-xl'>{item}</p>
+									<p className='text-sm font-semibold lg:text-xl'>{item}</p>
 								</div>
 							))}
 						</div>

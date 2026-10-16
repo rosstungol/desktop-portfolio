@@ -1,18 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Syne:wght@400..800&display=swap");
-@import "tailwindcss";
-@import "viewport-overlay.css";
-@import "desktop-container.css";
-@import "about-grid.css";
-@import "text-content.css";
-@import "terminal.css";
-@import "cursor.css";
-@import "utilities.css";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Syne:wght@400..800&display=swap');
+@import 'tailwindcss';
+@import 'viewport-overlay.css';
+@import 'desktop-container.css';
+@import 'about-grid.css';
+@import 'text-content.css';
+@import 'terminal.css';
+@import 'cursor.css';
+@import 'utilities.css';
 
 @theme {
 	/* fonts */
-	--font-sans: "Outfit", sans-serif;
-	--font-mono: "Roboto Mono", monospace;
-	--font-display: "Syne", sans-serif;
+	--font-sans: 'Outfit', sans-serif;
+	--font-mono: 'Roboto Mono', monospace;
+	--font-display: 'Syne', sans-serif;
 
 	/* colors */
 	--gondola: #240b1a;

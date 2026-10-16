@@ -1,6 +1,6 @@
 import { lazy } from 'react'
-import { SquareArrowOutUpRight } from '@/components/icons/huge'
 
+import { SquareArrowOutUpRight } from '@/components/icons/huge'
 import { socialLinks } from '@/data/constants'
 import type { SceneState } from '@/data/types'
 import { useIsMobile } from '@/hooks/useIsMobile'
@@ -18,10 +18,10 @@ export function TitleCard({ sceneState }: { sceneState?: SceneState }) {
 		<GridCard className='relative' title>
 			<header className='absolute top-6 left-6 z-20 p-0'>
 				<div className='lg:space-y-2'>
-					<h3 className='font-black font-display text-4xl tracking-tight md:text-6xl'>
+					<h3 className='font-display text-4xl font-black tracking-tight md:text-6xl'>
 						Ross Tungol
 					</h3>
-					<p className='font-light text-xl md:px-1 lg:px-0 lg:text-3xl'>
+					<p className='text-xl font-light md:px-1 lg:px-0 lg:text-3xl'>
 						Software Engineer
 					</p>
 				</div>
@@ -31,7 +31,7 @@ export function TitleCard({ sceneState }: { sceneState?: SceneState }) {
 					<li key={label}>
 						<a
 							href={link}
-							className='flex items-center gap-1 font-light text-sm lg:text-xl'
+							className='flex items-center gap-1 text-sm font-light lg:text-xl'
 							target='_blank'
 							rel='noopener noreferrer'
 						>

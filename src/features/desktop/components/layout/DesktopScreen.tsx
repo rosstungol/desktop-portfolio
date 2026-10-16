@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react'
+
 import { locations } from '../../data/constants/locations'
 import { useWindowStore } from '../../stores/window'
 import { Dock } from '../ui/Dock'

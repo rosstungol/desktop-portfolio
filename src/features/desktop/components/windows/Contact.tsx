@@ -1,4 +1,5 @@
 import { socialLinks } from '@/data/constants'
+
 import { ContactForm } from '../forms/ContactForm'
 import { IconLink } from '../ui/IconLink'
 import { WindowHeader } from '../wrapper/WindowHeader'
@@ -10,10 +11,10 @@ function Contact() {
 			<WindowHeader title='Contact' target='contact' />
 			<div className='flex h-185 w-250 rounded-b-xl'>
 				<aside className='col-center m-3 w-140 flex-2 rounded-lg bg-neutral-600/10 p-4'>
-					<div className='mb-8 size-40 flex-center overflow-clip rounded-full'>
+					<div className='flex-center mb-8 size-40 overflow-clip rounded-full'>
 						<img src='/images/me.avif' alt='Portrait of Ross Tungol' />
 					</div>
-					<h2 className='mb-6 font-bold text-5xl'>Ross Tungol</h2>
+					<h2 className='mb-6 text-5xl font-bold'>Ross Tungol</h2>
 					<ul className='flex gap-6'>
 						{socialLinks.map(({ link, label, Icon }) => (
 							<li key={label}>
