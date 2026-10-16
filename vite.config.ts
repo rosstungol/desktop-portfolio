@@ -41,6 +41,14 @@ export default defineConfig({
 		},
 	},
 
+	test: {
+		// Vitest 5 is bundled with Vite+. Tests import from `vite-plus/test`.
+		// Node is the default environment; DOM tests opt in per file with a
+		// `// @vitest-environment happy-dom` docblock.
+		environment: 'node',
+		include: ['src/**/*.test.{ts,tsx}'],
+	},
+
 	build: {
 		chunkSizeWarningLimit: 1000,
 

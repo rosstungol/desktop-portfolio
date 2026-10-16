@@ -49,7 +49,7 @@ src/
 ├── components/               Shared UI: about cards, Button, DialogBox, HugeIcon wrapper
 ├── data/                     Shared types (SceneState, Project) + site constants (projects, socials, resume)
 ├── hooks/                    useIsMobile (1024px), useIsUltraWide
-├── utils/                    cn() class merger, downloadResume
+├── utils/                    cn() class merger, downloadResume (tests/ here also holds the shared viewport helper)
 └── assets/                   Tailwind entry (index.css, @theme tokens) + per-area CSS
 ```
 
@@ -61,3 +61,4 @@ src/
 - **Animation** — GSAP via `useGSAP` for camera moves, dock magnification, window drag/minimize, loading transitions.
 - **Code splitting** — `WorkplaceScene`, `ContactWindow`, `ResumeWindow` are `lazy()`; vendor chunks split in `vite.config.ts` (`three`, `postprocessing`, `animation`, `vendor`).
 - **Styling** — Tailwind v4 CSS-first: design tokens in `@theme` (`assets/index.css`), per-area CSS files for complex layouts (`about-grid`, `desktop-container`, `terminal`). `cn()` (clsx + tailwind-merge) for conditional classes.
+- **Testing** — Vitest 5 (bundled with Vite+), configured in the `test` block of `vite.config.ts`. Each folder keeps its tests in a `tests/` subfolder beside the code (`*.test.ts(x)`); see [Testing](testing.md).
