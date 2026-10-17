@@ -1,12 +1,14 @@
 import { useGSAP } from '@gsap/react'
+import { OrbitControls } from '@react-three/drei/core/OrbitControls'
 import { useFrame, useThree } from '@react-three/fiber'
 import gsap from 'gsap'
-import { type RefObject, useRef } from 'react'
+import { type RefObject, useRef, useState } from 'react'
 import { type Group, Vector3 } from 'three'
 
 import type { SceneState } from '@/data/types'
 
 import { CAMERA_CONFIG } from '../../sceneConfig'
+import { isSceneInteractive } from '../../utils/sceneState'
 
 type CameraControllerProps = {
 	sceneState?: SceneState
@@ -19,6 +21,7 @@ export function CameraController({
 }: CameraControllerProps) {
 	const { camera } = useThree()
 	const animateRef = useRef<gsap.core.Tween | gsap.core.Timeline | null>(null)
+	const orbitIdleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 	const lookAt = useRef(
 		new Vector3(
 			CAMERA_CONFIG.defaultLookAt.x,
@@ -27,53 +30,95 @@ export function CameraController({
 		)
 	)
 	const screenTarget = useRef(new Vector3())
+	const orbitEnabled = isSceneInteractive(sceneState)
+	const [orbitReady, setOrbitReady] = useState(false)
+	const interactiveRef = useRef(false)
+	interactiveRef.current = orbitEnabled && orbitReady
 
 	useFrame(() => {
 		camera.lookAt(lookAt.current)
 	})
 
-	useGSAP(() => {
+	const killCameraMove = () => {
 		animateRef.current?.kill()
-		gsap.killTweensOf(lookAt.current)
+		animateRef.current = null
+		gsap.killTweensOf(camera.position)
+	}
 
-		const defaultCameraPosition = (
-			duration: number,
-			ease: 'power3.out' | 'sine.inOut'
-		): gsap.core.Tween => {
-			return gsap.to(camera.position, {
+	const cancelOrbitReturn = () => {
+		if (orbitIdleTimerRef.current !== null) {
+			clearTimeout(orbitIdleTimerRef.current)
+			orbitIdleTimerRef.current = null
+		}
+	}
+
+	const cameraOscillation = (): gsap.core.Tween =>
+		gsap.to(camera.position, {
+			...CAMERA_CONFIG.oscillationPosition,
+			...CAMERA_CONFIG.oscillation,
+		})
+
+	const handleOrbitStart = () => {
+		cancelOrbitReturn()
+		killCameraMove()
+	}
+
+	const handleOrbitEnd = () => {
+		cancelOrbitReturn()
+		orbitIdleTimerRef.current = setTimeout(() => {
+			orbitIdleTimerRef.current = null
+			if (!interactiveRef.current) return
+			killCameraMove()
+			gsap.killTweensOf(lookAt.current)
+
+			const { duration, ease } = CAMERA_CONFIG.orbitReturn
+			const tl = gsap.timeline({ overwrite: 'auto' })
+			tl.to(camera.position, {
 				...CAMERA_CONFIG.defaultPosition,
-				duration: duration,
-				ease: ease,
+				...CAMERA_CONFIG.orbitReturn,
 			})
-		}
+			tl.to(
+				lookAt.current,
+				{ ...CAMERA_CONFIG.defaultLookAt, duration, ease },
+				'<'
+			)
+			tl.add(cameraOscillation())
+			animateRef.current = tl
+		}, CAMERA_CONFIG.orbitIdleDelay * 1000)
+	}
 
-		const cameraOscillation = (): gsap.core.Tween => {
-			return gsap.to(camera.position, {
-				...CAMERA_CONFIG.oscillationPosition,
-				duration: 10,
-				ease: 'sine.inOut',
-				repeat: -1,
-				yoyo: true,
-			})
-		}
+	useGSAP(() => {
+		cancelOrbitReturn()
+		killCameraMove()
+		gsap.killTweensOf(lookAt.current)
+		setOrbitReady(false)
 
 		if (sceneState === 'start') {
 			const tl = gsap.timeline({ overwrite: 'auto' })
 
-			animateRef.current = tl.add(defaultCameraPosition(3, 'power3.out'))
+			tl.to(camera.position, {
+				...CAMERA_CONFIG.defaultPosition,
+				...CAMERA_CONFIG.intro,
+				onComplete: () => setOrbitReady(true),
+			})
 			tl.add(cameraOscillation())
+			animateRef.current = tl
 		}
 
 		if (sceneState === 'idle') {
 			const tl = gsap.timeline({ overwrite: 'auto' })
 
-			animateRef.current = tl.add(defaultCameraPosition(1.5, 'sine.inOut'))
+			tl.to(camera.position, {
+				...CAMERA_CONFIG.defaultPosition,
+				...CAMERA_CONFIG.pullBack,
+				onComplete: () => setOrbitReady(true),
+			})
 			tl.add(cameraOscillation())
+			animateRef.current = tl
 
 			gsap.to(lookAt.current, {
 				...CAMERA_CONFIG.defaultLookAt,
-				duration: 1.5,
-				ease: 'sine.inOut',
+				...CAMERA_CONFIG.pullBack,
 				overwrite: 'auto',
 			})
 		}
@@ -99,10 +144,28 @@ export function CameraController({
 		}
 
 		return () => {
-			animateRef.current?.kill()
+			cancelOrbitReturn()
+			killCameraMove()
 			gsap.killTweensOf(lookAt.current)
 		}
 	}, [sceneState, camera, screenRef])
 
-	return null
+	return (
+		<OrbitControls
+			enabled={orbitEnabled && orbitReady}
+			target={[
+				CAMERA_CONFIG.defaultLookAt.x,
+				CAMERA_CONFIG.defaultLookAt.y,
+				CAMERA_CONFIG.defaultLookAt.z,
+			]}
+			enablePan={false}
+			enableZoom={false}
+			minAzimuthAngle={CAMERA_CONFIG.orbitRotation.minAzimuthAngle}
+			maxAzimuthAngle={CAMERA_CONFIG.orbitRotation.maxAzimuthAngle}
+			minPolarAngle={CAMERA_CONFIG.orbitRotation.minPolarAngle}
+			maxPolarAngle={CAMERA_CONFIG.orbitRotation.maxPolarAngle}
+			onStart={handleOrbitStart}
+			onEnd={handleOrbitEnd}
+		/>
+	)
 }

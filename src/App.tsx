@@ -1,10 +1,4 @@
-import {
-	lazy,
-	startTransition,
-	useEffect,
-	useState,
-	ViewTransition,
-} from 'react'
+import { lazy, startTransition, useState, ViewTransition } from 'react'
 
 import type { SceneState } from './data/types'
 import { ClickToStart } from './features/workplace/components/ui/ClickToStart'
@@ -25,24 +19,8 @@ export function App() {
 	const [sceneState, setSceneState] = useState<SceneState>('loading')
 	const isMobile = useIsMobile()
 
-	useEffect(() => {
-		const handleFocusTransition = () => {
-			startTransition(() => setSceneState('focus'))
-		}
-
-		let timeoutId: ReturnType<typeof setTimeout> | undefined
-
-		if (shouldRenderClickToStart(sceneState, isMobile)) {
-			timeoutId = setTimeout(() => {
-				document.body.addEventListener('click', handleFocusTransition)
-			}, 1000)
-		}
-
-		return () => {
-			if (timeoutId) clearTimeout(timeoutId)
-			document.body.removeEventListener('click', handleFocusTransition)
-		}
-	}, [sceneState, isMobile])
+	const handleFocus = () => startTransition(() => setSceneState('focus'))
+	const handleIdle = () => startTransition(() => setSceneState('idle'))
 
 	return (
 		<main>
@@ -61,14 +39,14 @@ export function App() {
 			{shouldRenderSceneControls(sceneState, isMobile) && (
 				<SceneControls
 					sceneState={sceneState}
-					onFocus={() => setSceneState('focus')}
-					onIdle={() => setSceneState('idle')}
+					onFocus={handleFocus}
+					onIdle={handleIdle}
 				/>
 			)}
 
 			{!isMobile ? (
 				<div className='h-dvh'>
-					<WorkplaceScene sceneState={sceneState} />
+					<WorkplaceScene sceneState={sceneState} onFocus={handleFocus} />
 				</div>
 			) : (
 				<div className='h-dvh w-fit'>

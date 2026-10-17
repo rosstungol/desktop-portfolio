@@ -5,7 +5,7 @@ import { useRef, ViewTransition } from 'react'
 
 gsap.registerPlugin(TextPlugin)
 
-const FULL_TEXT = 'click anywhere to start'
+const FULL_TEXT = 'click on the screen to start'
 
 export function ClickToStart() {
 	const textRef = useRef<HTMLSpanElement | null>(null)
