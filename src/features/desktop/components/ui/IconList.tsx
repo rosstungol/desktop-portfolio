@@ -17,7 +17,8 @@ export function IconList({ items, location }: IconListProps) {
 	const openItem = (item: LocationItem) => {
 		const action = resolveItemAction(item)
 
-		if (action.kind === 'openUrl') window.open(action.href, '_blank')
+		if (action.kind === 'openUrl')
+			window.open(action.href, '_blank', 'noopener,noreferrer')
 		else if (action.kind === 'setLocation') setActiveLocation(action.item)
 		else if (action.kind === 'openWindow') openWindow(action.key, action.data)
 	}
