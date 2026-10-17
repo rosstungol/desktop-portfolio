@@ -21,6 +21,8 @@ This is my portfolio, a React + TypeScript application built with Vite, featurin
 
 ## Commands
 
+This project uses [Vite+](https://viteplus.dev) (`vp`) as its unified toolchain and [Bun](https://bun.sh) as its package manager.
+
 | Command           | Description                                |
 | ----------------- | ------------------------------------------ |
 | `bun install`     | Install dependencies                       |
