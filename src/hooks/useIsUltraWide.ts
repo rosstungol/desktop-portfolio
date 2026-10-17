@@ -1,22 +1,22 @@
 import { useEffect, useState } from 'react'
 
 export const useIsUltrawide = (threshold: number = 2.0) => {
-	const ratio = window.innerWidth / window.innerHeight
-
-	const [isUltrawide, setIsUltrawide] = useState<boolean>(
-		typeof window !== 'undefined' ? ratio > threshold : false
+	const [isUltrawide, setIsUltrawide] = useState<boolean>(() =>
+		typeof window !== 'undefined'
+			? window.innerWidth / window.innerHeight > threshold
+			: false
 	)
 
 	useEffect(() => {
 		const checkWidth = () => {
-			setIsUltrawide(ratio > threshold)
+			setIsUltrawide(window.innerWidth / window.innerHeight > threshold)
 		}
 
 		checkWidth()
 
 		window.addEventListener('resize', checkWidth)
 		return () => window.removeEventListener('resize', checkWidth)
-	}, [threshold, ratio])
+	}, [threshold])
 
 	return isUltrawide
 }
