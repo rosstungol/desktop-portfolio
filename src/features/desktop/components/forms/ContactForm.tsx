@@ -12,7 +12,7 @@ import { cn } from '@/utils/cn'
 
 export const contactFormSchema = z.object({
 	name: z.string().trim().min(1, 'Name is required'),
-	email: z.email().trim().min(1, 'Email is required'),
+	email: z.string().trim().min(1, 'Email is required').pipe(z.email()),
 	message: z.string().trim().min(1, 'Message is required'),
 })
 
@@ -82,7 +82,7 @@ export function ContactForm() {
 		}
 
 		const payload = {
-			...formData,
+			...dataValidation.data,
 			access_key: '5b41650a-1de2-4dbd-844e-3d4e089c2b54',
 		}
 
