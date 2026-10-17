@@ -1,28 +1,12 @@
 import { Banana } from '@/components/icons/huge'
 
 import { useWindowStore } from '../../stores/window'
+import { getWindowTitle } from '../../utils/getWindowTitle'
 import { DigitalClock } from '../ui/DigitalClock'
 
 export function Header() {
 	const windows = useWindowStore((state) => state.windows)
-
-	const openWindows = Object.entries(windows)
-		.filter(([, state]) => state.isOpen)
-		.map(([key, state]) => ({ window: key, zIndex: state.zIndex }))
-
-	const topWindow =
-		openWindows.length > 0
-			? openWindows.reduce((prev, curr) =>
-					curr.zIndex > prev.zIndex ? curr : prev
-				)
-			: null
-
-	const title = topWindow?.window
-		? topWindow.window
-				.replace(/([A-Z])/g, ' $1')
-				.replace(/^./, (match) => match.toUpperCase())
-				.trim()
-		: 'Finder'
+	const title = getWindowTitle(windows)
 
 	return (
 		<header className='glass-bg flex w-full items-center justify-between px-10 py-2 text-xl text-neutral-200 select-none'>

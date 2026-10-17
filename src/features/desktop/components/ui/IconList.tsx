@@ -3,6 +3,7 @@ import { cn } from '@/utils/cn'
 import type { LocationItem } from '../../data/types'
 import { useLocationStore } from '../../stores/location'
 import { useWindowStore } from '../../stores/window'
+import { resolveItemAction } from '../../utils/resolveItemAction'
 
 type IconListProps = {
 	items: LocationItem[]
@@ -14,21 +15,11 @@ export function IconList({ items, location }: IconListProps) {
 	const setActiveLocation = useLocationStore((state) => state.setActiveLocation)
 
 	const openItem = (item: LocationItem) => {
-		if (item.type === 'url') return window.open(item.href, '_blank')
-		if (item.type === 'folder') setActiveLocation(item)
-		if (item.type === 'image' || item.type === 'file')
-			openWindow(item.type, item)
-		if (
-			item.type === 'finder' ||
-			item.type === 'about' ||
-			item.type === 'contact' ||
-			item.type === 'photos' ||
-			item.type === 'terminal' ||
-			item.type === 'resume' ||
-			item.type === 'lowOrbit'
-		) {
-			openWindow(item.type)
-		}
+		const action = resolveItemAction(item)
+
+		if (action.kind === 'openUrl') window.open(action.href, '_blank')
+		else if (action.kind === 'setLocation') setActiveLocation(action.item)
+		else if (action.kind === 'openWindow') openWindow(action.key, action.data)
 	}
 
 	return (

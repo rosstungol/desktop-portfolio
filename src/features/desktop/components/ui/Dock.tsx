@@ -9,6 +9,7 @@ import { locations } from '../../data/constants/locations'
 import type { WindowKey } from '../../data/types'
 import { useLocationStore } from '../../stores/location'
 import { useWindowStore } from '../../stores/window'
+import { resolveWindowAction } from '../../utils/resolveWindowAction'
 
 export function Dock() {
 	const { windows, openWindow, focusWindow, restoreWindow } = useWindowStore(
@@ -75,24 +76,15 @@ export function Dock() {
 	}, [])
 
 	const handleAppToggle = (id: WindowKey, finderLocation?: 'trash') => {
-		const appWindow = windows[id]
-
 		if (id === 'finder' && finderLocation === 'trash') {
 			setActiveLocation(locations.trash)
-			if (appWindow.isMinimized) {
-				restoreWindow('finder')
-			} else if (appWindow.isOpen) {
-				focusWindow('finder')
-			} else {
-				openWindow('finder')
-			}
-		} else if (appWindow.isMinimized) {
-			restoreWindow(id)
-		} else if (appWindow.isOpen) {
-			focusWindow(id)
-		} else {
-			openWindow(id)
 		}
+
+		const action = resolveWindowAction(windows[id])
+
+		if (action === 'restore') restoreWindow(id)
+		else if (action === 'focus') focusWindow(id)
+		else openWindow(id)
 	}
 
 	return (

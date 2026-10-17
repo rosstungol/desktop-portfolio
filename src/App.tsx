@@ -9,12 +9,13 @@ import {
 import type { SceneState } from './data/types'
 import { ClickToStart } from './features/workplace/components/ui/ClickToStart'
 import { SceneControls } from './features/workplace/components/ui/SceneControls'
+import {
+	shouldRenderClickToStart,
+	shouldRenderSceneControls,
+} from './features/workplace/utils/sceneState'
 import { useIsMobile } from './hooks/useIsMobile'
 import { AboutGrid } from './screens/about/AboutGrid'
 import { LoadingScreen } from './screens/loading/LoadingScreen'
-
-const CLICK_TO_START_RENDER_STATES = new Set(['start', 'idle'])
-const SCENE_CONTROLS_RENDER_STATES = new Set(['focus', 'idle'])
 
 const WorkplaceScene = lazy(
 	() => import('./features/workplace/components/scene/WorkplaceScene')
@@ -31,11 +32,10 @@ export function App() {
 
 		let timeoutId: ReturnType<typeof setTimeout> | undefined
 
-		if (CLICK_TO_START_RENDER_STATES.has(sceneState)) {
-			if (!isMobile)
-				timeoutId = setTimeout(() => {
-					document.body.addEventListener('click', handleFocusTransition)
-				}, 1000)
+		if (shouldRenderClickToStart(sceneState, isMobile)) {
+			timeoutId = setTimeout(() => {
+				document.body.addEventListener('click', handleFocusTransition)
+			}, 1000)
 		}
 
 		return () => {
@@ -56,11 +56,9 @@ export function App() {
 				</ViewTransition>
 			)}
 
-			{!isMobile && CLICK_TO_START_RENDER_STATES.has(sceneState) && (
-				<ClickToStart />
-			)}
+			{shouldRenderClickToStart(sceneState, isMobile) && <ClickToStart />}
 
-			{!isMobile && SCENE_CONTROLS_RENDER_STATES.has(sceneState) && (
+			{shouldRenderSceneControls(sceneState, isMobile) && (
 				<SceneControls
 					sceneState={sceneState}
 					onFocus={() => setSceneState('focus')}
