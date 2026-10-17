@@ -1,6 +1,7 @@
 # Agent Instructions
 
 - [Project Architecture](docs/project-architecture.md) — How the codebase is structured: entry flow, scene state machine, directory layout, and key patterns. Read this first when navigating, modifying, or adding features to the code.
+- [Camera Controller](docs/camera-controller.md) — How the scene camera behaves: per-state motion, the oscillation, orbit clamps, and the grab/idle hand-off. Read when touching camera behavior, `sceneConfig.ts`, or the orbit controls.
 - [Testing](docs/testing.md) — Test setup, conventions, and what is covered. Read this before adding or changing tests.
 
 <!--VITE PLUS START-->

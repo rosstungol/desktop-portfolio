@@ -11,13 +11,15 @@ macOS-style desktop portfolio. A 3D office scene (React Three Fiber) renders a m
 `App` owns the scene state machine (`SceneState` in `src/data/types.ts`) and selects the render path:
 
 ```
-loading → start → (click) → focus ⇄ idle
+loading → start → (click on the desktop screen) → focus ⇄ idle
 ```
 
 - `loading` — `LoadingScreen` overlay; progress comes from drei `useProgress`
-- `start` — 3D scene visible, camera oscillates
-- `focus` — camera dollies to the monitor (desktop UI becomes interactive)
-- `idle` — camera pulls back
+- `start` — 3D scene visible; the camera plays its intro, then oscillates and can be dragged (orbit controls enable once the intro ends)
+- `focus` — camera dollies to the monitor (desktop UI becomes interactive); orbit controls and cursors are off
+- `idle` — camera pulls back (then behaves like `start`)
+
+See [camera-controller.md](camera-controller.md) for the full camera behavior: timings, oscillation, orbit clamps, and the grab/idle hand-off.
 
 Render paths (switch in `App.tsx`):
 
@@ -35,7 +37,7 @@ src/
 ├── features/
 │   ├── workplace/            3D scene (R3F)
 │   │   ├── components/scene/       WorkplaceScene (Canvas), RoomModel, Lighting, Skybox, Effects
-│   │   ├── components/camera/      CameraController (GSAP, keyed on sceneState), FixedWidthCamera
+│   │   ├── components/camera/      CameraController (GSAP moves + OrbitControls, keyed on sceneState), FixedWidthCamera
 │   │   ├── components/ui/          DOM overlays: ClickToStart, SceneControls
 │   │   └── sceneConfig.ts          Camera / lighting / monitor position constants
 │   └── desktop/              macOS desktop UI (DOM inside the 3D monitor)
