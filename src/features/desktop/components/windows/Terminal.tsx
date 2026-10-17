@@ -10,6 +10,7 @@ import { downloadResume } from '@/utils/downloadResume'
 
 import { about, help, kitten, skills } from '../../data/constants/terminal'
 import { useWindowStore } from '../../stores/window'
+import { parseTerminalCommand } from '../../utils/parseTerminalCommand'
 import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
 
@@ -62,7 +63,7 @@ function Terminal() {
 	const handleEnter = (e: KeyboardEvent<HTMLInputElement>) => {
 		e.preventDefault()
 
-		switch (inputValue.trim()) {
+		switch (parseTerminalCommand(inputValue)) {
 			case 'about':
 				setOutput((prev) => [
 					...prev,
@@ -134,7 +135,7 @@ function Terminal() {
 				setOutput([])
 				break
 
-			case '':
+			case 'empty':
 				setOutput((prev) => [
 					...prev,
 					{
@@ -144,13 +145,13 @@ function Terminal() {
 				])
 				break
 
-			default:
+			case 'unknown':
 				setOutput((prev) => [
 					...prev,
 					{ id: crypto.randomUUID(), content: <Prompt command={inputValue} /> },
 					{
 						id: crypto.randomUUID(),
-						content: `command not found: ${inputValue}`,
+						content: `command not found: ${inputValue.trim()}`,
 					},
 				])
 		}

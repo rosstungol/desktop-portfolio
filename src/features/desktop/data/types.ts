@@ -7,7 +7,7 @@ export type IconComponent = ComponentType<IconProps>
 // Window Store types
 export type WindowData = LocationItem
 
-type WindowState = {
+export type WindowState = {
 	isOpen: boolean
 	isMinimized: boolean
 	zIndex: number
