@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vite-plus/test'
 
 import type { SceneState } from '@/data/types'
 import {
+	isSceneInteractive,
 	shouldRenderClickToStart,
 	shouldRenderSceneControls,
 } from '@/features/workplace/utils/sceneState'
@@ -29,5 +30,12 @@ describe('desktop scene overlays', () => {
 		expect(
 			ALL_STATES.every((state) => !shouldRenderSceneControls(state, true))
 		).toBe(true)
+	})
+
+	it('accepts scene input (orbit, cursors, click-to-focus) everywhere except loading and focus', () => {
+		const interactive = ALL_STATES.filter((state) => isSceneInteractive(state))
+
+		expect(interactive).toEqual(['intro', 'start', 'idle'])
+		expect(isSceneInteractive(undefined)).toBe(false)
 	})
 })

@@ -1,5 +1,7 @@
 import { lazy, Suspense } from 'react'
 
+import type { SceneState } from '@/data/types'
+
 import { locations } from '../../data/constants/locations'
 import { useWindowStore } from '../../stores/window'
 import { Dock } from '../ui/Dock'
@@ -16,7 +18,7 @@ import { Header } from './Header'
 const ContactWindow = lazy(() => import('../windows/Contact'))
 const ResumeWindow = lazy(() => import('../windows/Resume'))
 
-export function DesktopScreen() {
+export function DesktopScreen({ sceneState }: { sceneState?: SceneState }) {
 	const windows = useWindowStore((state) => state.windows)
 
 	return (
@@ -25,23 +27,23 @@ export function DesktopScreen() {
 			<Dock />
 			<IconList items={locations.desktop.children ?? []} location='desktop' />
 
-			{windows.finder.isOpen && <FinderWindow />}
-			{windows.about.isOpen && <AboutWindow />}
+			{windows.finder.isOpen && <FinderWindow sceneState={sceneState} />}
+			{windows.about.isOpen && <AboutWindow sceneState={sceneState} />}
 			{windows.contact.isOpen && (
 				<Suspense>
-					<ContactWindow />
+					<ContactWindow sceneState={sceneState} />
 				</Suspense>
 			)}
-			{windows.photos.isOpen && <PhotosWindow />}
-			{windows.terminal.isOpen && <TerminalWindow />}
+			{windows.photos.isOpen && <PhotosWindow sceneState={sceneState} />}
+			{windows.terminal.isOpen && <TerminalWindow sceneState={sceneState} />}
 			{windows.resume.isOpen && (
 				<Suspense>
-					<ResumeWindow />
+					<ResumeWindow sceneState={sceneState} />
 				</Suspense>
 			)}
-			{windows.file.isOpen && <TextWindow />}
-			{windows.image.isOpen && <ImageWindow />}
-			{windows.lowOrbit.isOpen && <LowOrbitWindow />}
+			{windows.file.isOpen && <TextWindow sceneState={sceneState} />}
+			{windows.image.isOpen && <ImageWindow sceneState={sceneState} />}
+			{windows.lowOrbit.isOpen && <LowOrbitWindow sceneState={sceneState} />}
 		</div>
 	)
 }
