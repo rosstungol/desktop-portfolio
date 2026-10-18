@@ -2,7 +2,7 @@ import { useGSAP } from '@gsap/react'
 import { OrbitControls } from '@react-three/drei/core/OrbitControls'
 import { useFrame, useThree } from '@react-three/fiber'
 import gsap from 'gsap'
-import { type RefObject, useRef, useState } from 'react'
+import { type RefObject, useEffect, useRef, useState } from 'react'
 import { type Group, Vector3 } from 'three'
 
 import type { SceneState } from '@/data/types'
@@ -33,7 +33,11 @@ export function CameraController({
 	const orbitEnabled = isSceneInteractive(sceneState)
 	const [orbitReady, setOrbitReady] = useState(false)
 	const interactiveRef = useRef(false)
-	interactiveRef.current = orbitEnabled && orbitReady
+	// Sync only after commit so interrupted renders cannot update the ref;
+	// the orbit-idle timer keeps guarding on the committed value.
+	useEffect(() => {
+		interactiveRef.current = orbitEnabled && orbitReady
+	}, [orbitEnabled, orbitReady])
 
 	useFrame(() => {
 		camera.lookAt(lookAt.current)

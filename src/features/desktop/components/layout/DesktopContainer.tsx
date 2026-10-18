@@ -34,7 +34,18 @@ export function DesktopContainer({
 					className={cn('desktop-container', isInteractive && 'cursor-pointer')}
 					onClick={isInteractive ? onFocus : undefined}
 				>
-					{!isMobile && <DesktopScreen />}
+					{/* Pointer activation lives on the container, so clicks anywhere —
+					    including on desktop elements — focus the scene. This button
+					    only adds the keyboard path (native Enter/Space). */}
+					{!isMobile && isInteractive && (
+						<button
+							type='button'
+							className='sr-only'
+							aria-label='Focus the desktop screen'
+							onClick={onFocus}
+						/>
+					)}
+					{!isMobile && <DesktopScreen sceneState={sceneState} />}
 				</div>
 			</Html>
 		</group>

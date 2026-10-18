@@ -1,8 +1,10 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { Draggable } from 'gsap/Draggable'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useShallow } from 'zustand/react/shallow'
+
+import type { SceneState } from '@/data/types'
 
 import type { WindowKey } from '../../data/types'
 import { useWindowStore } from '../../stores/window'
@@ -13,7 +15,8 @@ export function WindowWrapper<P extends object>(
 	Component: React.ComponentType<P>,
 	windowKey: WindowKey
 ) {
-	const Wrapped = (props: P) => {
+	const Wrapped = (props: P & { sceneState?: SceneState }) => {
+		const { sceneState } = props
 		const { windows, focusWindow } = useWindowStore(
 			useShallow((state) => ({
 				windows: state.windows,
@@ -61,7 +64,15 @@ export function WindowWrapper<P extends object>(
 			}
 		}, [isOpen, isMinimized])
 
-		useGSAP(() => {
+		// Plain useEffect (not useGSAP): useGSAP with a dependencies array defers
+		// its cleanup to unmount, so a Draggable created while focused would
+		// survive into `idle` and keep swallowing clicks.
+		useEffect(() => {
+			// Windows are only draggable while the desktop is focused; outside
+			// `focus` clicks on a window should reach the container's
+			// click-to-focus instead of starting a drag.
+			if (sceneState !== 'focus') return
+
 			const el = ref.current
 
 			if (!el) return
@@ -73,8 +84,10 @@ export function WindowWrapper<P extends object>(
 				allowEventDefault: true,
 			})
 
-			return () => instance.kill()
-		}, [])
+			return () => {
+				instance.kill()
+			}
+		}, [sceneState])
 
 		const windowPosition = {
 			zIndex,
