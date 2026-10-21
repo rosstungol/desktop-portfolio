@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vp dev",
-		"build": "tsc -b && vp build && node -e \"const h=require('fs').readFileSync('dist/index.html','utf8'); if (/modulepreload[^>]*three-/.test(h)) { console.error('three.js leaked back into the entry graph'); process.exit(1) }\"",
+		"build": "tsc -b && vp build && node scripts/check-dist-graph.mjs",
 		"lint": "vp lint",
 		"format": "vp fmt",
 		"check": "vp check",
