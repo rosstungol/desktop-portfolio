@@ -61,6 +61,6 @@ src/
 - **Window management** — each window is `WindowWrapper(Component, windowKey)`: an HOC that subscribes to the window store and adds stacking (z-index), GSAP drag, and minimize animations. `DesktopScreen` mounts windows conditionally on store state; `Contact`/`Resume` are lazy.
 - **State** — Zustand, scoped to `features/desktop`. Scene state is React `useState` in `App`. No global store.
 - **Animation** — GSAP via `useGSAP` for camera moves, dock magnification, window drag/minimize, loading transitions.
-- **Code splitting** — `WorkplaceScene`, `ContactWindow`, `ResumeWindow` are `lazy()`; `vite.config.ts` pins one long-lived `three` group (Rolldown `codeSplitting`, recursion off so react stays out of it); everything else splits automatically.
+- **Code splitting** — `WorkplaceScene`, `ContactWindow`, `ResumeWindow` are `lazy()`; `vite.config.ts` pins one long-lived `three` group (Rolldown `codeSplitting`, recursion off so react stays out of it) with `output.strictExecutionOrder` so cross-chunk cycles stay safe; everything else splits automatically. `scripts/check-dist-graph.mjs` guards both rules at build time.
 - **Styling** — Tailwind v4 CSS-first: design tokens in `@theme` (`assets/index.css`), per-area CSS files for complex layouts (`about-grid`, `desktop-container`, `terminal`). `cn()` (clsx + tailwind-merge) for conditional classes.
 - **Testing** — Vitest 5 (bundled with Vite+), configured in the `test` block of `vite.config.ts`. Each folder keeps its tests in a `tests/` subfolder beside the code (`*.test.ts(x)`); see [Testing](testing.md).
