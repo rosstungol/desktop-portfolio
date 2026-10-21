@@ -59,7 +59,12 @@ export default defineConfig({
 				// includeDependenciesRecursively must stay false: pulling deps in
 				// would trap react/react-dom here and force three.js into the
 				// entry graph (manualChunks did exactly that; groups are the
-				// Rolldown-native replacement).
+				// Rolldown-native replacement). Keeping deps out also pulls
+				// drei's shared helpers (maath, its-fine, ...) into sibling
+				// chunks, so group members cycle back into them;
+				// strictExecutionOrder wraps modules so bodies run in source
+				// order despite those cycles — without it, BufferGeometry
+				// resolves to an uninitialized var and the app crashes.
 				codeSplitting: {
 					groups: [
 						{
@@ -69,6 +74,7 @@ export default defineConfig({
 						},
 					],
 				},
+				strictExecutionOrder: true,
 			},
 		},
 	},
