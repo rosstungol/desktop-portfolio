@@ -17,7 +17,6 @@ export const SCENE_CONTROLS_RENDER_STATES: ReadonlySet<SceneState> = new Set([
  * and `focus`.
  */
 export const INTERACTIVE_SCENE_STATES: ReadonlySet<SceneState> = new Set([
-	'intro',
 	'start',
 	'idle',
 ])

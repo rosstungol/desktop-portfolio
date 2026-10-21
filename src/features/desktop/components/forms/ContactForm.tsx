@@ -86,14 +86,6 @@ export function ContactForm() {
 			access_key: '5b41650a-1de2-4dbd-844e-3d4e089c2b54',
 		}
 
-		if (!payload.access_key) {
-			showSubmitMessage(
-				'error',
-				'Contact form is not configured. Please try again later.'
-			)
-			return
-		}
-
 		const json = JSON.stringify(payload)
 
 		try {

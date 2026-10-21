@@ -7,7 +7,7 @@ import {
 	shouldRenderSceneControls,
 } from '@/features/workplace/utils/sceneState'
 
-const ALL_STATES: SceneState[] = ['loading', 'intro', 'start', 'focus', 'idle']
+const ALL_STATES: SceneState[] = ['loading', 'start', 'focus', 'idle']
 
 describe('desktop scene overlays', () => {
 	it('shows click-to-start only before focus, and never on mobile', () => {
@@ -35,7 +35,7 @@ describe('desktop scene overlays', () => {
 	it('accepts scene input (orbit, cursors, click-to-focus) everywhere except loading and focus', () => {
 		const interactive = ALL_STATES.filter((state) => isSceneInteractive(state))
 
-		expect(interactive).toEqual(['intro', 'start', 'idle'])
+		expect(interactive).toEqual(['start', 'idle'])
 		expect(isSceneInteractive(undefined)).toBe(false)
 	})
 })
