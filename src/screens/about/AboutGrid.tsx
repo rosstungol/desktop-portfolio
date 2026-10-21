@@ -6,11 +6,17 @@ import { SkillsCard } from '@/components/about/SkillsCard'
 import { TitleCard } from '@/components/about/TitleCard'
 import type { SceneState } from '@/data/types'
 
-export function AboutGrid({ sceneState }: { sceneState?: SceneState }) {
+export function AboutGrid({
+	sceneState,
+	onProgress,
+}: {
+	sceneState?: SceneState
+	onProgress?: (progress: number) => void
+}) {
 	return (
 		<div className='about-grid noise p-4 text-neutral-50 has-hover:*:not-hover:opacity-50 md:p-6'>
 			<div className='title transition-opacity'>
-				<TitleCard sceneState={sceneState} />
+				<TitleCard sceneState={sceneState} onProgress={onProgress} />
 			</div>
 			<div className='about transition-opacity'>
 				<AboutCard />

@@ -11,7 +11,13 @@ const WorkplaceScene = lazy(
 	() => import('@/features/workplace/components/scene/WorkplaceScene')
 )
 
-export function TitleCard({ sceneState }: { sceneState?: SceneState }) {
+export function TitleCard({
+	sceneState,
+	onProgress,
+}: {
+	sceneState?: SceneState
+	onProgress?: (progress: number) => void
+}) {
 	const isMobile = useIsMobile()
 
 	return (
@@ -44,7 +50,7 @@ export function TitleCard({ sceneState }: { sceneState?: SceneState }) {
 
 			{isMobile && (
 				<div className='h-[calc(100dvh-200px)] md:h-[calc(100dvh-220px)]'>
-					<WorkplaceScene sceneState={sceneState} />
+					<WorkplaceScene sceneState={sceneState} onProgress={onProgress} />
 				</div>
 			)}
 		</GridCard>
