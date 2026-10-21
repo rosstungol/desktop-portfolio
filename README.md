@@ -11,7 +11,7 @@ This is my portfolio, a React + TypeScript application built with Vite, featurin
 | Framework                     | React 19 + TypeScript       |
 | 3D Rendering                  | React Three Fiber, Three.js |
 | R3F Helpers / Post-Processing | Drei, Postprocessing        |
-| State                         | Zustand + Immer             |
+| State                         | Zustand                     |
 | Animation                     | GSAP                        |
 | Styling                       | Tailwind CSS v4             |
 | UI Icons                      | Hugeicons                   |
