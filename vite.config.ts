@@ -54,39 +54,27 @@ export default defineConfig({
 
 		rollupOptions: {
 			output: {
-				manualChunks(id) {
-					if (id.includes('node_modules')) {
-						if (
-							id.includes('/node_modules/three/') ||
-							id.includes('/node_modules/@react-three/') ||
-							id.includes('/node_modules/three-stdlib/')
-						) {
-							return 'three'
-						}
-
-						if (id.includes('/node_modules/postprocessing/')) {
-							return 'postprocessing'
-						}
-
-						if (id.includes('/node_modules/gsap/')) {
-							return 'animation'
-						}
-
-						if (id.includes('/node_modules/react-pdf/')) {
-							return undefined
-						}
-
-						if (id.includes('/node_modules/pdfjs-dist/')) {
-							return undefined
-						}
-
-						if (id.includes('/node_modules/zod/')) {
-							return undefined
-						}
-
-						return 'vendor'
-					}
+				// One long-lived chunk for the 3D engine, reachable only through
+				// the lazy scene import so the entry HTML never preloads it.
+				// includeDependenciesRecursively must stay false: pulling deps in
+				// would trap react/react-dom here and force three.js into the
+				// entry graph (manualChunks did exactly that; groups are the
+				// Rolldown-native replacement). Keeping deps out also pulls
+				// drei's shared helpers (maath, its-fine, ...) into sibling
+				// chunks, so group members cycle back into them;
+				// strictExecutionOrder wraps modules so bodies run in source
+				// order despite those cycles — without it, BufferGeometry
+				// resolves to an uninitialized var and the app crashes.
+				codeSplitting: {
+					groups: [
+						{
+							name: 'three',
+							test: /node_modules[\\/](three|@react-three|three-stdlib)[\\/]/,
+							includeDependenciesRecursively: false,
+						},
+					],
 				},
+				strictExecutionOrder: true,
 			},
 		},
 	},

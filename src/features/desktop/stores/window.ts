@@ -1,5 +1,4 @@
 import { create, type StoreApi, type UseBoundStore } from 'zustand'
-import { immer } from 'zustand/middleware/immer'
 
 import type { WindowData, WindowKey, WindowsRecord } from '../data/types'
 
@@ -73,55 +72,76 @@ type WindowStore = {
 }
 
 export const useWindowStore: UseBoundStore<StoreApi<WindowStore>> =
-	create<WindowStore>()(
-		immer((set) => ({
-			windows: WINDOW_CONFIG,
-			nextZIndex: INITIAL_Z_INDEX + 1,
+	create<WindowStore>((set) => ({
+		windows: WINDOW_CONFIG,
+		nextZIndex: INITIAL_Z_INDEX + 1,
 
-			openWindow: (windowKey, data?: WindowData) =>
-				set((state) => {
-					const appWindow = state.windows[windowKey]
+		openWindow: (windowKey, data?: WindowData) =>
+			set((state) => ({
+				windows: {
+					...state.windows,
+					[windowKey]: {
+						...state.windows[windowKey],
+						isOpen: true,
+						isMinimized: false,
+						zIndex: state.nextZIndex,
+						data: data !== undefined ? data : state.windows[windowKey].data,
+					},
+				},
+				nextZIndex: state.nextZIndex + 1,
+			})),
 
-					appWindow.isOpen = true
-					appWindow.isMinimized = false
-					appWindow.zIndex = state.nextZIndex
-					appWindow.data = data !== undefined ? data : appWindow.data
+		closeWindow: (windowKey) =>
+			set((state) => ({
+				windows: {
+					...state.windows,
+					[windowKey]: {
+						...state.windows[windowKey],
+						isOpen: false,
+						isMinimized: false,
+						zIndex: INITIAL_Z_INDEX,
+						data: null,
+					},
+				},
+			})),
 
-					state.nextZIndex++
-				}),
+		focusWindow: (windowKey) =>
+			set((state) => {
+				if (!state.windows[windowKey].isOpen) return {}
 
-			closeWindow: (windowKey) =>
-				set((state) => {
-					const appWindow = state.windows[windowKey]
+				return {
+					windows: {
+						...state.windows,
+						[windowKey]: {
+							...state.windows[windowKey],
+							zIndex: state.nextZIndex,
+						},
+					},
+					nextZIndex: state.nextZIndex + 1,
+				}
+			}),
 
-					appWindow.isOpen = false
-					appWindow.isMinimized = false
-					appWindow.zIndex = INITIAL_Z_INDEX
-					appWindow.data = null
-				}),
+		minimizeWindow: (windowKey) =>
+			set((state) => ({
+				windows: {
+					...state.windows,
+					[windowKey]: {
+						...state.windows[windowKey],
+						isMinimized: true,
+					},
+				},
+			})),
 
-			focusWindow: (windowKey) =>
-				set((state) => {
-					const appWindow = state.windows[windowKey]
-
-					if (!appWindow.isOpen) return
-
-					appWindow.zIndex = state.nextZIndex++
-				}),
-
-			minimizeWindow: (windowKey) =>
-				set((state) => {
-					const appWindow = state.windows[windowKey]
-
-					appWindow.isMinimized = true
-				}),
-
-			restoreWindow: (windowKey) =>
-				set((state) => {
-					const appWindow = state.windows[windowKey]
-
-					appWindow.isMinimized = false
-					appWindow.zIndex = state.nextZIndex++
-				}),
-		}))
-	)
+		restoreWindow: (windowKey) =>
+			set((state) => ({
+				windows: {
+					...state.windows,
+					[windowKey]: {
+						...state.windows[windowKey],
+						isMinimized: false,
+						zIndex: state.nextZIndex,
+					},
+				},
+				nextZIndex: state.nextZIndex + 1,
+			})),
+	}))

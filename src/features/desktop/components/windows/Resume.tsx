@@ -1,3 +1,4 @@
+import pdfWorkerSrc from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
 import { Document, Page, pdfjs } from 'react-pdf'
 
 import { Download } from '@/components/icons/huge'
@@ -11,7 +12,7 @@ import { IconLink } from '../ui/IconLink'
 import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
 
-pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
+pdfjs.GlobalWorkerOptions.workerSrc = pdfWorkerSrc
 
 function Resume() {
 	return (

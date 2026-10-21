@@ -1,4 +1,4 @@
-export type SceneState = 'loading' | 'intro' | 'start' | 'focus' | 'idle'
+export type SceneState = 'loading' | 'start' | 'focus' | 'idle'
 
 export type Project = {
 	image: string

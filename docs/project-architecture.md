@@ -14,7 +14,7 @@ macOS-style desktop portfolio. A 3D office scene (React Three Fiber) renders a m
 loading → start → (click on the desktop screen) → focus ⇄ idle
 ```
 
-- `loading` — `LoadingScreen` overlay; progress comes from drei `useProgress`
+- `loading` — `LoadingScreen` overlay; the lazy scene reports progress back to `App` (drei `useProgress`, used inside the scene chunk so the entry bundle never imports three.js)
 - `start` — 3D scene visible; the camera plays its intro, then oscillates and can be dragged (orbit controls enable once the intro ends)
 - `focus` — camera dollies to the monitor (desktop UI becomes interactive); orbit controls and cursors are off
 - `idle` — camera pulls back (then behaves like `start`)
@@ -59,8 +59,8 @@ src/
 
 - **3D ↔ DOM bridge** — `DesktopContainer` mounts ordinary React DOM into the scene with drei `<Html transform occlude>`. All desktop UI is plain DOM; only the wrapper group lives in the 3D scene.
 - **Window management** — each window is `WindowWrapper(Component, windowKey)`: an HOC that subscribes to the window store and adds stacking (z-index), GSAP drag, and minimize animations. `DesktopScreen` mounts windows conditionally on store state; `Contact`/`Resume` are lazy.
-- **State** — Zustand (Immer for the window store) scoped to `features/desktop`. Scene state is React `useState` in `App`. No global store.
+- **State** — Zustand, scoped to `features/desktop`. Scene state is React `useState` in `App`. No global store.
 - **Animation** — GSAP via `useGSAP` for camera moves, dock magnification, window drag/minimize, loading transitions.
-- **Code splitting** — `WorkplaceScene`, `ContactWindow`, `ResumeWindow` are `lazy()`; vendor chunks split in `vite.config.ts` (`three`, `postprocessing`, `animation`, `vendor`).
+- **Code splitting** — `WorkplaceScene`, `ContactWindow`, `ResumeWindow` are `lazy()`; `vite.config.ts` pins one long-lived `three` group (Rolldown `codeSplitting`, recursion off so react stays out of it) with `output.strictExecutionOrder` so cross-chunk cycles stay safe; everything else splits automatically. `scripts/check-dist-graph.mjs` guards both rules at build time.
 - **Styling** — Tailwind v4 CSS-first: design tokens in `@theme` (`assets/index.css`), per-area CSS files for complex layouts (`about-grid`, `desktop-container`, `terminal`). `cn()` (clsx + tailwind-merge) for conditional classes.
 - **Testing** — Vitest 5 (bundled with Vite+), configured in the `test` block of `vite.config.ts`. Each folder keeps its tests in a `tests/` subfolder beside the code (`*.test.ts(x)`); see [Testing](testing.md).

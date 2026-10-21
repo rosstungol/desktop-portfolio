@@ -1,9 +1,13 @@
-import { useProgress } from '@react-three/drei/core'
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
-export function LoadingScreen({ onLoaded }: { onLoaded: () => void }) {
-	const progress = useProgress((state) => state.progress)
+export function LoadingScreen({
+	progress,
+	onLoaded,
+}: {
+	progress: number
+	onLoaded: () => void
+}) {
 	const hasLoadedRef = useRef(false)
 	const loadingRef = useRef(null)
 
@@ -12,23 +16,25 @@ export function LoadingScreen({ onLoaded }: { onLoaded: () => void }) {
 	useEffect(() => {
 		const el = loadingRef.current
 
-		if (!el) return
+		if (!el || hasLoadedRef.current) return
+		if (progress < 100) return
+
+		hasLoadedRef.current = true
+
+		// Reduced motion skips the fade, but must still hand off — otherwise the
+		// scene never starts and the overlay stays up forever.
 		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-			gsap.set(el, { scale: 1, opacity: 1, y: 0 })
+			onLoaded()
 			return
 		}
 
-		if (progress >= 100 && !hasLoadedRef.current) {
-			hasLoadedRef.current = true
-
-			gsap.to(el, {
-				opacity: 0,
-				duration: 0.4,
-				delay: 0.4,
-				ease: 'power3.out',
-				onComplete: () => onLoaded(),
-			})
-		}
+		gsap.to(el, {
+			opacity: 0,
+			duration: 0.4,
+			delay: 0.4,
+			ease: 'power3.out',
+			onComplete: () => onLoaded(),
+		})
 	}, [progress, onLoaded])
 
 	return (

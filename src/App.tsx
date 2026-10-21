@@ -17,6 +17,7 @@ const WorkplaceScene = lazy(
 
 export function App() {
 	const [sceneState, setSceneState] = useState<SceneState>('loading')
+	const [progress, setProgress] = useState(0)
 	const isMobile = useIsMobile()
 
 	const handleFocus = () => startTransition(() => setSceneState('focus'))
@@ -28,6 +29,7 @@ export function App() {
 				<ViewTransition>
 					<div className='viewport-overlay z-30'>
 						<LoadingScreen
+							progress={progress}
 							onLoaded={() => startTransition(() => setSceneState('start'))}
 						/>
 					</div>
@@ -46,11 +48,15 @@ export function App() {
 
 			{!isMobile ? (
 				<div className='h-dvh'>
-					<WorkplaceScene sceneState={sceneState} onFocus={handleFocus} />
+					<WorkplaceScene
+						sceneState={sceneState}
+						onFocus={handleFocus}
+						onProgress={setProgress}
+					/>
 				</div>
 			) : (
 				<div className='h-dvh w-fit'>
-					<AboutGrid sceneState={sceneState} />
+					<AboutGrid sceneState={sceneState} onProgress={setProgress} />
 				</div>
 			)}
 		</main>

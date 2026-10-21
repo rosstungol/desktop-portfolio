@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactNode, RefObject } from 'react'
+import type { HTMLAttributes, ReactNode } from 'react'
 
 import { cn } from '@/utils/cn'
 
@@ -8,7 +8,6 @@ type CardProps = HTMLAttributes<HTMLElement> & {
 	title: string
 	buttonText: string
 	action: () => void
-	ref?: RefObject<HTMLElement | null>
 	children?: ReactNode
 }
 
@@ -16,13 +15,11 @@ export function DialogBox({
 	title,
 	buttonText,
 	action,
-	ref,
 	children,
 	...props
 }: CardProps) {
 	return (
 		<section
-			ref={ref}
 			className='glass-bg card-border m-4 max-w-96 min-w-56 rounded-xl text-neutral-200'
 			{...props}
 		>

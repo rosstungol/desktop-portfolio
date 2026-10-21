@@ -40,12 +40,12 @@ describe('DigitalClock', () => {
 		expect(time?.textContent).toMatch(TIME_PATTERN)
 	})
 
-	it('cancels the animation frame when unmounted', () => {
-		const cancel = vi.spyOn(window, 'cancelAnimationFrame')
+	it('stops the interval when unmounted', () => {
+		const clearIntervalSpy = vi.spyOn(window, 'clearInterval')
 
 		const { unmount } = render(<DigitalClock />)
 		unmount()
 
-		expect(cancel).toHaveBeenCalled()
+		expect(clearIntervalSpy).toHaveBeenCalled()
 	})
 })

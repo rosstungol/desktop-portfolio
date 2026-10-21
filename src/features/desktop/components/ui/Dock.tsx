@@ -28,14 +28,19 @@ export function Dock() {
 		const dock = dockRef.current
 		if (!dock) return
 
-		const animateIcons = (mouseX: number) => {
+		// Pointer events can fire far faster than frames; coalesce them into one
+		// magnification pass per frame.
+		let frameId = 0
+		let pointerX = 0
+
+		const animateIcons = (clientX: number) => {
 			const { left } = dock.getBoundingClientRect()
 			const icons = dock.querySelectorAll('.dock-icon')
 
 			icons.forEach((icon) => {
 				const { left: iconLeft, width } = icon.getBoundingClientRect()
 				const center = iconLeft - left + width / 2
-				const distance = Math.abs(mouseX - center)
+				const distance = Math.abs(clientX - left - center)
 				const intensity = Math.exp(-(distance ** 2.5) / 20000)
 
 				gsap.to(icon, {
@@ -47,13 +52,23 @@ export function Dock() {
 			})
 		}
 
-		const handleMouseMove = (e: MouseEvent) => {
-			const { left } = dock.getBoundingClientRect()
+		const renderMagnification = () => {
+			frameId = 0
+			animateIcons(pointerX)
+		}
 
-			animateIcons(e.clientX - left)
+		const handleMouseMove = (e: MouseEvent) => {
+			pointerX = e.clientX
+			if (frameId === 0) frameId = requestAnimationFrame(renderMagnification)
 		}
 
 		const resetIcons = () => {
+			// Cancel a pending frame so it cannot re-magnify after we reset.
+			if (frameId !== 0) {
+				cancelAnimationFrame(frameId)
+				frameId = 0
+			}
+
 			const icons = dock.querySelectorAll('.dock-icon')
 
 			icons.forEach((icon) => {
@@ -72,6 +87,7 @@ export function Dock() {
 		return () => {
 			dock.removeEventListener('mousemove', handleMouseMove)
 			dock.removeEventListener('mouseleave', resetIcons)
+			if (frameId !== 0) cancelAnimationFrame(frameId)
 		}
 	}, [])
 

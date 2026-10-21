@@ -1,6 +1,7 @@
+import { useProgress } from '@react-three/drei/core'
 import { Canvas } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import type { Group } from 'three'
 
 import type { SceneState } from '@/data/types'
@@ -19,17 +20,29 @@ import { Skybox } from './Skybox'
 export default function WorkplaceScene({
 	sceneState,
 	onFocus,
+	onProgress,
 }: {
 	sceneState?: SceneState
 	onFocus?: () => void
+	onProgress?: (progress: number) => void
 }) {
 	const screenRef = useRef<Group | null>(null)
 	const isUltrawide = useIsUltrawide()
 	const orbitEnabled = isSceneInteractive(sceneState)
+	const progress = useProgress((state) => state.progress)
+
+	// Loading progress is tracked here (inside the lazy scene chunk) and pushed
+	// up, so the entry bundle never imports drei/three.
+	useEffect(() => {
+		onProgress?.(progress)
+	}, [progress, onProgress])
 
 	return (
 		<Canvas
 			shadows
+			// `focus` is static after the 1.5s dolly; demand-mode stops rendering
+			// (and stops burning GPU) until the camera tween invalidates frames.
+			frameloop={sceneState === 'focus' ? 'demand' : 'always'}
 			camera={{ position: [...CAMERA_CONFIG.initialPosition] }}
 			dpr={[1, 1.5]}
 			className={cn(
