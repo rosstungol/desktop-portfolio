@@ -60,7 +60,13 @@ if (allowsStrictOrder('// strictExecutionOrder: true'))
 if (!allowsStrictOrder('strictExecutionOrder: true,'))
 	fail('self-test: enabled config not seen')
 
-// 1. Entry graph: no modulepreload of the three chunk in the HTML.
+// 1. Entry graph: three-*.js must be emitted (a fold into another chunk
+// would leave the HTML scan blind), and the HTML must not preload it.
+const assetsDir = 'dist/assets'
+if (!readdirSync(assetsDir).some((file) => /^three-.+\.js$/.test(file)))
+	fail(
+		'three-*.js chunk missing from dist/assets — three group removed or renamed?'
+	)
 const html = readFileSync('dist/index.html', 'utf8')
 if (/modulepreload[^>]*three-/.test(html))
 	fail(
@@ -68,7 +74,6 @@ if (/modulepreload[^>]*three-/.test(html))
 	)
 
 // 2. Static cycles across emitted chunks require strict execution order.
-const assetsDir = 'dist/assets'
 const edges = []
 for (const file of readdirSync(assetsDir)) {
 	if (!file.endsWith('.js')) continue
