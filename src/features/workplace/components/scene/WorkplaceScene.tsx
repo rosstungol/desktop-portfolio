@@ -40,6 +40,9 @@ export default function WorkplaceScene({
 	return (
 		<Canvas
 			shadows
+			// `focus` is static after the 1.5s dolly; demand-mode stops rendering
+			// (and stops burning GPU) until the camera tween invalidates frames.
+			frameloop={sceneState === 'focus' ? 'demand' : 'always'}
 			camera={{ position: [...CAMERA_CONFIG.initialPosition] }}
 			dpr={[1, 1.5]}
 			className={cn(

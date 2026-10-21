@@ -19,7 +19,7 @@ export function CameraController({
 	sceneState,
 	screenRef,
 }: CameraControllerProps) {
-	const { camera } = useThree()
+	const { camera, invalidate } = useThree()
 	const animateRef = useRef<gsap.core.Tween | gsap.core.Timeline | null>(null)
 	const orbitIdleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 	const lookAt = useRef(
@@ -135,6 +135,9 @@ export function CameraController({
 				duration: 1.5,
 				ease: 'sine.inOut',
 				overwrite: 'auto',
+				// The canvas runs frameloop="demand" while focused; the tweens must
+				// request the frames that show their own progress.
+				onUpdate: () => invalidate(),
 			})
 
 			gsap.to(lookAt.current, {
@@ -144,6 +147,7 @@ export function CameraController({
 				duration: 1.5,
 				ease: 'sine.inOut',
 				overwrite: 'auto',
+				onUpdate: () => invalidate(),
 			})
 		}
 
