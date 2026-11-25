@@ -9,12 +9,12 @@ const toTitleCase = (key: string) =>
 		.trim()
 
 /**
- * Title shown in the desktop header: the open window with the highest z-index,
- * falling back to `Finder` when no window is open.
+ * Title shown in the desktop header: the visible window with the highest
+ * z-index, falling back to `Finder` when no window is visible.
  */
 export const getWindowTitle = (windows: WindowsRecord): string => {
 	const openWindows = Object.entries(windows).filter(
-		([, state]) => state.isOpen
+		([, state]) => state.isOpen && !state.isMinimized
 	)
 
 	if (openWindows.length === 0) return DEFAULT_TITLE

@@ -19,6 +19,9 @@ type OutputItem = {
 	content: ReactNode
 }
 
+let nextOutputId = 0
+const outputId = () => String(nextOutputId++)
+
 function Prompt({ command }: { command?: string }) {
 	return (
 		<span className='prompt space-x-2 font-mono'>
@@ -33,7 +36,7 @@ function Terminal() {
 	const [inputValue, setInputValue] = useState<string>('')
 	const [output, setOutput] = useState<OutputItem[]>([
 		{
-			id: crypto.randomUUID(),
+			id: outputId(),
 			content: (
 				<div className='output-section mb-4'>
 					<p>
@@ -68,11 +71,11 @@ function Terminal() {
 				setOutput((prev) => [
 					...prev,
 					{
-						id: crypto.randomUUID(),
+						id: outputId(),
 						content: <Prompt command={inputValue} />,
 					},
 					{
-						id: crypto.randomUUID(),
+						id: outputId(),
 						content: about,
 					},
 				])
@@ -82,11 +85,11 @@ function Terminal() {
 				setOutput((prev) => [
 					...prev,
 					{
-						id: crypto.randomUUID(),
+						id: outputId(),
 						content: <Prompt command={inputValue} />,
 					},
 					{
-						id: crypto.randomUUID(),
+						id: outputId(),
 						content: skills,
 					},
 				])
@@ -97,7 +100,7 @@ function Terminal() {
 				setOutput((prev) => [
 					...prev,
 					{
-						id: crypto.randomUUID(),
+						id: outputId(),
 						content: <Prompt command={inputValue} />,
 					},
 				])
@@ -107,11 +110,11 @@ function Terminal() {
 				setOutput((prev) => [
 					...prev,
 					{
-						id: crypto.randomUUID(),
+						id: outputId(),
 						content: <Prompt command={inputValue} />,
 					},
 					{
-						id: crypto.randomUUID(),
+						id: outputId(),
 						content: help,
 					},
 				])
@@ -121,11 +124,11 @@ function Terminal() {
 				setOutput((prev) => [
 					...prev,
 					{
-						id: crypto.randomUUID(),
+						id: outputId(),
 						content: <Prompt command={inputValue} />,
 					},
 					{
-						id: crypto.randomUUID(),
+						id: outputId(),
 						content: kitten,
 					},
 				])
@@ -139,7 +142,7 @@ function Terminal() {
 				setOutput((prev) => [
 					...prev,
 					{
-						id: crypto.randomUUID(),
+						id: outputId(),
 						content: <Prompt command={inputValue} />,
 					},
 				])
@@ -148,9 +151,9 @@ function Terminal() {
 			case 'unknown':
 				setOutput((prev) => [
 					...prev,
-					{ id: crypto.randomUUID(), content: <Prompt command={inputValue} /> },
+					{ id: outputId(), content: <Prompt command={inputValue} /> },
 					{
-						id: crypto.randomUUID(),
+						id: outputId(),
 						content: `command not found: ${inputValue.trim()}`,
 					},
 				])

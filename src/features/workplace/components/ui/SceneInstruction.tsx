@@ -3,11 +3,15 @@ import gsap from 'gsap'
 import { TextPlugin } from 'gsap/TextPlugin'
 import { useRef, ViewTransition } from 'react'
 
+import { prefersReducedMotion } from '@/utils/prefersReducedMotion'
+
 gsap.registerPlugin(TextPlugin)
 
-const FULL_TEXT = 'click on the screen to start'
+type SceneInstructionProps = {
+	text: string
+}
 
-export function ClickToStart() {
+export function SceneInstruction({ text }: SceneInstructionProps) {
 	const textRef = useRef<HTMLSpanElement | null>(null)
 
 	useGSAP(() => {
@@ -16,11 +20,16 @@ export function ClickToStart() {
 
 		gsap.killTweensOf(el)
 
+		if (prefersReducedMotion()) {
+			el.textContent = text
+			return
+		}
+
 		gsap.fromTo(
 			el,
 			{ text: '' },
 			{
-				text: FULL_TEXT,
+				text,
 				duration: 1.5,
 				ease: 'none',
 			}
@@ -29,13 +38,13 @@ export function ClickToStart() {
 		return () => {
 			gsap.killTweensOf(el)
 		}
-	}, [])
+	}, [text])
 
 	return (
 		<ViewTransition>
-			<div className='glass-bg card-border fixed bottom-28 left-1/2 z-20 w-max -translate-x-1/2 rounded-xl px-4 pt-1.5 pb-2.5 text-neutral-200'>
-				<p className='font-mono text-sm font-bold md:text-base'>
-					<span ref={textRef} className='mr-1' />
+			<div className='glass-bg card-border pointer-events-none fixed bottom-28 left-1/2 z-20 flex w-max -translate-x-1/2 items-center rounded-xl px-4 pt-2 pb-3 text-neutral-200'>
+				<p className='font-mono text-sm leading-none font-bold md:text-base'>
+					<span ref={textRef} className='mr-1.5' />
 					<span className='cursor text-xl'>▊</span>
 				</p>
 			</div>

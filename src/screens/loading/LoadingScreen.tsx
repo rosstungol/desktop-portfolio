@@ -1,6 +1,8 @@
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
+import { prefersReducedMotion } from '@/utils/prefersReducedMotion'
+
 export function LoadingScreen({
 	progress,
 	onLoaded,
@@ -23,7 +25,7 @@ export function LoadingScreen({
 
 		// Reduced motion skips the fade, but must still hand off — otherwise the
 		// scene never starts and the overlay stays up forever.
-		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		if (prefersReducedMotion()) {
 			onLoaded()
 			return
 		}

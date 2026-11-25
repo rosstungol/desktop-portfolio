@@ -35,7 +35,7 @@ function About() {
 								<h3 className='font-display mt-80 mb-2 text-8xl font-black tracking-tight'>
 									Ross Tungol
 								</h3>
-								<p className='mb-10 text-4xl font-light'>Software Engineer</p>
+								<p className='mb-10 text-4xl'>Software Engineer</p>
 								<button
 									type='button'
 									aria-label='Dismiss intro'

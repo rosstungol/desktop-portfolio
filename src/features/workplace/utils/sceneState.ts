@@ -1,7 +1,10 @@
 import type { SceneState } from '@/data/types'
 
-/** States where the desktop is shown but not yet focused. */
-export const CLICK_TO_START_RENDER_STATES: ReadonlySet<SceneState> = new Set([
+/**
+ * States where the desktop prompt is shown and the scene accepts pointer
+ * input: everything except `loading` and `focus`.
+ */
+export const INTERACTIVE_SCENE_STATES: ReadonlySet<SceneState> = new Set([
 	'start',
 	'idle',
 ])
@@ -13,23 +16,13 @@ export const SCENE_CONTROLS_RENDER_STATES: ReadonlySet<SceneState> = new Set([
 ])
 
 /**
- * States where the scene accepts pointer input: everything except `loading`
- * and `focus`.
- */
-export const INTERACTIVE_SCENE_STATES: ReadonlySet<SceneState> = new Set([
-	'start',
-	'idle',
-])
-
-/**
- * Whether the "click to start" prompt should render (and, since it is what
- * invites the click, whether clicking the desktop screen moves the scene into
- * focus).
+ * Whether the desktop "click to start" prompt should render (and, since it is
+ * what invites the click, whether a scene click moves into focus).
  */
 export const shouldRenderClickToStart = (
 	sceneState: SceneState,
 	isMobile: boolean
-): boolean => !isMobile && CLICK_TO_START_RENDER_STATES.has(sceneState)
+): boolean => !isMobile && INTERACTIVE_SCENE_STATES.has(sceneState)
 
 /** Whether the scene focus/idle controls should render. */
 export const shouldRenderSceneControls = (
@@ -39,9 +32,18 @@ export const shouldRenderSceneControls = (
 
 /**
  * Whether the scene takes pointer input in this state: orbit controls and the
- * grab cursor on the canvas, plus the pointer cursor and click-to-focus on the
- * desktop screen. An undefined state (scene not wired up yet) is not
- * interactive.
+ * pointer cursor, plus click-to-focus while the prompt is visible. An undefined
+ * state (scene not wired up yet) is not interactive.
  */
 export const isSceneInteractive = (sceneState?: SceneState): boolean =>
 	sceneState !== undefined && INTERACTIVE_SCENE_STATES.has(sceneState)
+
+/** Orbit follows device state on mobile, and the explicit toggle on desktop. */
+export const isOrbitEnabled = (
+	sceneState: SceneState | undefined,
+	isMobile: boolean,
+	orbitActive: boolean
+): boolean =>
+	isMobile
+		? isSceneInteractive(sceneState)
+		: orbitActive && sceneState === 'idle'

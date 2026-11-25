@@ -1,8 +1,7 @@
 import { Github, Linkedin } from '@/components/icons/huge'
 
 export const aboutText = [
-	'I`m a software engineer specializing in building modern, scalable web applications.',
-	'I enjoy continuously learning new technologies, and creating software that solves problems.',
+	"I'm a software engineer specializing in building modern, scalable web and mobile applications.",
 ]
 
 export const socialLinks = [

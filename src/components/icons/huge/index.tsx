@@ -6,13 +6,15 @@ import {
 	ChevronsRightIcon,
 	CodeIcon,
 	Delete02Icon,
-	Download01Icon,
+	File01Icon,
 	FolderCodeIcon,
 	GithubIcon,
 	GlobeIcon,
 	Linkedin01Icon,
+	LinkSquare02Icon,
 	ListRestartIcon,
 	MonitorIcon,
+	RotateThreeDIcon,
 	SendIcon,
 	SquareArrowOutUpRightIcon,
 	ZoomInIcon,
@@ -46,8 +48,8 @@ export function Code(props: IconProps) {
 	return <HugeIcon icon={CodeIcon} {...props} />
 }
 
-export function Download(props: IconProps) {
-	return <HugeIcon icon={Download01Icon} {...props} />
+export function File(props: IconProps) {
+	return <HugeIcon icon={File01Icon} {...props} />
 }
 
 export function FolderCode(props: IconProps) {
@@ -66,12 +68,20 @@ export function Linkedin(props: IconProps) {
 	return <HugeIcon icon={Linkedin01Icon} {...props} />
 }
 
+export function LinkSquare02(props: IconProps) {
+	return <HugeIcon icon={LinkSquare02Icon} {...props} />
+}
+
 export function ListRestart(props: IconProps) {
 	return <HugeIcon icon={ListRestartIcon} {...props} />
 }
 
 export function Monitor(props: IconProps) {
 	return <HugeIcon icon={MonitorIcon} {...props} />
+}
+
+export function RotateThree(props: IconProps) {
+	return <HugeIcon icon={RotateThreeDIcon} {...props} />
 }
 
 export function Send(props: IconProps) {

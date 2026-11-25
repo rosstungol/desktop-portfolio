@@ -1,14 +1,13 @@
 import pdfWorkerSrc from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
 import { Document, Page, pdfjs } from 'react-pdf'
 
-import { Download } from '@/components/icons/huge'
+import { LinkSquare02 } from '@/components/icons/huge'
 
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 import 'react-pdf/dist/Page/TextLayer.css'
 
 import { resume } from '@/data/constants'
 
-import { IconLink } from '../ui/IconLink'
 import { WindowHeader } from '../wrapper/WindowHeader'
 import { WindowWrapper } from '../wrapper/WindowWrapper'
 
@@ -21,13 +20,15 @@ function Resume() {
 				title='Resume.pdf'
 				target='resume'
 				rightButton={
-					<IconLink
+					<a
 						href={resume.filePath}
-						label='Download Resume'
-						size='sm'
-						download
-						Icon={Download}
-					/>
+						target='_blank'
+						rel='noopener noreferrer'
+						className='flex-center w-fit cursor-pointer gap-1.5 rounded-xl bg-slate-600/20 p-2 font-mono text-sm font-bold text-neutral-200 transition-colors hover:bg-slate-100 hover:text-neutral-950'
+					>
+						Open in new tab
+						<LinkSquare02 size={18} />
+					</a>
 				}
 			/>
 			<div className='px-3 pb-3'>

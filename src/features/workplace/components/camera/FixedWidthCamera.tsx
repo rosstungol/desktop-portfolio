@@ -2,7 +2,11 @@ import { useThree } from '@react-three/fiber'
 import { useEffect } from 'react'
 import { PerspectiveCamera } from 'three'
 
-import { FIXED_HORIZONTAL_FOV, hFovToVFov } from '../../utils/fov'
+import {
+	DESIGN_VERTICAL_FOV,
+	FIXED_HORIZONTAL_FOV,
+	hFovToVFov,
+} from '../../utils/fov'
 
 export function FixedWidthCamera() {
 	const { camera, size } = useThree()
@@ -14,6 +18,11 @@ export function FixedWidthCamera() {
 		const aspect = size.width / size.height
 		camera.fov = hFovToVFov(FIXED_HORIZONTAL_FOV, aspect)
 		camera.updateProjectionMatrix()
+
+		return () => {
+			camera.fov = DESIGN_VERTICAL_FOV
+			camera.updateProjectionMatrix()
+		}
 	}, [camera, size.width, size.height])
 
 	return null

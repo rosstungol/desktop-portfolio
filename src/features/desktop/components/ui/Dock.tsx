@@ -48,6 +48,7 @@ export function Dock() {
 					y: -8 * intensity,
 					duration: 0.2,
 					ease: 'power1.out',
+					overwrite: 'auto',
 				})
 			})
 		}
@@ -77,6 +78,7 @@ export function Dock() {
 					y: 0,
 					duration: 0.3,
 					ease: 'power1.out',
+					overwrite: 'auto',
 				})
 			})
 		}

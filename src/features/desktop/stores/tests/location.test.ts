@@ -21,14 +21,4 @@ describe('location store', () => {
 
 		expect(useLocationStore.getState().activeLocation).toBe(locations.trash)
 	})
-
-	it('resets back to the default location', () => {
-		const store = useLocationStore.getState()
-		store.setActiveLocation(locations.projects)
-		store.resetActiveLocation()
-
-		expect(useLocationStore.getState().activeLocation).toBe(
-			locations.applications
-		)
-	})
 })

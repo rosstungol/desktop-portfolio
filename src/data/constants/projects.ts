@@ -5,7 +5,7 @@ export const projects = {
 		image: '/images/projects/portfolio.avif',
 		title: 'rosstungol.com',
 		description:
-			'This is my portfolio, created to showcase my skills and projects. I built it with Three.js and React Three Fiber to explore creative web development and 3D experiences on the web. 	The full interactive experience of this website is available on desktop and laptop devices.',
+			'This is my portfolio, created to showcase my skills and projects. I built it with Three.js and React Three Fiber to explore creative web development and 3D experiences on the web.',
 		github: 'https://github.com/rosstungol/desktop-portfolio',
 		tags: [
 			'React',

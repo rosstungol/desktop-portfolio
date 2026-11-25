@@ -35,4 +35,16 @@ describe('getWindowTitle', () => {
 	it('splits camelCase window keys into a title', () => {
 		expect(titleFor({ lowOrbit: 1000 })).toBe('Low Orbit')
 	})
+
+	it('ignores a minimized window', () => {
+		const windows = closedWindows()
+		windows.about = {
+			...windows.about,
+			isOpen: true,
+			isMinimized: true,
+			zIndex: 1000,
+		}
+
+		expect(getWindowTitle(windows)).toBe('Finder')
+	})
 })
