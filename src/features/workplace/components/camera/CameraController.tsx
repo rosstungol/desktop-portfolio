@@ -110,7 +110,7 @@ export function CameraController({
 		cancelOrbitReturn()
 		orbitIdleTimerRef.current = setTimeout(() => {
 			orbitIdleTimerRef.current = null
-			if (sceneStateRef.current === 'focus') return
+			if (!orbitReady || sceneStateRef.current === 'focus') return
 			killCameraMove()
 			gsap.killTweensOf(lookAt.current)
 
