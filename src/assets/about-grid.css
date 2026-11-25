@@ -5,65 +5,36 @@
 		display: grid;
 		gap: 24px;
 
-		> .title {
-			grid-area: t;
+		> .sidebar,
+		> .works {
+			min-height: 0;
 		}
 
-		> .skills {
+		> .sidebar {
 			grid-area: s;
 		}
 
-		> .about {
-			grid-area: a;
+		> .works {
+			grid-area: w;
 		}
+	}
+}
 
-		> .resume {
-			grid-area: r;
-		}
-
-		> .projects {
-			grid-area: p;
-		}
+@media (max-width: 1023px) {
+	.about-grid {
+		height: auto;
+		min-height: 100%;
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-rows: auto minmax(24rem, 1fr);
+		grid-template-areas: 's' 'w';
 	}
 }
 
 @media (min-width: 1024px) {
 	.about-grid {
 		height: 900px;
-		grid-template-rows: 2fr 3fr;
-		grid-template-columns: repeat(12, 1fr);
-		grid-template-areas:
-			't t t t t r r p p p p p'
-			's s s a a a a p p p p p';
-	}
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-	.about-grid {
-		overflow-y: auto;
-		min-height: 100dvh;
-		grid-template-rows: repeat(4, 1fr);
-		grid-template-columns: repeat(7, 1fr);
-		grid-template-areas:
-			't t t t t t t'
-			'a a a a a a a'
-			's s s s r r r'
-			'p p p p p p p';
-	}
-}
-
-@media (max-width: 767px) {
-	.about-grid {
-		overflow-y: auto;
-		min-height: 100dvh;
-		max-width: 100dvw;
-		grid-template-rows: repeat(4, 1fr);
-		grid-template-columns: 1fr;
-		grid-template-areas:
-			't'
-			'a'
-			'r'
-			's'
-			'p';
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: minmax(0, 1fr);
+		grid-template-areas: 's w w w';
 	}
 }
