@@ -8,7 +8,6 @@ const DEFAULT_LOCATION = locations.applications
 type LocationStore = {
 	activeLocation: BaseLocationItem
 	setActiveLocation: (location: BaseLocationItem) => void
-	resetActiveLocation: () => void
 }
 
 export const useLocationStore = create<LocationStore>((set) => ({
@@ -16,9 +15,5 @@ export const useLocationStore = create<LocationStore>((set) => ({
 	setActiveLocation: (location) =>
 		set({
 			activeLocation: location,
-		}),
-	resetActiveLocation: () =>
-		set({
-			activeLocation: DEFAULT_LOCATION,
 		}),
 }))
