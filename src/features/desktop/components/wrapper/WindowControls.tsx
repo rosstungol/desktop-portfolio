@@ -29,7 +29,9 @@ export function WindowControls({ target }: { target: WindowKey }) {
 			/>
 			<button
 				type='button'
-				className='size-5 rounded-full bg-neutral-300'
+				className='size-5 cursor-not-allowed rounded-full bg-green-400 opacity-50'
+				aria-label='Maximize unavailable'
+				title='Maximize unavailable'
 				disabled={true}
 			/>
 		</div>
