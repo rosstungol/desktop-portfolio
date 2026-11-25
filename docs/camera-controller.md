@@ -20,7 +20,7 @@ On desktop, the `RotateThree` toggle in [SceneControls.tsx](../src/features/work
 Grab-and-release hand-off:
 
 - Grab (controls `start` event) kills any running camera tween and hands the camera to the user; drei's damping provides the inertia.
-- Release (`end` event) starts the idle timer (`orbitIdleDelay`). When it expires, the camera holds still for `orbitReturn.delay`, eases to `defaultPosition` / `defaultLookAt` (`orbitReturn`), then the oscillation resumes. Grabbing again cancels the pending return. A late release after focus is ignored so it cannot cancel the focus move.
+- Release (`end` event) starts the idle timer (`orbitIdleDelay`). When it expires, the camera holds still for `orbitReturn.delay`, eases to `defaultPosition` / `defaultLookAt` (`orbitReturn`), then the oscillation resumes. Grabbing again cancels the pending return. Late releases while orbit is not ready or after focus are ignored so they cannot cancel the active camera move.
 
 ## Cursors and focus trigger
 
