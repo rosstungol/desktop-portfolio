@@ -3,6 +3,7 @@ export const CAMERA_CONFIG = {
 	defaultPosition: { x: 120, y: 100, z: 100 },
 	oscillationPosition: { x: 75, y: 100, z: 140 },
 	focusPosition: { x: -23.5, y: 75.4, z: -0.82 },
+	focus: { duration: 1.5, ease: 'sine.inOut' },
 	defaultLookAt: { x: -6, y: 28, z: 0 },
 	oscillation: {
 		duration: 10,

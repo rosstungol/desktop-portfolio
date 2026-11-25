@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vite-plus/test'
 
 import type { SceneState } from '@/data/types'
 import {
+	isOrbitEnabled,
 	isSceneInteractive,
 	shouldRenderClickToStart,
 	shouldRenderSceneControls,
@@ -37,5 +38,14 @@ describe('desktop scene overlays', () => {
 
 		expect(interactive).toEqual(['start', 'idle'])
 		expect(isSceneInteractive(undefined)).toBe(false)
+	})
+
+	it('enables orbit from device state on mobile and the toggle on desktop', () => {
+		expect(isOrbitEnabled('start', true, false)).toBe(true)
+		expect(isOrbitEnabled('idle', true, false)).toBe(true)
+		expect(isOrbitEnabled('focus', true, false)).toBe(false)
+		expect(isOrbitEnabled('idle', false, true)).toBe(true)
+		expect(isOrbitEnabled('idle', false, false)).toBe(false)
+		expect(isOrbitEnabled('start', false, true)).toBe(false)
 	})
 })
