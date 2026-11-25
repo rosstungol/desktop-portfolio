@@ -6,11 +6,13 @@ import type { Group } from 'three'
 
 import type { SceneState } from '@/data/types'
 import { DesktopContainer } from '@/features/desktop/components/layout/DesktopContainer'
+import { useIsMobile } from '@/hooks/useIsMobile'
 import { useIsUltrawide } from '@/hooks/useIsUltraWide'
 import { cn } from '@/utils/cn'
 
 import { CAMERA_CONFIG } from '../../sceneConfig'
-import { isSceneInteractive } from '../../utils/sceneState'
+import { DESIGN_VERTICAL_FOV } from '../../utils/fov'
+import { isOrbitEnabled, isSceneInteractive } from '../../utils/sceneState'
 import { CameraController } from '../camera/CameraController'
 import { FixedWidthCamera } from '../camera/FixedWidthCamera'
 import { Lighting } from './Lighting'
@@ -19,16 +21,23 @@ import { Skybox } from './Skybox'
 
 export default function WorkplaceScene({
 	sceneState,
+	orbitActive,
 	onFocus,
+	onFocusComplete,
+	onIntroComplete,
 	onProgress,
 }: {
 	sceneState?: SceneState
+	orbitActive: boolean
 	onFocus?: () => void
+	onFocusComplete?: () => void
+	onIntroComplete?: () => void
 	onProgress?: (progress: number) => void
 }) {
 	const screenRef = useRef<Group | null>(null)
+	const isMobile = useIsMobile()
 	const isUltrawide = useIsUltrawide()
-	const orbitEnabled = isSceneInteractive(sceneState)
+	const orbitEnabled = isOrbitEnabled(sceneState, isMobile, orbitActive)
 	const progress = useProgress((state) => state.progress)
 
 	// Loading progress is tracked here (inside the lazy scene chunk) and pushed
@@ -43,15 +52,28 @@ export default function WorkplaceScene({
 			// `focus` is static after the 1.5s dolly; demand-mode stops rendering
 			// (and stops burning GPU) until the camera tween invalidates frames.
 			frameloop={sceneState === 'focus' ? 'demand' : 'always'}
-			camera={{ position: [...CAMERA_CONFIG.initialPosition] }}
+			camera={{
+				position: [...CAMERA_CONFIG.initialPosition],
+				fov: DESIGN_VERTICAL_FOV,
+			}}
 			dpr={[1, 1.5]}
 			className={cn(
 				'z-10',
-				orbitEnabled && 'cursor-grab active:cursor-grabbing'
+				orbitEnabled && 'cursor-grab active:cursor-grabbing',
+				!isMobile &&
+					isSceneInteractive(sceneState) &&
+					!orbitEnabled &&
+					'cursor-pointer'
 			)}
 		>
 			{!isUltrawide && <FixedWidthCamera />}
-			<CameraController sceneState={sceneState} screenRef={screenRef} />
+			<CameraController
+				sceneState={sceneState}
+				orbitActive={orbitActive}
+				screenRef={screenRef}
+				onFocusComplete={onFocusComplete}
+				onIntroComplete={onIntroComplete}
+			/>
 			<Skybox />
 			<Lighting />
 			<RoomModel />

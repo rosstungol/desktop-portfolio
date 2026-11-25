@@ -1,7 +1,7 @@
 @layer components {
 	.cursor {
 		display: inline-block;
-		margin-left: 2px;
+		line-height: 1;
 		animation: blink 1s steps(1) infinite;
 	}
 
