@@ -1,6 +1,6 @@
 # Desktop Portfolio
 
-This is my portfolio, a React + TypeScript application built with Vite, featuring a macOS-like desktop simulator rendered inside a 3D workplace scene using React Three Fiber.
+This is my portfolio, a React + TypeScript application built with Vite+, featuring a macOS-like desktop simulator rendered inside a 3D workplace scene using React Three Fiber.
 
 [rosstungol.com](https://rosstungol.com)
 
