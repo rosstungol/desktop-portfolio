@@ -36,7 +36,7 @@ export function SidebarCard() {
 				))}
 			</div>
 
-			<ul className='mt-auto flex gap-6'>
+			<ul className='mt-auto flex flex-wrap gap-6'>
 				{socialLinks.map(({ link, label }) => (
 					<li key={label}>
 						<a
